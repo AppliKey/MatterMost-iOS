@@ -1,0 +1,26 @@
+### Headers settings
+company: Vladimir Kravchenko
+
+### Xcode project settings
+project_name: Mattermost
+product_module_name: Mattermost
+xcodeproj_path: Mattermost.xcodeproj
+
+
+### Code generation settings section
+# The main project target name
+project_target: Mattermost
+
+# The file path for new modules
+project_file_path: Mattermost/Authorization
+
+# The Xcode group path to new modules
+project_group_path: Mattermost/Authorization
+
+### Dependencies settings section
+podfile_path: Podfile
+
+
+### Templates
+templates:
+- {name: base_template, local: '/Users/Apple/Work/BaseTemplate/Template'}

@@ -1,0 +1,17 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import Foundation
+
+class {{ module_info.name }}Interactor: BaseInteractor {
+  typealias PresenterType = {{ module_info.name }}Presenting
+  weak var presenter: {{ module_info.name }}Presenting!
+}
+
+extension {{ module_info.name }}Interactor: {{ module_info.name }}Interacting {
+}

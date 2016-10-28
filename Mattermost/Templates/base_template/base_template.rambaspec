@@ -1,0 +1,28 @@
+# Template information section
+name: "Base template"
+summary: "Swift VIPER module with classes that conform base protocols"
+author: "Vladimir Kravchenko"
+version: "2.0"
+license: "MIT"
+
+# The declarations for code files
+
+code_files:
+
+# Module facade 
+- {name: Module.swift, path: Code/module.swift.liquid}
+
+# Protocols
+- {name: Protocols.swift, path: Code/protocols.swift.liquid}
+
+# View layer
+- {name: ViewController.swift, path: Code/viewcontroller.swift.liquid}
+
+# Presenter layer
+- {name: Presenter.swift, path: Code/presenter.swift.liquid}
+
+# Interactor layer
+- {name: Interactor.swift, path: Code/interactor.swift.liquid}
+
+# Router layer
+- {name: Router.swift, path: Code/router.swift.liquid}

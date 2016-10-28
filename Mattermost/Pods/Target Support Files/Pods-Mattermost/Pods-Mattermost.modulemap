@@ -1,0 +1,6 @@
+framework module Pods_Mattermost {
+  umbrella header "Pods-Mattermost-umbrella.h"
+
+  export *
+  module * { export * }
+}
