@@ -3,7 +3,7 @@
 //  MattermostUITests
 //
 //  Created by Vladimir Kravchenko on 13.10.16.
-//  Copyright © 2016 Vladimir Kravchenko. All rights reserved.
+//  Copyright © 2016 AppliKey Solutions. All rights reserved.
 //
 
 import XCTest

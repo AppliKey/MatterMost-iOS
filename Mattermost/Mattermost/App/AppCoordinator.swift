@@ -12,14 +12,12 @@ import UIKit
 class AppCoordinator {
     
     func rootViewController() -> UIViewController {
-        return authorizationCoordinator.startViewController()
+        let viewController = authorizationCoordinator.startViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        return navigationController
     }
     
     //MARK: Private
     fileprivate let authorizationCoordinator = AuthorizationCoordinator()
-    
-    private func startViewController() -> UIViewController {
-        return R.storyboard.authorization.serverSelectionViewController()!
-    }
   
 }

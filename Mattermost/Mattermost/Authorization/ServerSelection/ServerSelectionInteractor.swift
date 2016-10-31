@@ -3,7 +3,7 @@
 //  Mattermost
 //
 //  Created by Vladimir Kravchenko on 27/10/2016.
-//  Copyright © 2016 Vladimir Kravchenko. All rights reserved.
+//  Copyright © 2016 AppliKey Solutions. All rights reserved.
 //
 
 import Foundation

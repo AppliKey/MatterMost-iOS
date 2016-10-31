@@ -1,0 +1,35 @@
+//
+//  {{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import Foundation
+
+class {{ module_info.name }}Presenter {
+    
+	//MARK: Properties
+    weak var view: {{ module_info.name }}Viewing!
+    var interactor: {{ module_info.name }}Interacting!
+    var router: {{ module_info.name }}Routing!
+	
+	//MARK: Init
+    
+    required init(coordinator: {{ module_info.name }}Coordinator) {
+        self.coordinator = coordinator
+    }
+    
+    //MARK: Private
+    fileprivate let coordinator: {{ module_info.name }}Coordinator
+}
+
+extension {{ module_info.name }}Presenter: {{ module_info.name }}Configurator {
+}
+
+extension {{ module_info.name }}Presenter: {{ module_info.name }}Presenting {
+}
+
+extension {{ module_info.name }}Presenter: {{ module_info.name }}EventHandling {
+}

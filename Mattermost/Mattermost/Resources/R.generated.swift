@@ -105,12 +105,18 @@ struct _R: Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "Authorization"
       let serverSelectionViewController = StoryboardViewControllerResource<Mattermost.ServerSelectionViewController>(identifier: "ServerSelectionViewController")
+      let signInViewController = StoryboardViewControllerResource<Mattermost.SignInViewController>(identifier: "SignInViewController")
       
       func serverSelectionViewController(_: Void = ()) -> Mattermost.ServerSelectionViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: serverSelectionViewController)
       }
       
+      func signInViewController(_: Void = ()) -> Mattermost.SignInViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: signInViewController)
+      }
+      
       static func validate() throws {
+        if _R.storyboard.authorization().signInViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'signInViewController' could not be loaded from storyboard 'Authorization' as 'Mattermost.SignInViewController'.") }
         if _R.storyboard.authorization().serverSelectionViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'serverSelectionViewController' could not be loaded from storyboard 'Authorization' as 'Mattermost.ServerSelectionViewController'.") }
       }
       
