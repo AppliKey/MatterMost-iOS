@@ -96,16 +96,17 @@ class KeyboardHandler {
     }
     
     private func keyboardOverlayHeightForView(_ view: UIView, modificator: CGFloat) -> CGFloat {
+        if keyboardHeight > fabs(keyboardHeightDifference) {
+            return keyboardHeightDifference
+        }
         let viewFrame = superview.convert(view.frame, from: view.superview)
-        var bottomOffset = superview.frame.size.height - viewFrame.origin.y
+        let bottomOffset = superview.frame.size.height - viewFrame.origin.y
             - viewFrame.size.height - modificator
         if keyboardHeightDifference < 0 {
-            bottomOffset = -bottomOffset
+            return keyboardHeightDifference + bottomOffset
+        } else {
+            return keyboardHeightDifference - bottomOffset
         }
-        if keyboardHeight > fabs(keyboardHeightDifference) {
-            bottomOffset = 0
-        }
-        return keyboardHeightDifference - bottomOffset
     }
     
 }
