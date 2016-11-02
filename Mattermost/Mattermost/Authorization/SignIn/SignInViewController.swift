@@ -26,6 +26,7 @@ class SignInViewController: UIViewController, BaseView {
 	override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
+        configureInterface()
 	}
     
     //MARK: Actions
@@ -33,6 +34,30 @@ class SignInViewController: UIViewController, BaseView {
     }
     
     @IBAction func forgotPassButtonPressed(_ sender: AnyObject) {
+    }
+    
+    //MARK: - Private -
+    private var keyboardHandler: KeyboardHandler?
+    private var tapRecognizer: HideKeyboardRecognizer?
+    
+    //MARK: - UI
+    
+    private func configureInterface() {
+        localizeViews()
+        setupKeyboardHandler()
+        tapRecognizer = HideKeyboardRecognizer(withView: view)
+    }
+    
+    private func localizeViews() {
+        emailLabel.text = R.string.localizable.emailFieldHint()
+        passwordLabel.text = R.string.localizable.passwordFieldHint()
+        nextButton.setTitle(R.string.localizable.nextButtonTitle(), for: .normal)
+        forgotPassButton.setTitle(R.string.localizable.forgotPassword(), for: .normal)
+    }
+    
+    private func setupKeyboardHandler() {
+        guard let passwordView = passwordTextField.superview else { return }
+        keyboardHandler = KeyboardHandler(withViews: [passwordView], superview: view)
     }
 
 }

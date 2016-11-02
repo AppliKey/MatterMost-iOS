@@ -31,6 +31,11 @@
 		E7A5B2281DC24FEE00ED2887 /* Authorization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A5B2271DC24FEE00ED2887 /* Authorization.storyboard */; };
 		E7A5B22B1DC258AE00ED2887 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A5B22A1DC258AE00ED2887 /* GradientButton.swift */; };
 		E7A5B22D1DC261C200ED2887 /* UIView+IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A5B22C1DC261C200ED2887 /* UIView+IBInspectable.swift */; };
+		E7AE43F21DCA4E4900475B8F /* UIView+CurrentConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE43F11DCA4E4900475B8F /* UIView+CurrentConstraints.swift */; };
+		E7AE43F41DCA531700475B8F /* UIResponder+FirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE43F31DCA531700475B8F /* UIResponder+FirstResponder.swift */; };
+		E7AE43F61DCA5A6500475B8F /* HideKeyboardRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE43F51DCA5A6500475B8F /* HideKeyboardRecognizer.swift */; };
+		E7DCD8431DC9F19400F599D8 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCD8421DC9F19400F599D8 /* KeyboardHandler.swift */; };
+		E7DCD8451DCA155000F599D8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7DCD8441DCA155000F599D8 /* Localizable.strings */; };
 		EEC2A5C891FD92145D059CCF /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9EA4229E1CC8F86D8CD013 /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +90,11 @@
 		E7A5B2271DC24FEE00ED2887 /* Authorization.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authorization.storyboard; sourceTree = "<group>"; };
 		E7A5B22A1DC258AE00ED2887 /* GradientButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		E7A5B22C1DC261C200ED2887 /* UIView+IBInspectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectable.swift"; sourceTree = "<group>"; };
+		E7AE43F11DCA4E4900475B8F /* UIView+CurrentConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+CurrentConstraints.swift"; sourceTree = "<group>"; };
+		E7AE43F31DCA531700475B8F /* UIResponder+FirstResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+FirstResponder.swift"; sourceTree = "<group>"; };
+		E7AE43F51DCA5A6500475B8F /* HideKeyboardRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideKeyboardRecognizer.swift; sourceTree = "<group>"; };
+		E7DCD8421DC9F19400F599D8 /* KeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
+		E7DCD8441DCA155000F599D8 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +166,7 @@
 		E1FEB0CDBF27AD3F5D411DBE /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E7DCD8411DC9ECCE00F599D8 /* Tools */,
 				E7A5B2241DC2216700ED2887 /* Protocols */,
 				E1FEB4C738A452684FEED983 /* Models */,
 				E1FEB860D576DF7FA1349880 /* Services */,
@@ -179,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				E7A5B22C1DC261C200ED2887 /* UIView+IBInspectable.swift */,
+				E7AE43F11DCA4E4900475B8F /* UIView+CurrentConstraints.swift */,
+				E7AE43F31DCA531700475B8F /* UIResponder+FirstResponder.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -204,6 +217,7 @@
 				E1FEB52FE2B328F7662C3D9E /* Assets.xcassets */,
 				E1FEB3756A1639D28C72AA79 /* LaunchScreen.storyboard */,
 				E1FEBB2EA6D014656D7AE150 /* Info.plist */,
+				E7DCD8441DCA155000F599D8 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -302,6 +316,15 @@
 				E7662BDD1DC73FA100E82AFC /* Routing.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E7DCD8411DC9ECCE00F599D8 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				E7DCD8421DC9F19400F599D8 /* KeyboardHandler.swift */,
+				E7AE43F51DCA5A6500475B8F /* HideKeyboardRecognizer.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,6 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7A5B2281DC24FEE00ED2887 /* Authorization.storyboard in Resources */,
+				E7DCD8451DCA155000F599D8 /* Localizable.strings in Resources */,
 				E1FEBAD0DF2234629E7B91A1 /* Assets.xcassets in Resources */,
 				E1FEB9B3622451AB29AC886D /* LaunchScreen.storyboard in Resources */,
 			);
@@ -515,12 +539,16 @@
 				5B6736DFD1D6387C3B402C0E /* ServerSelectionViewController.swift in Sources */,
 				E7662BE01DC7497000E82AFC /* Aliases.swift in Sources */,
 				762226E5F9B9149D5D258BAE /* ServerSelectionPresenter.swift in Sources */,
+				E7DCD8431DC9F19400F599D8 /* KeyboardHandler.swift in Sources */,
+				E7AE43F61DCA5A6500475B8F /* HideKeyboardRecognizer.swift in Sources */,
 				32BC97FE87976F5750722109 /* ServerSelectionInteractor.swift in Sources */,
 				8C93BA8285F8B3CA2F0AACBB /* ServerSelectionRouter.swift in Sources */,
 				BFE20322EC44EEB648B2F19A /* SignInProtocols.swift in Sources */,
 				EEC2A5C891FD92145D059CCF /* SignInViewController.swift in Sources */,
 				616CF365F1D150AAD8132D66 /* SignInPresenter.swift in Sources */,
+				E7AE43F41DCA531700475B8F /* UIResponder+FirstResponder.swift in Sources */,
 				8D7CC4105BB3F751220B3B45 /* SignInInteractor.swift in Sources */,
+				E7AE43F21DCA4E4900475B8F /* UIView+CurrentConstraints.swift in Sources */,
 				9E34EBCFD245623C54E163FE /* SignInRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

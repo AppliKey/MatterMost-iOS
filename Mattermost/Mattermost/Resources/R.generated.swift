@@ -71,8 +71,63 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 0 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
+    /// This `R.string.localizable` struct is generated, and contains static references to 7 localization keys.
+    struct localizable {
+      /// Value: All your team communication in one  place, searchable and accessible  anywhere.
+      static let description = Rswift.StringResource(key: "description", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: EMAIL
+      static let emailFieldHint = Rswift.StringResource(key: "email.field.hint", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: ENTER SERVER URL
+      static let serverFieldHint = Rswift.StringResource(key: "server.field.hint", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: FORGOT PASSWORD
+      static let forgotPassword = Rswift.StringResource(key: "forgot.password", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: NEXT
+      static let nextButtonTitle = Rswift.StringResource(key: "next.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: PASSWORD
+      static let passwordFieldHint = Rswift.StringResource(key: "password.field.hint", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Welcome to Mattermost
+      static let welcome = Rswift.StringResource(key: "welcome", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      
+      /// Value: All your team communication in one  place, searchable and accessible  anywhere.
+      static func description(_: Void = ()) -> String {
+        return NSLocalizedString("description", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: EMAIL
+      static func emailFieldHint(_: Void = ()) -> String {
+        return NSLocalizedString("email.field.hint", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: ENTER SERVER URL
+      static func serverFieldHint(_: Void = ()) -> String {
+        return NSLocalizedString("server.field.hint", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: FORGOT PASSWORD
+      static func forgotPassword(_: Void = ()) -> String {
+        return NSLocalizedString("forgot.password", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: NEXT
+      static func nextButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("next.button.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: PASSWORD
+      static func passwordFieldHint(_: Void = ()) -> String {
+        return NSLocalizedString("password.field.hint", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Welcome to Mattermost
+      static func welcome(_: Void = ()) -> String {
+        return NSLocalizedString("welcome", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   

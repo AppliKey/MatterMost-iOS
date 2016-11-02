@@ -10,22 +10,23 @@ import Foundation
 import UIKit
 
 class ServerSelectionViewController: UIViewController, BaseView {
+    //MARK: - Properties
     var eventHandler: ServerSelectionEventHandling!
-    //MARK: Outlets
+    //MARK: - Outlets
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var serverTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     
+    //MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        setupGestureRecognizer()
-        serverTextField.delegate = self
+        configureInterface()
     }
     
-    //MARK: Actions
+    //MARK: - Actions
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         if let address = serverTextField.text {
@@ -33,24 +34,32 @@ class ServerSelectionViewController: UIViewController, BaseView {
         }
     }
     
-    //MARK: Private
-    private var tapRecognizer: UITapGestureRecognizer?
+    //MARK: - Private -
+    private var tapRecognizer: HideKeyboardRecognizer?
     
-    private func setupGestureRecognizer() {
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(ServerSelectionViewController.hideKeyboard))
-        view.addGestureRecognizer(recognizer)
-        self.tapRecognizer = recognizer
+    //MARK: - UI
+    
+    private func configureInterface() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        localizeViews()
+        serverTextField.delegate = self
+        tapRecognizer = HideKeyboardRecognizer(withView: view)
     }
     
-    @objc private func hideKeyboard() {
-        view.endEditing(true)
+    private func localizeViews() {
+        headerLabel.text = R.string.localizable.welcome()
+        descriptionLabel.text = R.string.localizable.description()
+        hintLabel.text = R.string.localizable.serverFieldHint()
+        nextButton.setTitle(R.string.localizable.nextButtonTitle(), for: .normal)
     }
     
 }
 
+//MARK: - ServerSelectionViewing
 extension ServerSelectionViewController: ServerSelectionViewing {
 }
 
+//MARK: - UITextFieldDelegate
 extension ServerSelectionViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -61,3 +70,4 @@ extension ServerSelectionViewController: UITextFieldDelegate {
     }
     
 }
+

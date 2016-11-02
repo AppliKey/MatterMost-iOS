@@ -7,11 +7,31 @@
       <sourceFolder url="file://$MODULE_DIR$/MattermostTests/MattermostTests.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/MattermostTests/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Podfile" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Base.lproj/LaunchScreen.storyboard" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Resources/Assets.xcassets" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Resources/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Mattermost/App/AppCoordinator.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Mattermost/App/AppDelegate.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Authorization/ServerSelection/ServerSelectionInteractor.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Authorization/ServerSelection/ServerSelectionViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Authorization/ServerSelection/ServerSelectionRouter.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Authorization/ServerSelection/ServerSelectionPresenter.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Authorization/ServerSelection/ServerSelectionProtocols.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Authorization/AuthorizationCoordinator.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Authorization/SignIn/SignInPresenter.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Authorization/SignIn/SignInProtocols.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Authorization/SignIn/SignInInteractor.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Authorization/SignIn/SignInRouter.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Authorization/SignIn/SignInViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Authorization/Authorization.storyboard" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Resources/Localizable.strings" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Resources/Assets.xcassets" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Resources/R.generated.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Resources/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Common/Extensions/UIView+IBInspectable.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Common/Tools/KeyboardHandler.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Common/Views/GradientButton.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Common/Constants/Aliases.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Common/Protocols/BaseProtocols.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Common/Protocols/Routing.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Mattermost/Base.lproj/LaunchScreen.storyboard" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/ImageCache.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/CacheSerializer.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/KingfisherManager.swift" isTestSource="false" />
@@ -19,21 +39,21 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/Filter.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/ImageProcessor.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/ImageDownloader.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/Resource.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/Box.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/UIButton+Kingfisher.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/ThreadHelper.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/Box.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/Resource.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/AnimatedImageView.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/Kingfisher.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/ImageView+Kingfisher.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/String+MD5.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/ImageTransition.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/ImagePrefetcher.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/KingfisherOptionsInfo.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/AnimatedImageView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/ThreadHelper.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/Indicator.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/Kingfisher.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Kingfisher/Sources/RequrstModifier.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Validation.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Timeline.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/SessionDelegate.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/AFError.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/MultipartFormData.swift" isTestSource="false" />
@@ -41,15 +61,15 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/ParameterEncoding.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Result.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/DispatchQueue+Alamofire.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Alamofire.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/NetworkReachabilityManager.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Timeline.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/ResponseSerialization.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/TaskDelegate.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/SessionManager.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Request.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Notifications.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/ResponseSerialization.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Response.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Alamofire.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Validation.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Locksmith/Source/LocksmithAccessibleOption.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Locksmith/Source/LocksmithInternetProtocol.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Locksmith/Source/Dictionary_Initializers.swift" isTestSource="false" />
@@ -59,6 +79,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/Locksmith/Source/LocksmithSecurityClass.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Locksmith/Source/Locksmith.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/Core/StoryboardViewControllerResource.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/Core/ImageResource.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/Core/StoryboardResource.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/Core/ReuseIdentifierProtocol.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/Core/FileResource.swift" isTestSource="false" />
@@ -67,7 +88,6 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/Core/Core+Migration.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/Core/Validatable.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/Core/StringResource.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/Core/ImageResource.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/Core/FontResource.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/Core/ColorResource.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/Core/StoryboardSegueIdentifierProtocol.swift" isTestSource="false" />
@@ -75,49 +95,55 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/Foundation/Bundle+FileResource.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/Foundation/Data+FileResource.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/UIKit/TypedStoryboardSegueInfo+UIStoryboardSegue.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/UIKit/UIViewController+NibResource.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/UIKit/ColorResource+UIKit.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/UIKit/UICollectionView+ReuseIdentifierProtocol.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/UIKit/UIViewController+StoryboardSegueIdentifierProtocol.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/UIKit/UIStoryboard+StoryboardViewControllerResource.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/UIKit/UIViewController+NibResource.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/UIKit/UITableView+ReuseIdentifierProtocol.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/UIKit/UIStoryboard+StoryboardResource.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/UIKit/StoryboardResourceWithInitialController+UIKit.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/UIKit/UIKit+Migration.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/UIKit/NibResource+UIKit.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/UIKit/UINib+NibResource.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/UIKit/ColorResource+UIKit.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/UIKit/UIFont+FontResource.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/UIKit/UIImage+ImageResource.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/UIKit/UIFont+FontResource.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/R.swift.Library/Library/UIKit/UIStoryboard+StoryboardViewControllerResource.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Kingfisher/Kingfisher-prefix.pch" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Kingfisher/Kingfisher-umbrella.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Kingfisher/Kingfisher.modulemap" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Kingfisher/Kingfisher.xcconfig" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Kingfisher/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Kingfisher/Kingfisher-dummy.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire.modulemap" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire-umbrella.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Info.plist" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire-prefix.pch" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire.xcconfig" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire-dummy.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Locksmith/Locksmith.xcconfig" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Locksmith/Locksmith-dummy.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Locksmith/Locksmith.modulemap" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Locksmith/Info.plist" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Locksmith/Locksmith-prefix.pch" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Locksmith/Locksmith-umbrella.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/R.swift.Library/R.swift.Library-umbrella.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/R.swift.Library/R.swift.Library.modulemap" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/R.swift.Library/R.swift.Library-dummy.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/R.swift.Library/Info.plist" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/R.swift.Library/R.swift.Library-prefix.pch" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/R.swift.Library/R.swift.Library.xcconfig" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Unbox/Unbox-prefix.pch" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Unbox/Unbox.xcconfig" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Unbox/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Unbox/Unbox-umbrella.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Unbox/Unbox-dummy.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Unbox/Unbox.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Alamofire/Alamofire-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Locksmith/Locksmith-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Locksmith/Locksmith.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Locksmith/Locksmith.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Locksmith/Locksmith-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Locksmith/Locksmith-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Locksmith/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/R.swift.Library/R.swift.Library-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/R.swift.Library/R.swift.Library.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/R.swift.Library/R.swift.Library-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/R.swift.Library/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/R.swift.Library/R.swift.Library-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/R.swift.Library/R.swift.Library.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Typist/Typist-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Typist/Typist-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Typist/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Typist/Typist.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Typist/Typist-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Typist/Typist.modulemap" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SwiftyJSON/SwiftyJSON.xcconfig" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SwiftyJSON/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SwiftyJSON/SwiftyJSON-umbrella.h" isTestSource="false" />
@@ -125,17 +151,18 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SwiftyJSON/SwiftyJSON.modulemap" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SwiftyJSON/SwiftyJSON-dummy.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Mattermost/Pods-Mattermost-dummy.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Mattermost/Pods-Mattermost.modulemap" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Mattermost/Pods-Mattermost.debug.xcconfig" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Mattermost/Info.plist" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Mattermost/Pods-Mattermost-frameworks.sh" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Mattermost/Pods-Mattermost-acknowledgements.plist" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Mattermost/Pods-Mattermost-resources.sh" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Mattermost/Pods-Mattermost-acknowledgements.markdown" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Mattermost/Pods-Mattermost-frameworks.sh" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Mattermost/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Mattermost/Pods-Mattermost.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Mattermost/Pods-Mattermost-resources.sh" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Mattermost/Pods-Mattermost-acknowledgements.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Mattermost/Pods-Mattermost-umbrella.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Mattermost/Pods-Mattermost.release.xcconfig" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Unbox/Sources/Unbox.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Typist/Typist.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SwiftyJSON/Source/SwiftyJSON.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Unbox/Sources/Unbox.swift" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">

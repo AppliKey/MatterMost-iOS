@@ -6,6 +6,7 @@ PODS:
     - R.swift.Library (~> 3.0.2)
   - R.swift.Library (3.0.2)
   - SwiftyJSON (3.1.0)
+  - Typist (0.4)
   - Unbox (2.2.0)
 
 DEPENDENCIES:
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - Locksmith
   - R.swift
   - SwiftyJSON (= 3.1)
+  - Typist
   - Unbox
 
 SPEC CHECKSUMS:
@@ -23,8 +25,9 @@ SPEC CHECKSUMS:
   R.swift: 14400e5784224d1e4e59a8fc5549198c7e8fe360
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
   SwiftyJSON: 29b9f2a64f118c07e691667c2ba1efe536acfe0b
+  Typist: 8a43e050e9560acac93dc9006525c414b37f5a22
   Unbox: 03d7128ce429987986bc08d967e9d5e0da158946
 
-PODFILE CHECKSUM: 68c7b3008824dde693069b98be9d27bab0a73055
+PODFILE CHECKSUM: 8a219069191723d7d5904c9c1d15214a2f499436
 
 COCOAPODS: 1.1.1

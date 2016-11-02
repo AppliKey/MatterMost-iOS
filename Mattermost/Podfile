@@ -9,4 +9,5 @@ target 'Mattermost' do
 	pod 'Locksmith'
 	pod 'R.swift'
 	pod 'Unbox'
+	pod 'Typist'
 end
