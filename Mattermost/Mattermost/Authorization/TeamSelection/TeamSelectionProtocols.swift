@@ -24,8 +24,5 @@ protocol TeamSelectionViewing: class {
 protocol TeamSelectionEventHandling: class {
 }
 
-protocol TeamSelectionRouting: class {
-}
-
 protocol TeamSelectionCoordinator: class {
 }

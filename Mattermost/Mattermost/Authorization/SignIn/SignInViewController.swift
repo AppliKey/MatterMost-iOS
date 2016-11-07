@@ -60,6 +60,8 @@ class SignInViewController: UIViewController {
     private func localizeViews() {
         emailLabel.text = R.string.localizable.emailFieldHint()
         passwordLabel.text = R.string.localizable.passwordFieldHint()
+        emailTextField.placeholder = R.string.localizable.emailFieldPlaceholder()
+        passwordTextField.placeholder = R.string.localizable.passwordFieldPlaceholder()
         nextButton.setTitle(R.string.localizable.nextButtonTitle(), for: .normal)
         forgotPassButton.setTitle(R.string.localizable.forgotPassword(), for: .normal)
     }

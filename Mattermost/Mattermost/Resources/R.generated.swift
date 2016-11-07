@@ -95,7 +95,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 10 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 13 localization keys.
     struct localizable {
       /// Value: All your team communication in one  place, searchable and accessible  anywhere.
       static let description = Rswift.StringResource(key: "description", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -105,6 +105,10 @@ struct R: Rswift.Validatable {
       static let serverFieldHint = Rswift.StringResource(key: "server.field.hint", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Email is invalid
       static let emailNotValid = Rswift.StringResource(key: "email.not.valid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Enter your email
+      static let emailFieldPlaceholder = Rswift.StringResource(key: "email.field.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Enter your password
+      static let passwordFieldPlaceholder = Rswift.StringResource(key: "password.field.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: FORGOT PASSWORD
       static let forgotPassword = Rswift.StringResource(key: "forgot.password", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: NEXT
@@ -117,6 +121,8 @@ struct R: Rswift.Validatable {
       static let passwordNotValid = Rswift.StringResource(key: "password.not.valid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Welcome to Mattermost
       static let welcome = Rswift.StringResource(key: "welcome", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: http://server.com/
+      static let serverFieldPlaceholder = Rswift.StringResource(key: "server.field.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       
       /// Value: All your team communication in one  place, searchable and accessible  anywhere.
       static func description(_: Void = ()) -> String {
@@ -136,6 +142,16 @@ struct R: Rswift.Validatable {
       /// Value: Email is invalid
       static func emailNotValid(_: Void = ()) -> String {
         return NSLocalizedString("email.not.valid", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Enter your email
+      static func emailFieldPlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("email.field.placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Enter your password
+      static func passwordFieldPlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("password.field.placeholder", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: FORGOT PASSWORD
@@ -166,6 +182,11 @@ struct R: Rswift.Validatable {
       /// Value: Welcome to Mattermost
       static func welcome(_: Void = ()) -> String {
         return NSLocalizedString("welcome", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: http://server.com/
+      static func serverFieldPlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("server.field.placeholder", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

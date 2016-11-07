@@ -12,9 +12,6 @@ import UIKit
 protocol ServerSelectionConfigurator: class {
 }
 
-protocol ServerSelectionDelegate: class {
-}
-
 protocol ServerSelectionInteracting: class {
 }
 

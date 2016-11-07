@@ -25,8 +25,5 @@ protocol ForgotPassViewing: class {
 protocol ForgotPassEventHandling: class {
 }
 
-protocol ForgotPassRouting: class {
-}
-
 protocol ForgotPassCoordinator: class {
 }

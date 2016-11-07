@@ -18,8 +18,11 @@
 "welcome" = "Welcome to Mattermost";
 "description" = "All your team communication in one \nplace, searchable and accessible \nanywhere.";
 "server.field.hint" = "ENTER SERVER URL";
+"server.field.placeholder" = "http://server.com/";
 
 // Sign in view
 "email.field.hint" = "EMAIL";
 "password.field.hint" = "PASSWORD";
+"email.field.placeholder" = "Enter your email";
+"password.field.placeholder" = "Enter your password";
 "forgot.password" = "FORGOT PASSWORD";

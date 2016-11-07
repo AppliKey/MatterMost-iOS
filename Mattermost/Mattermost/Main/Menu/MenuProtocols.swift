@@ -24,8 +24,5 @@ protocol MenuViewing: class {
 protocol MenuEventHandling: class {
 }
 
-protocol MenuRouting: class {
-}
-
 protocol MenuCoordinator: class {
 }

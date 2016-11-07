@@ -24,8 +24,5 @@ protocol TabBarViewing: class {
 protocol TabBarEventHandling: class {
 }
 
-protocol TabBarRouting: class {
-}
-
 protocol TabBarCoordinator: class {
 }

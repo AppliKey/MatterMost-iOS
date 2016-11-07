@@ -50,6 +50,7 @@ class ServerSelectionViewController: UIViewController {
         headerLabel.text = R.string.localizable.welcome()
         descriptionLabel.text = R.string.localizable.description()
         hintLabel.text = R.string.localizable.serverFieldHint()
+        serverTextField.placeholder = R.string.localizable.serverFieldPlaceholder()
         nextButton.setTitle(R.string.localizable.nextButtonTitle(), for: .normal)
     }
     
@@ -74,7 +75,8 @@ extension ServerSelectionViewController: ServerSelectionViewing {
 //MARK: - UITextFieldDelegate
 extension ServerSelectionViewController: UITextFieldDelegate {
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
         let currentText = textField.text ?? ""
         let resultString = NSString(string: currentText).replacingCharacters(in: range, with: string)
         nextButton.isEnabled = !resultString.isEmpty
