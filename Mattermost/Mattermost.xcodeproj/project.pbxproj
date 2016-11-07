@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		059802061DD0C19A00AE01C2 /* APIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802021DD0C19A00AE01C2 /* APIRoute.swift */; };
+		059802071DD0C19A00AE01C2 /* AutorizationRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802031DD0C19A00AE01C2 /* AutorizationRoute.swift */; };
+		0598020C1DD0CFD800AE01C2 /* NSErrorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598020B1DD0CFD800AE01C2 /* NSErrorExtensions.swift */; };
+		059802101DD0D3DA00AE01C2 /* ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598020F1DD0D3DA00AE01C2 /* ObjectMapper.swift */; };
+		059802121DD0D40300AE01C2 /* NetworkErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802111DD0D40300AE01C2 /* NetworkErrorHandler.swift */; };
 		14B13733842F1F1044A404E9 /* TeamSelectionWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564D983738F6BEE75679250 /* TeamSelectionWireframe.swift */; };
 		173DCC60CC82AF4BB9CB8D13 /* ForgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C00194F806ECB169D05AFAA /* ForgotPassViewController.swift */; };
 		254AA795224D1ADFA6038DDC /* Pods_Mattermost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC82200732458B67B33A763D /* Pods_Mattermost.framework */; };
@@ -86,6 +91,11 @@
 
 /* Begin PBXFileReference section */
 		03DA7649DC4F211B6F09AA51 /* TabBarProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarProtocols.swift; sourceTree = "<group>"; };
+		059802021DD0C19A00AE01C2 /* APIRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRoute.swift; sourceTree = "<group>"; };
+		059802031DD0C19A00AE01C2 /* AutorizationRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutorizationRoute.swift; sourceTree = "<group>"; };
+		0598020B1DD0CFD800AE01C2 /* NSErrorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSErrorExtensions.swift; sourceTree = "<group>"; };
+		0598020F1DD0D3DA00AE01C2 /* ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectMapper.swift; sourceTree = "<group>"; };
+		059802111DD0D40300AE01C2 /* NetworkErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkErrorHandler.swift; path = ErrorHandler/NetworkErrorHandler.swift; sourceTree = "<group>"; };
 		1D26ACE9D1BF8CF3D67C8F44 /* SignInInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInInteractor.swift; sourceTree = "<group>"; };
 		26FC560F2D9131DF61E812D6 /* TeamSelectionProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TeamSelectionProtocols.swift; sourceTree = "<group>"; };
 		3A58F125287A437082362895 /* SignInProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInProtocols.swift; sourceTree = "<group>"; };
@@ -179,6 +189,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		059801FF1DD0C19A00AE01C2 /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				059802021DD0C19A00AE01C2 /* APIRoute.swift */,
+				059802031DD0C19A00AE01C2 /* AutorizationRoute.swift */,
+			);
+			path = Routes;
+			sourceTree = "<group>";
+		};
+		0598020D1DD0D31700AE01C2 /* ErrorHandler */ = {
+			isa = PBXGroup;
+			children = (
+				059802111DD0D40300AE01C2 /* NetworkErrorHandler.swift */,
+			);
+			name = ErrorHandler;
+			sourceTree = "<group>";
+		};
+		0598020E1DD0D3DA00AE01C2 /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				0598020F1DD0D3DA00AE01C2 /* ObjectMapper.swift */,
+			);
+			path = Mapping;
+			sourceTree = "<group>";
+		};
 		2D90FCBD82307673C2DA11A4 /* TeamSelection */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +329,7 @@
 		E1FEB40EC0A8BFC83B97EDB3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0598020B1DD0CFD800AE01C2 /* NSErrorExtensions.swift */,
 				E7A5B22C1DC261C200ED2887 /* UIView+IBInspectable.swift */,
 				E7AE43F11DCA4E4900475B8F /* UIView+CurrentConstraints.swift */,
 				E7AE43F31DCA531700475B8F /* UIResponder+FirstResponder.swift */,
@@ -343,6 +379,9 @@
 			isa = PBXGroup;
 			children = (
 				E7967D341DCFB1070025F402 /* NetworkManager.swift */,
+				059801FF1DD0C19A00AE01C2 /* Routes */,
+				0598020E1DD0D3DA00AE01C2 /* Mapping */,
+				0598020D1DD0D31700AE01C2 /* ErrorHandler */,
 				E1FEB4C738A452684FEED983 /* Models */,
 			);
 			path = Networking;
@@ -524,7 +563,8 @@
 				TargetAttributes = {
 					E7A3285B1DAFE02200C8A6B9 = {
 						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 2B98M2M42F;
+						ProvisioningStyle = Manual;
 					};
 					E7A3286F1DAFE02200C8A6B9 = {
 						CreatedOnToolsVersion = 8.0;
@@ -659,13 +699,16 @@
 				E7A5B2201DC20EC400ED2887 /* AuthorizationCoordinator.swift in Sources */,
 				E7967D2C1DCCDE3C0025F402 /* ServerSelectionWireframe.swift in Sources */,
 				E7967D401DD04FF00025F402 /* MainRouter.swift in Sources */,
+				0598020C1DD0CFD800AE01C2 /* NSErrorExtensions.swift in Sources */,
 				E7967D371DCFC9FE0025F402 /* User.swift in Sources */,
 				E1FEB01077FE23850335AEDB /* AppDelegate.swift in Sources */,
 				E7A5B2221DC2137400ED2887 /* R.generated.swift in Sources */,
+				059802121DD0D40300AE01C2 /* NetworkErrorHandler.swift in Sources */,
 				E7A5B22D1DC261C200ED2887 /* UIView+IBInspectable.swift in Sources */,
 				60E0C1D4BA031AE6AACA07D7 /* ServerSelectionProtocols.swift in Sources */,
 				E7967D301DCCE71E0025F402 /* SignInWireframe.swift in Sources */,
 				5B6736DFD1D6387C3B402C0E /* ServerSelectionViewController.swift in Sources */,
+				059802071DD0C19A00AE01C2 /* AutorizationRoute.swift in Sources */,
 				E7662BE01DC7497000E82AFC /* Aliases.swift in Sources */,
 				E7967D2E1DCCE2C30025F402 /* AuthorizationRouter.swift in Sources */,
 				762226E5F9B9149D5D258BAE /* ServerSelectionPresenter.swift in Sources */,
@@ -679,6 +722,7 @@
 				BFE20322EC44EEB648B2F19A /* SignInProtocols.swift in Sources */,
 				EEC2A5C891FD92145D059CCF /* SignInViewController.swift in Sources */,
 				616CF365F1D150AAD8132D66 /* SignInPresenter.swift in Sources */,
+				059802061DD0C19A00AE01C2 /* APIRoute.swift in Sources */,
 				E7AE43F41DCA531700475B8F /* UIResponder+FirstResponder.swift in Sources */,
 				8D7CC4105BB3F751220B3B45 /* SignInInteractor.swift in Sources */,
 				E7AE43F21DCA4E4900475B8F /* UIView+CurrentConstraints.swift in Sources */,
@@ -689,6 +733,7 @@
 				E29BE190D7FDF84BF453E961 /* ForgotPassWireframe.swift in Sources */,
 				520649B1426F38DD83F40367 /* TeamSelectionProtocols.swift in Sources */,
 				E7967D3E1DD04FE10025F402 /* MainCoordinator.swift in Sources */,
+				059802101DD0D3DA00AE01C2 /* ObjectMapper.swift in Sources */,
 				FABCACF157FD70E5DD6A644E /* TeamSelectionViewController.swift in Sources */,
 				2A44C1DC0FB2F137E249CE0A /* TeamSelectionPresenter.swift in Sources */,
 				87FA385537A2102552BBE990 /* TeamSelectionInteractor.swift in Sources */,
@@ -847,10 +892,13 @@
 			baseConfigurationReference = A01F046DF9EC8F9899A7F700 /* Pods-Mattermost.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2B98M2M42F;
 				INFOPLIST_FILE = Mattermost/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.applikey.Mattermost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "50dd01c5-0880-4586-a629-8888420be157";
+				PROVISIONING_PROFILE_SPECIFIER = "Mattermost Development";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -861,10 +909,14 @@
 			baseConfigurationReference = 5C1CD18CF3E4BA61C009B889 /* Pods-Mattermost.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 2B98M2M42F;
 				INFOPLIST_FILE = Mattermost/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.applikey.Mattermost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "225e32fa-4adf-4a3a-a71f-5810effadb80";
+				PROVISIONING_PROFILE_SPECIFIER = "Mattermost Distribution";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
