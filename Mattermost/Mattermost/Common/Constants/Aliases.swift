@@ -12,5 +12,5 @@ typealias VoidClosure = () -> ()
 
 enum Result<T> {
     case success(T)
-    case failure(String)
+    case failure(Error)
 }
