@@ -11,42 +11,65 @@ import UIKit
 
 class AuthorizationCoordinator {
     
-    func startViewController() -> UIViewController {
+    //MARK: - Init
+    init(withRouter router: AuthorizationRouter, appCoordinator: AppCoordinator) {
+        self.router = router
+        self.appCoordinator = appCoordinator
+    }
+    
+    func start() {
         guard let viewController = R.storyboard.authorization.serverSelectionViewController()
             else { fatalError("Can't instantiate server selection view controller") }
-        let interactor = ServerSelectionInteractor()
-        let router = ServerSelectionRouter()
-        let presenter = ServerSelectionPresenter(coordinator: self)
-        presenter.view = viewController
-        presenter.interactor = interactor
-        presenter.router = router
-        viewController.eventHandler = presenter
-        interactor.presenter = presenter
-        router.viewController = viewController
-        return viewController
+        ServerSelectionWireframe.setup(viewController, withCoordinator: self)
+        router.root(viewController: viewController)
     }
+    
+    //MARK: - Private - 
+    fileprivate let router: AuthorizationRouter
+    fileprivate unowned let appCoordinator: AppCoordinator
     
 }
 
+//MARK: - ServerSelectionCoordinator
 extension AuthorizationCoordinator: ServerSelectionCoordinator {
     
-    func signInViewController() -> UIViewController {
+    func signIn() {
         guard let viewController = R.storyboard.authorization.signInViewController()
             else { fatalError("Can't instantiate sign in view controller") }
-        let interactor = SignInInteractor()
-        let router = SignInRouter()
-        let presenter = SignInPresenter(coordinator: self)
-        presenter.view = viewController
-        presenter.interactor = interactor
-        presenter.router = router
-        viewController.eventHandler = presenter
-        interactor.presenter = presenter
-        router.viewController = viewController
-        return viewController
+        SignInWireframe.setup(viewController, withCoordinator: self)
+        router.push(viewController: viewController)
     }
     
 }
 
+//MARK: - SignInCoordinator
 extension AuthorizationCoordinator: SignInCoordinator {
     
+    func forgotPass(forEmail email: String) {
+        guard  let viewController = R.storyboard.authorization.forgotPassViewController()
+            else { fatalError("Can't instantiate forgot pass view controller") }
+        ForgotPassWireframe.setup(viewController, withCoordinator: self) {
+            $0.email = email
+        }
+        router.push(viewController: viewController)
+    }
+    
+    func next() {
+        appCoordinator.showMainScreen(withNavigationController: router.navigationController)
+    }
+    
+    func alert(withMessage message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: R.string.localizable.okAlertTitle(),
+                                      style: .default,
+                                      handler: nil))
+        router.present(viewController: alert)
+    }
+    
 }
+
+//MARK: - ForgotPassCoordinator
+extension AuthorizationCoordinator: ForgotPassCoordinator {
+    
+}
+

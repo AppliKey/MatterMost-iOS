@@ -17,12 +17,6 @@ class HideKeyboardRecognizer {
         setupGestureRecognizer()
     }
     
-    deinit {
-        if let tapRecognizer = tapRecognizer {
-            view.removeGestureRecognizer(tapRecognizer)
-        }
-    }
-    
     //MARK: - Private -
     private unowned let view: UIView
     private var tapRecognizer: UITapGestureRecognizer?

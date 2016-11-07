@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SignInViewController: UIViewController, BaseView {
+class SignInViewController: UIViewController {
 	
 	//MARK: Properties
   	var eventHandler: SignInEventHandling!
@@ -23,22 +23,31 @@ class SignInViewController: UIViewController, BaseView {
     
   
   	//MARK: Life cycle
+    
 	override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: false)
         configureInterface()
 	}
     
     //MARK: Actions
+    
     @IBAction func nextButtonPressed(_ sender: UIButton) {
+        eventHandler.next(withEmail: email, andPassword: password)
     }
     
     @IBAction func forgotPassButtonPressed(_ sender: AnyObject) {
+        eventHandler.forgotPass(forEmail: email)
     }
     
     //MARK: - Private -
     private var keyboardHandler: KeyboardHandler?
     private var tapRecognizer: HideKeyboardRecognizer?
+    private var email: String {
+        return emailTextField.text ?? ""
+    }
+    private var password: String {
+        return passwordTextField.text ?? ""
+    }
     
     //MARK: - UI
     

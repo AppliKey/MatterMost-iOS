@@ -31,8 +31,23 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 0 images.
+  /// This `R.image` struct is generated, and contains static references to 2 images.
   struct image {
+    /// Image `back`.
+    static let back = Rswift.ImageResource(bundle: R.hostingBundle, name: "back")
+    /// Image `forward`.
+    static let forward = Rswift.ImageResource(bundle: R.hostingBundle, name: "forward")
+    
+    /// `UIImage(named: "back", bundle: ..., traitCollection: ...)`
+    static func back(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.back, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "forward", bundle: ..., traitCollection: ...)`
+    static func forward(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.forward, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
@@ -51,12 +66,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
   struct storyboard {
     /// Storyboard `Authorization`.
     static let authorization = _R.storyboard.authorization()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
+    /// Storyboard `Main`.
+    static let main = _R.storyboard.main()
     
     /// `UIStoryboard(name: "Authorization", bundle: ...)`
     static func authorization(_: Void = ()) -> UIKit.UIStoryboard {
@@ -68,12 +85,17 @@ struct R: Rswift.Validatable {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
     }
     
+    /// `UIStoryboard(name: "Main", bundle: ...)`
+    static func main(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.main)
+    }
+    
     fileprivate init() {}
   }
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 7 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 10 localization keys.
     struct localizable {
       /// Value: All your team communication in one  place, searchable and accessible  anywhere.
       static let description = Rswift.StringResource(key: "description", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -81,12 +103,18 @@ struct R: Rswift.Validatable {
       static let emailFieldHint = Rswift.StringResource(key: "email.field.hint", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: ENTER SERVER URL
       static let serverFieldHint = Rswift.StringResource(key: "server.field.hint", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Email is invalid
+      static let emailNotValid = Rswift.StringResource(key: "email.not.valid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: FORGOT PASSWORD
       static let forgotPassword = Rswift.StringResource(key: "forgot.password", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: NEXT
       static let nextButtonTitle = Rswift.StringResource(key: "next.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Ok
+      static let okAlertTitle = Rswift.StringResource(key: "ok.alert.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: PASSWORD
       static let passwordFieldHint = Rswift.StringResource(key: "password.field.hint", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Password is invalid
+      static let passwordNotValid = Rswift.StringResource(key: "password.not.valid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Welcome to Mattermost
       static let welcome = Rswift.StringResource(key: "welcome", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       
@@ -105,6 +133,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("server.field.hint", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: Email is invalid
+      static func emailNotValid(_: Void = ()) -> String {
+        return NSLocalizedString("email.not.valid", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: FORGOT PASSWORD
       static func forgotPassword(_: Void = ()) -> String {
         return NSLocalizedString("forgot.password", bundle: R.hostingBundle, comment: "")
@@ -115,9 +148,19 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("next.button.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: Ok
+      static func okAlertTitle(_: Void = ()) -> String {
+        return NSLocalizedString("ok.alert.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: PASSWORD
       static func passwordFieldHint(_: Void = ()) -> String {
         return NSLocalizedString("password.field.hint", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Password is invalid
+      static func passwordNotValid(_: Void = ()) -> String {
+        return NSLocalizedString("password.not.valid", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Welcome to Mattermost
@@ -153,14 +196,22 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
+      try main.validate()
       try authorization.validate()
     }
     
-    struct authorization: Rswift.StoryboardResourceType, Rswift.Validatable {
+    struct authorization: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
+      
       let bundle = R.hostingBundle
+      let forgotPassViewController = StoryboardViewControllerResource<Mattermost.ForgotPassViewController>(identifier: "ForgotPassViewController")
       let name = "Authorization"
       let serverSelectionViewController = StoryboardViewControllerResource<Mattermost.ServerSelectionViewController>(identifier: "ServerSelectionViewController")
       let signInViewController = StoryboardViewControllerResource<Mattermost.SignInViewController>(identifier: "SignInViewController")
+      
+      func forgotPassViewController(_: Void = ()) -> Mattermost.ForgotPassViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: forgotPassViewController)
+      }
       
       func serverSelectionViewController(_: Void = ()) -> Mattermost.ServerSelectionViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: serverSelectionViewController)
@@ -171,6 +222,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if _R.storyboard.authorization().forgotPassViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'forgotPassViewController' could not be loaded from storyboard 'Authorization' as 'Mattermost.ForgotPassViewController'.") }
         if _R.storyboard.authorization().signInViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'signInViewController' could not be loaded from storyboard 'Authorization' as 'Mattermost.SignInViewController'.") }
         if _R.storyboard.authorization().serverSelectionViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'serverSelectionViewController' could not be loaded from storyboard 'Authorization' as 'Mattermost.ServerSelectionViewController'.") }
       }
@@ -183,6 +235,22 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "LaunchScreen"
+      
+      fileprivate init() {}
+    }
+    
+    struct main: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "Main"
+      let tabBarViewController = StoryboardViewControllerResource<TabBarViewController>(identifier: "TabBarViewController")
+      
+      func tabBarViewController(_: Void = ()) -> TabBarViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tabBarViewController)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.main().tabBarViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBarViewController' could not be loaded from storyboard 'Main' as 'TabBarViewController'.") }
+      }
       
       fileprivate init() {}
     }

@@ -12,12 +12,21 @@ import UIKit
 class AppCoordinator {
     
     func rootViewController() -> UIViewController {
-        let viewController = authorizationCoordinator.startViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
+        let navigationController = UINavigationController()
+        showAuthorization(withNavigationController: navigationController)
         return navigationController
     }
     
-    //MARK: Private
-    fileprivate let authorizationCoordinator = AuthorizationCoordinator()
+    func showAuthorization(withNavigationController navigationController: UINavigationController) {
+        let router = AuthorizationRouter(withNavigationController: navigationController)
+        let coordinator = AuthorizationCoordinator(withRouter: router, appCoordinator: self)
+        coordinator.start()
+    }
+    
+    func showMainScreen(withNavigationController navigationController: UINavigationController) {
+        let router = MainRouter(withNavigationController: navigationController)
+        let coordinator = MainCoordinator(withRouter: router, appCoordinator: self)
+        coordinator.start()
+    }
   
 }

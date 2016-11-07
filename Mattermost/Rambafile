@@ -12,10 +12,10 @@ xcodeproj_path: Mattermost.xcodeproj
 project_target: Mattermost
 
 # The file path for new modules
-project_file_path: Mattermost/Authorization
+project_file_path: Mattermost/Main
 
 # The Xcode group path to new modules
-project_group_path: Mattermost/Authorization
+project_group_path: Mattermost/Main
 
 ### Dependencies settings section
 podfile_path: Podfile
@@ -23,5 +23,4 @@ podfile_path: Podfile
 
 ### Templates
 templates:
-- {name: base_template, local: '/Users/Apple/Work/BaseTemplate/Template'}
-- {name: template, local: '/Users/Apple/Work/Template'}
+- {name: template, local: '/Users/vladimir/Work/Mattermost/Template'}

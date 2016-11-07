@@ -28,10 +28,7 @@ protocol ServerSelectionEventHandling: class {
     func handleServerAddress(address: String)
 }
 
-protocol ServerSelectionRouting: class, Routing {
-    
-}
-
 protocol ServerSelectionCoordinator: class {
-    func signInViewController() -> UIViewController
+    func signIn()
 }
+    

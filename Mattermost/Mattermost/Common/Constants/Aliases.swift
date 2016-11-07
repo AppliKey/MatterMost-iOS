@@ -9,3 +9,8 @@
 import Foundation
 
 typealias VoidClosure = () -> ()
+
+enum Result<T> {
+    case success(T)
+    case failure(String)
+}

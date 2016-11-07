@@ -10,18 +10,17 @@ import Foundation
 
 class ServerSelectionPresenter {
     
-    //MARK: Properties
+    //MARK: - Properties
     var interactor: ServerSelectionInteracting!
-    var router: ServerSelectionRouting!
     weak var view: ServerSelectionViewing!
     
-    //MARK: Init
+    //MARK: - Init
     
     required init(coordinator: ServerSelectionCoordinator) {
         self.coordinator = coordinator
     }
     
-    //MARK: Private
+    //MARK: - Private -
     fileprivate let coordinator: ServerSelectionCoordinator
 }
 
@@ -34,7 +33,6 @@ extension ServerSelectionPresenter: ServerSelectionPresenting {
 extension ServerSelectionPresenter: ServerSelectionEventHandling {
     func handleServerAddress(address: String) {
         //TODO: validate and save server address
-        let signInViewController = coordinator.signInViewController()
-        router.push(viewController: signInViewController)
+        coordinator.signIn()
     }
 }

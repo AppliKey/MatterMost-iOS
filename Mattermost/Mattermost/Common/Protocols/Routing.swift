@@ -9,32 +9,45 @@
 import Foundation
 import UIKit
 
-protocol Routing {
-    var viewController: UIViewController! {get set}
-    func push(viewController: UIViewController)
+protocol Routing: class {
+    var topViewController: UIViewController {get set}
     func present(viewController: UIViewController, completion: VoidClosure?)
-    func pop()
     func dismiss(completion: VoidClosure?)
 }
 
 extension Routing {
     
-    func push(viewController: UIViewController) {
-        guard let navigationController = self.viewController.navigationController else { return }
-        navigationController.pushViewController(viewController, animated: true)
-    }
-    
     func present(viewController: UIViewController, completion: VoidClosure? = nil) {
-        self.viewController.present(viewController, animated: true, completion: completion)
-    }
-    
-    func pop() {
-        guard let navigationController = viewController.navigationController else { return }
-        navigationController.popViewController(animated: true)
+        topViewController.present(viewController, animated: true, completion: completion)
     }
     
     func dismiss(completion: VoidClosure? = nil) {
-        viewController.dismiss(animated: true, completion: completion)
+        topViewController.dismiss(animated: true, completion: completion)
+    }
+    
+}
+
+protocol NavigationRouting: Routing {
+    var navigationController: UINavigationController {get}
+    func push(viewController: UIViewController)
+    func pop()
+    func root(viewController: UIViewController)
+}
+
+extension NavigationRouting {
+    
+    func push(viewController: UIViewController) {
+        navigationController.pushViewController(viewController, animated: true)
+        topViewController = viewController
+    }
+    
+    func pop() {
+        navigationController.popViewController(animated: true)
+        topViewController = navigationController.topViewController ?? navigationController
+    }
+    
+    func root(viewController: UIViewController) {
+        navigationController.setViewControllers([viewController], animated: true)
     }
     
 }

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ServerSelectionViewController: UIViewController, BaseView {
+class ServerSelectionViewController: UIViewController {
     //MARK: - Properties
     var eventHandler: ServerSelectionEventHandling!
     //MARK: - Outlets
@@ -40,10 +40,10 @@ class ServerSelectionViewController: UIViewController, BaseView {
     //MARK: - UI
     
     private func configureInterface() {
-        navigationController?.setNavigationBarHidden(true, animated: false)
         localizeViews()
         serverTextField.delegate = self
         tapRecognizer = HideKeyboardRecognizer(withView: view)
+        configureNavigationBar()
     }
     
     private func localizeViews() {
@@ -51,6 +51,18 @@ class ServerSelectionViewController: UIViewController, BaseView {
         descriptionLabel.text = R.string.localizable.description()
         hintLabel.text = R.string.localizable.serverFieldHint()
         nextButton.setTitle(R.string.localizable.nextButtonTitle(), for: .normal)
+    }
+    
+    private func configureNavigationBar() {
+        guard let navBar = navigationController?.navigationBar else { return }
+        navBar.barTintColor = .white
+        navBar.clearShadow()
+        let backButtonInsets = UIEdgeInsets(top: 13, left: 20, bottom: 0, right: 0)
+        let backButtonImage = R.image.back()?
+            .withRenderingMode(.alwaysOriginal)
+            .withAlignmentRectInsets(backButtonInsets)
+        navBar.backIndicatorImage = backButtonImage
+        navBar.backIndicatorTransitionMaskImage = backButtonImage
     }
     
 }

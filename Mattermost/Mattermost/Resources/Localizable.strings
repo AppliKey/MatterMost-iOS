@@ -8,6 +8,11 @@
 
 // Common
 "next.button.title" = "NEXT";
+"ok.alert.title" = "Ok";
+
+// Errors
+"email.not.valid" = "Email is invalid";
+"password.not.valid" = "Password is invalid";
 
 // Server selection view
 "welcome" = "Welcome to Mattermost";

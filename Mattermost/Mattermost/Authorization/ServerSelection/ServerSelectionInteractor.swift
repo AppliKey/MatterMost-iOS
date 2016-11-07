@@ -8,8 +8,7 @@
 
 import Foundation
 
-class ServerSelectionInteractor: BaseInteractor {
-  typealias PresenterType = ServerSelectionPresenting
+class ServerSelectionInteractor {
   weak var presenter: ServerSelectionPresenting!
 }
 
