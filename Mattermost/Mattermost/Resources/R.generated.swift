@@ -31,12 +31,42 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 2 images.
+  /// This `R.image` struct is generated, and contains static references to 17 images.
   struct image {
     /// Image `back`.
     static let back = Rswift.ImageResource(bundle: R.hostingBundle, name: "back")
     /// Image `forward`.
     static let forward = Rswift.ImageResource(bundle: R.hostingBundle, name: "forward")
+    /// Image `ic-menu`.
+    static let icMenu = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic-menu")
+    /// Image `ic_direct_new`.
+    static let ic_direct_new = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_direct_new")
+    /// Image `ic_direct_not_active`.
+    static let ic_direct_not_active = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_direct_not_active")
+    /// Image `ic_direct`.
+    static let ic_direct = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_direct")
+    /// Image `ic_favorites_new`.
+    static let ic_favorites_new = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_favorites_new")
+    /// Image `ic_favorites_not_active`.
+    static let ic_favorites_not_active = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_favorites_not_active")
+    /// Image `ic_favorites`.
+    static let ic_favorites = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_favorites")
+    /// Image `ic_private_chanels_new`.
+    static let ic_private_chanels_new = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_private_chanels_new")
+    /// Image `ic_private_chanels_not_active`.
+    static let ic_private_chanels_not_active = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_private_chanels_not_active")
+    /// Image `ic_private_chanels`.
+    static let ic_private_chanels = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_private_chanels")
+    /// Image `ic_public_chanels_new`.
+    static let ic_public_chanels_new = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_public_chanels_new")
+    /// Image `ic_public_chanels_not_active`.
+    static let ic_public_chanels_not_active = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_public_chanels_not_active")
+    /// Image `ic_public_chanels`.
+    static let ic_public_chanels = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_public_chanels")
+    /// Image `ic_unread_not_active`.
+    static let ic_unread_not_active = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_unread_not_active")
+    /// Image `ic_unread`.
+    static let ic_unread = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_unread")
     
     /// `UIImage(named: "back", bundle: ..., traitCollection: ...)`
     static func back(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -46,6 +76,81 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "forward", bundle: ..., traitCollection: ...)`
     static func forward(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.forward, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic-menu", bundle: ..., traitCollection: ...)`
+    static func icMenu(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icMenu, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_direct", bundle: ..., traitCollection: ...)`
+    static func ic_direct(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_direct, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_direct_new", bundle: ..., traitCollection: ...)`
+    static func ic_direct_new(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_direct_new, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_direct_not_active", bundle: ..., traitCollection: ...)`
+    static func ic_direct_not_active(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_direct_not_active, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_favorites", bundle: ..., traitCollection: ...)`
+    static func ic_favorites(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_favorites, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_favorites_new", bundle: ..., traitCollection: ...)`
+    static func ic_favorites_new(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_favorites_new, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_favorites_not_active", bundle: ..., traitCollection: ...)`
+    static func ic_favorites_not_active(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_favorites_not_active, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_private_chanels", bundle: ..., traitCollection: ...)`
+    static func ic_private_chanels(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_private_chanels, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_private_chanels_new", bundle: ..., traitCollection: ...)`
+    static func ic_private_chanels_new(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_private_chanels_new, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_private_chanels_not_active", bundle: ..., traitCollection: ...)`
+    static func ic_private_chanels_not_active(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_private_chanels_not_active, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_public_chanels", bundle: ..., traitCollection: ...)`
+    static func ic_public_chanels(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_public_chanels, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_public_chanels_new", bundle: ..., traitCollection: ...)`
+    static func ic_public_chanels_new(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_public_chanels_new, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_public_chanels_not_active", bundle: ..., traitCollection: ...)`
+    static func ic_public_chanels_not_active(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_public_chanels_not_active, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_unread", bundle: ..., traitCollection: ...)`
+    static func ic_unread(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_unread, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_unread_not_active", bundle: ..., traitCollection: ...)`
+    static func ic_unread_not_active(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_unread_not_active, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -262,15 +367,61 @@ struct _R: Rswift.Validatable {
     
     struct main: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
+      let directViewControllers = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "DirectViewControllers")
+      let favouritesViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "FavouritesViewController")
+      let menuViewController = StoryboardViewControllerResource<MenuViewController>(identifier: "MenuViewController")
       let name = "Main"
-      let tabBarViewController = StoryboardViewControllerResource<TabBarViewController>(identifier: "TabBarViewController")
+      let privateChanelsViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "PrivateChanelsViewController")
+      let publicChanelsViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "PublicChanelsViewController")
+      let tabBarViewController = StoryboardViewControllerResource<Mattermost.TabBarViewController>(identifier: "TabBarViewController")
+      let unreadMessagesViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "UnreadMessagesViewController")
       
-      func tabBarViewController(_: Void = ()) -> TabBarViewController? {
+      func directViewControllers(_: Void = ()) -> UIKit.UIViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: directViewControllers)
+      }
+      
+      func favouritesViewController(_: Void = ()) -> UIKit.UIViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: favouritesViewController)
+      }
+      
+      func menuViewController(_: Void = ()) -> MenuViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: menuViewController)
+      }
+      
+      func privateChanelsViewController(_: Void = ()) -> UIKit.UIViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: privateChanelsViewController)
+      }
+      
+      func publicChanelsViewController(_: Void = ()) -> UIKit.UIViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: publicChanelsViewController)
+      }
+      
+      func tabBarViewController(_: Void = ()) -> Mattermost.TabBarViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tabBarViewController)
       }
       
+      func unreadMessagesViewController(_: Void = ()) -> UIKit.UIViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: unreadMessagesViewController)
+      }
+      
       static func validate() throws {
-        if _R.storyboard.main().tabBarViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBarViewController' could not be loaded from storyboard 'Main' as 'TabBarViewController'.") }
+        if UIKit.UIImage(named: "ic_public_chanels_not_active") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_public_chanels_not_active' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_unread") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_unread' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_private_chanels_not_active") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_private_chanels_not_active' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_public_chanels") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_public_chanels' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_favorites") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_favorites' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_direct") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_direct' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_favorites_not_active") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_favorites_not_active' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_unread_not_active") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_unread_not_active' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_private_chanels") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_private_chanels' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_direct_not_active") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_direct_not_active' is used in storyboard 'Main', but couldn't be loaded.") }
+        if _R.storyboard.main().tabBarViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBarViewController' could not be loaded from storyboard 'Main' as 'Mattermost.TabBarViewController'.") }
+        if _R.storyboard.main().menuViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'menuViewController' could not be loaded from storyboard 'Main' as 'MenuViewController'.") }
+        if _R.storyboard.main().unreadMessagesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'unreadMessagesViewController' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }
+        if _R.storyboard.main().directViewControllers() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'directViewControllers' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }
+        if _R.storyboard.main().favouritesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'favouritesViewController' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }
+        if _R.storyboard.main().publicChanelsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'publicChanelsViewController' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }
+        if _R.storyboard.main().privateChanelsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'privateChanelsViewController' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }
       }
       
       fileprivate init() {}

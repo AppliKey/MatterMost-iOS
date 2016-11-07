@@ -13,16 +13,21 @@ protocol TabBarConfigurator: class {
 }
 
 protocol TabBarInteracting: class {
+    func checkUnreadController()
 }
 
 protocol TabBarPresenting: class {
+    var tabBarViewControllers: [UIViewController]? { get set }
 }
 
 protocol TabBarViewing: class {
+    var tabBarViewControllers: [UIViewController]? { get set }
 }
 
 protocol TabBarEventHandling: class {
+    func viewIsReady()
 }
 
 protocol TabBarCoordinator: class {
+    func showSettings()
 }

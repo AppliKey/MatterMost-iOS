@@ -19,4 +19,14 @@ class MainRouter: NavigationRouting {
         self.navigationController = navigationController
         topViewController = navigationController.topViewController ?? navigationController
     }
+    
+    func leftToRightPush(viewController: UIViewController) {
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = kCATransitionPush
+        transition.subtype = kCATransitionFromRight
+        topViewController.view.layer.add(transition, forKey: kCATransition)
+        navigationController.pushViewController(viewController, animated: true)
+        topViewController = viewController
+    }
 }

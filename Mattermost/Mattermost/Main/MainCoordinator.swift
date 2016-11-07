@@ -18,10 +18,10 @@ class MainCoordinator {
     }
     
     func start() {
-        guard let viewController = R.storyboard.main.tabBarViewController()
-            else { fatalError("Can't instantiate server selection view controller") }
-        TabBarWireframe.setup(viewController, withCoordinator: self)
-        router.root(viewController: viewController)
+        guard let tabBarViewController = R.storyboard.main.tabBarViewController()
+            else { fatalError("Can't instantiate tab bar view controller") }
+        TabBarWireframe.setup(tabBarViewController, withCoordinator: self)
+        router.root(viewController: tabBarViewController)
     }
     
     //MARK: - Private -
@@ -32,5 +32,9 @@ class MainCoordinator {
 
 //MARK: - TabBarCoordinator
 extension MainCoordinator: TabBarCoordinator {
-    
+    func showSettings() {
+        guard let menu = R.storyboard.main.menuViewController()
+            else { fatalError("Can't instantiate settings view controller") }
+        router.leftToRightPush(viewController: menu)
+    }
 }

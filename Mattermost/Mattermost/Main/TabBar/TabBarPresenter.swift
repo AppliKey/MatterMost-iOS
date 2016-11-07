@@ -6,7 +6,7 @@
 //  Copyright © 2016 AppliKey Solutions. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class TabBarPresenter {
     
@@ -28,7 +28,18 @@ extension TabBarPresenter: TabBarConfigurator {
 }
 
 extension TabBarPresenter: TabBarPresenting {
+    
+    var tabBarViewControllers: [UIViewController]? {
+        get {
+            return view.tabBarViewControllers
+        } set {
+            view.tabBarViewControllers = newValue
+        }
+    }
 }
 
 extension TabBarPresenter: TabBarEventHandling {
+    func viewIsReady() {
+        interactor.checkUnreadController()
+    }
 }

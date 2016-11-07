@@ -14,3 +14,7 @@ enum Result<T> {
     case success(T)
     case failure(String)
 }
+
+struct UserDefaultsKeys {
+    static let hideUnreadController = "hideUnreadControllerKey"
+}
