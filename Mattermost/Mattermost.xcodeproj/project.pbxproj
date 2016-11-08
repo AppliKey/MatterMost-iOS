@@ -112,6 +112,7 @@
 		059802371DD1FE6500AE01C2 /* ObjectMapperMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObjectMapperMapping.swift; path = Mapping/ObjectMapperMapping.swift; sourceTree = "<group>"; };
 		059802391DD1FFA000AE01C2 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		0598023A1DD1FFA000AE01C2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		05A4BA891DD215FA007FAA18 /* Mattermost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mattermost.entitlements; sourceTree = "<group>"; };
 		1D26ACE9D1BF8CF3D67C8F44 /* SignInInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInInteractor.swift; sourceTree = "<group>"; };
 		26FC560F2D9131DF61E812D6 /* TeamSelectionProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TeamSelectionProtocols.swift; sourceTree = "<group>"; };
 		3A58F125287A437082362895 /* SignInProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInProtocols.swift; sourceTree = "<group>"; };
@@ -457,6 +458,7 @@
 		E7A3285E1DAFE02200C8A6B9 /* Mattermost */ = {
 			isa = PBXGroup;
 			children = (
+				05A4BA891DD215FA007FAA18 /* Mattermost.entitlements */,
 				E7A3288D1DAFE13B00C8A6B9 /* App */,
 				E1FEB0CDBF27AD3F5D411DBE /* Common */,
 				E7967D331DCFB0CB0025F402 /* Networking */,
@@ -602,6 +604,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 2B98M2M42F;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					E7A3286F1DAFE02200C8A6B9 = {
 						CreatedOnToolsVersion = 8.0;
@@ -949,6 +956,7 @@
 			baseConfigurationReference = A01F046DF9EC8F9899A7F700 /* Pods-Mattermost.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Mattermost/Mattermost.entitlements;
 				DEVELOPMENT_TEAM = 2B98M2M42F;
 				INFOPLIST_FILE = Mattermost/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -966,6 +974,7 @@
 			baseConfigurationReference = 5C1CD18CF3E4BA61C009B889 /* Pods-Mattermost.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Mattermost/Mattermost.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 2B98M2M42F;
 				INFOPLIST_FILE = Mattermost/Resources/Info.plist;
