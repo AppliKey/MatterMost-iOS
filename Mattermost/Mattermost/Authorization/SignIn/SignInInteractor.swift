@@ -8,8 +8,13 @@
 
 import Foundation
 
+protocol SignInService {
+    func signIn(withEmail email: String, password: String, completion: (Result<Void>) -> Void)
+}
+
 class SignInInteractor: EmailValidator, PasswordValidator {
   	weak var presenter: SignInPresenting!
+    var signInService = AuthorizationService()
 }
 
 extension SignInInteractor: SignInInteracting {
@@ -24,7 +29,7 @@ extension SignInInteractor: SignInInteracting {
             return
         }
         //TODO: request sign in
-        completion(.success())
+        signInService.signIn(withEmail: email, password: password, completion: completion)
     }
     
 }

@@ -7,14 +7,42 @@
 //
 
 import Foundation
+import ObjectMapper
 
 class NetworkErrorHandler {
+    
     
     func handleUnauthorizedRequest() {
         
     }
     
-    func handleunavailableURL() {
+    func handleUnavailableURL() {
         
+    }
+    
+    func mattermostClientErrorForResponse(response: Any) -> MattermostClientError {
+        let clientError = Mapper<ClientError>().map(JSONObject: response)
+        return MattermostClientError(error: clientError)
+    }
+}
+
+enum MattermostClientError: Error {
+    case UserLoginBlankPassword
+    case UnknownError
+}
+
+extension MattermostClientError {
+    
+    init(error: ClientError?) {
+        guard let id = error?.id else {
+            self = MattermostClientError.UnknownError
+            return
+        }
+        switch id {
+        case "api.user.login.blank_pwd.app_error":
+            self = MattermostClientError.UserLoginBlankPassword
+        default:
+            self = MattermostClientError.UnknownError
+        }
     }
 }

@@ -8,42 +8,38 @@
 
 import Foundation
 import Alamofire
+import ObjectMapper
+import Locksmith
 
 typealias AlamofireCompletion = (DataResponse<Any>) -> Void
 
 class NetworkManager {
-    
     static let shared = NetworkManager()
-    let errorHandler = NetworkErrorHandler()
-    private let manager = SessionManager()
-    private var baseURL: URL {
-        //TODO: get base url from defaults
-        return URL(string: "")!
+    
+    var errorHandler = NetworkErrorHandler()
+    var sessionManager = SessionManager()
+    var baseURL: URL!
+    
+    
+    private func requestInfo(forRoute route: APIRoute) -> (method: Alamofire.HTTPMethod, URL: URL, encoding: ParameterEncoding, headers: [String: String]?) {
+        return (route.method, baseURL.appendingPathComponent(route.path), URLEncoding.default, nil)
     }
     
-    private func requestInfo(forRoute route: APIRoute) -> (method: Alamofire.HTTPMethod, URL: URL) {
-        return (route.method, baseURL.appendingPathComponent(route.path))
-    }
-    
-    func performRequest<T: ObjectMapper>(route: APIRoute,
-                        objectMapper: T,
-                        parameters: [String: AnyObject]? = nil,
-                        encoding: ParameterEncoding = URLEncoding.default,
-                        headers: [String: String]? = nil,
-                        completion: @escaping (Result<T.MappedType>) -> Void) {
+    func performRequest<T: BaseMappable>(route: APIRoute,
+                        mapping: ((_ responce: Any) -> T?)? = nil,
+                        completion: @escaping (Result<T?>) -> Void) {
         let requestInfo = self.requestInfo(forRoute: route)
-        let responseCompletion = jsonCompletion(forRequestCompletion: completion, objectMapper: objectMapper)
+        let responseCompletion = jsonCompletion(forRequestCompletion: completion, mapping: mapping)
         
         Alamofire.request(requestInfo.URL,
                           method: requestInfo.method,
-                          parameters: parameters,
-                          encoding: encoding,
-                          headers: headers).responseJSON(completionHandler: responseCompletion)
+                          parameters: route.parameters,
+                          encoding: requestInfo.encoding,
+                          headers: requestInfo.headers).responseJSON(completionHandler: responseCompletion)
     }
     
-    
-    private func jsonCompletion<T:ObjectMapper >(forRequestCompletion completion: @escaping (Result<T.MappedType>) -> Void,
-                                                                    objectMapper: T?) -> AlamofireCompletion {
+    private func jsonCompletion<T: BaseMappable>(forRequestCompletion completion: @escaping (Result<T?>) -> Void,
+                                                                         mapping: ((_ responce: Any) -> T?)?) -> AlamofireCompletion {
         return {[weak self] response in
             switch response.result {
             case .failure(let error):
@@ -54,24 +50,14 @@ class NetworkManager {
                     return
                 }
                 if (200..<300).contains(statusCode) {
-                    objectMapper?.performMapping(response: responseResult, completion: { (result) in
-                        switch result {
-                        case .success(let object):
-                            completion(.success(object))
-                        case .failure(let error):
-                            completion(.failure(error))
-                        }
-                    })
+                    completion(.success(mapping?(responseResult)))
                 } else {
                     if statusCode == 401 {
                         self?.errorHandler.handleUnauthorizedRequest()
                     } else if statusCode == 410 {
-                        self?.errorHandler.handleunavailableURL()
+                        self?.errorHandler.handleUnavailableURL()
                     } else {
-                        let errorMessage = NSLocalizedString("Unknown Error", comment: "Unknown Error")
-                        let json = responseResult as? NSDictionary
-                        let message = json?["message"] as? String ?? errorMessage
-                        let error = NSError(domain: String(describing: self), failureReason: message)
+                        guard let error = self?.errorHandler.mattermostClientErrorForResponse(response: responseResult) else { return }
                         completion(.failure(error))
                     }
                 }

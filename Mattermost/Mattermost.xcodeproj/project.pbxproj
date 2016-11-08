@@ -8,10 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		059802061DD0C19A00AE01C2 /* APIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802021DD0C19A00AE01C2 /* APIRoute.swift */; };
-		059802071DD0C19A00AE01C2 /* AutorizationRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802031DD0C19A00AE01C2 /* AutorizationRoute.swift */; };
+		059802071DD0C19A00AE01C2 /* APIAutorizationRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802031DD0C19A00AE01C2 /* APIAutorizationRoute.swift */; };
 		0598020C1DD0CFD800AE01C2 /* NSErrorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598020B1DD0CFD800AE01C2 /* NSErrorExtensions.swift */; };
-		059802101DD0D3DA00AE01C2 /* ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598020F1DD0D3DA00AE01C2 /* ObjectMapper.swift */; };
 		059802121DD0D40300AE01C2 /* NetworkErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802111DD0D40300AE01C2 /* NetworkErrorHandler.swift */; };
+		059802151DD0E59500AE01C2 /* UserSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802141DD0E59500AE01C2 /* UserSessionService.swift */; };
+		0598021A1DD0E6A600AE01C2 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802191DD0E6A600AE01C2 /* Dictionary.swift */; };
+		0598021C1DD0E7AB00AE01C2 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598021B1DD0E7AB00AE01C2 /* Keychain.swift */; };
+		0598021E1DD0EAEF00AE01C2 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598021D1DD0EAEF00AE01C2 /* AuthorizationService.swift */; };
+		0598022F1DD1DD8900AE01C2 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598022C1DD1DD8900AE01C2 /* UserSession.swift */; };
+		059802321DD1DD9200AE01C2 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802311DD1DD9200AE01C2 /* ClientError.swift */; };
+		059802351DD1F2E500AE01C2 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802341DD1F2E500AE01C2 /* KeychainService.swift */; };
+		059802381DD1FE6500AE01C2 /* ObjectMapperMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802371DD1FE6500AE01C2 /* ObjectMapperMapping.swift */; };
+		0598023B1DD1FFA000AE01C2 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802391DD1FFA000AE01C2 /* Team.swift */; };
+		0598023C1DD1FFA000AE01C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598023A1DD1FFA000AE01C2 /* User.swift */; };
 		14B13733842F1F1044A404E9 /* TeamSelectionWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564D983738F6BEE75679250 /* TeamSelectionWireframe.swift */; };
 		173DCC60CC82AF4BB9CB8D13 /* ForgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C00194F806ECB169D05AFAA /* ForgotPassViewController.swift */; };
 		254AA795224D1ADFA6038DDC /* Pods_Mattermost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC82200732458B67B33A763D /* Pods_Mattermost.framework */; };
@@ -48,8 +57,6 @@
 		E7967D301DCCE71E0025F402 /* SignInWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7967D2F1DCCE71E0025F402 /* SignInWireframe.swift */; };
 		E7967D321DCFA92D0025F402 /* UINavigationBar+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7967D311DCFA92D0025F402 /* UINavigationBar+Shadow.swift */; };
 		E7967D351DCFB1070025F402 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7967D341DCFB1070025F402 /* NetworkManager.swift */; };
-		E7967D371DCFC9FE0025F402 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7967D361DCFC9FE0025F402 /* User.swift */; };
-		E7967D391DCFD3060025F402 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7967D381DCFD3060025F402 /* Team.swift */; };
 		E7967D3C1DD04FB40025F402 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7967D3B1DD04FB40025F402 /* Main.storyboard */; };
 		E7967D3E1DD04FE10025F402 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7967D3D1DD04FE10025F402 /* MainCoordinator.swift */; };
 		E7967D401DD04FF00025F402 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7967D3F1DD04FF00025F402 /* MainRouter.swift */; };
@@ -92,10 +99,19 @@
 /* Begin PBXFileReference section */
 		03DA7649DC4F211B6F09AA51 /* TabBarProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarProtocols.swift; sourceTree = "<group>"; };
 		059802021DD0C19A00AE01C2 /* APIRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRoute.swift; sourceTree = "<group>"; };
-		059802031DD0C19A00AE01C2 /* AutorizationRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutorizationRoute.swift; sourceTree = "<group>"; };
+		059802031DD0C19A00AE01C2 /* APIAutorizationRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAutorizationRoute.swift; sourceTree = "<group>"; };
 		0598020B1DD0CFD800AE01C2 /* NSErrorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSErrorExtensions.swift; sourceTree = "<group>"; };
-		0598020F1DD0D3DA00AE01C2 /* ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectMapper.swift; sourceTree = "<group>"; };
 		059802111DD0D40300AE01C2 /* NetworkErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkErrorHandler.swift; path = ErrorHandler/NetworkErrorHandler.swift; sourceTree = "<group>"; };
+		059802141DD0E59500AE01C2 /* UserSessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSessionService.swift; path = Services/UserSessionService.swift; sourceTree = "<group>"; };
+		059802191DD0E6A600AE01C2 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		0598021B1DD0E7AB00AE01C2 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		0598021D1DD0EAEF00AE01C2 /* AuthorizationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthorizationService.swift; path = Services/AuthorizationService.swift; sourceTree = "<group>"; };
+		0598022C1DD1DD8900AE01C2 /* UserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		059802311DD1DD9200AE01C2 /* ClientError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
+		059802341DD1F2E500AE01C2 /* KeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainService.swift; path = Services/KeychainService.swift; sourceTree = "<group>"; };
+		059802371DD1FE6500AE01C2 /* ObjectMapperMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObjectMapperMapping.swift; path = Mapping/ObjectMapperMapping.swift; sourceTree = "<group>"; };
+		059802391DD1FFA000AE01C2 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		0598023A1DD1FFA000AE01C2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1D26ACE9D1BF8CF3D67C8F44 /* SignInInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInInteractor.swift; sourceTree = "<group>"; };
 		26FC560F2D9131DF61E812D6 /* TeamSelectionProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TeamSelectionProtocols.swift; sourceTree = "<group>"; };
 		3A58F125287A437082362895 /* SignInProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInProtocols.swift; sourceTree = "<group>"; };
@@ -135,8 +151,6 @@
 		E7967D2F1DCCE71E0025F402 /* SignInWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInWireframe.swift; sourceTree = "<group>"; };
 		E7967D311DCFA92D0025F402 /* UINavigationBar+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Shadow.swift"; sourceTree = "<group>"; };
 		E7967D341DCFB1070025F402 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		E7967D361DCFC9FE0025F402 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		E7967D381DCFD3060025F402 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		E7967D3B1DD04FB40025F402 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E7967D3D1DD04FE10025F402 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		E7967D3F1DD04FF00025F402 /* MainRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
@@ -193,7 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				059802021DD0C19A00AE01C2 /* APIRoute.swift */,
-				059802031DD0C19A00AE01C2 /* AutorizationRoute.swift */,
+				059802031DD0C19A00AE01C2 /* APIAutorizationRoute.swift */,
 			);
 			path = Routes;
 			sourceTree = "<group>";
@@ -206,12 +220,40 @@
 			name = ErrorHandler;
 			sourceTree = "<group>";
 		};
-		0598020E1DD0D3DA00AE01C2 /* Mapping */ = {
+		059802131DD0E4FA00AE01C2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0598020F1DD0D3DA00AE01C2 /* ObjectMapper.swift */,
+				059802141DD0E59500AE01C2 /* UserSessionService.swift */,
+				0598021D1DD0EAEF00AE01C2 /* AuthorizationService.swift */,
+				059802341DD1F2E500AE01C2 /* KeychainService.swift */,
 			);
-			path = Mapping;
+			name = Services;
+			sourceTree = "<group>";
+		};
+		059802291DD1DD8900AE01C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0598022C1DD1DD8900AE01C2 /* UserSession.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		059802301DD1DD9200AE01C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				059802391DD1FFA000AE01C2 /* Team.swift */,
+				0598023A1DD1FFA000AE01C2 /* User.swift */,
+				059802311DD1DD9200AE01C2 /* ClientError.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		059802361DD1FE4900AE01C2 /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				059802371DD1FE6500AE01C2 /* ObjectMapperMapping.swift */,
+			);
+			name = Mapping;
 			sourceTree = "<group>";
 		};
 		2D90FCBD82307673C2DA11A4 /* TeamSelection */ = {
@@ -322,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				E7662BDF1DC7497000E82AFC /* Aliases.swift */,
+				0598021B1DD0E7AB00AE01C2 /* Keychain.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -336,16 +379,6 @@
 				E7967D311DCFA92D0025F402 /* UINavigationBar+Shadow.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		E1FEB4C738A452684FEED983 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				E7967D361DCFC9FE0025F402 /* User.swift */,
-				E7967D381DCFD3060025F402 /* Team.swift */,
-			);
-			name = Models;
-			path = ../Common/Models;
 			sourceTree = "<group>";
 		};
 		E1FEBC21F4502D5B95BB8926 /* Resources */ = {
@@ -379,10 +412,10 @@
 			isa = PBXGroup;
 			children = (
 				E7967D341DCFB1070025F402 /* NetworkManager.swift */,
+				059802361DD1FE4900AE01C2 /* Mapping */,
 				059801FF1DD0C19A00AE01C2 /* Routes */,
-				0598020E1DD0D3DA00AE01C2 /* Mapping */,
+				059802301DD1DD9200AE01C2 /* Models */,
 				0598020D1DD0D31700AE01C2 /* ErrorHandler */,
-				E1FEB4C738A452684FEED983 /* Models */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -425,8 +458,10 @@
 			isa = PBXGroup;
 			children = (
 				E7A3288D1DAFE13B00C8A6B9 /* App */,
-				E7967D331DCFB0CB0025F402 /* Networking */,
 				E1FEB0CDBF27AD3F5D411DBE /* Common */,
+				E7967D331DCFB0CB0025F402 /* Networking */,
+				059802291DD1DD8900AE01C2 /* Models */,
+				059802131DD0E4FA00AE01C2 /* Services */,
 				E1FEB080E6FA78BD4B1739EB /* Authorization */,
 				E7967D3A1DD04EBA0025F402 /* Main */,
 				E1FEBC21F4502D5B95BB8926 /* Resources */,
@@ -478,6 +513,7 @@
 			children = (
 				E7662BDD1DC73FA100E82AFC /* Routing.swift */,
 				E7967D411DD073230025F402 /* Validators.swift */,
+				059802191DD0E6A600AE01C2 /* Dictionary.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -505,6 +541,7 @@
 				E7A3285A1DAFE02200C8A6B9 /* Resources */,
 				2757F9DD36F9FE29AA558135 /* [CP] Embed Pods Frameworks */,
 				AB1ACFFB5E71824607102CD3 /* [CP] Copy Pods Resources */,
+				0598021F1DD0ED3E00AE01C2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -710,23 +747,26 @@
 				E7A5B22B1DC258AE00ED2887 /* GradientButton.swift in Sources */,
 				E7662BDE1DC73FA100E82AFC /* Routing.swift in Sources */,
 				E7A5B2201DC20EC400ED2887 /* AuthorizationCoordinator.swift in Sources */,
+				0598023C1DD1FFA000AE01C2 /* User.swift in Sources */,
 				E7967D2C1DCCDE3C0025F402 /* ServerSelectionWireframe.swift in Sources */,
 				E7967D401DD04FF00025F402 /* MainRouter.swift in Sources */,
 				0598020C1DD0CFD800AE01C2 /* NSErrorExtensions.swift in Sources */,
-				E7967D371DCFC9FE0025F402 /* User.swift in Sources */,
 				E1FEB01077FE23850335AEDB /* AppDelegate.swift in Sources */,
 				E7A5B2221DC2137400ED2887 /* R.generated.swift in Sources */,
 				059802121DD0D40300AE01C2 /* NetworkErrorHandler.swift in Sources */,
+				0598023B1DD1FFA000AE01C2 /* Team.swift in Sources */,
 				E7A5B22D1DC261C200ED2887 /* UIView+IBInspectable.swift in Sources */,
+				059802381DD1FE6500AE01C2 /* ObjectMapperMapping.swift in Sources */,
 				60E0C1D4BA031AE6AACA07D7 /* ServerSelectionProtocols.swift in Sources */,
 				E7967D301DCCE71E0025F402 /* SignInWireframe.swift in Sources */,
 				5B6736DFD1D6387C3B402C0E /* ServerSelectionViewController.swift in Sources */,
-				059802071DD0C19A00AE01C2 /* AutorizationRoute.swift in Sources */,
+				059802071DD0C19A00AE01C2 /* APIAutorizationRoute.swift in Sources */,
+				059802321DD1DD9200AE01C2 /* ClientError.swift in Sources */,
 				E7662BE01DC7497000E82AFC /* Aliases.swift in Sources */,
 				E7967D2E1DCCE2C30025F402 /* AuthorizationRouter.swift in Sources */,
 				762226E5F9B9149D5D258BAE /* ServerSelectionPresenter.swift in Sources */,
-				E7967D391DCFD3060025F402 /* Team.swift in Sources */,
 				E7DCD8431DC9F19400F599D8 /* KeyboardHandler.swift in Sources */,
+				059802351DD1F2E500AE01C2 /* KeychainService.swift in Sources */,
 				E7967D421DD073230025F402 /* Validators.swift in Sources */,
 				E7967D351DCFB1070025F402 /* NetworkManager.swift in Sources */,
 				E7AE43F61DCA5A6500475B8F /* HideKeyboardRecognizer.swift in Sources */,
@@ -736,7 +776,9 @@
 				EEC2A5C891FD92145D059CCF /* SignInViewController.swift in Sources */,
 				616CF365F1D150AAD8132D66 /* SignInPresenter.swift in Sources */,
 				059802061DD0C19A00AE01C2 /* APIRoute.swift in Sources */,
+				0598021E1DD0EAEF00AE01C2 /* AuthorizationService.swift in Sources */,
 				E7AE43F41DCA531700475B8F /* UIResponder+FirstResponder.swift in Sources */,
+				059802151DD0E59500AE01C2 /* UserSessionService.swift in Sources */,
 				8D7CC4105BB3F751220B3B45 /* SignInInteractor.swift in Sources */,
 				E7AE43F21DCA4E4900475B8F /* UIView+CurrentConstraints.swift in Sources */,
 				AE93AAC666D6403D05529721 /* ForgotPassProtocols.swift in Sources */,
@@ -746,7 +788,6 @@
 				E29BE190D7FDF84BF453E961 /* ForgotPassWireframe.swift in Sources */,
 				520649B1426F38DD83F40367 /* TeamSelectionProtocols.swift in Sources */,
 				E7967D3E1DD04FE10025F402 /* MainCoordinator.swift in Sources */,
-				059802101DD0D3DA00AE01C2 /* ObjectMapper.swift in Sources */,
 				FABCACF157FD70E5DD6A644E /* TeamSelectionViewController.swift in Sources */,
 				2A44C1DC0FB2F137E249CE0A /* TeamSelectionPresenter.swift in Sources */,
 				87FA385537A2102552BBE990 /* TeamSelectionInteractor.swift in Sources */,
@@ -754,7 +795,10 @@
 				8E71517A5428AAB931096209 /* TabBarProtocols.swift in Sources */,
 				96231C33ED124D0085690A60 /* TabBarViewController.swift in Sources */,
 				3E2A6E49B53E513847238E35 /* TabBarPresenter.swift in Sources */,
+				0598021A1DD0E6A600AE01C2 /* Dictionary.swift in Sources */,
+				0598022F1DD1DD8900AE01C2 /* UserSession.swift in Sources */,
 				C7FF672941DC719DC8B2ECF3 /* TabBarInteractor.swift in Sources */,
+				0598021C1DD0E7AB00AE01C2 /* Keychain.swift in Sources */,
 				E0A5776EDA85AF269329C130 /* TabBarWireframe.swift in Sources */,
 				F533C6B49BB892E691CBE0C9 /* MenuProtocols.swift in Sources */,
 				69EDB3E5099C07442AD3AAD2 /* MenuViewController.swift in Sources */,

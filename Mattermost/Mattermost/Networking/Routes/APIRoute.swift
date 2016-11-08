@@ -11,6 +11,8 @@ import Alamofire
 
 protocol APIRoute {
     
+    var parameters: [String: Any]? { get }
+    
     var path: String { get }
     var method: Alamofire.HTTPMethod { get }
     
