@@ -21,8 +21,8 @@ class NetworkManager {
     var baseURL: URL!
     
     
-    private func requestInfo(forRoute route: APIRoute) -> (method: Alamofire.HTTPMethod, URL: URL, encoding: ParameterEncoding, headers: [String: String]?) {
-        return (route.method, baseURL.appendingPathComponent(route.path), URLEncoding.default, nil)
+    private func requestInfo(forRoute route: APIRoute) -> (method: Alamofire.HTTPMethod, URL: URL) {
+        return (route.method, baseURL.appendingPathComponent(route.path))
     }
     
     func performRequest<T: BaseMappable>(route: APIRoute,
@@ -33,9 +33,7 @@ class NetworkManager {
         
         Alamofire.request(requestInfo.URL,
                           method: requestInfo.method,
-                          parameters: route.parameters,
-                          encoding: requestInfo.encoding,
-                          headers: requestInfo.headers).responseJSON(completionHandler: responseCompletion)
+                          parameters: route.parameters).responseJSON(completionHandler: responseCompletion)
     }
     
     private func jsonCompletion<T: BaseMappable>(forRequestCompletion completion: @escaping (Result<T?>) -> Void,

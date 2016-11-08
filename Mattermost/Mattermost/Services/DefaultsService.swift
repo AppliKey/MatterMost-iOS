@@ -8,8 +8,16 @@
 
 import Foundation
 
+protocol NetworkBaseUrlProtocol {
+    static func saveNetworkBaseUrl(baseUrl: URL)
+    static func deleteNetworkBaseUrl()
+    static func networkBaseUrl() -> URL?
+}
+
 class DefaultsService {
-    
+}
+
+extension DefaultsService: NetworkBaseUrlProtocol {
     private static let NetworkBaseUrlKey = "network_base_url"
 
     static func saveNetworkBaseUrl(baseUrl: URL) {
@@ -23,5 +31,4 @@ class DefaultsService {
     static func networkBaseUrl() -> URL? {
         return UserDefaults.value(forKey: NetworkBaseUrlKey) as? URL
     }
-    
 }

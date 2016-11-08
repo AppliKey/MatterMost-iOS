@@ -21,6 +21,8 @@
 		059802381DD1FE6500AE01C2 /* ObjectMapperMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802371DD1FE6500AE01C2 /* ObjectMapperMapping.swift */; };
 		0598023B1DD1FFA000AE01C2 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802391DD1FFA000AE01C2 /* Team.swift */; };
 		0598023C1DD1FFA000AE01C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598023A1DD1FFA000AE01C2 /* User.swift */; };
+		05A4BA8B1DD21B1B007FAA18 /* URL+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4BA8A1DD21B1B007FAA18 /* URL+Validation.swift */; };
+		05A4BA8D1DD23BF7007FAA18 /* ServerPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4BA8C1DD23BF7007FAA18 /* ServerPing.swift */; };
 		14B13733842F1F1044A404E9 /* TeamSelectionWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564D983738F6BEE75679250 /* TeamSelectionWireframe.swift */; };
 		173DCC60CC82AF4BB9CB8D13 /* ForgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C00194F806ECB169D05AFAA /* ForgotPassViewController.swift */; };
 		254AA795224D1ADFA6038DDC /* Pods_Mattermost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC82200732458B67B33A763D /* Pods_Mattermost.framework */; };
@@ -113,6 +115,8 @@
 		059802391DD1FFA000AE01C2 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		0598023A1DD1FFA000AE01C2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		05A4BA891DD215FA007FAA18 /* Mattermost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mattermost.entitlements; sourceTree = "<group>"; };
+		05A4BA8A1DD21B1B007FAA18 /* URL+Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Validation.swift"; sourceTree = "<group>"; };
+		05A4BA8C1DD23BF7007FAA18 /* ServerPing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerPing.swift; sourceTree = "<group>"; };
 		1D26ACE9D1BF8CF3D67C8F44 /* SignInInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInInteractor.swift; sourceTree = "<group>"; };
 		26FC560F2D9131DF61E812D6 /* TeamSelectionProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TeamSelectionProtocols.swift; sourceTree = "<group>"; };
 		3A58F125287A437082362895 /* SignInProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInProtocols.swift; sourceTree = "<group>"; };
@@ -245,6 +249,7 @@
 				059802391DD1FFA000AE01C2 /* Team.swift */,
 				0598023A1DD1FFA000AE01C2 /* User.swift */,
 				059802311DD1DD9200AE01C2 /* ClientError.swift */,
+				05A4BA8C1DD23BF7007FAA18 /* ServerPing.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 				E7AE43F11DCA4E4900475B8F /* UIView+CurrentConstraints.swift */,
 				E7AE43F31DCA531700475B8F /* UIResponder+FirstResponder.swift */,
 				E7967D311DCFA92D0025F402 /* UINavigationBar+Shadow.swift */,
+				05A4BA8A1DD21B1B007FAA18 /* URL+Validation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -796,7 +802,9 @@
 				520649B1426F38DD83F40367 /* TeamSelectionProtocols.swift in Sources */,
 				E7967D3E1DD04FE10025F402 /* MainCoordinator.swift in Sources */,
 				FABCACF157FD70E5DD6A644E /* TeamSelectionViewController.swift in Sources */,
+				05A4BA8B1DD21B1B007FAA18 /* URL+Validation.swift in Sources */,
 				2A44C1DC0FB2F137E249CE0A /* TeamSelectionPresenter.swift in Sources */,
+				05A4BA8D1DD23BF7007FAA18 /* ServerPing.swift in Sources */,
 				87FA385537A2102552BBE990 /* TeamSelectionInteractor.swift in Sources */,
 				14B13733842F1F1044A404E9 /* TeamSelectionWireframe.swift in Sources */,
 				8E71517A5428AAB931096209 /* TabBarProtocols.swift in Sources */,

@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-struct ClientError: Mappable {
+class ClientError: Mappable {
     var id: String?
     var message: String?
     var detailedError: String?
@@ -17,11 +17,11 @@ struct ClientError: Mappable {
     var statusCode: Int?
     var isOauth: Bool?
     
-    init?(map: Map) {
+    required init?(map: Map) {
         
     }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         self.id <- map["id"]
         self.message <- map["message"]
         self.detailedError <- map["detailed_error"]

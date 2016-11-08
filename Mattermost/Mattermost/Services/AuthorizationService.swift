@@ -8,13 +8,23 @@
 
 import Foundation
 
-class AuthorizationService: SignInService {
+class AuthorizationService{
+    weak var manager = NetworkManager.shared
+}
+
+extension AuthorizationService: SignInService {
     
     func signIn(withEmail email: String, password: String, completion: (Result<Void>) -> Void) {
         
-       //TODO: Network request
+        //TODO: Network request
+    }
+}
 
-        
+extension AuthorizationService: ServerPingProtocol {
+    
+    func pingServer(url: URL, completion: @escaping ServerPingClosure) -> () {
+        manager?.baseURL = url
+        manager?.performRequest(route: APIAutorizationRoute.Ping, mapping:objectMapperMapping(), completion: completion)
     }
     
 }
