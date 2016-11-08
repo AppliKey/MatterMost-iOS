@@ -17,7 +17,7 @@
 		0598021E1DD0EAEF00AE01C2 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598021D1DD0EAEF00AE01C2 /* AuthorizationService.swift */; };
 		0598022F1DD1DD8900AE01C2 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598022C1DD1DD8900AE01C2 /* UserSession.swift */; };
 		059802321DD1DD9200AE01C2 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802311DD1DD9200AE01C2 /* ClientError.swift */; };
-		059802351DD1F2E500AE01C2 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802341DD1F2E500AE01C2 /* KeychainService.swift */; };
+		059802351DD1F2E500AE01C2 /* DefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802341DD1F2E500AE01C2 /* DefaultsService.swift */; };
 		059802381DD1FE6500AE01C2 /* ObjectMapperMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802371DD1FE6500AE01C2 /* ObjectMapperMapping.swift */; };
 		0598023B1DD1FFA000AE01C2 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802391DD1FFA000AE01C2 /* Team.swift */; };
 		0598023C1DD1FFA000AE01C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598023A1DD1FFA000AE01C2 /* User.swift */; };
@@ -108,7 +108,7 @@
 		0598021D1DD0EAEF00AE01C2 /* AuthorizationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthorizationService.swift; path = Services/AuthorizationService.swift; sourceTree = "<group>"; };
 		0598022C1DD1DD8900AE01C2 /* UserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		059802311DD1DD9200AE01C2 /* ClientError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
-		059802341DD1F2E500AE01C2 /* KeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainService.swift; path = Services/KeychainService.swift; sourceTree = "<group>"; };
+		059802341DD1F2E500AE01C2 /* DefaultsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultsService.swift; path = Services/DefaultsService.swift; sourceTree = "<group>"; };
 		059802371DD1FE6500AE01C2 /* ObjectMapperMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObjectMapperMapping.swift; path = Mapping/ObjectMapperMapping.swift; sourceTree = "<group>"; };
 		059802391DD1FFA000AE01C2 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		0598023A1DD1FFA000AE01C2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 			children = (
 				059802141DD0E59500AE01C2 /* UserSessionService.swift */,
 				0598021D1DD0EAEF00AE01C2 /* AuthorizationService.swift */,
-				059802341DD1F2E500AE01C2 /* KeychainService.swift */,
+				059802341DD1F2E500AE01C2 /* DefaultsService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -773,7 +773,7 @@
 				E7967D2E1DCCE2C30025F402 /* AuthorizationRouter.swift in Sources */,
 				762226E5F9B9149D5D258BAE /* ServerSelectionPresenter.swift in Sources */,
 				E7DCD8431DC9F19400F599D8 /* KeyboardHandler.swift in Sources */,
-				059802351DD1F2E500AE01C2 /* KeychainService.swift in Sources */,
+				059802351DD1F2E500AE01C2 /* DefaultsService.swift in Sources */,
 				E7967D421DD073230025F402 /* Validators.swift in Sources */,
 				E7967D351DCFB1070025F402 /* NetworkManager.swift in Sources */,
 				E7AE43F61DCA5A6500475B8F /* HideKeyboardRecognizer.swift in Sources */,
