@@ -9,24 +9,33 @@
 import Foundation
 import UIKit
 
-class MainRouter: NavigationRouting {
+fileprivate let transitionDuration = 0.2
+
+class MainRouter {
     
-    let navigationController: UINavigationController
-    var topViewController: UIViewController
-    
-    //MARK: - Init
-    required init(withNavigationController navigationController: UINavigationController) {
-        self.navigationController = navigationController
-        topViewController = navigationController.topViewController ?? navigationController
+    func pushFromLeft(fromViewController sender: UIViewController, to viewController:UIViewController) {
+        let transition = CATransition()
+        transition.duration = transitionDuration
+        transition.type = kCATransitionPush
+        transition.subtype = kCATransitionFromLeft
+        sender.navigationController?.view?.layer.add(transition, forKey: kCATransition)
+        sender.navigationController?.pushViewController(viewController, animated: false)
     }
     
-    func leftToRightPush(viewController: UIViewController) {
+    func popToRight(fromViewController sender: UIViewController) {
         let transition = CATransition()
-        transition.duration = 0.5
+        transition.duration = transitionDuration
         transition.type = kCATransitionPush
         transition.subtype = kCATransitionFromRight
-        topViewController.view.layer.add(transition, forKey: kCATransition)
-        navigationController.pushViewController(viewController, animated: true)
-        topViewController = viewController
+        sender.navigationController?.view?.layer.add(transition, forKey: kCATransition)
+        _ = sender.navigationController?.popViewController(animated: false)
+    }
+    
+    func push(fromViewController sender: UIViewController, to viewController:UIViewController) {
+        sender.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func pop(fromViewController sender: UIViewController) {
+        _ = sender.navigationController?.popViewController(animated: true)
     }
 }

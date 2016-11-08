@@ -16,10 +16,16 @@ class MenuViewController: UIViewController {
   
   	//MARK: - Life cycle
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         configureInterface()
-	}
+    }
+    
+    //MARK: -
+    
+    func goBack(_ sender:AnyObject) {
+        eventHandler.goBack(fromViewController: self)
+    }
 
 	//MARK: - Private -
 
@@ -27,6 +33,8 @@ class MenuViewController: UIViewController {
     
     private func configureInterface() {
         localizeViews()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.image.back(), style: .done,
+                                                           target: self, action: #selector(goBack(_:)))
     }
     
     private func localizeViews() {

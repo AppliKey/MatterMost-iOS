@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension Notification.Name {
     static let unreadControllerSettingChanged = Notification.Name("unreadControllerSettingChanged")
@@ -41,9 +42,11 @@ class TabBarInteractor {
     
     fileprivate func showUnreadController() {
         if let viewControllers = presenter.tabBarViewControllers, viewControllers.count == 4 {
-            guard let unreadViewController = R.storyboard.main.unreadMessagesViewController()
+            guard let unreadController = R.storyboard.main.unreadViewController()
                 else { fatalError("Can't instantiate unread view controller") }
-            presenter.tabBarViewControllers!.insert(unreadViewController, at: 0)
+            let unreadNavigationController = UINavigationController(rootViewController: unreadController)
+            UnreadWireframe.setup(unreadController, withCoordinator: self as! UnreadCoordinator)
+            presenter.tabBarViewControllers!.insert(unreadNavigationController, at: 0)
         }
     }
 }

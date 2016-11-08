@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A255CC24DA313C12FDE940A /* UnreadProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7754876EEDB107768FEC7A /* UnreadProtocols.swift */; };
+		149C65D622E1F641B23F451C /* UnreadWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC31739341DBF4AAB47B00 /* UnreadWireframe.swift */; };
 		14B13733842F1F1044A404E9 /* TeamSelectionWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564D983738F6BEE75679250 /* TeamSelectionWireframe.swift */; };
 		173DCC60CC82AF4BB9CB8D13 /* ForgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C00194F806ECB169D05AFAA /* ForgotPassViewController.swift */; };
 		254AA795224D1ADFA6038DDC /* Pods_Mattermost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC82200732458B67B33A763D /* Pods_Mattermost.framework */; };
@@ -17,9 +19,11 @@
 		5B6736DFD1D6387C3B402C0E /* ServerSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D6FF0481C053D251BC65D1 /* ServerSelectionViewController.swift */; };
 		60E0C1D4BA031AE6AACA07D7 /* ServerSelectionProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECF7C75E265C9140F7C44A /* ServerSelectionProtocols.swift */; };
 		616CF365F1D150AAD8132D66 /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16C366B8EDD757FF705697 /* SignInPresenter.swift */; };
+		676AD0E96FF35C1C75942A14 /* UnreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B789826C156605A3855D83 /* UnreadViewController.swift */; };
 		69EDB3E5099C07442AD3AAD2 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3173A34865CD555A85F30A /* MenuViewController.swift */; };
 		762226E5F9B9149D5D258BAE /* ServerSelectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB052551A2DB190AA400A464 /* ServerSelectionPresenter.swift */; };
 		7C3B115BBD9605652EFAD47E /* MenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B7B00AF6B0AA83B81EBB5E /* MenuInteractor.swift */; };
+		87F6BFEB55F563EEAC643AE8 /* UnreadInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF5F88022E5A9FF010338A /* UnreadInteractor.swift */; };
 		87FA385537A2102552BBE990 /* TeamSelectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5BCEA9AADBE4109909D940 /* TeamSelectionInteractor.swift */; };
 		8D7CC4105BB3F751220B3B45 /* SignInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D26ACE9D1BF8CF3D67C8F44 /* SignInInteractor.swift */; };
 		8E71517A5428AAB931096209 /* TabBarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DA7649DC4F211B6F09AA51 /* TabBarProtocols.swift */; };
@@ -27,6 +31,8 @@
 		99E70DE0B255E98927AA1AB2 /* ForgotPassPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52545F73EEA28BF1B8E7EC49 /* ForgotPassPresenter.swift */; };
 		A2ADDCECED0B56BE66B00508 /* MenuWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986D52DB4FC8268B877EB760 /* MenuWireframe.swift */; };
 		AE93AAC666D6403D05529721 /* ForgotPassProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF4B694C44E5732CEEBFAB6 /* ForgotPassProtocols.swift */; };
+		B3BDC7A0A7E15799C669C112 /* UnreadPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1996D08E2F118D380F3925FF /* UnreadPresenter.swift */; };
+		B641BC981DD2280000A0EEA6 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641BC971DD2280000A0EEA6 /* NavigationManager.swift */; };
 		BFE20322EC44EEB648B2F19A /* SignInProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A58F125287A437082362895 /* SignInProtocols.swift */; };
 		C7FF672941DC719DC8B2ECF3 /* TabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A739DE996B17566DB004F9 /* TabBarInteractor.swift */; };
 		CEF5EA6357C16A206FD10CE3 /* ForgotPassInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9642C82AFA097DBA4FDD97D /* ForgotPassInteractor.swift */; };
@@ -86,7 +92,10 @@
 
 /* Begin PBXFileReference section */
 		03DA7649DC4F211B6F09AA51 /* TabBarProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarProtocols.swift; sourceTree = "<group>"; };
+		18B789826C156605A3855D83 /* UnreadViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnreadViewController.swift; sourceTree = "<group>"; };
+		1996D08E2F118D380F3925FF /* UnreadPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnreadPresenter.swift; sourceTree = "<group>"; };
 		1D26ACE9D1BF8CF3D67C8F44 /* SignInInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInInteractor.swift; sourceTree = "<group>"; };
+		26DC31739341DBF4AAB47B00 /* UnreadWireframe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnreadWireframe.swift; sourceTree = "<group>"; };
 		26FC560F2D9131DF61E812D6 /* TeamSelectionProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TeamSelectionProtocols.swift; sourceTree = "<group>"; };
 		3A58F125287A437082362895 /* SignInProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInProtocols.swift; sourceTree = "<group>"; };
 		499B606646FF7C8F5A9C6205 /* ForgotPassWireframe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ForgotPassWireframe.swift; sourceTree = "<group>"; };
@@ -96,6 +105,7 @@
 		5C1CD18CF3E4BA61C009B889 /* Pods-Mattermost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mattermost.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mattermost/Pods-Mattermost.release.xcconfig"; sourceTree = "<group>"; };
 		5D9EA4229E1CC8F86D8CD013 /* SignInViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		6C00194F806ECB169D05AFAA /* ForgotPassViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ForgotPassViewController.swift; sourceTree = "<group>"; };
+		6D7754876EEDB107768FEC7A /* UnreadProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnreadProtocols.swift; sourceTree = "<group>"; };
 		6F048C9A32EDB8719052A494 /* TabBarWireframe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarWireframe.swift; sourceTree = "<group>"; };
 		70A739DE996B17566DB004F9 /* TabBarInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarInteractor.swift; sourceTree = "<group>"; };
 		73FB12EAD1A6F2108CFA9F4C /* MenuProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuProtocols.swift; sourceTree = "<group>"; };
@@ -108,10 +118,12 @@
 		986D52DB4FC8268B877EB760 /* MenuWireframe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuWireframe.swift; sourceTree = "<group>"; };
 		A01F046DF9EC8F9899A7F700 /* Pods-Mattermost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mattermost.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mattermost/Pods-Mattermost.debug.xcconfig"; sourceTree = "<group>"; };
 		AE16C366B8EDD757FF705697 /* SignInPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
+		B641BC971DD2280000A0EEA6 /* NavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		BB052551A2DB190AA400A464 /* ServerSelectionPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ServerSelectionPresenter.swift; sourceTree = "<group>"; };
 		BC82200732458B67B33A763D /* Pods_Mattermost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mattermost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26F71A1EBA56A22C9F1B09A /* TeamSelectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TeamSelectionViewController.swift; sourceTree = "<group>"; };
 		CC5BCEA9AADBE4109909D940 /* TeamSelectionInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TeamSelectionInteractor.swift; sourceTree = "<group>"; };
+		D7EF5F88022E5A9FF010338A /* UnreadInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnreadInteractor.swift; sourceTree = "<group>"; };
 		DB3173A34865CD555A85F30A /* MenuViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		E1FEB52FE2B328F7662C3D9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1FEBB2EA6D014656D7AE150 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -189,6 +201,18 @@
 				5564D983738F6BEE75679250 /* TeamSelectionWireframe.swift */,
 			);
 			path = TeamSelection;
+			sourceTree = "<group>";
+		};
+		351BD29A35C23E3B44CB2B24 /* Unread */ = {
+			isa = PBXGroup;
+			children = (
+				6D7754876EEDB107768FEC7A /* UnreadProtocols.swift */,
+				18B789826C156605A3855D83 /* UnreadViewController.swift */,
+				1996D08E2F118D380F3925FF /* UnreadPresenter.swift */,
+				D7EF5F88022E5A9FF010338A /* UnreadInteractor.swift */,
+				26DC31739341DBF4AAB47B00 /* UnreadWireframe.swift */,
+			);
+			path = Unread;
 			sourceTree = "<group>";
 		};
 		4DF1514CB8DEC9E67EC8A44A /* SignIn */ = {
@@ -356,6 +380,7 @@
 				E7967D3F1DD04FF00025F402 /* MainRouter.swift */,
 				5E47F2AC63E78F2C87B76307 /* TabBar */,
 				7ADA1E803E3C975F7D21D6C8 /* Menu */,
+				351BD29A35C23E3B44CB2B24 /* Unread */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -446,6 +471,7 @@
 		E7DCD8411DC9ECCE00F599D8 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				B641BC971DD2280000A0EEA6 /* NavigationManager.swift */,
 				E7DCD8421DC9F19400F599D8 /* KeyboardHandler.swift */,
 				E7AE43F51DCA5A6500475B8F /* HideKeyboardRecognizer.swift */,
 			);
@@ -690,6 +716,7 @@
 				520649B1426F38DD83F40367 /* TeamSelectionProtocols.swift in Sources */,
 				E7967D3E1DD04FE10025F402 /* MainCoordinator.swift in Sources */,
 				FABCACF157FD70E5DD6A644E /* TeamSelectionViewController.swift in Sources */,
+				B641BC981DD2280000A0EEA6 /* NavigationManager.swift in Sources */,
 				2A44C1DC0FB2F137E249CE0A /* TeamSelectionPresenter.swift in Sources */,
 				87FA385537A2102552BBE990 /* TeamSelectionInteractor.swift in Sources */,
 				14B13733842F1F1044A404E9 /* TeamSelectionWireframe.swift in Sources */,
@@ -703,6 +730,11 @@
 				E0CAE000C01C435E3E499B4F /* MenuPresenter.swift in Sources */,
 				7C3B115BBD9605652EFAD47E /* MenuInteractor.swift in Sources */,
 				A2ADDCECED0B56BE66B00508 /* MenuWireframe.swift in Sources */,
+				0A255CC24DA313C12FDE940A /* UnreadProtocols.swift in Sources */,
+				676AD0E96FF35C1C75942A14 /* UnreadViewController.swift in Sources */,
+				B3BDC7A0A7E15799C669C112 /* UnreadPresenter.swift in Sources */,
+				87F6BFEB55F563EEAC643AE8 /* UnreadInteractor.swift in Sources */,
+				149C65D622E1F641B23F451C /* UnreadWireframe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

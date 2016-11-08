@@ -24,7 +24,7 @@ class AppCoordinator {
     }
     
     func showMainScreen(withNavigationController navigationController: UINavigationController) {
-        let router = MainRouter(withNavigationController: navigationController)
+        let router = MainRouter()
         let coordinator = MainCoordinator(withRouter: router, appCoordinator: self)
         coordinator.start()
     }

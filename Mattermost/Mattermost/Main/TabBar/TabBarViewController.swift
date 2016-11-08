@@ -17,20 +17,11 @@ class TabBarViewController: UITabBarController {
   	//MARK: - Life cycle
 
 	override func viewDidLoad() {
-		super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(false, animated: false)
-        navigationController?.navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.image.icMenu(), style: .done,
-                                                                                 target: self, action: #selector(openMenuPressed))
+		super.viewDidLoad()        
         configureInterface()
         eventHandler.viewIsReady()
         configureNavigationBar()
 	}
-    
-    //MARK: -
-    
-    func openMenuPressed() {
-        
-    }
 
 	//MARK: - Private -
 

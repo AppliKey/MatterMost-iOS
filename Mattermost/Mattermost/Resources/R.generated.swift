@@ -374,7 +374,7 @@ struct _R: Rswift.Validatable {
       let privateChanelsViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "PrivateChanelsViewController")
       let publicChanelsViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "PublicChanelsViewController")
       let tabBarViewController = StoryboardViewControllerResource<Mattermost.TabBarViewController>(identifier: "TabBarViewController")
-      let unreadMessagesViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "UnreadMessagesViewController")
+      let unreadViewController = StoryboardViewControllerResource<UnreadViewController>(identifier: "UnreadViewController")
       
       func directViewControllers(_: Void = ()) -> UIKit.UIViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: directViewControllers)
@@ -400,8 +400,8 @@ struct _R: Rswift.Validatable {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tabBarViewController)
       }
       
-      func unreadMessagesViewController(_: Void = ()) -> UIKit.UIViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: unreadMessagesViewController)
+      func unreadViewController(_: Void = ()) -> UnreadViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: unreadViewController)
       }
       
       static func validate() throws {
@@ -417,7 +417,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "ic_direct_not_active") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_direct_not_active' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().tabBarViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBarViewController' could not be loaded from storyboard 'Main' as 'Mattermost.TabBarViewController'.") }
         if _R.storyboard.main().menuViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'menuViewController' could not be loaded from storyboard 'Main' as 'MenuViewController'.") }
-        if _R.storyboard.main().unreadMessagesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'unreadMessagesViewController' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }
+        if _R.storyboard.main().unreadViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'unreadViewController' could not be loaded from storyboard 'Main' as 'UnreadViewController'.") }
         if _R.storyboard.main().directViewControllers() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'directViewControllers' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }
         if _R.storyboard.main().favouritesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'favouritesViewController' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }
         if _R.storyboard.main().publicChanelsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'publicChanelsViewController' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }

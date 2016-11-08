@@ -29,5 +29,4 @@ protocol TabBarEventHandling: class {
 }
 
 protocol TabBarCoordinator: class {
-    func showSettings()
 }

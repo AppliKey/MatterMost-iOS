@@ -12,7 +12,7 @@
         <!--Menu View Controller-->
         <scene sceneID="PlD-FH-JUW">
             <objects>
-                <viewController storyboardIdentifier="MenuViewController" id="CFE-Ay-Huf" customClass="MenuViewController" customModule="Mattermost" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" hidesBottomBarWhenPushed="YES" id="CFE-Ay-Huf" customClass="MenuViewController" customModule="Mattermost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JzV-IT-h1b"/>
                         <viewControllerLayoutGuide type="bottom" id="sJY-GZ-bpD"/>
@@ -48,10 +48,10 @@
             </objects>
             <point key="canvasLocation" x="-2023" y="-206"/>
         </scene>
-        <!--View Controller-->
+        <!--Unread View Controller-->
         <scene sceneID="f0r-0A-r7w">
             <objects>
-                <viewController storyboardIdentifier="UnreadMessagesViewController" id="cfg-jf-55v" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UnreadViewController" id="cfg-jf-55v" customClass="UnreadViewController" customModule="Mattermost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5gI-92-VMx"/>
                         <viewControllerLayoutGuide type="bottom" id="5AX-6O-1Zv"/>
