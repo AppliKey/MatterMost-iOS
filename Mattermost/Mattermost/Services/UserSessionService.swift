@@ -10,13 +10,16 @@ import Foundation
 import Locksmith
 
 struct UserSessionService {
-        
+    
+    private static let ApplicationLaunchedBeforeKey = "TDUApplicationLaunchedBeforeKey"
+    
     static func save(session: UserSession) {
         if let _ = self.authorizedSession() {
             self.deleteSession()
         }
         do {
             try Locksmith.saveData(data: session.dictionary, forUserAccount: Keychain.userAccountString)
+            trackSessionSave()
         } catch let error {
             print("Failed to save user session: \(error)")
         }
@@ -37,7 +40,7 @@ struct UserSessionService {
     static func authorizedSession() -> UserSession? {
         let data = Locksmith.loadDataForUserAccount(userAccount: Keychain.userAccountString)
         var session = self.sessionFromData(data: data)
-        if data != nil && session == nil {
+        if data != nil && (session == nil || isFirstApplicationLaunch()) {
             deleteSession()
             session = nil
         }
@@ -49,6 +52,18 @@ struct UserSessionService {
             let accessToken = data["access_token"] as? String,
             !accessToken.isEmpty else { return nil }
         return UserSession(accessToken: accessToken)
+    }
+    
+    private static func trackSessionSave() {
+        UserDefaults.setValue(true, forKey: ApplicationLaunchedBeforeKey)
+    }
+    
+    /**
+     - returns: true if no user were signed in app before
+     */
+    private static func isFirstApplicationLaunch() -> Bool {
+        guard let value = UserDefaults.value(forKey: ApplicationLaunchedBeforeKey) as? Bool else { return false }
+        return value
     }
     
 }
