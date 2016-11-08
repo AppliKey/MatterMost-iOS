@@ -21,12 +21,14 @@ class MainCoordinator {
         guard let tabBarViewController = R.storyboard.main.tabBarViewController()
             else { fatalError("Can't instantiate tab bar view controller") }
         TabBarWireframe.setup(tabBarViewController, withCoordinator: self)
+        self.tabBarViewController = tabBarViewController
         
         tabBarViewController.viewControllers = setupTabBarViewControllers()
         NavigationManager.setRootController(tabBarViewController)
     }
     
     //MARK: - Private -
+    fileprivate var tabBarViewController: UITabBarController!
     fileprivate let router: MainRouter
     fileprivate unowned let appCoordinator: AppCoordinator
     
@@ -60,6 +62,21 @@ class MainCoordinator {
 
 //MARK: - TabBarCoordinator
 extension MainCoordinator: TabBarCoordinator {
+    func hideUnreadController() {
+        if let viewControllers = tabBarViewController.viewControllers, viewControllers.count == 5 {
+            _ = tabBarViewController.viewControllers!.remove(at: 0)
+        }
+    }
+    
+    func showUnreadController() {
+        if let viewControllers = tabBarViewController.viewControllers, viewControllers.count == 4 {
+            guard let unreadController = R.storyboard.main.unreadViewController()
+                else { fatalError("Can't instantiate unread view controller") }
+            let unreadNavigationController = UINavigationController(rootViewController: unreadController)
+            UnreadWireframe.setup(unreadController, withCoordinator: self)
+            tabBarViewController.viewControllers!.insert(unreadNavigationController, at: 0)
+        }
+    }
 }
 
 //MARK: - UnreadCoordinator

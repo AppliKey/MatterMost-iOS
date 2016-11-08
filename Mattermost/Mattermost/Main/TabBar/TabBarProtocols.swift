@@ -17,11 +17,11 @@ protocol TabBarInteracting: class {
 }
 
 protocol TabBarPresenting: class {
-    var tabBarViewControllers: [UIViewController]? { get set }
+    func hideUnreadController()
+    func showUnreadController()
 }
 
 protocol TabBarViewing: class {
-    var tabBarViewControllers: [UIViewController]? { get set }
 }
 
 protocol TabBarEventHandling: class {
@@ -29,4 +29,6 @@ protocol TabBarEventHandling: class {
 }
 
 protocol TabBarCoordinator: class {
+    func hideUnreadController()
+    func showUnreadController()
 }

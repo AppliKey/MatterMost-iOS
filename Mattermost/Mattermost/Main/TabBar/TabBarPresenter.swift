@@ -28,13 +28,12 @@ extension TabBarPresenter: TabBarConfigurator {
 }
 
 extension TabBarPresenter: TabBarPresenting {
+    func hideUnreadController() {
+        coordinator.hideUnreadController()
+    }
     
-    var tabBarViewControllers: [UIViewController]? {
-        get {
-            return view.tabBarViewControllers
-        } set {
-            view.tabBarViewControllers = newValue
-        }
+    func showUnreadController() {
+        coordinator.showUnreadController()
     }
 }
 

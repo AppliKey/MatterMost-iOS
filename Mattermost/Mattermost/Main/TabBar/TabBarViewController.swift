@@ -58,12 +58,4 @@ class TabBarViewController: UITabBarController {
 
 extension TabBarViewController: TabBarViewing {
     
-    var tabBarViewControllers: [UIViewController]? {
-        get {
-            return self.viewControllers
-        } set {
-            self.viewControllers = newValue
-        }
-    }
-    
 }
