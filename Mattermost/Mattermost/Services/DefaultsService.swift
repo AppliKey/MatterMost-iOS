@@ -18,6 +18,7 @@ class DefaultsService {
 }
 
 extension DefaultsService: NetworkBaseUrlProtocol {
+    
     private static let NetworkBaseUrlKey = "network_base_url"
 
     static func saveNetworkBaseUrl(baseUrl: URL) {

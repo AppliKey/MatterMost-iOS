@@ -22,7 +22,7 @@ class NetworkManager {
     
     
     private func requestInfo(forRoute route: APIRoute) -> (method: Alamofire.HTTPMethod, URL: URL) {
-        return (route.method, baseURL.appendingPathComponent(route.path))
+        return (route.method, baseURL.appendingPathComponent("/api/v3/"+route.path))
     }
     
     func performRequest<T: BaseMappable>(route: APIRoute,
