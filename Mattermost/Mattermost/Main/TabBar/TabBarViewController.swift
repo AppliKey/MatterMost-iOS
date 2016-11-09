@@ -19,8 +19,7 @@ class TabBarViewController: UITabBarController {
 	override func viewDidLoad() {
 		super.viewDidLoad()        
         configureInterface()
-        eventHandler.viewIsReady()
-        configureNavigationBar()
+        eventHandler.viewIsReady()        
 	}
 
 	//MARK: - Private -
@@ -42,20 +41,31 @@ class TabBarViewController: UITabBarController {
             tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
         }
     }
-    
-    private func configureNavigationBar() {
-        guard let navBar = navigationController?.navigationBar else { return }
-        navBar.barTintColor = .white
-        navBar.clearShadow()
-        let backButtonInsets = UIEdgeInsets(top: 13, left: 20, bottom: 0, right: 0)
-        let backButtonImage = R.image.back()?
-            .withRenderingMode(.alwaysOriginal)
-            .withAlignmentRectInsets(backButtonInsets)
-        navBar.backIndicatorImage = backButtonImage
-        navBar.backIndicatorTransitionMaskImage = backButtonImage
-    }
 }
 
 extension TabBarViewController: TabBarViewing {
-    
+    func showBadge(atController controller: TabBarControllers) {
+        var tabBarItem: UITabBarItem
+        switch controller {
+        case .Favourites:
+            tabBarItem = UITabBarItem(title: nil,
+                                      image: R.image.ic_favorites_new(),
+                                      selectedImage: R.image.ic_favorites())
+        case .PublicChannels:
+            tabBarItem = UITabBarItem(title: nil,
+                                      image: R.image.ic_public_chanels_new(),
+                                      selectedImage: R.image.ic_public_chanels())
+        case .PrivateChannels:
+            tabBarItem = UITabBarItem(title: nil,
+                                      image: R.image.ic_private_chanels_new(),
+                                      selectedImage: R.image.ic_private_chanels())
+        case .Direct:
+            tabBarItem = UITabBarItem(title: nil,
+                                      image: R.image.ic_direct_new(),
+                                      selectedImage: R.image.ic_direct())
+        }
+        tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+        let index = viewControllers?.count == 5 ? controller.rawValue + 1 : controller.rawValue
+        viewControllers?[index].tabBarItem = tabBarItem
+    }
 }

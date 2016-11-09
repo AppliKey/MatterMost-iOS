@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-fileprivate let transitionDuration = 0.2
+fileprivate let transitionDuration = 0.25
 
 class MainRouter {
     

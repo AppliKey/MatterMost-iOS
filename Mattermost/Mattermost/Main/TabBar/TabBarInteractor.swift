@@ -38,7 +38,7 @@ class TabBarInteractor {
 extension TabBarInteractor: TabBarInteracting {
     
     func checkUnreadController() {
-        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.hideUnreadController) {
+        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.hideUnreadController.rawValue) {
             presenter.hideUnreadController()
         } else {
             presenter.showUnreadController()

@@ -51,11 +51,26 @@ class MainCoordinator {
         guard let publicChannelsController = R.storyboard.main.publicChanelsViewController()
             else { fatalError("Can't instantiate public channels view controller") }
         publicChannelsController.tabBarItem = UITabBarItem(title: nil,
-                                                       image: R.image.ic_public_chanels_not_active(),
-                                                       selectedImage: R.image.ic_public_chanels())
+                                                           image: R.image.ic_public_chanels_not_active(),
+                                                           selectedImage: R.image.ic_public_chanels())
         let publicChannelsNavigationController = UINavigationController(rootViewController: publicChannelsController)
         
-        return [unreadNavigationController, favouritesNavigationController, publicChannelsNavigationController]
+        guard let privateChannelsController = R.storyboard.main.privateChanelsViewController()
+            else { fatalError("Can't instantiate private channels view controller") }
+        privateChannelsController.tabBarItem = UITabBarItem(title: nil,
+                                                            image: R.image.ic_private_chanels_not_active(),
+                                                            selectedImage: R.image.ic_private_chanels())
+        let privateChannelsNavigationController = UINavigationController(rootViewController: privateChannelsController)
+        
+        guard let directController = R.storyboard.main.directViewControllers()
+            else { fatalError("Can't instantiate direct messages view controller") }
+        directController.tabBarItem = UITabBarItem(title: nil,
+                                                   image: R.image.ic_direct_not_active(),
+                                                   selectedImage: R.image.ic_direct())
+        let directNavigationController = UINavigationController(rootViewController: directController)
+        
+        return [unreadNavigationController, favouritesNavigationController, publicChannelsNavigationController,
+                privateChannelsNavigationController, directNavigationController]
     }
     
 }

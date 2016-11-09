@@ -22,6 +22,7 @@ protocol TabBarPresenting: class {
 }
 
 protocol TabBarViewing: class {
+    func showBadge(atController controller: TabBarControllers)
 }
 
 protocol TabBarEventHandling: class {
