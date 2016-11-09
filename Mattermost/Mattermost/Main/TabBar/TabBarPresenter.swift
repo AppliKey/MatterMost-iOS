@@ -41,6 +41,6 @@ extension TabBarPresenter: TabBarEventHandling {
     func viewIsReady() {
         interactor.checkUnreadController()
         //For Test
-        showBadge(atController: .Direct)
+        view.showBadge(atController: .Direct)
     }
 }
