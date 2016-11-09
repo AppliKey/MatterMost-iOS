@@ -25,9 +25,15 @@ class NetworkManager {
         return (route.method, baseURL.appendingPathComponent("/api/v3/"+route.path))
     }
     
-    func performRequest<T: BaseMappable>(route: APIRoute,
+    func performMappableRequest<T: BaseMappable>(route: APIRoute,
                         mapping: ((_ responce: Any) -> T?)? = nil,
                         completion: @escaping (Result<T?>) -> Void) {
+        performRequest(route: route, mapping: mapping, completion: completion)
+    }
+    
+    func performRequest<T>(route: APIRoute,
+                         mapping: ((_ responce: Any) -> T?)? = nil,
+                      completion: @escaping (Result<T?>) -> Void) {
         let requestInfo = self.requestInfo(forRoute: route)
         let responseCompletion = jsonCompletion(forRequestCompletion: completion, mapping: mapping)
         
@@ -36,7 +42,7 @@ class NetworkManager {
                           parameters: route.parameters).responseJSON(completionHandler: responseCompletion)
     }
     
-    private func jsonCompletion<T: BaseMappable>(forRequestCompletion completion: @escaping (Result<T?>) -> Void,
+    private func jsonCompletion<T>(forRequestCompletion completion: @escaping (Result<T?>) -> Void,
                                                                          mapping: ((_ responce: Any) -> T?)?) -> AlamofireCompletion {
         return {[weak self] response in
             switch response.result {

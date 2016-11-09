@@ -28,7 +28,7 @@ extension SignInInteractor: SignInInteracting {
             completion(.failure(NSError(domain: R.string.localizable.passwordNotValid())))
             return
         }
-        //TODO: request sign in
+        
         signInService.signIn(withEmail: email, password: password, completion: completion)
     }
     

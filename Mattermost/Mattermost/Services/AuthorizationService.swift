@@ -24,7 +24,7 @@ extension AuthorizationService: ServerPingProtocol {
     
     func pingServer(url: URL, completion: @escaping ServerPingClosure) -> () {
         manager?.baseURL = url
-        manager?.performRequest(route: APIAutorizationRoute.Ping, mapping:objectMapperMapping(), completion: completion)
+        manager?.performRequest(route: APIAutorizationRoute.Ping, completion: completion)
     }
     
 }
