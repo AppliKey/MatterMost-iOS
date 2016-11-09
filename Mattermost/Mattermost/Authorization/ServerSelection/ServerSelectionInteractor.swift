@@ -21,7 +21,11 @@ extension ServerSelectionInteractor: ServerSelectionInteracting {
     
     func isAddressValid(address: String, completion: @escaping (_ isValid: Bool, _ message: String?) -> () ) {
         guard let url = URL(string: address) else { return completion(false, "Address is not valid") }
-        guard url.isValid(regex: URL.defaultUrlRegex) else { return completion(false, "Address format is not valid") }
+        guard (url.isValid(regex: URL.validIpAddressRegex) ||
+            url.isValid(regex: URL.validHostnameRegex) ||
+            url.isValid(regex: URL.validHttpIpAddressRegex)) else {
+            return completion(false, "Address format is not valid")
+        }
         
         serverService.pingServer(url: url) { (result) in
             switch result {
