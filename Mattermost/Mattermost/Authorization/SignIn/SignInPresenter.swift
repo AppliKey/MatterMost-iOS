@@ -36,7 +36,7 @@ extension SignInPresenter: SignInEventHandling {
         interactor.signIn(withEmail: email, password: password) {
             switch $0 {
             case .success: coordinator.next()
-            case .failure(let message): coordinator.alert(withMessage: message)
+            case .failure(let error): coordinator.alert(withMessage: error.localizedDescription)
             }
         }
     }

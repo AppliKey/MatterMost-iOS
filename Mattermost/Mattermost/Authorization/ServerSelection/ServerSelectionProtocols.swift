@@ -13,6 +13,7 @@ protocol ServerSelectionConfigurator: class {
 }
 
 protocol ServerSelectionInteracting: class {
+    func isAddressValid(address: String, completion: @escaping (_ isValid: Bool, _ message: String?) -> ())
 }
 
 protocol ServerSelectionPresenting: class {
