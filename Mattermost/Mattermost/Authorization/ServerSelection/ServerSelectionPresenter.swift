@@ -32,7 +32,9 @@ extension ServerSelectionPresenter: ServerSelectionPresenting {
 
 extension ServerSelectionPresenter: ServerSelectionEventHandling {
     func handleServerAddress(address: String) {
-        //TODO: validate and save server address
-        coordinator.signIn()
+        interactor.isAddressValid(address: address) { [weak self] (isValid, validationMessage) in
+            guard isValid else { return }
+            self?.coordinator.signIn()
+        }
     }
 }
