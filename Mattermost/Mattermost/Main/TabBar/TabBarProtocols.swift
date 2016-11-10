@@ -13,12 +13,9 @@ protocol TabBarConfigurator: class {
 }
 
 protocol TabBarInteracting: class {
-    func checkUnreadController()
 }
 
 protocol TabBarPresenting: class {
-    func hideUnreadController()
-    func showUnreadController()
 }
 
 protocol TabBarViewing: class {
@@ -26,10 +23,10 @@ protocol TabBarViewing: class {
 }
 
 protocol TabBarEventHandling: class {
-    func viewIsReady()
 }
 
 protocol TabBarCoordinator: class {
+    func checkUnreadController()
     func hideUnreadController()
     func showUnreadController()
 }

@@ -32,7 +32,7 @@ extension MenuPresenter: MenuPresenting {
 }
 
 extension MenuPresenter: MenuEventHandling {
-    func goBack(fromViewController viewController: UIViewController) {
-        coordinator.goBack(fromViewController: viewController)
+    func handleSettings() {
+        coordinator.openSettings()
     }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SideMenuController
 
 class AppCoordinator {
     
@@ -24,9 +25,21 @@ class AppCoordinator {
     }
     
     func showMainScreen(withNavigationController navigationController: UINavigationController) {
-        let router = MainRouter()
-        let coordinator = MainCoordinator(withRouter: router, appCoordinator: self)
-        coordinator.start()
+        setupSideMenu()
+        let sideMenu = SideMenuController()
+        let router = MainRouter(withSideMenuController: sideMenu)
+        let mainCoordinator = MainCoordinator(withRouter: router, appCoordinator: self)
+        let menuCoordinator = SideMenuCoordinator(withRouter: router, appCoordinator: self)
+        
+        mainCoordinator.start()
+        menuCoordinator.start()
     }
-  
+    
+    fileprivate func setupSideMenu() {
+        SideMenuController.preferences.drawing.menuButtonImage = R.image.icMenu()
+        SideMenuController.preferences.drawing.centerPanelShadow = true
+        SideMenuController.preferences.drawing.sidePanelPosition = .overCenterPanelLeft
+        SideMenuController.preferences.drawing.sidePanelWidth = 260
+        SideMenuController.preferences.animating.statusBarBehaviour = .showUnderlay
+    }
 }

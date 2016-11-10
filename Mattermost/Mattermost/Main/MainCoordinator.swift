@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SideMenuController
 
 class MainCoordinator {
     
@@ -21,26 +22,16 @@ class MainCoordinator {
         guard let tabBarViewController = R.storyboard.main.tabBarViewController()
             else { fatalError("Can't instantiate tab bar view controller") }
         TabBarWireframe.setup(tabBarViewController, withCoordinator: self)
-        self.tabBarViewController = tabBarViewController
-        
+        router.sideMenu.embed(centerViewController: tabBarViewController)
         tabBarViewController.viewControllers = setupTabBarViewControllers()
-        NavigationManager.setRootController(tabBarViewController)
+        NavigationManager.setRootController(router.sideMenu)
     }
     
     //MARK: - Private -
-    fileprivate var tabBarViewController: UITabBarController!
     fileprivate let router: MainRouter
     fileprivate unowned let appCoordinator: AppCoordinator
     
     fileprivate func setupTabBarViewControllers() -> [UIViewController] {
-        guard let unreadController = R.storyboard.main.unreadViewController()
-            else { fatalError("Can't instantiate unread view controller") }
-        let unreadNavigationController = UINavigationController.init(rootViewController: unreadController)
-        UnreadWireframe.setup(unreadController, withCoordinator: self)
-        unreadController.tabBarItem = UITabBarItem(title: nil,
-                                                   image: R.image.ic_unread_not_active(),
-                                                   selectedImage: R.image.ic_unread())
-        
         guard let favouritesController = R.storyboard.main.favouritesViewController()
             else { fatalError("Can't instantiate favourites view controller") }
         favouritesController.tabBarItem = UITabBarItem(title: nil,
@@ -69,43 +60,52 @@ class MainCoordinator {
                                                    selectedImage: R.image.ic_direct())
         let directNavigationController = UINavigationController(rootViewController: directController)
         
-        return [unreadNavigationController, favouritesNavigationController, publicChannelsNavigationController,
-                privateChannelsNavigationController, directNavigationController]
+        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.hideUnreadController.rawValue) {
+            return [favouritesNavigationController, publicChannelsNavigationController,
+                    privateChannelsNavigationController, directNavigationController]
+        } else {
+            guard let unreadController = R.storyboard.main.unreadViewController()
+                else { fatalError("Can't instantiate unread view controller") }
+            let unreadNavigationController = UINavigationController.init(rootViewController: unreadController)
+            UnreadWireframe.setup(unreadController, withCoordinator: self)
+            unreadController.tabBarItem = UITabBarItem(title: nil,
+                                                       image: R.image.ic_unread_not_active(),
+                                                       selectedImage: R.image.ic_unread())
+            return [unreadNavigationController, favouritesNavigationController, publicChannelsNavigationController,
+                    privateChannelsNavigationController, directNavigationController]
+        }
     }
-    
 }
 
 //MARK: - TabBarCoordinator
 extension MainCoordinator: TabBarCoordinator {
+    func checkUnreadController() {
+        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.hideUnreadController.rawValue) {
+            hideUnreadController()
+        } else {
+            showUnreadController()
+        }
+    }
     func hideUnreadController() {
-        if let viewControllers = tabBarViewController.viewControllers, viewControllers.count == 5 {
-            _ = tabBarViewController.viewControllers!.remove(at: 0)
+        if let viewControllers = router.tabBarController.viewControllers, viewControllers.count == 5 {
+            _ = router.tabBarController.viewControllers!.remove(at: 0)
         }
     }
     
     func showUnreadController() {
-        if let viewControllers = tabBarViewController.viewControllers, viewControllers.count == 4 {
+        if let viewControllers = router.tabBarController.viewControllers, viewControllers.count == 4 {
             guard let unreadController = R.storyboard.main.unreadViewController()
                 else { fatalError("Can't instantiate unread view controller") }
             let unreadNavigationController = UINavigationController(rootViewController: unreadController)
             UnreadWireframe.setup(unreadController, withCoordinator: self)
-            tabBarViewController.viewControllers!.insert(unreadNavigationController, at: 0)
+            router.tabBarController.viewControllers!.insert(unreadNavigationController, at: 0)
         }
     }
 }
 
 //MARK: - UnreadCoordinator
 extension MainCoordinator : UnreadCoordinator {
-    func openMenu(fromViewController viewController: UIViewController) {
-        guard let menu = R.storyboard.main.menuViewController()
-            else { fatalError("Can't instantiate settings view controller") }
-        MenuWireframe.setup(menu, withCoordinator: self)
-        router.pushFromLeft(fromViewController: viewController, to: menu)
-    }
-}
-
-extension MainCoordinator : MenuCoordinator {
-    func goBack(fromViewController viewController: UIViewController) {
-        router.popToRight(fromViewController: viewController)
+    func openMenu() {
+        router.sideMenu.toggle()
     }
 }

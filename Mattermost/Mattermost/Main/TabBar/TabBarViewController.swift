@@ -19,7 +19,6 @@ class TabBarViewController: UITabBarController {
 	override func viewDidLoad() {
 		super.viewDidLoad()        
         configureInterface()
-        eventHandler.viewIsReady()        
 	}
 
 	//MARK: - Private -

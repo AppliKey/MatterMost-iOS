@@ -26,5 +26,5 @@ protocol UnreadEventHandling: class {
 }
 
 protocol UnreadCoordinator: class {
-    func openMenu(fromViewController viewController: UIViewController)
+    func openMenu()
 }

@@ -28,19 +28,7 @@ extension TabBarPresenter: TabBarConfigurator {
 }
 
 extension TabBarPresenter: TabBarPresenting {
-    func hideUnreadController() {
-        coordinator.hideUnreadController()
-    }
-    
-    func showUnreadController() {
-        coordinator.showUnreadController()
-    }
 }
 
 extension TabBarPresenter: TabBarEventHandling {
-    func viewIsReady() {
-        interactor.checkUnreadController()
-        //For Test
-        view.showBadge(atController: .Direct)
-    }
 }

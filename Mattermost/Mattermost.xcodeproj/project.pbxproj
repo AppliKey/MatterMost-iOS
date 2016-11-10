@@ -34,6 +34,7 @@
 		B3BDC7A0A7E15799C669C112 /* UnreadPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1996D08E2F118D380F3925FF /* UnreadPresenter.swift */; };
 		B641BC981DD2280000A0EEA6 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641BC971DD2280000A0EEA6 /* NavigationManager.swift */; };
 		B641BC9A1DD3349700A0EEA6 /* TabBarConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641BC991DD3349700A0EEA6 /* TabBarConstants.swift */; };
+		B6E1EC3B1DD4B42A00E87B12 /* SideMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC3A1DD4B42A00E87B12 /* SideMenuCoordinator.swift */; };
 		BFE20322EC44EEB648B2F19A /* SignInProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A58F125287A437082362895 /* SignInProtocols.swift */; };
 		C7FF672941DC719DC8B2ECF3 /* TabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A739DE996B17566DB004F9 /* TabBarInteractor.swift */; };
 		CEF5EA6357C16A206FD10CE3 /* ForgotPassInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9642C82AFA097DBA4FDD97D /* ForgotPassInteractor.swift */; };
@@ -121,6 +122,7 @@
 		AE16C366B8EDD757FF705697 /* SignInPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
 		B641BC971DD2280000A0EEA6 /* NavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		B641BC991DD3349700A0EEA6 /* TabBarConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarConstants.swift; sourceTree = "<group>"; };
+		B6E1EC3A1DD4B42A00E87B12 /* SideMenuCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuCoordinator.swift; sourceTree = "<group>"; };
 		BB052551A2DB190AA400A464 /* ServerSelectionPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ServerSelectionPresenter.swift; sourceTree = "<group>"; };
 		BC82200732458B67B33A763D /* Pods_Mattermost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mattermost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26F71A1EBA56A22C9F1B09A /* TeamSelectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TeamSelectionViewController.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				E7967D3B1DD04FB40025F402 /* Main.storyboard */,
+				B6E1EC3A1DD4B42A00E87B12 /* SideMenuCoordinator.swift */,
 				E7967D3D1DD04FE10025F402 /* MainCoordinator.swift */,
 				E7967D3F1DD04FF00025F402 /* MainRouter.swift */,
 				5E47F2AC63E78F2C87B76307 /* TabBar */,
@@ -731,6 +734,7 @@
 				E0A5776EDA85AF269329C130 /* TabBarWireframe.swift in Sources */,
 				F533C6B49BB892E691CBE0C9 /* MenuProtocols.swift in Sources */,
 				69EDB3E5099C07442AD3AAD2 /* MenuViewController.swift in Sources */,
+				B6E1EC3B1DD4B42A00E87B12 /* SideMenuCoordinator.swift in Sources */,
 				E0CAE000C01C435E3E499B4F /* MenuPresenter.swift in Sources */,
 				7C3B115BBD9605652EFAD47E /* MenuInteractor.swift in Sources */,
 				A2ADDCECED0B56BE66B00508 /* MenuWireframe.swift in Sources */,

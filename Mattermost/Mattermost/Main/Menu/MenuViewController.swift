@@ -22,19 +22,17 @@ class MenuViewController: UIViewController {
     }
     
     //MARK: -
-    
-    func goBack(_ sender:AnyObject) {
-        eventHandler.goBack(fromViewController: self)
-    }
 
+    @IBAction private func settingsPressed(_ sender: Any) {
+        eventHandler.handleSettings()
+    }
+    
 	//MARK: - Private -
 
 	//MARK: - UI
     
     private func configureInterface() {
         localizeViews()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.image.back(), style: .done,
-                                                           target: self, action: #selector(goBack(_:)))
     }
     
     private func localizeViews() {

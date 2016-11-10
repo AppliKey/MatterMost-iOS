@@ -33,6 +33,6 @@ extension UnreadPresenter: UnreadPresenting {
 
 extension UnreadPresenter: UnreadEventHandling {
     func openMenu() {
-        coordinator.openMenu(fromViewController:  view as! UIViewController)
+        coordinator.openMenu()
     }
 }

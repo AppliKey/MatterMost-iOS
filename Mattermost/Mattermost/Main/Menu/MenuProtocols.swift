@@ -22,9 +22,9 @@ protocol MenuViewing: class {
 }
 
 protocol MenuEventHandling: class {
-    func goBack(fromViewController viewController:UIViewController)
+    func handleSettings()
 }
 
 protocol MenuCoordinator: class {
-    func goBack(fromViewController viewController: UIViewController)
+    func openSettings()
 }

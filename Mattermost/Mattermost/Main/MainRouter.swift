@@ -8,34 +8,27 @@
 
 import Foundation
 import UIKit
+import SideMenuController
 
 fileprivate let transitionDuration = 0.25
 
-class MainRouter {
+class MainRouter : NavigationRouting {
     
-    func pushFromLeft(fromViewController sender: UIViewController, to viewController:UIViewController) {
-        let transition = CATransition()
-        transition.duration = transitionDuration
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromLeft
-        sender.navigationController?.view?.layer.add(transition, forKey: kCATransition)
-        sender.navigationController?.pushViewController(viewController, animated: false)
+    var topViewController: UIViewController
+    
+    var sideMenu: SideMenuController
+    
+    var navigationController: UINavigationController {
+        return tabBarController.selectedViewController as! UINavigationController
     }
     
-    func popToRight(fromViewController sender: UIViewController) {
-        let transition = CATransition()
-        transition.duration = transitionDuration
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromRight
-        sender.navigationController?.view?.layer.add(transition, forKey: kCATransition)
-        _ = sender.navigationController?.popViewController(animated: false)
+    var tabBarController: UITabBarController {
+        return sideMenu.centerViewController as! TabBarViewController
     }
     
-    func push(fromViewController sender: UIViewController, to viewController:UIViewController) {
-        sender.navigationController?.pushViewController(viewController, animated: true)
-    }
-    
-    func pop(fromViewController sender: UIViewController) {
-        _ = sender.navigationController?.popViewController(animated: true)
+    //MARK: - Init
+    required init(withSideMenuController sideMenuController: SideMenuController) {
+        self.sideMenu = sideMenuController
+        topViewController = sideMenuController
     }
 }
