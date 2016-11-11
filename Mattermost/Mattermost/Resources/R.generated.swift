@@ -404,7 +404,7 @@ struct _R: Rswift.Validatable {
       let name = "Main"
       let privateChanelsViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "PrivateChanelsViewController")
       let publicChanelsViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "PublicChanelsViewController")
-      let settingsViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "SettingsViewController")
+      let settingsViewController = StoryboardViewControllerResource<SettingsViewController>(identifier: "SettingsViewController")
       let tabBarViewController = StoryboardViewControllerResource<Mattermost.TabBarViewController>(identifier: "TabBarViewController")
       let unreadViewController = StoryboardViewControllerResource<UnreadViewController>(identifier: "UnreadViewController")
       
@@ -428,7 +428,7 @@ struct _R: Rswift.Validatable {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: publicChanelsViewController)
       }
       
-      func settingsViewController(_: Void = ()) -> UIKit.UIViewController? {
+      func settingsViewController(_: Void = ()) -> SettingsViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: settingsViewController)
       }
       
@@ -459,7 +459,7 @@ struct _R: Rswift.Validatable {
         if _R.storyboard.main().favouritesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'favouritesViewController' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }
         if _R.storyboard.main().publicChanelsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'publicChanelsViewController' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }
         if _R.storyboard.main().privateChanelsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'privateChanelsViewController' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }
-        if _R.storyboard.main().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }
+        if _R.storyboard.main().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'Main' as 'SettingsViewController'.") }
       }
       
       fileprivate init() {}

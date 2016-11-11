@@ -26,7 +26,7 @@ protocol TabBarEventHandling: class {
 }
 
 protocol TabBarCoordinator: class {
-    func checkUnreadController()
+    func checkTabBarControllers()
     func hideUnreadController()
     func showUnreadController()
 }

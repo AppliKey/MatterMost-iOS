@@ -28,7 +28,7 @@ class AppCoordinator {
         let sideMenu = SideMenuController()
         let router = MainRouter(withSideMenuController: sideMenu)
         let mainCoordinator = MainCoordinator(withRouter: router, appCoordinator: self)
-        let menuCoordinator = SideMenuCoordinator(withRouter: router, appCoordinator: self)
+        let menuCoordinator = SideMenuCoordinator(withRouter: router, coordinator: mainCoordinator)
         
         mainCoordinator.start()
         menuCoordinator.start()

@@ -33,30 +33,26 @@ class MainCoordinator {
     fileprivate func setupTabBarViewControllers() -> [UIViewController] {
         guard let favouritesController = R.storyboard.main.favouritesViewController()
             else { fatalError("Can't instantiate favourites view controller") }
-        favouritesController.tabBarItem = UITabBarItem(title: nil,
-                                                       image: R.image.ic_favorites_not_active(),
-                                                       selectedImage: R.image.ic_favorites())
+        favouritesController.tabBarItem = UITabBarItem.withoutTitle(image: R.image.ic_favorites_not_active(),
+                                                                    selectedImage: R.image.ic_favorites())
         let favouritesNavigationController = UINavigationController(rootViewController: favouritesController)
         
         guard let publicChannelsController = R.storyboard.main.publicChanelsViewController()
             else { fatalError("Can't instantiate public channels view controller") }
-        publicChannelsController.tabBarItem = UITabBarItem(title: nil,
-                                                           image: R.image.ic_public_chanels_not_active(),
-                                                           selectedImage: R.image.ic_public_chanels())
+        publicChannelsController.tabBarItem = UITabBarItem.withoutTitle(image: R.image.ic_public_chanels_not_active(),
+                                                                        selectedImage: R.image.ic_public_chanels())
         let publicChannelsNavigationController = UINavigationController(rootViewController: publicChannelsController)
         
         guard let privateChannelsController = R.storyboard.main.privateChanelsViewController()
             else { fatalError("Can't instantiate private channels view controller") }
-        privateChannelsController.tabBarItem = UITabBarItem(title: nil,
-                                                            image: R.image.ic_private_chanels_not_active(),
-                                                            selectedImage: R.image.ic_private_chanels())
+        privateChannelsController.tabBarItem = UITabBarItem.withoutTitle(image: R.image.ic_private_chanels_not_active(),
+                                                                         selectedImage: R.image.ic_private_chanels())
         let privateChannelsNavigationController = UINavigationController(rootViewController: privateChannelsController)
         
         guard let directController = R.storyboard.main.directViewControllers()
             else { fatalError("Can't instantiate direct messages view controller") }
-        directController.tabBarItem = UITabBarItem(title: nil,
-                                                   image: R.image.ic_direct_not_active(),
-                                                   selectedImage: R.image.ic_direct())
+        directController.tabBarItem = UITabBarItem.withoutTitle(image: R.image.ic_direct_not_active(),
+                                                                selectedImage: R.image.ic_direct())
         let directNavigationController = UINavigationController(rootViewController: directController)
         
         if UserDefaults.standard.bool(forKey: UserDefaultsKeys.hideUnreadController.rawValue) {
@@ -67,9 +63,8 @@ class MainCoordinator {
                 else { fatalError("Can't instantiate unread view controller") }
             let unreadNavigationController = UINavigationController.init(rootViewController: unreadController)
             UnreadWireframe.setup(unreadController, withCoordinator: self)
-            unreadController.tabBarItem = UITabBarItem(title: nil,
-                                                       image: R.image.ic_unread_not_active(),
-                                                       selectedImage: R.image.ic_unread())
+            unreadController.tabBarItem = UITabBarItem.withoutTitle(image: R.image.ic_unread_not_active(),
+                                                                    selectedImage: R.image.ic_unread())
             return [unreadNavigationController, favouritesNavigationController, publicChannelsNavigationController,
                     privateChannelsNavigationController, directNavigationController]
         }
@@ -78,7 +73,7 @@ class MainCoordinator {
 
 //MARK: - TabBarCoordinator
 extension MainCoordinator: TabBarCoordinator {
-    func checkUnreadController() {
+    func checkTabBarControllers() {
         if UserDefaults.standard.bool(forKey: UserDefaultsKeys.hideUnreadController.rawValue) {
             hideUnreadController()
         } else {
@@ -96,6 +91,9 @@ extension MainCoordinator: TabBarCoordinator {
             guard let unreadController = R.storyboard.main.unreadViewController()
                 else { fatalError("Can't instantiate unread view controller") }
             let unreadNavigationController = UINavigationController(rootViewController: unreadController)
+            unreadController.tabBarItem = UITabBarItem.withoutTitle(image: R.image.ic_unread_not_active(),
+                                                                    selectedImage: R.image.ic_unread())
+            unreadController.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
             UnreadWireframe.setup(unreadController, withCoordinator: self)
             router.tabBarController.viewControllers!.insert(unreadNavigationController, at: 0)
         }

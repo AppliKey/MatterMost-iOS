@@ -11,14 +11,13 @@ import UIKit
 class SideMenuCoordinator {
     
     //MARK: - Init
-    init(withRouter router: MainRouter, appCoordinator: AppCoordinator) {
+    init(withRouter router: MainRouter, coordinator: MainCoordinator) {
         self.router = router
-        self.appCoordinator = appCoordinator
+        self.coordinator = coordinator
     }
     
     fileprivate let router: MainRouter
-    fileprivate unowned let appCoordinator: AppCoordinator
-    fileprivate var sideMenuCompletionBlock : VoidClosure?
+    fileprivate unowned let coordinator: MainCoordinator
 
     func start() {
         guard let menu = R.storyboard.main.menuViewController()
@@ -35,8 +34,15 @@ extension SideMenuCoordinator : MenuCoordinator {
         guard let settingsVC = R.storyboard.main.settingsViewController()
             else { fatalError("Can't instantiate settings view controller") }
         settingsVC.hidesBottomBarWhenPushed = true
+        SettingsWireframe.setup(settingsVC, withCoordinator: self)
         
         self.router.push(viewController: settingsVC, animated: false)
     }
     
+}
+
+extension SideMenuCoordinator : SettingsCoordinator {
+    func checkTabBarControllers() {
+        coordinator.checkTabBarControllers()
+    }
 }

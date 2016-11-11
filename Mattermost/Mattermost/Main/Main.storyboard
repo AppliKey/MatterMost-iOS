@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="VE8-jo-Oth">
             <objects>
-                <viewController storyboardIdentifier="SettingsViewController" id="icM-3V-5mk" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="icM-3V-5mk" customClass="SettingsViewController" customModule="Mattermost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4f0-sM-uWl"/>
                         <viewControllerLayoutGuide type="bottom" id="MP0-MZ-ON9"/>
@@ -21,16 +21,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVi-OW-xEA">
-                                <rect key="frame" x="143" y="98" width="89" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEW-aS-Iug">
+                                <rect key="frame" x="0.0" y="74" width="375" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="865-HX-zN7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Edit Profile">
+                                    <color key="titleColor" red="0.14117647058823529" green="0.16078431372549018" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8a3-WS-BrG">
+                                <rect key="frame" x="0.0" y="131" width="375" height="56"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unread messages" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDc-Dg-MdS">
+                                        <rect key="frame" x="20" y="18" width="150" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="clR-pf-GJt"/>
+                                            <constraint firstAttribute="width" constant="150" id="tuQ-vX-3ma"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                        <color key="textColor" red="0.14117647059999999" green="0.16078431369999999" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7P8-OT-clv">
+                                        <rect key="frame" x="301" y="13" width="51" height="31"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="YbT-j4-hPI"/>
+                                            <constraint firstAttribute="width" constant="49" id="qd3-ud-phf"/>
+                                        </constraints>
+                                        <color key="onTintColor" red="0.93025428056716919" green="0.93723714351654053" blue="0.94964522123336792" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="thumbTintColor" red="0.45526635646820068" green="0.68402820825576782" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="switcherValueChanged:" destination="icM-3V-5mk" eventType="valueChanged" id="qhf-QX-vX0"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="7P8-OT-clv" secondAttribute="trailing" constant="25" id="FyI-7N-MQh"/>
+                                    <constraint firstItem="QDc-Dg-MdS" firstAttribute="centerY" secondItem="8a3-WS-BrG" secondAttribute="centerY" id="OJi-h8-HAY"/>
+                                    <constraint firstItem="7P8-OT-clv" firstAttribute="centerY" secondItem="8a3-WS-BrG" secondAttribute="centerY" id="TaY-sj-dHZ"/>
+                                    <constraint firstAttribute="height" constant="56" id="ggD-eC-dt2"/>
+                                    <constraint firstItem="QDc-Dg-MdS" firstAttribute="leading" secondItem="8a3-WS-BrG" secondAttribute="leading" constant="20" id="zKx-vA-Ses"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQT-09-mvC">
+                                <rect key="frame" x="0.0" y="197" width="375" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="zjN-dM-7lK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="0.14117647059999999" green="0.16078431369999999" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.95686274509803915" green="0.96078431372549022" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tEW-aS-Iug" secondAttribute="trailing" id="2Qd-69-esM"/>
+                            <constraint firstItem="8a3-WS-BrG" firstAttribute="leading" secondItem="yrE-9O-haw" secondAttribute="leading" id="7jo-Fb-rwO"/>
+                            <constraint firstItem="cQT-09-mvC" firstAttribute="leading" secondItem="yrE-9O-haw" secondAttribute="leading" id="DhY-O5-YKz"/>
+                            <constraint firstAttribute="trailing" secondItem="8a3-WS-BrG" secondAttribute="trailing" id="DsS-57-yW1"/>
+                            <constraint firstAttribute="trailing" secondItem="cQT-09-mvC" secondAttribute="trailing" id="EwL-bJ-oEe"/>
+                            <constraint firstItem="cQT-09-mvC" firstAttribute="top" secondItem="8a3-WS-BrG" secondAttribute="bottom" constant="10" id="JVn-TS-aEc"/>
+                            <constraint firstItem="tEW-aS-Iug" firstAttribute="top" secondItem="4f0-sM-uWl" secondAttribute="bottom" constant="10" id="oJF-3D-bEc"/>
+                            <constraint firstItem="tEW-aS-Iug" firstAttribute="leading" secondItem="yrE-9O-haw" secondAttribute="leading" id="uLp-42-XI6"/>
+                            <constraint firstItem="8a3-WS-BrG" firstAttribute="top" secondItem="tEW-aS-Iug" secondAttribute="bottom" constant="1" id="zu0-G7-Eyp"/>
+                        </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="editProfileButton" destination="tEW-aS-Iug" id="LcZ-Bd-TWA"/>
+                        <outlet property="logoutButton" destination="cQT-09-mvC" id="IsF-gY-4eT"/>
+                        <outlet property="unreadMessagesLabel" destination="QDc-Dg-MdS" id="Xsz-Mb-geV"/>
+                        <outlet property="unreadSwitcher" destination="7P8-OT-clv" id="UU9-c1-jH8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gea-cF-kPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
