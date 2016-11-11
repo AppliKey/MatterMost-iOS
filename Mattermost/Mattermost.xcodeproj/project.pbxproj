@@ -50,6 +50,7 @@
 		B6E1EC541DD603A200E87B12 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC531DD603A200E87B12 /* LabelCell.swift */; };
 		B6E1EC561DD6061500E87B12 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC551DD6061500E87B12 /* MenuViewModel.swift */; };
 		B6E1EC581DD619B100E87B12 /* TabBarItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC571DD619B100E87B12 /* TabBarItemExtension.swift */; };
+		B6E1EC5A1DD61CED00E87B12 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC591DD61CED00E87B12 /* AppearanceManager.swift */; };
 		BFE20322EC44EEB648B2F19A /* SignInProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A58F125287A437082362895 /* SignInProtocols.swift */; };
 		C7FF672941DC719DC8B2ECF3 /* TabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A739DE996B17566DB004F9 /* TabBarInteractor.swift */; };
 		CEF5EA6357C16A206FD10CE3 /* ForgotPassInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9642C82AFA097DBA4FDD97D /* ForgotPassInteractor.swift */; };
@@ -154,6 +155,7 @@
 		B6E1EC531DD603A200E87B12 /* LabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelCell.swift; path = Mattermost/3rdPartyLibraries/LabelCell.swift; sourceTree = SOURCE_ROOT; };
 		B6E1EC551DD6061500E87B12 /* MenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		B6E1EC571DD619B100E87B12 /* TabBarItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemExtension.swift; sourceTree = "<group>"; };
+		B6E1EC591DD61CED00E87B12 /* AppearanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		BB052551A2DB190AA400A464 /* ServerSelectionPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ServerSelectionPresenter.swift; sourceTree = "<group>"; };
 		BC82200732458B67B33A763D /* Pods_Mattermost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mattermost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26F71A1EBA56A22C9F1B09A /* TeamSelectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TeamSelectionViewController.swift; sourceTree = "<group>"; };
@@ -560,6 +562,7 @@
 				B641BC971DD2280000A0EEA6 /* NavigationManager.swift */,
 				E7DCD8421DC9F19400F599D8 /* KeyboardHandler.swift */,
 				E7AE43F51DCA5A6500475B8F /* HideKeyboardRecognizer.swift */,
+				B6E1EC591DD61CED00E87B12 /* AppearanceManager.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -814,6 +817,7 @@
 				14B13733842F1F1044A404E9 /* TeamSelectionWireframe.swift in Sources */,
 				8E71517A5428AAB931096209 /* TabBarProtocols.swift in Sources */,
 				96231C33ED124D0085690A60 /* TabBarViewController.swift in Sources */,
+				B6E1EC5A1DD61CED00E87B12 /* AppearanceManager.swift in Sources */,
 				3E2A6E49B53E513847238E35 /* TabBarPresenter.swift in Sources */,
 				C7FF672941DC719DC8B2ECF3 /* TabBarInteractor.swift in Sources */,
 				E0A5776EDA85AF269329C130 /* TabBarWireframe.swift in Sources */,
