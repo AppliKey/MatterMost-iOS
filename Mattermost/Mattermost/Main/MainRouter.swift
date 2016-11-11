@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import SideMenuController
 
 fileprivate let transitionDuration = 0.25
 

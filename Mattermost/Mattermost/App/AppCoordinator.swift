@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import SideMenuController
 
 class AppCoordinator {
     
@@ -37,9 +36,10 @@ class AppCoordinator {
     
     fileprivate func setupSideMenu() {
         SideMenuController.preferences.drawing.menuButtonImage = R.image.icMenu()
-        SideMenuController.preferences.drawing.centerPanelShadow = true
-        SideMenuController.preferences.drawing.sidePanelPosition = .overCenterPanelLeft
+        SideMenuController.preferences.drawing.centerPanelShadow = false
+        SideMenuController.preferences.drawing.sidePanelPosition = .underCenterPanelLeft
         SideMenuController.preferences.drawing.sidePanelWidth = 260
+        SideMenuController.preferences.drawing.centerPanelOverlayColor = UIColor.black
         SideMenuController.preferences.animating.statusBarBehaviour = .showUnderlay
     }
 }

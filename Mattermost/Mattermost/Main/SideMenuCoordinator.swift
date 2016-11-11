@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SideMenuController
 
 class SideMenuCoordinator : SideMenuControllerDelegate {
     

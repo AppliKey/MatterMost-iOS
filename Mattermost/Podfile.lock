@@ -6,7 +6,6 @@ PODS:
   - R.swift (3.1.0):
     - R.swift.Library (~> 3.0.2)
   - R.swift.Library (3.0.2)
-  - SideMenuController (0.2.1)
   - SwiftyJSON (3.1.0)
   - Typist (0.4)
 
@@ -16,7 +15,6 @@ DEPENDENCIES:
   - Locksmith
   - ObjectMapper
   - R.swift
-  - SideMenuController (= 0.2.1)
   - SwiftyJSON (= 3.1)
   - Typist
 
@@ -27,10 +25,9 @@ SPEC CHECKSUMS:
   ObjectMapper: 4060d739febae11ab0c6af8d786f98667c82e1bd
   R.swift: 14400e5784224d1e4e59a8fc5549198c7e8fe360
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
-  SideMenuController: 4c543122289d74e1db9d1e24fd3264581fd6ac4e
   SwiftyJSON: 29b9f2a64f118c07e691667c2ba1efe536acfe0b
   Typist: 8a43e050e9560acac93dc9006525c414b37f5a22
 
-PODFILE CHECKSUM: d35154254dd863eb12db07f724b88c9d08587668
+PODFILE CHECKSUM: f72826a034e3fa2a9278b3c9912f0e9fc0764efc
 
 COCOAPODS: 1.1.0.rc.2

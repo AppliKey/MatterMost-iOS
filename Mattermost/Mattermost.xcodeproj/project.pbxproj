@@ -35,6 +35,14 @@
 		B641BC981DD2280000A0EEA6 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641BC971DD2280000A0EEA6 /* NavigationManager.swift */; };
 		B641BC9A1DD3349700A0EEA6 /* TabBarConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641BC991DD3349700A0EEA6 /* TabBarConstants.swift */; };
 		B6E1EC3B1DD4B42A00E87B12 /* SideMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC3A1DD4B42A00E87B12 /* SideMenuCoordinator.swift */; };
+		B6E1EC4B1DD5E87700E87B12 /* CenterContainmentSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC411DD5E87700E87B12 /* CenterContainmentSegue.swift */; };
+		B6E1EC4C1DD5E87700E87B12 /* SideContainmentSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC421DD5E87700E87B12 /* SideContainmentSegue.swift */; };
+		B6E1EC4D1DD5E87700E87B12 /* SideMenuController+CustomTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC431DD5E87700E87B12 /* SideMenuController+CustomTypes.swift */; };
+		B6E1EC4E1DD5E87700E87B12 /* SideMenuController+SideOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC441DD5E87700E87B12 /* SideMenuController+SideOver.swift */; };
+		B6E1EC4F1DD5E87700E87B12 /* SideMenuController+SideUnder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC451DD5E87700E87B12 /* SideMenuController+SideUnder.swift */; };
+		B6E1EC501DD5E87700E87B12 /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC461DD5E87700E87B12 /* SideMenuController.swift */; };
+		B6E1EC511DD5E87700E87B12 /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC471DD5E87700E87B12 /* TransitionAnimator.swift */; };
+		B6E1EC521DD5E87700E87B12 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC481DD5E87700E87B12 /* UIKitExtensions.swift */; };
 		BFE20322EC44EEB648B2F19A /* SignInProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A58F125287A437082362895 /* SignInProtocols.swift */; };
 		C7FF672941DC719DC8B2ECF3 /* TabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A739DE996B17566DB004F9 /* TabBarInteractor.swift */; };
 		CEF5EA6357C16A206FD10CE3 /* ForgotPassInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9642C82AFA097DBA4FDD97D /* ForgotPassInteractor.swift */; };
@@ -123,6 +131,14 @@
 		B641BC971DD2280000A0EEA6 /* NavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		B641BC991DD3349700A0EEA6 /* TabBarConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarConstants.swift; sourceTree = "<group>"; };
 		B6E1EC3A1DD4B42A00E87B12 /* SideMenuCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuCoordinator.swift; sourceTree = "<group>"; };
+		B6E1EC411DD5E87700E87B12 /* CenterContainmentSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterContainmentSegue.swift; sourceTree = "<group>"; };
+		B6E1EC421DD5E87700E87B12 /* SideContainmentSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideContainmentSegue.swift; sourceTree = "<group>"; };
+		B6E1EC431DD5E87700E87B12 /* SideMenuController+CustomTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SideMenuController+CustomTypes.swift"; sourceTree = "<group>"; };
+		B6E1EC441DD5E87700E87B12 /* SideMenuController+SideOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SideMenuController+SideOver.swift"; sourceTree = "<group>"; };
+		B6E1EC451DD5E87700E87B12 /* SideMenuController+SideUnder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SideMenuController+SideUnder.swift"; sourceTree = "<group>"; };
+		B6E1EC461DD5E87700E87B12 /* SideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
+		B6E1EC471DD5E87700E87B12 /* TransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
+		B6E1EC481DD5E87700E87B12 /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
 		BB052551A2DB190AA400A464 /* ServerSelectionPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ServerSelectionPresenter.swift; sourceTree = "<group>"; };
 		BC82200732458B67B33A763D /* Pods_Mattermost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mattermost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26F71A1EBA56A22C9F1B09A /* TeamSelectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TeamSelectionViewController.swift; sourceTree = "<group>"; };
@@ -285,6 +301,37 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B6E1EC3C1DD5E87700E87B12 /* 3rdPartyLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				B6E1EC3D1DD5E87700E87B12 /* SideMenuController */,
+			);
+			path = 3rdPartyLibraries;
+			sourceTree = "<group>";
+		};
+		B6E1EC3D1DD5E87700E87B12 /* SideMenuController */ = {
+			isa = PBXGroup;
+			children = (
+				B6E1EC401DD5E87700E87B12 /* Source */,
+			);
+			path = SideMenuController;
+			sourceTree = "<group>";
+		};
+		B6E1EC401DD5E87700E87B12 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B6E1EC411DD5E87700E87B12 /* CenterContainmentSegue.swift */,
+				B6E1EC421DD5E87700E87B12 /* SideContainmentSegue.swift */,
+				B6E1EC431DD5E87700E87B12 /* SideMenuController+CustomTypes.swift */,
+				B6E1EC441DD5E87700E87B12 /* SideMenuController+SideOver.swift */,
+				B6E1EC451DD5E87700E87B12 /* SideMenuController+SideUnder.swift */,
+				B6E1EC461DD5E87700E87B12 /* SideMenuController.swift */,
+				B6E1EC471DD5E87700E87B12 /* TransitionAnimator.swift */,
+				B6E1EC481DD5E87700E87B12 /* UIKitExtensions.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		E1FEB080E6FA78BD4B1739EB /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +463,7 @@
 		E7A3285E1DAFE02200C8A6B9 /* Mattermost */ = {
 			isa = PBXGroup;
 			children = (
+				B6E1EC3C1DD5E87700E87B12 /* 3rdPartyLibraries */,
 				E7A3288D1DAFE13B00C8A6B9 /* App */,
 				E7967D331DCFB0CB0025F402 /* Networking */,
 				E1FEB0CDBF27AD3F5D411DBE /* Common */,
@@ -698,6 +746,7 @@
 				E7A5B22D1DC261C200ED2887 /* UIView+IBInspectable.swift in Sources */,
 				60E0C1D4BA031AE6AACA07D7 /* ServerSelectionProtocols.swift in Sources */,
 				E7967D301DCCE71E0025F402 /* SignInWireframe.swift in Sources */,
+				B6E1EC4F1DD5E87700E87B12 /* SideMenuController+SideUnder.swift in Sources */,
 				5B6736DFD1D6387C3B402C0E /* ServerSelectionViewController.swift in Sources */,
 				E7662BE01DC7497000E82AFC /* Aliases.swift in Sources */,
 				E7967D2E1DCCE2C30025F402 /* AuthorizationRouter.swift in Sources */,
@@ -712,6 +761,7 @@
 				BFE20322EC44EEB648B2F19A /* SignInProtocols.swift in Sources */,
 				EEC2A5C891FD92145D059CCF /* SignInViewController.swift in Sources */,
 				616CF365F1D150AAD8132D66 /* SignInPresenter.swift in Sources */,
+				B6E1EC511DD5E87700E87B12 /* TransitionAnimator.swift in Sources */,
 				E7AE43F41DCA531700475B8F /* UIResponder+FirstResponder.swift in Sources */,
 				8D7CC4105BB3F751220B3B45 /* SignInInteractor.swift in Sources */,
 				E7AE43F21DCA4E4900475B8F /* UIView+CurrentConstraints.swift in Sources */,
@@ -720,6 +770,7 @@
 				99E70DE0B255E98927AA1AB2 /* ForgotPassPresenter.swift in Sources */,
 				CEF5EA6357C16A206FD10CE3 /* ForgotPassInteractor.swift in Sources */,
 				E29BE190D7FDF84BF453E961 /* ForgotPassWireframe.swift in Sources */,
+				B6E1EC4C1DD5E87700E87B12 /* SideContainmentSegue.swift in Sources */,
 				520649B1426F38DD83F40367 /* TeamSelectionProtocols.swift in Sources */,
 				E7967D3E1DD04FE10025F402 /* MainCoordinator.swift in Sources */,
 				FABCACF157FD70E5DD6A644E /* TeamSelectionViewController.swift in Sources */,
@@ -732,11 +783,16 @@
 				3E2A6E49B53E513847238E35 /* TabBarPresenter.swift in Sources */,
 				C7FF672941DC719DC8B2ECF3 /* TabBarInteractor.swift in Sources */,
 				E0A5776EDA85AF269329C130 /* TabBarWireframe.swift in Sources */,
+				B6E1EC521DD5E87700E87B12 /* UIKitExtensions.swift in Sources */,
 				F533C6B49BB892E691CBE0C9 /* MenuProtocols.swift in Sources */,
+				B6E1EC4D1DD5E87700E87B12 /* SideMenuController+CustomTypes.swift in Sources */,
 				69EDB3E5099C07442AD3AAD2 /* MenuViewController.swift in Sources */,
 				B6E1EC3B1DD4B42A00E87B12 /* SideMenuCoordinator.swift in Sources */,
+				B6E1EC4E1DD5E87700E87B12 /* SideMenuController+SideOver.swift in Sources */,
+				B6E1EC501DD5E87700E87B12 /* SideMenuController.swift in Sources */,
 				E0CAE000C01C435E3E499B4F /* MenuPresenter.swift in Sources */,
 				7C3B115BBD9605652EFAD47E /* MenuInteractor.swift in Sources */,
+				B6E1EC4B1DD5E87700E87B12 /* CenterContainmentSegue.swift in Sources */,
 				A2ADDCECED0B56BE66B00508 /* MenuWireframe.swift in Sources */,
 				0A255CC24DA313C12FDE940A /* UnreadProtocols.swift in Sources */,
 				676AD0E96FF35C1C75942A14 /* UnreadViewController.swift in Sources */,
