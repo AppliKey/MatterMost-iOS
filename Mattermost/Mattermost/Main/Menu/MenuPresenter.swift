@@ -32,7 +32,19 @@ extension MenuPresenter: MenuPresenting {
 }
 
 extension MenuPresenter: MenuEventHandling {
-    func handleSettings() {
-        coordinator.openSettings()
+    func viewIsReady() {
+        let vm = MenuViewModel()
+        view.updateView(withViewModel: vm)
+    }
+    
+    func handleRowSelection(withIndexPath index: IndexPath) {
+        switch index.row {
+        case 0:
+            debugPrint("All channels")
+        case 1:
+            debugPrint("Invite new members")
+        default:
+            coordinator.openSettings()
+        }
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SideMenuCoordinator : SideMenuControllerDelegate {
+class SideMenuCoordinator {
     
     //MARK: - Init
     init(withRouter router: MainRouter, appCoordinator: AppCoordinator) {
@@ -24,43 +24,19 @@ class SideMenuCoordinator : SideMenuControllerDelegate {
         guard let menu = R.storyboard.main.menuViewController()
             else { fatalError("Can't instantiate left menu view controller") }
         MenuWireframe.setup(menu, withCoordinator: self)
-        router.sideMenu.delegate = self
         router.sideMenu.embed(sideViewController: menu)
-    }
-    
-    func sideMenuControllerDidHide(_ sideMenuController: SideMenuController) {
-        sideMenuCompletionBlock?()
-        sideMenuCompletionBlock = nil
-    }
-    
-    func sideMenuControllerDidReveal(_ sideMenuController: SideMenuController) {
-        sideMenuCompletionBlock?()
-        sideMenuCompletionBlock = nil
-    }
-    
-    fileprivate func closeSideMenu(withCompletion completion: VoidClosure?) {
-        router.sideMenu.toggle()
-        sideMenuCompletionBlock = completion
     }
 }
 
 extension SideMenuCoordinator : MenuCoordinator {
     
-    func openSettings() {/*
-        closeSideMenu { [unowned self] in
-            guard let settingsVC = R.storyboard.main.settingsViewController()
-                else { fatalError("Can't instantiate settings view controller") }
-            settingsVC.hidesBottomBarWhenPushed = true
-            
-            self.router.push(viewController: settingsVC)
-        }*/
-        
+    func openSettings() {
         router.sideMenu.toggle()
         guard let settingsVC = R.storyboard.main.settingsViewController()
             else { fatalError("Can't instantiate settings view controller") }
         settingsVC.hidesBottomBarWhenPushed = true
         
-        self.router.push(viewController: settingsVC)
+        self.router.push(viewController: settingsVC, animated: false)
     }
     
 }

@@ -37,7 +37,7 @@ extension AuthorizationCoordinator: ServerSelectionCoordinator {
         guard let viewController = R.storyboard.authorization.signInViewController()
             else { fatalError("Can't instantiate sign in view controller") }
         SignInWireframe.setup(viewController, withCoordinator: self)
-        router.push(viewController: viewController)
+        router.push(viewController: viewController, animated: true)
     }
     
 }
@@ -51,7 +51,7 @@ extension AuthorizationCoordinator: SignInCoordinator {
         ForgotPassWireframe.setup(viewController, withCoordinator: self) {
             $0.email = email
         }
-        router.push(viewController: viewController)
+        router.push(viewController: viewController, animated: true)
     }
     
     func next() {

@@ -43,6 +43,8 @@
 		B6E1EC501DD5E87700E87B12 /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC461DD5E87700E87B12 /* SideMenuController.swift */; };
 		B6E1EC511DD5E87700E87B12 /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC471DD5E87700E87B12 /* TransitionAnimator.swift */; };
 		B6E1EC521DD5E87700E87B12 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC481DD5E87700E87B12 /* UIKitExtensions.swift */; };
+		B6E1EC541DD603A200E87B12 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC531DD603A200E87B12 /* LabelCell.swift */; };
+		B6E1EC561DD6061500E87B12 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC551DD6061500E87B12 /* MenuViewModel.swift */; };
 		BFE20322EC44EEB648B2F19A /* SignInProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A58F125287A437082362895 /* SignInProtocols.swift */; };
 		C7FF672941DC719DC8B2ECF3 /* TabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A739DE996B17566DB004F9 /* TabBarInteractor.swift */; };
 		CEF5EA6357C16A206FD10CE3 /* ForgotPassInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9642C82AFA097DBA4FDD97D /* ForgotPassInteractor.swift */; };
@@ -139,6 +141,8 @@
 		B6E1EC461DD5E87700E87B12 /* SideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
 		B6E1EC471DD5E87700E87B12 /* TransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
 		B6E1EC481DD5E87700E87B12 /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
+		B6E1EC531DD603A200E87B12 /* LabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelCell.swift; path = Mattermost/3rdPartyLibraries/LabelCell.swift; sourceTree = SOURCE_ROOT; };
+		B6E1EC551DD6061500E87B12 /* MenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		BB052551A2DB190AA400A464 /* ServerSelectionPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ServerSelectionPresenter.swift; sourceTree = "<group>"; };
 		BC82200732458B67B33A763D /* Pods_Mattermost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mattermost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26F71A1EBA56A22C9F1B09A /* TeamSelectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TeamSelectionViewController.swift; sourceTree = "<group>"; };
@@ -268,6 +272,7 @@
 				74F73B6D1BCED0872D41C994 /* MenuPresenter.swift */,
 				E9B7B00AF6B0AA83B81EBB5E /* MenuInteractor.swift */,
 				986D52DB4FC8268B877EB760 /* MenuWireframe.swift */,
+				B6E1EC551DD6061500E87B12 /* MenuViewModel.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 		E1FEBD66A97AE19CFB7DCCA0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				B6E1EC531DD603A200E87B12 /* LabelCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -764,6 +770,7 @@
 				B6E1EC511DD5E87700E87B12 /* TransitionAnimator.swift in Sources */,
 				E7AE43F41DCA531700475B8F /* UIResponder+FirstResponder.swift in Sources */,
 				8D7CC4105BB3F751220B3B45 /* SignInInteractor.swift in Sources */,
+				B6E1EC561DD6061500E87B12 /* MenuViewModel.swift in Sources */,
 				E7AE43F21DCA4E4900475B8F /* UIView+CurrentConstraints.swift in Sources */,
 				AE93AAC666D6403D05529721 /* ForgotPassProtocols.swift in Sources */,
 				173DCC60CC82AF4BB9CB8D13 /* ForgotPassViewController.swift in Sources */,
@@ -795,6 +802,7 @@
 				B6E1EC4B1DD5E87700E87B12 /* CenterContainmentSegue.swift in Sources */,
 				A2ADDCECED0B56BE66B00508 /* MenuWireframe.swift in Sources */,
 				0A255CC24DA313C12FDE940A /* UnreadProtocols.swift in Sources */,
+				B6E1EC541DD603A200E87B12 /* LabelCell.swift in Sources */,
 				676AD0E96FF35C1C75942A14 /* UnreadViewController.swift in Sources */,
 				B3BDC7A0A7E15799C669C112 /* UnreadPresenter.swift in Sources */,
 				87F6BFEB55F563EEAC643AE8 /* UnreadInteractor.swift in Sources */,

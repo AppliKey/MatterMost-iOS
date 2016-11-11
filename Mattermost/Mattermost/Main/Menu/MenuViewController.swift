@@ -19,20 +19,19 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureInterface()
-    }
-    
-    //MARK: -
-
-    @IBAction private func settingsPressed(_ sender: Any) {
-        eventHandler.handleSettings()
+        eventHandler.viewIsReady()
     }
     
 	//MARK: - Private -
+    
+    @IBOutlet fileprivate weak var tableView: UITableView!
+    fileprivate var viewModel: MenuViewModel!
 
 	//MARK: - UI
     
     private func configureInterface() {
         localizeViews()
+        tableView.bounces = false
     }
     
     private func localizeViews() {
@@ -41,4 +40,28 @@ class MenuViewController: UIViewController {
 }
 
 extension MenuViewController: MenuViewing {
+    
+    func updateView(withViewModel vm: MenuViewModel) {
+        self.viewModel = vm
+        tableView.reloadData()
+    }
+    
+}
+
+extension MenuViewController : UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        eventHandler.handleRowSelection(withIndexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.itemsCount
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.labelCell, for: indexPath)!
+        cell.label.text = viewModel.menuItems[indexPath.row]
+        return cell
+    }
+    
 }

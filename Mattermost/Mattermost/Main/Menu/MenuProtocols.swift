@@ -19,10 +19,12 @@ protocol MenuPresenting: class {
 }
 
 protocol MenuViewing: class {
+    func updateView(withViewModel vm: MenuViewModel)
 }
 
 protocol MenuEventHandling: class {
-    func handleSettings()
+    func viewIsReady()
+    func handleRowSelection(withIndexPath index:IndexPath)
 }
 
 protocol MenuCoordinator: class {

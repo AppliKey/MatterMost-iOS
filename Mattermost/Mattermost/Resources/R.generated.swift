@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 17 images.
+  /// This `R.image` struct is generated, and contains static references to 18 images.
   struct image {
     /// Image `back`.
     static let back = Rswift.ImageResource(bundle: R.hostingBundle, name: "back")
@@ -67,6 +67,8 @@ struct R: Rswift.Validatable {
     static let ic_unread_not_active = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_unread_not_active")
     /// Image `ic_unread`.
     static let ic_unread = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_unread")
+    /// Image `newGroupBanner`.
+    static let newGroupBanner = Rswift.ImageResource(bundle: R.hostingBundle, name: "newGroupBanner")
     
     /// `UIImage(named: "back", bundle: ..., traitCollection: ...)`
     static func back(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -153,6 +155,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.ic_unread_not_active, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "newGroupBanner", bundle: ..., traitCollection: ...)`
+    static func newGroupBanner(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.newGroupBanner, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
@@ -161,8 +168,11 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 0 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `LabelCell`.
+    static let labelCell: Rswift.ReuseIdentifier<LabelCell> = Rswift.ReuseIdentifier(identifier: "LabelCell")
+    
     fileprivate init() {}
   }
   
@@ -200,8 +210,10 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 13 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 16 localization keys.
     struct localizable {
+      /// Value: All channels
+      static let menuItemChannels = Rswift.StringResource(key: "menuItem.channels", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: All your team communication in one  place, searchable and accessible  anywhere.
       static let description = Rswift.StringResource(key: "description", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: EMAIL
@@ -216,6 +228,8 @@ struct R: Rswift.Validatable {
       static let passwordFieldPlaceholder = Rswift.StringResource(key: "password.field.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: FORGOT PASSWORD
       static let forgotPassword = Rswift.StringResource(key: "forgot.password", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Invite new member
+      static let menuItemInvite = Rswift.StringResource(key: "menuItem.invite", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: NEXT
       static let nextButtonTitle = Rswift.StringResource(key: "next.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Ok
@@ -224,10 +238,17 @@ struct R: Rswift.Validatable {
       static let passwordFieldHint = Rswift.StringResource(key: "password.field.hint", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Password is invalid
       static let passwordNotValid = Rswift.StringResource(key: "password.not.valid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Settings
+      static let menuItemSettings = Rswift.StringResource(key: "menuItem.settings", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Welcome to Mattermost
       static let welcome = Rswift.StringResource(key: "welcome", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: http://server.com/
       static let serverFieldPlaceholder = Rswift.StringResource(key: "server.field.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      
+      /// Value: All channels
+      static func menuItemChannels(_: Void = ()) -> String {
+        return NSLocalizedString("menuItem.channels", bundle: R.hostingBundle, comment: "")
+      }
       
       /// Value: All your team communication in one  place, searchable and accessible  anywhere.
       static func description(_: Void = ()) -> String {
@@ -264,6 +285,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("forgot.password", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: Invite new member
+      static func menuItemInvite(_: Void = ()) -> String {
+        return NSLocalizedString("menuItem.invite", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: NEXT
       static func nextButtonTitle(_: Void = ()) -> String {
         return NSLocalizedString("next.button.title", bundle: R.hostingBundle, comment: "")
@@ -282,6 +308,11 @@ struct R: Rswift.Validatable {
       /// Value: Password is invalid
       static func passwordNotValid(_: Void = ()) -> String {
         return NSLocalizedString("password.not.valid", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Settings
+      static func menuItemSettings(_: Void = ()) -> String {
+        return NSLocalizedString("menuItem.settings", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Welcome to Mattermost
@@ -412,6 +443,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "ic_public_chanels_not_active") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_public_chanels_not_active' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_unread") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_unread' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "newGroupBanner") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'newGroupBanner' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_private_chanels_not_active") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_private_chanels_not_active' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_public_chanels") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_public_chanels' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic_favorites") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_favorites' is used in storyboard 'Main', but couldn't be loaded.") }

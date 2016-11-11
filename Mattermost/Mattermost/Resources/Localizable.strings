@@ -26,3 +26,8 @@
 "email.field.placeholder" = "Enter your email";
 "password.field.placeholder" = "Enter your password";
 "forgot.password" = "FORGOT PASSWORD";
+
+// Left Menu
+"menuItem.channels" = "All channels";
+"menuItem.invite" = "Invite new member";
+"menuItem.settings" = "Settings";
