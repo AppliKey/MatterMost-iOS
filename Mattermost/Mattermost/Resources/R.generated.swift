@@ -210,10 +210,10 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 16 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 18 localization keys.
     struct localizable {
       /// Value: All channels
-      static let menuItemChannels = Rswift.StringResource(key: "menuItem.channels", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      static let menuItemChannels = Rswift.StringResource(key: "menu.item.channels", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: All your team communication in one  place, searchable and accessible  anywhere.
       static let description = Rswift.StringResource(key: "description", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: EMAIL
@@ -229,7 +229,9 @@ struct R: Rswift.Validatable {
       /// Value: FORGOT PASSWORD
       static let forgotPassword = Rswift.StringResource(key: "forgot.password", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Invite new member
-      static let menuItemInvite = Rswift.StringResource(key: "menuItem.invite", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      static let menuItemInvite = Rswift.StringResource(key: "menu.item.invite", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: NEW GROUP OR CHANNEL
+      static let newGroupChannel = Rswift.StringResource(key: "new.group.channel", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: NEXT
       static let nextButtonTitle = Rswift.StringResource(key: "next.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Ok
@@ -239,7 +241,9 @@ struct R: Rswift.Validatable {
       /// Value: Password is invalid
       static let passwordNotValid = Rswift.StringResource(key: "password.not.valid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Settings
-      static let menuItemSettings = Rswift.StringResource(key: "menuItem.settings", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      static let menuItemSettings = Rswift.StringResource(key: "menu.item.settings", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Settings
+      static let settingsTitle = Rswift.StringResource(key: "settings.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Welcome to Mattermost
       static let welcome = Rswift.StringResource(key: "welcome", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: http://server.com/
@@ -247,7 +251,7 @@ struct R: Rswift.Validatable {
       
       /// Value: All channels
       static func menuItemChannels(_: Void = ()) -> String {
-        return NSLocalizedString("menuItem.channels", bundle: R.hostingBundle, comment: "")
+        return NSLocalizedString("menu.item.channels", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: All your team communication in one  place, searchable and accessible  anywhere.
@@ -287,7 +291,12 @@ struct R: Rswift.Validatable {
       
       /// Value: Invite new member
       static func menuItemInvite(_: Void = ()) -> String {
-        return NSLocalizedString("menuItem.invite", bundle: R.hostingBundle, comment: "")
+        return NSLocalizedString("menu.item.invite", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: NEW GROUP OR CHANNEL
+      static func newGroupChannel(_: Void = ()) -> String {
+        return NSLocalizedString("new.group.channel", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: NEXT
@@ -312,7 +321,12 @@ struct R: Rswift.Validatable {
       
       /// Value: Settings
       static func menuItemSettings(_: Void = ()) -> String {
-        return NSLocalizedString("menuItem.settings", bundle: R.hostingBundle, comment: "")
+        return NSLocalizedString("menu.item.settings", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Settings
+      static func settingsTitle(_: Void = ()) -> String {
+        return NSLocalizedString("settings.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Welcome to Mattermost
@@ -398,68 +412,28 @@ struct _R: Rswift.Validatable {
     
     struct main: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
-      let directViewControllers = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "DirectViewControllers")
-      let favouritesViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "FavouritesViewController")
+      let chats = StoryboardViewControllerResource<UnreadViewController>(identifier: "Chats")
       let menuViewController = StoryboardViewControllerResource<MenuViewController>(identifier: "MenuViewController")
       let name = "Main"
-      let privateChanelsViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "PrivateChanelsViewController")
-      let publicChanelsViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "PublicChanelsViewController")
       let settingsViewController = StoryboardViewControllerResource<SettingsViewController>(identifier: "SettingsViewController")
-      let tabBarViewController = StoryboardViewControllerResource<Mattermost.TabBarViewController>(identifier: "TabBarViewController")
-      let unreadViewController = StoryboardViewControllerResource<UnreadViewController>(identifier: "UnreadViewController")
       
-      func directViewControllers(_: Void = ()) -> UIKit.UIViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: directViewControllers)
-      }
-      
-      func favouritesViewController(_: Void = ()) -> UIKit.UIViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: favouritesViewController)
+      func chats(_: Void = ()) -> UnreadViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: chats)
       }
       
       func menuViewController(_: Void = ()) -> MenuViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: menuViewController)
       }
       
-      func privateChanelsViewController(_: Void = ()) -> UIKit.UIViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: privateChanelsViewController)
-      }
-      
-      func publicChanelsViewController(_: Void = ()) -> UIKit.UIViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: publicChanelsViewController)
-      }
-      
       func settingsViewController(_: Void = ()) -> SettingsViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: settingsViewController)
       }
       
-      func tabBarViewController(_: Void = ()) -> Mattermost.TabBarViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tabBarViewController)
-      }
-      
-      func unreadViewController(_: Void = ()) -> UnreadViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: unreadViewController)
-      }
-      
       static func validate() throws {
-        if UIKit.UIImage(named: "ic_public_chanels_not_active") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_public_chanels_not_active' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_unread") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_unread' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "newGroupBanner") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'newGroupBanner' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_private_chanels_not_active") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_private_chanels_not_active' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_public_chanels") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_public_chanels' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_favorites") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_favorites' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_direct") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_direct' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_favorites_not_active") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_favorites_not_active' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_unread_not_active") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_unread_not_active' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_private_chanels") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_private_chanels' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ic_direct_not_active") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_direct_not_active' is used in storyboard 'Main', but couldn't be loaded.") }
-        if _R.storyboard.main().tabBarViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBarViewController' could not be loaded from storyboard 'Main' as 'Mattermost.TabBarViewController'.") }
         if _R.storyboard.main().menuViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'menuViewController' could not be loaded from storyboard 'Main' as 'MenuViewController'.") }
-        if _R.storyboard.main().unreadViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'unreadViewController' could not be loaded from storyboard 'Main' as 'UnreadViewController'.") }
-        if _R.storyboard.main().directViewControllers() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'directViewControllers' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }
-        if _R.storyboard.main().favouritesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'favouritesViewController' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }
-        if _R.storyboard.main().publicChanelsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'publicChanelsViewController' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }
-        if _R.storyboard.main().privateChanelsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'privateChanelsViewController' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }
         if _R.storyboard.main().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'Main' as 'SettingsViewController'.") }
+        if _R.storyboard.main().chats() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'chats' could not be loaded from storyboard 'Main' as 'UnreadViewController'.") }
       }
       
       fileprivate init() {}

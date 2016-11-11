@@ -28,6 +28,10 @@
 "forgot.password" = "FORGOT PASSWORD";
 
 // Left Menu
-"menuItem.channels" = "All channels";
-"menuItem.invite" = "Invite new member";
-"menuItem.settings" = "Settings";
+"menu.item.channels" = "All channels";
+"menu.item.invite" = "Invite new member";
+"menu.item.settings" = "Settings";
+"new.group.channel" = "NEW GROUP OR CHANNEL";
+
+// Settings
+"settings.title" = "Settings";

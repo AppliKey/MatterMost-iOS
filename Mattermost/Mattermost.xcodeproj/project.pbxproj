@@ -15,7 +15,6 @@
 		2A44C1DC0FB2F137E249CE0A /* TeamSelectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B8EF2C72488B7A8BAB5BD /* TeamSelectionPresenter.swift */; };
 		32BC97FE87976F5750722109 /* ServerSelectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32FE9C905A5B69560BEE44C /* ServerSelectionInteractor.swift */; };
 		392FE99BB6626B12FFCE9836 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438FFBA727F6D0D594FF56B7 /* SettingsInteractor.swift */; };
-		3E2A6E49B53E513847238E35 /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A66C10B7A76DCA1FD5C1476 /* TabBarPresenter.swift */; };
 		520649B1426F38DD83F40367 /* TeamSelectionProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC560F2D9131DF61E812D6 /* TeamSelectionProtocols.swift */; };
 		5B6736DFD1D6387C3B402C0E /* ServerSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D6FF0481C053D251BC65D1 /* ServerSelectionViewController.swift */; };
 		5C658D6223B1504C84917CB8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333E98E7E106F8435D7FDF4C /* SettingsViewController.swift */; };
@@ -29,15 +28,12 @@
 		87F6BFEB55F563EEAC643AE8 /* UnreadInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF5F88022E5A9FF010338A /* UnreadInteractor.swift */; };
 		87FA385537A2102552BBE990 /* TeamSelectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5BCEA9AADBE4109909D940 /* TeamSelectionInteractor.swift */; };
 		8D7CC4105BB3F751220B3B45 /* SignInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D26ACE9D1BF8CF3D67C8F44 /* SignInInteractor.swift */; };
-		8E71517A5428AAB931096209 /* TabBarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DA7649DC4F211B6F09AA51 /* TabBarProtocols.swift */; };
-		96231C33ED124D0085690A60 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CFB3EFC10CBDC7D08BF5F /* TabBarViewController.swift */; };
 		99E70DE0B255E98927AA1AB2 /* ForgotPassPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52545F73EEA28BF1B8E7EC49 /* ForgotPassPresenter.swift */; };
 		A2ADDCECED0B56BE66B00508 /* MenuWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986D52DB4FC8268B877EB760 /* MenuWireframe.swift */; };
 		AE93AAC666D6403D05529721 /* ForgotPassProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF4B694C44E5732CEEBFAB6 /* ForgotPassProtocols.swift */; };
 		AFB7826542B0810593702B04 /* SettingsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB7784A196347235A3D1F7 /* SettingsWireframe.swift */; };
 		B3BDC7A0A7E15799C669C112 /* UnreadPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1996D08E2F118D380F3925FF /* UnreadPresenter.swift */; };
 		B641BC981DD2280000A0EEA6 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641BC971DD2280000A0EEA6 /* NavigationManager.swift */; };
-		B641BC9A1DD3349700A0EEA6 /* TabBarConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641BC991DD3349700A0EEA6 /* TabBarConstants.swift */; };
 		B6E1EC3B1DD4B42A00E87B12 /* SideMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC3A1DD4B42A00E87B12 /* SideMenuCoordinator.swift */; };
 		B6E1EC4B1DD5E87700E87B12 /* CenterContainmentSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC411DD5E87700E87B12 /* CenterContainmentSegue.swift */; };
 		B6E1EC4C1DD5E87700E87B12 /* SideContainmentSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC421DD5E87700E87B12 /* SideContainmentSegue.swift */; };
@@ -52,10 +48,8 @@
 		B6E1EC581DD619B100E87B12 /* TabBarItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC571DD619B100E87B12 /* TabBarItemExtension.swift */; };
 		B6E1EC5A1DD61CED00E87B12 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1EC591DD61CED00E87B12 /* AppearanceManager.swift */; };
 		BFE20322EC44EEB648B2F19A /* SignInProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A58F125287A437082362895 /* SignInProtocols.swift */; };
-		C7FF672941DC719DC8B2ECF3 /* TabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A739DE996B17566DB004F9 /* TabBarInteractor.swift */; };
 		CEF5EA6357C16A206FD10CE3 /* ForgotPassInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9642C82AFA097DBA4FDD97D /* ForgotPassInteractor.swift */; };
 		E0260CE345FC10E667152509 /* SettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48985B1B1A71D3C0F4DA44E9 /* SettingsProtocols.swift */; };
-		E0A5776EDA85AF269329C130 /* TabBarWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F048C9A32EDB8719052A494 /* TabBarWireframe.swift */; };
 		E0CAE000C01C435E3E499B4F /* MenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F73B6D1BCED0872D41C994 /* MenuPresenter.swift */; };
 		E1FEB01077FE23850335AEDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FEBB7F050FCC09395E2BAF /* AppDelegate.swift */; };
 		E1FEB9B3622451AB29AC886D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1FEB3756A1639D28C72AA79 /* LaunchScreen.storyboard */; };
@@ -110,7 +104,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		03DA7649DC4F211B6F09AA51 /* TabBarProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarProtocols.swift; sourceTree = "<group>"; };
 		18B789826C156605A3855D83 /* UnreadViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnreadViewController.swift; sourceTree = "<group>"; };
 		1996D08E2F118D380F3925FF /* UnreadPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnreadPresenter.swift; sourceTree = "<group>"; };
 		1D26ACE9D1BF8CF3D67C8F44 /* SignInInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInInteractor.swift; sourceTree = "<group>"; };
@@ -128,21 +121,16 @@
 		5D9EA4229E1CC8F86D8CD013 /* SignInViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		6C00194F806ECB169D05AFAA /* ForgotPassViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ForgotPassViewController.swift; sourceTree = "<group>"; };
 		6D7754876EEDB107768FEC7A /* UnreadProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnreadProtocols.swift; sourceTree = "<group>"; };
-		6F048C9A32EDB8719052A494 /* TabBarWireframe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarWireframe.swift; sourceTree = "<group>"; };
-		70A739DE996B17566DB004F9 /* TabBarInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarInteractor.swift; sourceTree = "<group>"; };
 		73FB12EAD1A6F2108CFA9F4C /* MenuProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuProtocols.swift; sourceTree = "<group>"; };
 		74F73B6D1BCED0872D41C994 /* MenuPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuPresenter.swift; sourceTree = "<group>"; };
-		7A66C10B7A76DCA1FD5C1476 /* TabBarPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
 		7AF4B694C44E5732CEEBFAB6 /* ForgotPassProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ForgotPassProtocols.swift; sourceTree = "<group>"; };
 		86D6FF0481C053D251BC65D1 /* ServerSelectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ServerSelectionViewController.swift; sourceTree = "<group>"; };
-		898CFB3EFC10CBDC7D08BF5F /* TabBarViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		8C8C6D1A05483EFC345413C9 /* SettingsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		969B8EF2C72488B7A8BAB5BD /* TeamSelectionPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TeamSelectionPresenter.swift; sourceTree = "<group>"; };
 		986D52DB4FC8268B877EB760 /* MenuWireframe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuWireframe.swift; sourceTree = "<group>"; };
 		A01F046DF9EC8F9899A7F700 /* Pods-Mattermost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mattermost.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mattermost/Pods-Mattermost.debug.xcconfig"; sourceTree = "<group>"; };
 		AE16C366B8EDD757FF705697 /* SignInPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
 		B641BC971DD2280000A0EEA6 /* NavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
-		B641BC991DD3349700A0EEA6 /* TabBarConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarConstants.swift; sourceTree = "<group>"; };
 		B6E1EC3A1DD4B42A00E87B12 /* SideMenuCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuCoordinator.swift; sourceTree = "<group>"; };
 		B6E1EC411DD5E87700E87B12 /* CenterContainmentSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterContainmentSegue.swift; sourceTree = "<group>"; };
 		B6E1EC421DD5E87700E87B12 /* SideContainmentSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideContainmentSegue.swift; sourceTree = "<group>"; };
@@ -268,12 +256,6 @@
 		5E47F2AC63E78F2C87B76307 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				03DA7649DC4F211B6F09AA51 /* TabBarProtocols.swift */,
-				898CFB3EFC10CBDC7D08BF5F /* TabBarViewController.swift */,
-				7A66C10B7A76DCA1FD5C1476 /* TabBarPresenter.swift */,
-				70A739DE996B17566DB004F9 /* TabBarInteractor.swift */,
-				6F048C9A32EDB8719052A494 /* TabBarWireframe.swift */,
-				B641BC991DD3349700A0EEA6 /* TabBarConstants.swift */,
 				B6E1EC571DD619B100E87B12 /* TabBarItemExtension.swift */,
 			);
 			path = TabBar;
@@ -772,7 +754,6 @@
 				E7A5B22B1DC258AE00ED2887 /* GradientButton.swift in Sources */,
 				E7662BDE1DC73FA100E82AFC /* Routing.swift in Sources */,
 				E7A5B2201DC20EC400ED2887 /* AuthorizationCoordinator.swift in Sources */,
-				B641BC9A1DD3349700A0EEA6 /* TabBarConstants.swift in Sources */,
 				E7967D2C1DCCDE3C0025F402 /* ServerSelectionWireframe.swift in Sources */,
 				E7967D401DD04FF00025F402 /* MainRouter.swift in Sources */,
 				E7967D371DCFC9FE0025F402 /* User.swift in Sources */,
@@ -815,12 +796,7 @@
 				2A44C1DC0FB2F137E249CE0A /* TeamSelectionPresenter.swift in Sources */,
 				87FA385537A2102552BBE990 /* TeamSelectionInteractor.swift in Sources */,
 				14B13733842F1F1044A404E9 /* TeamSelectionWireframe.swift in Sources */,
-				8E71517A5428AAB931096209 /* TabBarProtocols.swift in Sources */,
-				96231C33ED124D0085690A60 /* TabBarViewController.swift in Sources */,
 				B6E1EC5A1DD61CED00E87B12 /* AppearanceManager.swift in Sources */,
-				3E2A6E49B53E513847238E35 /* TabBarPresenter.swift in Sources */,
-				C7FF672941DC719DC8B2ECF3 /* TabBarInteractor.swift in Sources */,
-				E0A5776EDA85AF269329C130 /* TabBarWireframe.swift in Sources */,
 				B6E1EC521DD5E87700E87B12 /* UIKitExtensions.swift in Sources */,
 				F533C6B49BB892E691CBE0C9 /* MenuProtocols.swift in Sources */,
 				B6E1EC4D1DD5E87700E87B12 /* SideMenuController+CustomTypes.swift in Sources */,

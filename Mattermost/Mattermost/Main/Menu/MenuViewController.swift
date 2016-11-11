@@ -13,7 +13,8 @@ class MenuViewController: UIViewController {
 	
 	//MARK: - Properties
   	var eventHandler: MenuEventHandling!
-  
+    @IBOutlet weak var createGroupButton: UIButton!
+    
   	//MARK: - Life cycle
 
     override func viewDidLoad() {
@@ -35,6 +36,7 @@ class MenuViewController: UIViewController {
     }
     
     private func localizeViews() {
+        createGroupButton.setTitle(R.string.localizable.newGroupChannel(), for: .normal)
     }
 
 }

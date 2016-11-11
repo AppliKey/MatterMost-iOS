@@ -43,6 +43,7 @@ class SettingsViewController: UIViewController {
     }
     
     private func localizeViews() {
+        navigationItem.title = R.string.localizable.settingsTitle()
     }
     
     //MARK: - Actions

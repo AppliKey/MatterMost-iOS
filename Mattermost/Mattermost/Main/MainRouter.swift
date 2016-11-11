@@ -22,7 +22,7 @@ class MainRouter : NavigationRouting {
     }
     
     var tabBarController: UITabBarController {
-        return sideMenu.centerViewController as! TabBarViewController
+        return sideMenu.centerViewController as! UITabBarController
     }
     
     //MARK: - Init
