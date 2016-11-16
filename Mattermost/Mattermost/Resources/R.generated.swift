@@ -412,12 +412,12 @@ struct _R: Rswift.Validatable {
     
     struct main: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
-      let chats = StoryboardViewControllerResource<UnreadViewController>(identifier: "Chats")
+      let chats = StoryboardViewControllerResource<ChatsViewController>(identifier: "Chats")
       let menuViewController = StoryboardViewControllerResource<MenuViewController>(identifier: "MenuViewController")
       let name = "Main"
       let settingsViewController = StoryboardViewControllerResource<SettingsViewController>(identifier: "SettingsViewController")
       
-      func chats(_: Void = ()) -> UnreadViewController? {
+      func chats(_: Void = ()) -> ChatsViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: chats)
       }
       
@@ -433,7 +433,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "newGroupBanner") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'newGroupBanner' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().menuViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'menuViewController' could not be loaded from storyboard 'Main' as 'MenuViewController'.") }
         if _R.storyboard.main().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'Main' as 'SettingsViewController'.") }
-        if _R.storyboard.main().chats() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'chats' could not be loaded from storyboard 'Main' as 'UnreadViewController'.") }
+        if _R.storyboard.main().chats() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'chats' could not be loaded from storyboard 'Main' as 'ChatsViewController'.") }
       }
       
       fileprivate init() {}

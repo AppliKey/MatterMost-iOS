@@ -12,6 +12,7 @@ class AppearanceManager {
 
     class func setupDefaultAppearance() {
         setupNavigationbarAppearance()
+        setupTabBarAppearance()
     }
     
     private class func setupNavigationbarAppearance() {
@@ -25,6 +26,12 @@ class AppearanceManager {
             .withAlignmentRectInsets(backButtonInsets)
         navBar.backIndicatorImage = backButtonImage
         navBar.backIndicatorTransitionMaskImage = backButtonImage
+    }
+    
+    private class func setupTabBarAppearance() {
+        let tabBar = UITabBar.appearance()
+        tabBar.tintColor = UIColor.white
+        tabBar.isTranslucent = false
     }
     
 }

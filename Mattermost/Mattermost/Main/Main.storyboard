@@ -189,10 +189,10 @@
             </objects>
             <point key="canvasLocation" x="-3438" y="-1728"/>
         </scene>
-        <!--Unread View Controller-->
+        <!--Chats View Controller-->
         <scene sceneID="f0r-0A-r7w">
             <objects>
-                <viewController storyboardIdentifier="Chats" id="cfg-jf-55v" customClass="UnreadViewController" customModule="Mattermost" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Chats" id="cfg-jf-55v" customClass="ChatsViewController" customModule="Mattermost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5gI-92-VMx"/>
                         <viewControllerLayoutGuide type="bottom" id="5AX-6O-1Zv"/>
