@@ -12,38 +12,37 @@ import UIKit
 class MainCoordinator {
     
     //MARK: - Init
-    init(withRouter router: MainRouter, appCoordinator: AppCoordinator) {
+    init(withRouter router: MainRouting, appCoordinator: AppCoordinator) {
         self.router = router
         self.appCoordinator = appCoordinator
     }
     
-    //TODO: Subclass tabBar for tabBar configuration
     func start() {
         let tabBarViewController = UITabBarController()
-        router.sideMenu.embed(centerViewController: tabBarViewController)
+        router.embed(centerViewController: tabBarViewController)
         tabBarViewController.viewControllers = setupTabBarViewControllers()
-        NavigationManager.setRootController(router.sideMenu)
+        NavigationManager.setRootController(router.rootController)
     }
     
     //MARK: - Private -
-    fileprivate let router: MainRouter
+    fileprivate let router: MainRouting
     fileprivate unowned let appCoordinator: AppCoordinator
     
-    //TODO: refactor
     fileprivate func setupTabBarViewControllers() -> [UIViewController] {
         let favouritesNavigationController = createChatsNavigationController(withMode: .favourites)
         let publicChannelsNavigationController = createChatsNavigationController(withMode: .publicChats)
         let privateChannelsNavigationController = createChatsNavigationController(withMode: .privateChats)
         let directNavigationController = createChatsNavigationController(withMode: .direct)
         
-        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.hideUnreadController.rawValue) {
-            return [favouritesNavigationController, publicChannelsNavigationController,
-                    privateChannelsNavigationController, directNavigationController]
-        } else {
+        var tabBarControllers = [favouritesNavigationController, publicChannelsNavigationController,
+                                 privateChannelsNavigationController, directNavigationController]
+        
+        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.hideUnreadController.rawValue) == false {
             let unreadNavigationController = createChatsNavigationController(withMode: .unread)
-            return [unreadNavigationController, favouritesNavigationController, publicChannelsNavigationController,
-                    privateChannelsNavigationController, directNavigationController]
+            tabBarControllers.insert(unreadNavigationController, at: 0)
         }
+        
+        return tabBarControllers
     }
     
     func createChatsNavigationController(withMode mode:ChatsMode) -> UINavigationController {
@@ -78,23 +77,20 @@ class MainCoordinator {
             showUnreadController()
         }
     }
+    
     func hideUnreadController() {
-        if let viewControllers = router.tabBarController.viewControllers, viewControllers.count == 5 {
-            _ = router.tabBarController.viewControllers!.remove(at: 0)
-        }
+        router.deleteFirstViewController()
     }
     
     func showUnreadController() {
-        if let viewControllers = router.tabBarController.viewControllers, viewControllers.count == 4 {
-            let unreadNavigationController = createChatsNavigationController(withMode: .unread)
-            router.tabBarController.viewControllers!.insert(unreadNavigationController, at: 0)
-        }
+        let unreadNavigationController = createChatsNavigationController(withMode: .unread)
+        router.addViewController(unreadNavigationController)
     }
 }
 
 //MARK: - UnreadCoordinator
 extension MainCoordinator : ChatsCoordinator {
     func openMenu() {
-        router.sideMenu.toggle()
+        router.toggleMenu()
     }
 }

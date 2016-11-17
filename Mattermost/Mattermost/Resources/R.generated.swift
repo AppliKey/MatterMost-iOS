@@ -188,7 +188,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
   struct storyboard {
     /// Storyboard `Authorization`.
     static let authorization = _R.storyboard.authorization()
@@ -196,6 +196,8 @@ struct R: Rswift.Validatable {
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
+    /// Storyboard `Menu`.
+    static let menu = _R.storyboard.menu()
     
     /// `UIStoryboard(name: "Authorization", bundle: ...)`
     static func authorization(_: Void = ()) -> UIKit.UIStoryboard {
@@ -210,6 +212,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Main", bundle: ...)`
     static func main(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.main)
+    }
+    
+    /// `UIStoryboard(name: "Menu", bundle: ...)`
+    static func menu(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.menu)
     }
     
     fileprivate init() {}
@@ -375,6 +382,7 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try main.validate()
+      try menu.validate()
       try authorization.validate()
     }
     
@@ -420,13 +428,30 @@ struct _R: Rswift.Validatable {
     struct main: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let chats = StoryboardViewControllerResource<ChatsViewController>(identifier: "Chats")
-      let menuViewController = StoryboardViewControllerResource<MenuViewController>(identifier: "MenuViewController")
       let name = "Main"
-      let settingsViewController = StoryboardViewControllerResource<SettingsViewController>(identifier: "SettingsViewController")
+      let tabBar = StoryboardViewControllerResource<UIKit.UITabBarController>(identifier: "TabBar")
       
       func chats(_: Void = ()) -> ChatsViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: chats)
       }
+      
+      func tabBar(_: Void = ()) -> UIKit.UITabBarController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tabBar)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.main().chats() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'chats' could not be loaded from storyboard 'Main' as 'ChatsViewController'.") }
+        if _R.storyboard.main().tabBar() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBar' could not be loaded from storyboard 'Main' as 'UIKit.UITabBarController'.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct menu: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let menuViewController = StoryboardViewControllerResource<MenuViewController>(identifier: "MenuViewController")
+      let name = "Menu"
+      let settingsViewController = StoryboardViewControllerResource<SettingsViewController>(identifier: "SettingsViewController")
       
       func menuViewController(_: Void = ()) -> MenuViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: menuViewController)
@@ -437,11 +462,10 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "track") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'track' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "newGroupBanner") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'newGroupBanner' is used in storyboard 'Main', but couldn't be loaded.") }
-        if _R.storyboard.main().menuViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'menuViewController' could not be loaded from storyboard 'Main' as 'MenuViewController'.") }
-        if _R.storyboard.main().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'Main' as 'SettingsViewController'.") }
-        if _R.storyboard.main().chats() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'chats' could not be loaded from storyboard 'Main' as 'ChatsViewController'.") }
+        if UIKit.UIImage(named: "track") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'track' is used in storyboard 'Menu', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "newGroupBanner") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'newGroupBanner' is used in storyboard 'Menu', but couldn't be loaded.") }
+        if _R.storyboard.menu().menuViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'menuViewController' could not be loaded from storyboard 'Menu' as 'MenuViewController'.") }
+        if _R.storyboard.menu().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'Menu' as 'SettingsViewController'.") }
       }
       
       fileprivate init() {}

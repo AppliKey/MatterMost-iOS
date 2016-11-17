@@ -11,27 +11,27 @@ import UIKit
 class SideMenuCoordinator {
     
     //MARK: - Init
-    init(withRouter router: MainRouter, coordinator: MainCoordinator) {
+    init(withRouter router: MainRouting, coordinator: MainCoordinator) {
         self.router = router
         self.coordinator = coordinator
     }
     
-    fileprivate let router: MainRouter
+    fileprivate let router: MainRouting
     fileprivate unowned let coordinator: MainCoordinator
 
     func start() {
-        guard let menu = R.storyboard.main.menuViewController()
+        guard let menu = R.storyboard.menu.menuViewController()
             else { fatalError("Can't instantiate left menu view controller") }
         MenuWireframe.setup(menu, withCoordinator: self)
-        router.sideMenu.embed(sideViewController: menu)
+        router.embed(sideViewController: menu)
     }
 }
 
 extension SideMenuCoordinator : MenuCoordinator {
     
     func openSettings() {
-        router.sideMenu.toggle()
-        guard let settingsVC = R.storyboard.main.settingsViewController()
+        router.toggleMenu()
+        guard let settingsVC = R.storyboard.menu.settingsViewController()
             else { fatalError("Can't instantiate settings view controller") }
         settingsVC.hidesBottomBarWhenPushed = true
         SettingsWireframe.setup(settingsVC, withCoordinator: self)
