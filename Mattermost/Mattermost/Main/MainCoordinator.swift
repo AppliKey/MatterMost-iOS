@@ -45,7 +45,7 @@ class MainCoordinator {
         return tabBarControllers
     }
     
-    func createChatsNavigationController(withMode mode:ChatsMode) -> UINavigationController {
+    fileprivate func createChatsNavigationController(withMode mode:ChatsMode) -> UINavigationController {
         guard let chats = R.storyboard.main.chats()
             else { fatalError("Can't instantiate chats view controller") }
         let navigationController = UINavigationController.init(rootViewController: chats)

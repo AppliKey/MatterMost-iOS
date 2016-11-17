@@ -43,4 +43,12 @@ extension SettingsPresenter: SettingsEventHandling {
     func viewWillDissapear() {
         coordinator.checkTabBarControllers()
     }
+    
+    func handleEditProfile() {
+        print("edit profile")
+    }
+    
+    func handleLogout() {
+        print("handle logout")
+    }
 }

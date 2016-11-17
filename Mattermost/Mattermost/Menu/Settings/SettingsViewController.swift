@@ -27,7 +27,6 @@ class SettingsViewController: UIViewController {
 		super.viewDidLoad()
         configureInterface()
         eventHandler.viewIsReady()
-        unreadSwitcher.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
 	}
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,12 +44,23 @@ class SettingsViewController: UIViewController {
     
     private func localizeViews() {
         navigationItem.title = R.string.localizable.settingsTitle()
+        editProfileButton.setTitle(R.string.localizable.settingsEditProfile(), for: .normal)
+        logoutButton.setTitle(R.string.localizable.settingsLogout(), for: .normal)
+        unreadMessagesLabel.text = R.string.localizable.settingsUnreadMessages()
     }
     
     //MARK: - Actions
 
     @IBAction func switcherValueChanged(_ sender: Any) {
         eventHandler.handleSwitcherValueChanged(unreadSwitcher.isOn)
+    }
+    
+    @IBAction func editProfileTapped(_ sender: Any) {
+        eventHandler.handleEditProfile()
+    }
+    
+    @IBAction func logoutTapped(_ sender: Any) {
+        eventHandler.handleLogout()
     }
 }
 

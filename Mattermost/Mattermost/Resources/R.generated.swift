@@ -224,7 +224,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 18 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 21 localization keys.
     struct localizable {
       /// Value: All channels
       static let menuItemChannels = Rswift.StringResource(key: "menu.item.channels", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -234,6 +234,8 @@ struct R: Rswift.Validatable {
       static let emailFieldHint = Rswift.StringResource(key: "email.field.hint", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: ENTER SERVER URL
       static let serverFieldHint = Rswift.StringResource(key: "server.field.hint", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Edit profile
+      static let settingsEditProfile = Rswift.StringResource(key: "settings.edit.profile", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Email is invalid
       static let emailNotValid = Rswift.StringResource(key: "email.not.valid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Enter your email
@@ -244,6 +246,8 @@ struct R: Rswift.Validatable {
       static let forgotPassword = Rswift.StringResource(key: "forgot.password", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Invite new member
       static let menuItemInvite = Rswift.StringResource(key: "menu.item.invite", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Logout
+      static let settingsLogout = Rswift.StringResource(key: "settings.logout", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: NEW GROUP OR CHANNEL
       static let newGroupChannel = Rswift.StringResource(key: "new.group.channel", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: NEXT
@@ -258,6 +262,8 @@ struct R: Rswift.Validatable {
       static let menuItemSettings = Rswift.StringResource(key: "menu.item.settings", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Settings
       static let settingsTitle = Rswift.StringResource(key: "settings.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Unread messages
+      static let settingsUnreadMessages = Rswift.StringResource(key: "settings.unread.messages", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Welcome to Mattermost
       static let welcome = Rswift.StringResource(key: "welcome", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: http://server.com/
@@ -283,6 +289,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("server.field.hint", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: Edit profile
+      static func settingsEditProfile(_: Void = ()) -> String {
+        return NSLocalizedString("settings.edit.profile", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: Email is invalid
       static func emailNotValid(_: Void = ()) -> String {
         return NSLocalizedString("email.not.valid", bundle: R.hostingBundle, comment: "")
@@ -306,6 +317,11 @@ struct R: Rswift.Validatable {
       /// Value: Invite new member
       static func menuItemInvite(_: Void = ()) -> String {
         return NSLocalizedString("menu.item.invite", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Logout
+      static func settingsLogout(_: Void = ()) -> String {
+        return NSLocalizedString("settings.logout", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: NEW GROUP OR CHANNEL
@@ -341,6 +357,11 @@ struct R: Rswift.Validatable {
       /// Value: Settings
       static func settingsTitle(_: Void = ()) -> String {
         return NSLocalizedString("settings.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Unread messages
+      static func settingsUnreadMessages(_: Void = ()) -> String {
+        return NSLocalizedString("settings.unread.messages", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Welcome to Mattermost
@@ -462,7 +483,6 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "track") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'track' is used in storyboard 'Menu', but couldn't be loaded.") }
         if UIKit.UIImage(named: "newGroupBanner") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'newGroupBanner' is used in storyboard 'Menu', but couldn't be loaded.") }
         if _R.storyboard.menu().menuViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'menuViewController' could not be loaded from storyboard 'Menu' as 'MenuViewController'.") }
         if _R.storyboard.menu().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'Menu' as 'SettingsViewController'.") }

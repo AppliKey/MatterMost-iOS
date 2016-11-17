@@ -35,3 +35,6 @@
 
 // Settings
 "settings.title" = "Settings";
+"settings.edit.profile" = "Edit profile";
+"settings.unread.messages" = "Unread messages";
+"settings.logout" = "Logout";

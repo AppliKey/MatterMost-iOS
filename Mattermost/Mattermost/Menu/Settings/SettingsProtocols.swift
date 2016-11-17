@@ -28,6 +28,8 @@ protocol SettingsEventHandling: class {
     func handleSwitcherValueChanged(_ value:Bool)
     func viewWillDissapear()
     func viewIsReady()
+    func handleEditProfile()
+    func handleLogout()
 }
 
 protocol SettingsCoordinator: class {
