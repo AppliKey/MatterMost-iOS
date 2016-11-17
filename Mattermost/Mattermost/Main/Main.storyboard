@@ -36,6 +36,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8a3-WS-BrG">
                                 <rect key="frame" x="0.0" y="131" width="375" height="56"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="track" translatesAutoresizingMaskIntoConstraints="NO" id="rFV-0f-Hdx">
+                                        <rect key="frame" x="306" y="18.5" width="39" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="7ba-2n-njH"/>
+                                            <constraint firstAttribute="width" constant="39" id="DHX-iG-Pc1"/>
+                                        </constraints>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unread messages" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDc-Dg-MdS">
                                         <rect key="frame" x="20" y="18" width="150" height="21"/>
                                         <constraints>
@@ -53,7 +60,8 @@
                                             <constraint firstAttribute="height" constant="31" id="YbT-j4-hPI"/>
                                             <constraint firstAttribute="width" constant="49" id="qd3-ud-phf"/>
                                         </constraints>
-                                        <color key="onTintColor" red="0.93025428056716919" green="0.93723714351654053" blue="0.94964522123336792" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="onTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="thumbTintColor" red="0.45526635646820068" green="0.68402820825576782" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="switcherValueChanged:" destination="icM-3V-5mk" eventType="valueChanged" id="qhf-QX-vX0"/>
@@ -63,8 +71,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="7P8-OT-clv" secondAttribute="trailing" constant="25" id="FyI-7N-MQh"/>
+                                    <constraint firstAttribute="trailing" secondItem="rFV-0f-Hdx" secondAttribute="trailing" constant="30" id="IvQ-d9-nXd"/>
                                     <constraint firstItem="QDc-Dg-MdS" firstAttribute="centerY" secondItem="8a3-WS-BrG" secondAttribute="centerY" id="OJi-h8-HAY"/>
                                     <constraint firstItem="7P8-OT-clv" firstAttribute="centerY" secondItem="8a3-WS-BrG" secondAttribute="centerY" id="TaY-sj-dHZ"/>
+                                    <constraint firstItem="rFV-0f-Hdx" firstAttribute="centerY" secondItem="8a3-WS-BrG" secondAttribute="centerY" id="bOB-cW-WI9"/>
                                     <constraint firstAttribute="height" constant="56" id="ggD-eC-dt2"/>
                                     <constraint firstItem="QDc-Dg-MdS" firstAttribute="leading" secondItem="8a3-WS-BrG" secondAttribute="leading" constant="20" id="zKx-vA-Ses"/>
                                 </constraints>
@@ -106,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gea-cF-kPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4374" y="-1728"/>
+            <point key="canvasLocation" x="-4375.1999999999998" y="-1728.4857571214395"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="PlD-FH-JUW">
@@ -247,5 +257,6 @@
     </scenes>
     <resources>
         <image name="newGroupBanner" width="260" height="54"/>
+        <image name="track" width="34" height="14"/>
     </resources>
 </document>

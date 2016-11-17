@@ -27,6 +27,7 @@ class SettingsViewController: UIViewController {
 		super.viewDidLoad()
         configureInterface()
         eventHandler.viewIsReady()
+        unreadSwitcher.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
 	}
     
     override func viewWillDisappear(_ animated: Bool) {

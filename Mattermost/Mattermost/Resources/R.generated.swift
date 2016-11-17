@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 18 images.
+  /// This `R.image` struct is generated, and contains static references to 19 images.
   struct image {
     /// Image `back`.
     static let back = Rswift.ImageResource(bundle: R.hostingBundle, name: "back")
@@ -69,6 +69,8 @@ struct R: Rswift.Validatable {
     static let ic_unread = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_unread")
     /// Image `newGroupBanner`.
     static let newGroupBanner = Rswift.ImageResource(bundle: R.hostingBundle, name: "newGroupBanner")
+    /// Image `track`.
+    static let track = Rswift.ImageResource(bundle: R.hostingBundle, name: "track")
     
     /// `UIImage(named: "back", bundle: ..., traitCollection: ...)`
     static func back(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -158,6 +160,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "newGroupBanner", bundle: ..., traitCollection: ...)`
     static func newGroupBanner(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.newGroupBanner, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "track", bundle: ..., traitCollection: ...)`
+    static func track(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.track, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -430,6 +437,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "track") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'track' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "newGroupBanner") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'newGroupBanner' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().menuViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'menuViewController' could not be loaded from storyboard 'Main' as 'MenuViewController'.") }
         if _R.storyboard.main().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'Main' as 'SettingsViewController'.") }
