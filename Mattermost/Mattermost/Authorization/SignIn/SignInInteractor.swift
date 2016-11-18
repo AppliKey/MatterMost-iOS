@@ -8,23 +8,28 @@
 
 import Foundation
 
+protocol SignInService {
+    func signIn(withEmail email: String, password: String, completion: (Result<Void>) -> Void)
+}
+
 class SignInInteractor: EmailValidator, PasswordValidator {
   	weak var presenter: SignInPresenting!
+    var signInService = AuthorizationService()
 }
 
 extension SignInInteractor: SignInInteracting {
     
     func signIn(withEmail email: String, password: String, completion: (Result<Void>) -> Void) {
         guard validateEmail(email) else {
-            completion(.failure(R.string.localizable.emailNotValid()))
+            completion(.failure(NSError(domain:R.string.localizable.emailNotValid())))
             return
         }
         guard validatePassword(password) else {
-            completion(.failure(R.string.localizable.passwordNotValid()))
+            completion(.failure(NSError(domain: R.string.localizable.passwordNotValid())))
             return
         }
-        //TODO: request sign in
-        completion(.success())
+        
+        signInService.signIn(withEmail: email, password: password, completion: completion)
     }
     
 }

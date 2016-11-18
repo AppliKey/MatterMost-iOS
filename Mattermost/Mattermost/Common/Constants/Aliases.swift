@@ -9,10 +9,11 @@
 import Foundation
 
 typealias VoidClosure = () -> ()
+typealias ServerPingClosure = (_ result: Result<ServerPing?>) -> Void
 
 enum Result<T> {
     case success(T)
-    case failure(String)
+    case failure(Error)
 }
 
 enum UserDefaultsKeys : String {

@@ -55,7 +55,6 @@
                                             <constraint firstAttribute="width" constant="49" id="BWY-9X-MSR"/>
                                             <constraint firstAttribute="height" constant="31" id="eGL-EZ-C8I"/>
                                         </constraints>
-                                        <color key="thumbTintColor" red="0.45490196078431372" green="0.68235294117647061" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="switcherValueChanged:" destination="MQf-2b-Jwk" eventType="valueChanged" id="BmD-y7-N1v"/>
                                         </connections>
