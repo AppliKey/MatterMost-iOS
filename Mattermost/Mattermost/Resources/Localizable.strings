@@ -26,3 +26,15 @@
 "email.field.placeholder" = "Enter your email";
 "password.field.placeholder" = "Enter your password";
 "forgot.password" = "FORGOT PASSWORD";
+
+// Left Menu
+"menu.item.channels" = "All channels";
+"menu.item.invite" = "Invite new member";
+"menu.item.settings" = "Settings";
+"new.group.channel" = "NEW GROUP OR CHANNEL";
+
+// Settings
+"settings.title" = "Settings";
+"settings.edit.profile" = "Edit profile";
+"settings.unread.messages" = "Unread messages";
+"settings.logout" = "Logout";

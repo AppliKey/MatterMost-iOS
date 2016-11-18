@@ -15,3 +15,7 @@ enum Result<T> {
     case success(T)
     case failure(Error)
 }
+
+enum UserDefaultsKeys : String {
+    case hideUnreadController = "hideUnreadControllerKey"
+}

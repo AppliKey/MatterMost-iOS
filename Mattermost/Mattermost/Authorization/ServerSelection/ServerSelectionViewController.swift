@@ -43,7 +43,6 @@ class ServerSelectionViewController: UIViewController {
         localizeViews()
         serverTextField.delegate = self
         tapRecognizer = HideKeyboardRecognizer(withView: view)
-        configureNavigationBar()
     }
     
     private func localizeViews() {
@@ -52,18 +51,6 @@ class ServerSelectionViewController: UIViewController {
         hintLabel.text = R.string.localizable.serverFieldHint()
         serverTextField.placeholder = R.string.localizable.serverFieldPlaceholder()
         nextButton.setTitle(R.string.localizable.nextButtonTitle(), for: .normal)
-    }
-    
-    private func configureNavigationBar() {
-        guard let navBar = navigationController?.navigationBar else { return }
-        navBar.barTintColor = .white
-        navBar.clearShadow()
-        let backButtonInsets = UIEdgeInsets(top: 13, left: 20, bottom: 0, right: 0)
-        let backButtonImage = R.image.back()?
-            .withRenderingMode(.alwaysOriginal)
-            .withAlignmentRectInsets(backButtonInsets)
-        navBar.backIndicatorImage = backButtonImage
-        navBar.backIndicatorTransitionMaskImage = backButtonImage
     }
     
 }

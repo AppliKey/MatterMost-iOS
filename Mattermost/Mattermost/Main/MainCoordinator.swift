@@ -12,25 +12,85 @@ import UIKit
 class MainCoordinator {
     
     //MARK: - Init
-    init(withRouter router: MainRouter, appCoordinator: AppCoordinator) {
+    init(withRouter router: MainRouting, appCoordinator: AppCoordinator) {
         self.router = router
         self.appCoordinator = appCoordinator
     }
     
     func start() {
-        guard let viewController = R.storyboard.main.tabBarViewController()
-            else { fatalError("Can't instantiate server selection view controller") }
-        TabBarWireframe.setup(viewController, withCoordinator: self)
-        router.root(viewController: viewController)
+        let tabBarViewController = UITabBarController()
+        router.embed(centerViewController: tabBarViewController)
+        tabBarViewController.viewControllers = setupTabBarViewControllers()
+        NavigationManager.setRootController(router.rootController)
     }
     
     //MARK: - Private -
-    fileprivate let router: MainRouter
+    fileprivate let router: MainRouting
     fileprivate unowned let appCoordinator: AppCoordinator
     
+    fileprivate func setupTabBarViewControllers() -> [UIViewController] {
+        let favouritesNavigationController = createChatsNavigationController(withMode: .favourites)
+        let publicChannelsNavigationController = createChatsNavigationController(withMode: .publicChats)
+        let privateChannelsNavigationController = createChatsNavigationController(withMode: .privateChats)
+        let directNavigationController = createChatsNavigationController(withMode: .direct)
+        
+        var tabBarControllers = [favouritesNavigationController, publicChannelsNavigationController,
+                                 privateChannelsNavigationController, directNavigationController]
+        
+        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.hideUnreadController.rawValue) == false {
+            let unreadNavigationController = createChatsNavigationController(withMode: .unread)
+            tabBarControllers.insert(unreadNavigationController, at: 0)
+        }
+        
+        return tabBarControllers
+    }
+    
+    fileprivate func createChatsNavigationController(withMode mode:ChatsMode) -> UINavigationController {
+        guard let chats = R.storyboard.main.chats()
+            else { fatalError("Can't instantiate chats view controller") }
+        let navigationController = UINavigationController.init(rootViewController: chats)
+        ChatsWireframe.setup(chats, withCoordinator: self)
+        switch mode {
+        case .unread:
+            chats.tabBarItem = UITabBarItem.withoutTitle(image: R.image.ic_unread_not_active(),
+                                                         selectedImage: R.image.ic_unread())
+        case .favourites:
+            chats.tabBarItem = UITabBarItem.withoutTitle(image: R.image.ic_favorites_not_active(),
+                                                         selectedImage: R.image.ic_favorites())
+        case .publicChats:
+            chats.tabBarItem = UITabBarItem.withoutTitle(image: R.image.ic_public_chanels_not_active(),
+                                                         selectedImage: R.image.ic_public_chanels())
+        case .privateChats:
+            chats.tabBarItem = UITabBarItem.withoutTitle(image: R.image.ic_private_chanels_not_active(),
+                                                         selectedImage: R.image.ic_private_chanels())
+        case .direct:
+            chats.tabBarItem = UITabBarItem.withoutTitle(image: R.image.ic_direct_not_active(),
+                                                         selectedImage: R.image.ic_direct())
+        }
+        return navigationController
+    }
+    
+    func checkTabBarControllers() {
+        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.hideUnreadController.rawValue) {
+            hideUnreadController()
+        } else {
+            showUnreadController()
+        }
+    }
+    
+    func hideUnreadController() {
+        router.deleteFirstViewController()
+    }
+    
+    func showUnreadController() {
+        let unreadNavigationController = createChatsNavigationController(withMode: .unread)
+        router.addViewController(unreadNavigationController)
+    }
 }
 
-//MARK: - TabBarCoordinator
-extension MainCoordinator: TabBarCoordinator {
-    
+//MARK: - UnreadCoordinator
+extension MainCoordinator : ChatsCoordinator {
+    func openMenu() {
+        router.toggleMenu()
+    }
 }
