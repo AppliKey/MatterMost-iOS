@@ -27,10 +27,12 @@ protocol ChatsPresenting: class {
 }
 
 protocol ChatsViewing: class {
+    func updateView(withRepresentationModel chatsRepresentation: [ChatRepresentationModel])
 }
 
 protocol ChatsEventHandling: class {
     func openMenu()
+    func viewIsReady()
 }
 
 protocol ChatsCoordinator: class {

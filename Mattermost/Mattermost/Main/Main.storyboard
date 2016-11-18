@@ -12,23 +12,42 @@
         <!--Chats View Controller-->
         <scene sceneID="f0r-0A-r7w">
             <objects>
-                <viewController storyboardIdentifier="Chats" id="cfg-jf-55v" customClass="ChatsViewController" customModule="Mattermost" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Chats" automaticallyAdjustsScrollViewInsets="NO" id="cfg-jf-55v" customClass="ChatsViewController" customModule="Mattermost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5gI-92-VMx"/>
                         <viewControllerLayoutGuide type="bottom" id="5AX-6O-1Zv"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FLE-NB-aD2">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="FLE-NB-aD2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.34509803919999998" green="0.74509803919999995" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5or-Pv-vQD">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="cfg-jf-55v" id="UL6-UL-3os"/>
+                                    <outlet property="delegate" destination="cfg-jf-55v" id="8iO-8x-XuA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="5AX-6O-1Zv" firstAttribute="top" secondItem="5or-Pv-vQD" secondAttribute="bottom" id="Z7r-tL-cVS"/>
+                            <constraint firstItem="5or-Pv-vQD" firstAttribute="top" secondItem="5gI-92-VMx" secondAttribute="bottom" id="sSo-KA-Uft"/>
+                            <constraint firstAttribute="trailing" secondItem="5or-Pv-vQD" secondAttribute="trailing" id="uak-Vb-Xtz"/>
+                            <constraint firstItem="5or-Pv-vQD" firstAttribute="leading" secondItem="FLE-NB-aD2" secondAttribute="leading" id="wxZ-II-bqH"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QEg-8C-BID">
                         <barButtonItem key="backBarButtonItem" title=" " id="bmd-Nh-KmF"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="5or-Pv-vQD" id="txB-f0-0an"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EwY-UO-Mpp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2676" y="-2091"/>
+            <point key="canvasLocation" x="-2676" y="-2091.0044977511247"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tre-rH-A9r">

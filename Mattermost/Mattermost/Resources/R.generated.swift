@@ -170,15 +170,32 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 0 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
   struct nib {
+    /// Nib `GroupChatCell`.
+    static let groupChatCell = _R.nib._GroupChatCell()
+    /// Nib `SingleChatCell`.
+    static let singleChatCell = _R.nib._SingleChatCell()
+    
+    /// `UINib(name: "GroupChatCell", in: bundle)`
+    static func groupChatCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.groupChatCell)
+    }
+    
+    /// `UINib(name: "SingleChatCell", in: bundle)`
+    static func singleChatCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.singleChatCell)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `LabelCell`.
     static let labelCell: Rswift.ReuseIdentifier<LabelCell> = Rswift.ReuseIdentifier(identifier: "LabelCell")
+    /// Reuse identifier `SingleChatCell`.
+    static let singleChatCell: Rswift.ReuseIdentifier<SingleChatCell> = Rswift.ReuseIdentifier(identifier: "SingleChatCell")
     
     fileprivate init() {}
   }
@@ -397,6 +414,31 @@ struct _R: Rswift.Validatable {
   }
   
   struct nib {
+    struct _GroupChatCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "GroupChatCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> GroupChatCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GroupChatCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _SingleChatCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = SingleChatCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "SingleChatCell"
+      let name = "SingleChatCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> SingleChatCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SingleChatCell
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
