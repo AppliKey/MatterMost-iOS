@@ -7,34 +7,64 @@
 //
 
 import Foundation
-
-protocol ServerPingProtocol {
-    func pingServer(url: URL, completion: @escaping ServerPingClosure)
-}
+import Rswift
 
 class ServerSelectionInteractor {
     weak var presenter: ServerSelectionPresenting!
-    var serverService:ServerPingProtocol  = AuthorizationService()
+    
+    //MARK: - Init
+    required init(service: PingService) {
+        self.service = service
+    }
+    
+    //MARK: - Private -
+    fileprivate var service: PingService
+    fileprivate var request: CancellableRequest?
+    
+    //MARK: - Deinit
+    deinit {
+        request?.cancel()
+    }
 }
 
 extension ServerSelectionInteractor: ServerSelectionInteracting {
     
-    func isAddressValid(address: String, completion: @escaping (_ isValid: Bool, _ message: String?) -> () ) {
-        guard let url = URL(string: address) else { return completion(false, "Address is not valid") }
+    func ping(address: String) {
+        guard let url = URL(string: address) else {
+            presenter.present(R.string.localizable.serverAddressNotValid())
+            return
+        }
         guard (url.isValid(regex: URL.validIpAddressRegex) ||
             url.isValid(regex: URL.validHostnameRegex) ||
             url.isValid(regex: URL.validHttpIpAddressRegex)) else {
-            return completion(false, "Address format is not valid")
+                presenter.present(R.string.localizable.serverAddressWrongFormat())
+                return
         }
-        
-        serverService.pingServer(url: url) { (result) in
+        let address = correctAddress(from: url)
+        request = service.ping(address) { [weak self] result in
             switch result {
-            case .success(_):
-                completion(true, "Valid")
-            case .failure( _):
-                completion(false, "Wrong server address")
+            case .success: self?.presenter.completeServerSelection()
+            case .failure(let errorMessage): self?.presenter.present(errorMessage)
             }
         }
     }
     
+    private func correctAddress(from url: URL) -> String {
+        //TODO: Improve logic
+        if url.isValid(regex: URL.validIpAddressRegex) {
+            return "http://" + url.absoluteString
+        }
+        return url.absoluteString
+    }
+    
+}
+
+enum PingResult {
+    case success, failure(String)
+}
+
+typealias PingCompletion = (PingResult) -> ()
+
+protocol PingService {
+    func ping(_ address: String, completion: @escaping PingCompletion) -> CancellableRequest
 }

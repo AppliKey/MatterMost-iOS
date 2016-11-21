@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SignInPresenter {
+class SignInPresenter: SignInConfigurator {
     
 	//MARK: - Properties
     weak var view: SignInViewing!
@@ -24,25 +24,29 @@ class SignInPresenter {
     fileprivate let coordinator: SignInCoordinator
 }
 
-extension SignInPresenter: SignInConfigurator {
-}
-
-extension SignInPresenter: SignInPresenting {
-}
-
 extension SignInPresenter: SignInEventHandling {
-    
-    func next(withEmail email: String, andPassword password: String) {
-        interactor.signIn(withEmail: email, password: password) {
-            switch $0 {
-            case .success: coordinator.next()
-            case .failure(let error): coordinator.alert(withMessage: error.localizedDescription)
-            }
-        }
-    }
     
     func forgotPass(forEmail email: String) {
         coordinator.forgotPass(forEmail: email)
     }
+    
+    func next(withEmail email: String, andPassword password: String) {
+        view.showActivityIndicator()
+        interactor.signIn(withEmail: email, password: password)
+    }
+    
+}
 
+extension SignInPresenter: SignInPresenting {
+    
+    func completeSignIn() {
+        view.hideActivityIndicator()
+        coordinator.selectTeam()
+    }
+    
+    func present(_ error: SignInError) {
+        view.hideActivityIndicator()
+        view.show(error)
+    }
+    
 }

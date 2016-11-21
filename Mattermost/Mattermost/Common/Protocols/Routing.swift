@@ -29,15 +29,15 @@ extension Routing {
 
 protocol NavigationRouting: Routing {
     var navigationController: UINavigationController {get}
-    func push(viewController: UIViewController)
+    func push(viewController: UIViewController, animated: Bool)
     func pop()
     func root(viewController: UIViewController)
 }
 
 extension NavigationRouting {
     
-    func push(viewController: UIViewController) {
-        navigationController.pushViewController(viewController, animated: true)
+    func push(viewController: UIViewController, animated: Bool = true) {
+        navigationController.pushViewController(viewController, animated: animated)
         topViewController = viewController
     }
     

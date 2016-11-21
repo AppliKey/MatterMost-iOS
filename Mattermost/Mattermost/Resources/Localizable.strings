@@ -11,8 +11,11 @@
 "ok.alert.title" = "Ok";
 
 // Errors
+"server.address.not.valid" = "Address is not valid";
+"server.address.wrong.format" = "Address format is not valid";
 "email.not.valid" = "Email is invalid";
 "password.not.valid" = "Password is invalid";
+"unknown.server.error" = "Unknown server error";
 
 // Server selection view
 "welcome" = "Welcome to Mattermost";
@@ -26,3 +29,19 @@
 "email.field.placeholder" = "Enter your email";
 "password.field.placeholder" = "Enter your password";
 "forgot.password" = "FORGOT PASSWORD";
+
+// Teams view
+"team.selection.header" = "Select your team";
+
+// Left Menu
+"menu.item.channels" = "All channels";
+"menu.item.invite" = "Invite new member";
+"menu.item.settings" = "Settings";
+"new.group.channel" = "NEW GROUP OR CHANNEL";
+
+// Settings
+"settings.title" = "Settings";
+"settings.edit.profile" = "Edit profile";
+"settings.unread.messages" = "Unread messages";
+"settings.logout" = "Logout";
+

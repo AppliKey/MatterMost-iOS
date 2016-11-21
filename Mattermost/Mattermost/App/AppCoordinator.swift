@@ -24,9 +24,22 @@ class AppCoordinator {
     }
     
     func showMainScreen(withNavigationController navigationController: UINavigationController) {
-        let router = MainRouter(withNavigationController: navigationController)
-        let coordinator = MainCoordinator(withRouter: router, appCoordinator: self)
-        coordinator.start()
+        setupSideMenu()
+        let sideMenu = SideMenuController()
+        let router = MainRouter(withSideMenuController: sideMenu)
+        let mainCoordinator = MainCoordinator(withRouter: router, appCoordinator: self)
+        let menuCoordinator = SideMenuCoordinator(withRouter: router, coordinator: mainCoordinator)
+        
+        mainCoordinator.start()
+        menuCoordinator.start()
     }
-  
+    
+    fileprivate func setupSideMenu() {
+        SideMenuController.preferences.drawing.menuButtonImage = R.image.icMenu()
+        SideMenuController.preferences.drawing.centerPanelShadow = false
+        SideMenuController.preferences.drawing.sidePanelPosition = .underCenterPanelLeft
+        SideMenuController.preferences.drawing.sidePanelWidth = 260
+        SideMenuController.preferences.drawing.centerPanelOverlayColor = UIColor.black
+        SideMenuController.preferences.animating.statusBarBehaviour = .showUnderlay
+    }
 }

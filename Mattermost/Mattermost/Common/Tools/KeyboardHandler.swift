@@ -12,6 +12,23 @@ import Typist
 
 class KeyboardHandler {
     
+    struct ManagedView {
+        let view: UIView
+        let offset: CGFloat
+        
+        //MARK: - Init
+        
+        init(_ view: UIView, withOffset offset: CGFloat = defaultOffset) {
+            self.view = view
+            self.offset = offset
+            bottomConstraint = bottomConstraintFor(view)
+        }
+        
+        //MARK: - Private -
+        fileprivate let bottomConstraint: CGFloat
+        
+    }
+    
     func start() {
         if !isEnabled {
             isEnabled = true
@@ -25,20 +42,26 @@ class KeyboardHandler {
     }
 
     //MARK: Init
-    required init(withViews views: [UIView], superview: UIView) {
-        self.views = views
-        self.superview = superview
+    convenience init(withViews views: [UIView]) {
+        self.init(withManagedViews: views.map({ ManagedView($0) }))
+    }
+    
+    convenience init(withView view: UIView, offset: CGFloat = defaultOffset) {
+        self.init(withManagedViews: [ManagedView(view, withOffset: offset)])
+    }
+    
+    required init(withManagedViews managedViews: [ManagedView]) {
+        self.managedViews = managedViews
         setupKeyboard()
     }
     
     //MARK: Private
-    private let views: [UIView]
-    let superview: UIView
+    private let managedViews: [ManagedView]
     private let keyboard = Typist()
     private var isEnabled = true
-    private var keyboardHeight: CGFloat = 0
     private var keyboardHeightDifference: CGFloat = 0
     private var animationDuration = 0.5
+    private var keyboardFrame: CGRect = .zero
     
     private func setupKeyboard() {
         keyboard
@@ -54,30 +77,28 @@ class KeyboardHandler {
     private func handleKeyboardChangeWithOptions(_ options: Typist.KeyboardOptions) {
         keyboardHeightDifference = options.startFrame.origin.y
             - options.endFrame.origin.y
-        keyboardHeight = options.endFrame.size.height
         animationDuration = options.animationDuration
+        keyboardFrame = options.endFrame
         updateViews()
     }
     
     private func updateViews() {
         guard isEnabled else { return }
-        guard views.count > 0 else { return }
-        superview.layoutIfNeeded()
-        for view in views {
-            if let scrollView = view as? UIScrollView {
-                updateInsetForScrollView(scrollView)
+        guard keyboardHeightDifference != 0 else { return }
+        guard managedViews.count > 0 else { return }
+        for managedView in managedViews {
+            if managedView.view is UIScrollView {
+                updateBottomInsetFor(managedView)
             } else {
-                updateConstraintsForView(view)
+                updateBottomConstraintFor(managedView)
             }
-        }
-        UIView.animate(withDuration: animationDuration) {
-            self.superview.layoutIfNeeded()
         }
     }
     
-    private func updateInsetForScrollView(_ scrollView: UIScrollView) {
+    private func updateBottomInsetFor(_ managedView: ManagedView) {
+        guard let scrollView = managedView.view as? UIScrollView else { return }
         var inset = scrollView.contentInset
-        inset.bottom += keyboardOverlayHeightForView(scrollView, modificator: inset.bottom)
+        inset.bottom = newBottomConstraintFor(managedView)
         scrollView.contentInset = inset
         showFirstResponderInScrollView(scrollView)
     }
@@ -90,23 +111,39 @@ class KeyboardHandler {
         }
     }
     
-    private func updateConstraintsForView(_ view: UIView) {
+    private func updateBottomConstraintFor(_ managedView: ManagedView) {
+        let view = managedView.view
         guard let constraint = view.firstBottomConstraint() else { return }
-        constraint.constant += keyboardOverlayHeightForView(view, modificator: constraint.constant)
+        constraint.constant = newBottomConstraintFor(managedView)
+        UIView.animate(withDuration: animationDuration) {
+            view.superview?.layoutIfNeeded()
+        }
     }
     
-    private func keyboardOverlayHeightForView(_ view: UIView, modificator: CGFloat) -> CGFloat {
-        if keyboardHeight > fabs(keyboardHeightDifference) {
-            return keyboardHeightDifference
+    private func newBottomConstraintFor(_ managedView: ManagedView) -> CGFloat {
+        if self.keyboardFrame.height > fabs(keyboardHeightDifference) {
+            return bottomConstraintFor(managedView.view) + keyboardHeightDifference
         }
-        let viewFrame = superview.convert(view.frame, from: view.superview)
-        let bottomOffset = superview.frame.size.height - viewFrame.origin.y
-            - viewFrame.size.height - modificator
         if keyboardHeightDifference < 0 {
-            return keyboardHeightDifference + bottomOffset
-        } else {
-            return keyboardHeightDifference - bottomOffset
+            return managedView.bottomConstraint
         }
+        let view = managedView.view
+        guard let window = view.window else { return 0 }
+        let viewFrame = window.convert(view.frame, from: nil)
+        let keyboardFrame = window.convert(self.keyboardFrame, from: nil)
+        let bottomOffset = window.frame.height - viewFrame.origin.y - viewFrame.height
+        let constraint = keyboardFrame.height - bottomOffset + managedView.offset + managedView.bottomConstraint
+        return constraint
     }
     
+}
+
+fileprivate let defaultOffset: CGFloat = 20
+
+fileprivate func bottomConstraintFor(_ view: UIView) -> CGFloat {
+    if let scrollView = view as? UIScrollView {
+        return scrollView.contentInset.bottom
+    } else {
+        return view.firstBottomConstraint()?.constant ?? 0
+    }
 }

@@ -7,20 +7,19 @@
 //
 
 import Foundation
-import ObjectMapper
+import Unbox
 
-class ServerPing: Mappable {
-    var nodeId: String?
-    var serverTime: String?
-    var version: String?
-    
-    required init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        self.nodeId <- map["node_id"]
-        self.serverTime <- map["server_time"]
-        self.version <- map["version"]
+struct ServerPingInfo {
+    let version: String
+    let serverTime: Date
+    let nodeId: String?
+}
+
+extension ServerPingInfo: Unboxable {
+    init(unboxer: Unboxer) throws {
+        version = try unboxer.unbox(key: "version")
+        let miliseconds: TimeInterval = try unboxer.unbox(key: "server_time")
+        serverTime = Date.init(timeIntervalSince1970: miliseconds / 1000)
+        nodeId = unboxer.unbox(key: "node_id")
     }
 }

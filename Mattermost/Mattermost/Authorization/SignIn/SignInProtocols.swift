@@ -8,18 +8,22 @@
 
 import Foundation
 import UIKit
+import Result
 
 protocol SignInConfigurator: class {
 }
 
 protocol SignInInteracting: class {
-    func signIn(withEmail email: String, password: String, completion: (Result<Void>) -> Void)
+    func signIn(withEmail email: String, password: String)
 }
 
 protocol SignInPresenting: class {
+    func completeSignIn()
+    func present(_ error: SignInError)
 }
 
-protocol SignInViewing: class {
+protocol SignInViewing: class, ActivityIndicating, ErrorShowable {
+    func show(_ error: SignInError)
 }
 
 protocol SignInEventHandling: class {
@@ -29,6 +33,5 @@ protocol SignInEventHandling: class {
 
 protocol SignInCoordinator: class {
     func forgotPass(forEmail email: String)
-    func next()
-    func alert(withMessage message: String)
+    func selectTeam()
 }

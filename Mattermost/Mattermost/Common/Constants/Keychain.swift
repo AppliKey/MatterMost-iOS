@@ -9,7 +9,5 @@
 import Foundation
 
 struct Keychain {
-    
     static let userAccountString = "Mattermost"
-    
 }

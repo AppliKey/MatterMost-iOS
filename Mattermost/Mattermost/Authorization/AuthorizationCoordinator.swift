@@ -37,7 +37,7 @@ extension AuthorizationCoordinator: ServerSelectionCoordinator {
         guard let viewController = R.storyboard.authorization.signInViewController()
             else { fatalError("Can't instantiate sign in view controller") }
         SignInWireframe.setup(viewController, withCoordinator: self)
-        router.push(viewController: viewController)
+        router.push(viewController: viewController, animated: true)
     }
     
 }
@@ -46,26 +46,28 @@ extension AuthorizationCoordinator: ServerSelectionCoordinator {
 extension AuthorizationCoordinator: SignInCoordinator {
     
     func forgotPass(forEmail email: String) {
-        guard  let viewController = R.storyboard.authorization.forgotPassViewController()
+        guard let viewController = R.storyboard.authorization.forgotPassViewController()
             else { fatalError("Can't instantiate forgot pass view controller") }
         ForgotPassWireframe.setup(viewController, withCoordinator: self) {
             $0.email = email
         }
+        router.push(viewController: viewController, animated: true)
+    }
+    
+    func selectTeam() {
+        guard let viewController = R.storyboard.authorization.teamSelectionViewController()
+            else { fatalError("Can't instantiate forgot pass view controller") }
+        TeamSelectionWireframe.setup(viewController, withCoordinator: self)
         router.push(viewController: viewController)
     }
     
-    func next() {
-        appCoordinator.showMainScreen(withNavigationController: router.navigationController)
+}
+
+//MARK: - TeamSelectionCoordinator
+extension AuthorizationCoordinator: TeamSelectionCoordinator {
+    func showMain() {
+        //TODO: Show main
     }
-    
-    func alert(withMessage message: String) {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: R.string.localizable.okAlertTitle(),
-                                      style: .default,
-                                      handler: nil))
-        router.present(viewController: alert)
-    }
-    
 }
 
 //MARK: - ForgotPassCoordinator

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ServerSelectionPresenter {
+class ServerSelectionPresenter: ServerSelectionConfigurator {
     
     //MARK: - Properties
     var interactor: ServerSelectionInteracting!
@@ -24,17 +24,25 @@ class ServerSelectionPresenter {
     fileprivate let coordinator: ServerSelectionCoordinator
 }
 
-extension ServerSelectionPresenter: ServerSelectionConfigurator {
+extension ServerSelectionPresenter: ServerSelectionEventHandling {
+    
+    func handleServerAddress(address: String) {
+        view.showActivityIndicator()
+        interactor.ping(address: address)
+    }
+    
 }
 
 extension ServerSelectionPresenter: ServerSelectionPresenting {
-}
-
-extension ServerSelectionPresenter: ServerSelectionEventHandling {
-    func handleServerAddress(address: String) {
-        interactor.isAddressValid(address: address) { [weak self] (isValid, validationMessage) in
-            guard isValid else { return }
-            self?.coordinator.signIn()
-        }
+    
+    func completeServerSelection() {
+        view.hideActivityIndicator()
+        coordinator.signIn()
     }
+    
+    func present(_ errorMessage: String) {
+        view.hideActivityIndicator()
+        view.alert(errorMessage)
+    }
+    
 }

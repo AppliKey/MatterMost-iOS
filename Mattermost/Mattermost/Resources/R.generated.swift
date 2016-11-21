@@ -31,12 +31,46 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 2 images.
+  /// This `R.image` struct is generated, and contains static references to 19 images.
   struct image {
     /// Image `back`.
     static let back = Rswift.ImageResource(bundle: R.hostingBundle, name: "back")
     /// Image `forward`.
     static let forward = Rswift.ImageResource(bundle: R.hostingBundle, name: "forward")
+    /// Image `ic-menu`.
+    static let icMenu = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic-menu")
+    /// Image `ic_direct_new`.
+    static let ic_direct_new = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_direct_new")
+    /// Image `ic_direct_not_active`.
+    static let ic_direct_not_active = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_direct_not_active")
+    /// Image `ic_direct`.
+    static let ic_direct = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_direct")
+    /// Image `ic_favorites_new`.
+    static let ic_favorites_new = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_favorites_new")
+    /// Image `ic_favorites_not_active`.
+    static let ic_favorites_not_active = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_favorites_not_active")
+    /// Image `ic_favorites`.
+    static let ic_favorites = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_favorites")
+    /// Image `ic_private_chanels_new`.
+    static let ic_private_chanels_new = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_private_chanels_new")
+    /// Image `ic_private_chanels_not_active`.
+    static let ic_private_chanels_not_active = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_private_chanels_not_active")
+    /// Image `ic_private_chanels`.
+    static let ic_private_chanels = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_private_chanels")
+    /// Image `ic_public_chanels_new`.
+    static let ic_public_chanels_new = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_public_chanels_new")
+    /// Image `ic_public_chanels_not_active`.
+    static let ic_public_chanels_not_active = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_public_chanels_not_active")
+    /// Image `ic_public_chanels`.
+    static let ic_public_chanels = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_public_chanels")
+    /// Image `ic_unread_not_active`.
+    static let ic_unread_not_active = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_unread_not_active")
+    /// Image `ic_unread`.
+    static let ic_unread = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_unread")
+    /// Image `newGroupBanner`.
+    static let newGroupBanner = Rswift.ImageResource(bundle: R.hostingBundle, name: "newGroupBanner")
+    /// Image `track`.
+    static let track = Rswift.ImageResource(bundle: R.hostingBundle, name: "track")
     
     /// `UIImage(named: "back", bundle: ..., traitCollection: ...)`
     static func back(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -48,16 +82,112 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.forward, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "ic-menu", bundle: ..., traitCollection: ...)`
+    static func icMenu(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icMenu, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_direct", bundle: ..., traitCollection: ...)`
+    static func ic_direct(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_direct, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_direct_new", bundle: ..., traitCollection: ...)`
+    static func ic_direct_new(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_direct_new, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_direct_not_active", bundle: ..., traitCollection: ...)`
+    static func ic_direct_not_active(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_direct_not_active, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_favorites", bundle: ..., traitCollection: ...)`
+    static func ic_favorites(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_favorites, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_favorites_new", bundle: ..., traitCollection: ...)`
+    static func ic_favorites_new(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_favorites_new, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_favorites_not_active", bundle: ..., traitCollection: ...)`
+    static func ic_favorites_not_active(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_favorites_not_active, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_private_chanels", bundle: ..., traitCollection: ...)`
+    static func ic_private_chanels(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_private_chanels, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_private_chanels_new", bundle: ..., traitCollection: ...)`
+    static func ic_private_chanels_new(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_private_chanels_new, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_private_chanels_not_active", bundle: ..., traitCollection: ...)`
+    static func ic_private_chanels_not_active(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_private_chanels_not_active, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_public_chanels", bundle: ..., traitCollection: ...)`
+    static func ic_public_chanels(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_public_chanels, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_public_chanels_new", bundle: ..., traitCollection: ...)`
+    static func ic_public_chanels_new(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_public_chanels_new, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_public_chanels_not_active", bundle: ..., traitCollection: ...)`
+    static func ic_public_chanels_not_active(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_public_chanels_not_active, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_unread", bundle: ..., traitCollection: ...)`
+    static func ic_unread(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_unread, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_unread_not_active", bundle: ..., traitCollection: ...)`
+    static func ic_unread_not_active(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_unread_not_active, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "newGroupBanner", bundle: ..., traitCollection: ...)`
+    static func newGroupBanner(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.newGroupBanner, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "track", bundle: ..., traitCollection: ...)`
+    static func track(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.track, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 0 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
   struct nib {
+    /// Nib `TeamCell`.
+    static let teamCell = _R.nib._TeamCell()
+    
+    /// `UINib(name: "TeamCell", in: bundle)`
+    static func teamCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.teamCell)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 0 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `LabelCell`.
+    static let labelCell: Rswift.ReuseIdentifier<LabelCell> = Rswift.ReuseIdentifier(identifier: "LabelCell")
+    
     fileprivate init() {}
   }
   
@@ -66,7 +196,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
   struct storyboard {
     /// Storyboard `Authorization`.
     static let authorization = _R.storyboard.authorization()
@@ -74,6 +204,8 @@ struct R: Rswift.Validatable {
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
+    /// Storyboard `Menu`.
+    static let menu = _R.storyboard.menu()
     
     /// `UIStoryboard(name: "Authorization", bundle: ...)`
     static func authorization(_: Void = ()) -> UIKit.UIStoryboard {
@@ -90,19 +222,32 @@ struct R: Rswift.Validatable {
       return UIKit.UIStoryboard(resource: R.storyboard.main)
     }
     
+    /// `UIStoryboard(name: "Menu", bundle: ...)`
+    static func menu(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.menu)
+    }
+    
     fileprivate init() {}
   }
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 13 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 25 localization keys.
     struct localizable {
+      /// Value: Address format is not valid
+      static let serverAddressWrongFormat = Rswift.StringResource(key: "server.address.wrong.format", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Address is not valid
+      static let serverAddressNotValid = Rswift.StringResource(key: "server.address.not.valid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: All channels
+      static let menuItemChannels = Rswift.StringResource(key: "menu.item.channels", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: All your team communication in one  place, searchable and accessible  anywhere.
       static let description = Rswift.StringResource(key: "description", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: EMAIL
       static let emailFieldHint = Rswift.StringResource(key: "email.field.hint", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: ENTER SERVER URL
       static let serverFieldHint = Rswift.StringResource(key: "server.field.hint", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Edit profile
+      static let settingsEditProfile = Rswift.StringResource(key: "settings.edit.profile", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Email is invalid
       static let emailNotValid = Rswift.StringResource(key: "email.not.valid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Enter your email
@@ -111,6 +256,12 @@ struct R: Rswift.Validatable {
       static let passwordFieldPlaceholder = Rswift.StringResource(key: "password.field.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: FORGOT PASSWORD
       static let forgotPassword = Rswift.StringResource(key: "forgot.password", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Invite new member
+      static let menuItemInvite = Rswift.StringResource(key: "menu.item.invite", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Logout
+      static let settingsLogout = Rswift.StringResource(key: "settings.logout", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: NEW GROUP OR CHANNEL
+      static let newGroupChannel = Rswift.StringResource(key: "new.group.channel", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: NEXT
       static let nextButtonTitle = Rswift.StringResource(key: "next.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Ok
@@ -119,10 +270,35 @@ struct R: Rswift.Validatable {
       static let passwordFieldHint = Rswift.StringResource(key: "password.field.hint", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Password is invalid
       static let passwordNotValid = Rswift.StringResource(key: "password.not.valid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Select your team
+      static let teamSelectionHeader = Rswift.StringResource(key: "team.selection.header", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Settings
+      static let menuItemSettings = Rswift.StringResource(key: "menu.item.settings", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Settings
+      static let settingsTitle = Rswift.StringResource(key: "settings.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Unknown server error
+      static let unknownServerError = Rswift.StringResource(key: "unknown.server.error", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Unread messages
+      static let settingsUnreadMessages = Rswift.StringResource(key: "settings.unread.messages", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Welcome to Mattermost
       static let welcome = Rswift.StringResource(key: "welcome", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: http://server.com/
       static let serverFieldPlaceholder = Rswift.StringResource(key: "server.field.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      
+      /// Value: Address format is not valid
+      static func serverAddressWrongFormat(_: Void = ()) -> String {
+        return NSLocalizedString("server.address.wrong.format", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Address is not valid
+      static func serverAddressNotValid(_: Void = ()) -> String {
+        return NSLocalizedString("server.address.not.valid", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: All channels
+      static func menuItemChannels(_: Void = ()) -> String {
+        return NSLocalizedString("menu.item.channels", bundle: R.hostingBundle, comment: "")
+      }
       
       /// Value: All your team communication in one  place, searchable and accessible  anywhere.
       static func description(_: Void = ()) -> String {
@@ -137,6 +313,11 @@ struct R: Rswift.Validatable {
       /// Value: ENTER SERVER URL
       static func serverFieldHint(_: Void = ()) -> String {
         return NSLocalizedString("server.field.hint", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Edit profile
+      static func settingsEditProfile(_: Void = ()) -> String {
+        return NSLocalizedString("settings.edit.profile", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Email is invalid
@@ -159,6 +340,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("forgot.password", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: Invite new member
+      static func menuItemInvite(_: Void = ()) -> String {
+        return NSLocalizedString("menu.item.invite", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Logout
+      static func settingsLogout(_: Void = ()) -> String {
+        return NSLocalizedString("settings.logout", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: NEW GROUP OR CHANNEL
+      static func newGroupChannel(_: Void = ()) -> String {
+        return NSLocalizedString("new.group.channel", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: NEXT
       static func nextButtonTitle(_: Void = ()) -> String {
         return NSLocalizedString("next.button.title", bundle: R.hostingBundle, comment: "")
@@ -177,6 +373,31 @@ struct R: Rswift.Validatable {
       /// Value: Password is invalid
       static func passwordNotValid(_: Void = ()) -> String {
         return NSLocalizedString("password.not.valid", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Select your team
+      static func teamSelectionHeader(_: Void = ()) -> String {
+        return NSLocalizedString("team.selection.header", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Settings
+      static func menuItemSettings(_: Void = ()) -> String {
+        return NSLocalizedString("menu.item.settings", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Settings
+      static func settingsTitle(_: Void = ()) -> String {
+        return NSLocalizedString("settings.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Unknown server error
+      static func unknownServerError(_: Void = ()) -> String {
+        return NSLocalizedString("unknown.server.error", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Unread messages
+      static func settingsUnreadMessages(_: Void = ()) -> String {
+        return NSLocalizedString("settings.unread.messages", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Welcome to Mattermost
@@ -209,15 +430,36 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     try storyboard.validate()
+    try nib.validate()
   }
   
-  struct nib {
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _TeamCell.validate()
+    }
+    
+    struct _TeamCell: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "TeamCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> TeamCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TeamCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "forward") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'forward' is used in nib 'TeamCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try main.validate()
+      try menu.validate()
       try authorization.validate()
     }
     
@@ -229,6 +471,7 @@ struct _R: Rswift.Validatable {
       let name = "Authorization"
       let serverSelectionViewController = StoryboardViewControllerResource<Mattermost.ServerSelectionViewController>(identifier: "ServerSelectionViewController")
       let signInViewController = StoryboardViewControllerResource<Mattermost.SignInViewController>(identifier: "SignInViewController")
+      let teamSelectionViewController = StoryboardViewControllerResource<Mattermost.TeamSelectionViewController>(identifier: "TeamSelectionViewController")
       
       func forgotPassViewController(_: Void = ()) -> Mattermost.ForgotPassViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: forgotPassViewController)
@@ -242,10 +485,15 @@ struct _R: Rswift.Validatable {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: signInViewController)
       }
       
+      func teamSelectionViewController(_: Void = ()) -> Mattermost.TeamSelectionViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: teamSelectionViewController)
+      }
+      
       static func validate() throws {
-        if _R.storyboard.authorization().forgotPassViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'forgotPassViewController' could not be loaded from storyboard 'Authorization' as 'Mattermost.ForgotPassViewController'.") }
         if _R.storyboard.authorization().signInViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'signInViewController' could not be loaded from storyboard 'Authorization' as 'Mattermost.SignInViewController'.") }
+        if _R.storyboard.authorization().forgotPassViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'forgotPassViewController' could not be loaded from storyboard 'Authorization' as 'Mattermost.ForgotPassViewController'.") }
         if _R.storyboard.authorization().serverSelectionViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'serverSelectionViewController' could not be loaded from storyboard 'Authorization' as 'Mattermost.ServerSelectionViewController'.") }
+        if _R.storyboard.authorization().teamSelectionViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'teamSelectionViewController' could not be loaded from storyboard 'Authorization' as 'Mattermost.TeamSelectionViewController'.") }
       }
       
       fileprivate init() {}
@@ -262,15 +510,44 @@ struct _R: Rswift.Validatable {
     
     struct main: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
+      let chats = StoryboardViewControllerResource<ChatsViewController>(identifier: "Chats")
       let name = "Main"
-      let tabBarViewController = StoryboardViewControllerResource<TabBarViewController>(identifier: "TabBarViewController")
+      let tabBar = StoryboardViewControllerResource<UIKit.UITabBarController>(identifier: "TabBar")
       
-      func tabBarViewController(_: Void = ()) -> TabBarViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tabBarViewController)
+      func chats(_: Void = ()) -> ChatsViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: chats)
+      }
+      
+      func tabBar(_: Void = ()) -> UIKit.UITabBarController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tabBar)
       }
       
       static func validate() throws {
-        if _R.storyboard.main().tabBarViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBarViewController' could not be loaded from storyboard 'Main' as 'TabBarViewController'.") }
+        if _R.storyboard.main().chats() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'chats' could not be loaded from storyboard 'Main' as 'ChatsViewController'.") }
+        if _R.storyboard.main().tabBar() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBar' could not be loaded from storyboard 'Main' as 'UIKit.UITabBarController'.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct menu: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let menuViewController = StoryboardViewControllerResource<MenuViewController>(identifier: "MenuViewController")
+      let name = "Menu"
+      let settingsViewController = StoryboardViewControllerResource<SettingsViewController>(identifier: "SettingsViewController")
+      
+      func menuViewController(_: Void = ()) -> MenuViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: menuViewController)
+      }
+      
+      func settingsViewController(_: Void = ()) -> SettingsViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: settingsViewController)
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "newGroupBanner") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'newGroupBanner' is used in storyboard 'Menu', but couldn't be loaded.") }
+        if _R.storyboard.menu().menuViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'menuViewController' could not be loaded from storyboard 'Menu' as 'MenuViewController'.") }
+        if _R.storyboard.menu().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'Menu' as 'SettingsViewController'.") }
       }
       
       fileprivate init() {}
