@@ -16,4 +16,12 @@ extension UIImageView {
         }
         self.kf.setImage(with: url)
     }
+    
+    func setRoundedImage(withUrl url:URL?) {
+        guard let url = url else {
+            return
+        }
+        let processor = RoundCornerImageProcessor(cornerRadius: self.bounds.width / 2)
+        self.kf.setImage(with: url, placeholder: nil, options: [.processor(processor)], progressBlock: nil, completionHandler: nil)
+    }
 }

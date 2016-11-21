@@ -89,7 +89,7 @@ class SingleChatCell: UITableViewCell {
         lastMessage = model.lastMessage
         onlineStatusColor = model.onlineStatusColor
         if let avatarUrl = model.avatarUrl?.first {
-            avatarImageView.setImage(withUrl: avatarUrl)
+            avatarImageView.setRoundedImage(withUrl: avatarUrl)
         } else {
             avatarImageView.image = nil
         }

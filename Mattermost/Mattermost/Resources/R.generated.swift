@@ -170,16 +170,30 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
   struct nib {
     /// Nib `GroupChatCell`.
     static let groupChatCell = _R.nib._GroupChatCell()
+    /// Nib `ImageCollectionViewCell`.
+    static let imageCollectionViewCell = _R.nib._ImageCollectionViewCell()
+    /// Nib `LabelCollectionViewCell`.
+    static let labelCollectionViewCell = _R.nib._LabelCollectionViewCell()
     /// Nib `SingleChatCell`.
     static let singleChatCell = _R.nib._SingleChatCell()
     
     /// `UINib(name: "GroupChatCell", in: bundle)`
     static func groupChatCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.groupChatCell)
+    }
+    
+    /// `UINib(name: "ImageCollectionViewCell", in: bundle)`
+    static func imageCollectionViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.imageCollectionViewCell)
+    }
+    
+    /// `UINib(name: "LabelCollectionViewCell", in: bundle)`
+    static func labelCollectionViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.labelCollectionViewCell)
     }
     
     /// `UINib(name: "SingleChatCell", in: bundle)`
@@ -190,12 +204,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 5 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `GroupChatCell`.
     static let groupChatCell: Rswift.ReuseIdentifier<GroupChatCell> = Rswift.ReuseIdentifier(identifier: "GroupChatCell")
+    /// Reuse identifier `ImageCollectionViewCell`.
+    static let imageCollectionViewCell: Rswift.ReuseIdentifier<ImageCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "ImageCollectionViewCell")
     /// Reuse identifier `LabelCell`.
     static let labelCell: Rswift.ReuseIdentifier<LabelCell> = Rswift.ReuseIdentifier(identifier: "LabelCell")
+    /// Reuse identifier `LabelCollectionViewCell`.
+    static let labelCollectionViewCell: Rswift.ReuseIdentifier<LabelCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "LabelCollectionViewCell")
     /// Reuse identifier `SingleChatCell`.
     static let singleChatCell: Rswift.ReuseIdentifier<SingleChatCell> = Rswift.ReuseIdentifier(identifier: "SingleChatCell")
     
@@ -434,6 +452,34 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "ic_private_chanels_not_active") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_private_chanels_not_active' is used in nib 'GroupChatCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _ImageCollectionViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = ImageCollectionViewCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "ImageCollectionViewCell"
+      let name = "ImageCollectionViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> ImageCollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ImageCollectionViewCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _LabelCollectionViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = LabelCollectionViewCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "LabelCollectionViewCell"
+      let name = "LabelCollectionViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> LabelCollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? LabelCollectionViewCell
       }
       
       fileprivate init() {}
