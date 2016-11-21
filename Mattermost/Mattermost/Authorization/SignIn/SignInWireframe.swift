@@ -13,7 +13,7 @@ class SignInWireframe {
     class func setup(_ viewController: SignInViewController,
                      withCoordinator coordinator: SignInCoordinator,
                      configutation: SignInConfiguration? = nil) {
-        let interactor = SignInInteractor()
+        let interactor = SignInInteractor(withService: AuthorizationService())
         let presenter = SignInPresenter(coordinator: coordinator)
         presenter.view = viewController
         presenter.interactor = interactor

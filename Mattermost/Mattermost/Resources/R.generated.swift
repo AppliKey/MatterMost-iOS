@@ -170,7 +170,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
   struct nib {
     /// Nib `GroupChatCell`.
     static let groupChatCell = _R.nib._GroupChatCell()
@@ -180,6 +180,8 @@ struct R: Rswift.Validatable {
     static let labelCollectionViewCell = _R.nib._LabelCollectionViewCell()
     /// Nib `SingleChatCell`.
     static let singleChatCell = _R.nib._SingleChatCell()
+    /// Nib `TeamCell`.
+    static let teamCell = _R.nib._TeamCell()
     
     /// `UINib(name: "GroupChatCell", in: bundle)`
     static func groupChatCell(_: Void = ()) -> UIKit.UINib {
@@ -199,6 +201,11 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "SingleChatCell", in: bundle)`
     static func singleChatCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.singleChatCell)
+    }
+    
+    /// `UINib(name: "TeamCell", in: bundle)`
+    static func teamCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.teamCell)
     }
     
     fileprivate init() {}
@@ -261,8 +268,12 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 21 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 25 localization keys.
     struct localizable {
+      /// Value: Address format is not valid
+      static let serverAddressWrongFormat = Rswift.StringResource(key: "server.address.wrong.format", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Address is not valid
+      static let serverAddressNotValid = Rswift.StringResource(key: "server.address.not.valid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: All channels
       static let menuItemChannels = Rswift.StringResource(key: "menu.item.channels", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: All your team communication in one  place, searchable and accessible  anywhere.
@@ -295,16 +306,30 @@ struct R: Rswift.Validatable {
       static let passwordFieldHint = Rswift.StringResource(key: "password.field.hint", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Password is invalid
       static let passwordNotValid = Rswift.StringResource(key: "password.not.valid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Select your team
+      static let teamSelectionHeader = Rswift.StringResource(key: "team.selection.header", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Settings
       static let menuItemSettings = Rswift.StringResource(key: "menu.item.settings", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Settings
       static let settingsTitle = Rswift.StringResource(key: "settings.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Unknown server error
+      static let unknownServerError = Rswift.StringResource(key: "unknown.server.error", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Unread messages
       static let settingsUnreadMessages = Rswift.StringResource(key: "settings.unread.messages", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Welcome to Mattermost
       static let welcome = Rswift.StringResource(key: "welcome", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: http://server.com/
       static let serverFieldPlaceholder = Rswift.StringResource(key: "server.field.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      
+      /// Value: Address format is not valid
+      static func serverAddressWrongFormat(_: Void = ()) -> String {
+        return NSLocalizedString("server.address.wrong.format", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Address is not valid
+      static func serverAddressNotValid(_: Void = ()) -> String {
+        return NSLocalizedString("server.address.not.valid", bundle: R.hostingBundle, comment: "")
+      }
       
       /// Value: All channels
       static func menuItemChannels(_: Void = ()) -> String {
@@ -386,6 +411,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("password.not.valid", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: Select your team
+      static func teamSelectionHeader(_: Void = ()) -> String {
+        return NSLocalizedString("team.selection.header", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: Settings
       static func menuItemSettings(_: Void = ()) -> String {
         return NSLocalizedString("menu.item.settings", bundle: R.hostingBundle, comment: "")
@@ -394,6 +424,11 @@ struct R: Rswift.Validatable {
       /// Value: Settings
       static func settingsTitle(_: Void = ()) -> String {
         return NSLocalizedString("settings.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Unknown server error
+      static func unknownServerError(_: Void = ()) -> String {
+        return NSLocalizedString("unknown.server.error", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Unread messages
@@ -436,6 +471,7 @@ struct _R: Rswift.Validatable {
   
   struct nib: Rswift.Validatable {
     static func validate() throws {
+      try _TeamCell.validate()
       try _GroupChatCell.validate()
     }
     
@@ -499,6 +535,21 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    struct _TeamCell: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "TeamCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> TeamCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TeamCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "forward") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'forward' is used in nib 'TeamCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
@@ -517,6 +568,7 @@ struct _R: Rswift.Validatable {
       let name = "Authorization"
       let serverSelectionViewController = StoryboardViewControllerResource<Mattermost.ServerSelectionViewController>(identifier: "ServerSelectionViewController")
       let signInViewController = StoryboardViewControllerResource<Mattermost.SignInViewController>(identifier: "SignInViewController")
+      let teamSelectionViewController = StoryboardViewControllerResource<Mattermost.TeamSelectionViewController>(identifier: "TeamSelectionViewController")
       
       func forgotPassViewController(_: Void = ()) -> Mattermost.ForgotPassViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: forgotPassViewController)
@@ -530,10 +582,15 @@ struct _R: Rswift.Validatable {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: signInViewController)
       }
       
+      func teamSelectionViewController(_: Void = ()) -> Mattermost.TeamSelectionViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: teamSelectionViewController)
+      }
+      
       static func validate() throws {
-        if _R.storyboard.authorization().forgotPassViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'forgotPassViewController' could not be loaded from storyboard 'Authorization' as 'Mattermost.ForgotPassViewController'.") }
         if _R.storyboard.authorization().signInViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'signInViewController' could not be loaded from storyboard 'Authorization' as 'Mattermost.SignInViewController'.") }
+        if _R.storyboard.authorization().forgotPassViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'forgotPassViewController' could not be loaded from storyboard 'Authorization' as 'Mattermost.ForgotPassViewController'.") }
         if _R.storyboard.authorization().serverSelectionViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'serverSelectionViewController' could not be loaded from storyboard 'Authorization' as 'Mattermost.ServerSelectionViewController'.") }
+        if _R.storyboard.authorization().teamSelectionViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'teamSelectionViewController' could not be loaded from storyboard 'Authorization' as 'Mattermost.TeamSelectionViewController'.") }
       }
       
       fileprivate init() {}

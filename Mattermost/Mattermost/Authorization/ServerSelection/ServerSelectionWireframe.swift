@@ -13,7 +13,7 @@ class ServerSelectionWireframe {
     class func setup(_ view: ServerSelectionViewController,
                      withCoordinator coordinator: ServerSelectionCoordinator,
                      configutation: ServerSelectionConfiguration? = nil) {
-        let interactor = ServerSelectionInteractor()
+        let interactor = ServerSelectionInteractor(service: AuthorizationService())
         let presenter = ServerSelectionPresenter(coordinator: coordinator)
         presenter.view = view
         presenter.interactor = interactor

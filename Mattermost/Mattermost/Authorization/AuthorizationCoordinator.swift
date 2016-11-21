@@ -46,7 +46,7 @@ extension AuthorizationCoordinator: ServerSelectionCoordinator {
 extension AuthorizationCoordinator: SignInCoordinator {
     
     func forgotPass(forEmail email: String) {
-        guard  let viewController = R.storyboard.authorization.forgotPassViewController()
+        guard let viewController = R.storyboard.authorization.forgotPassViewController()
             else { fatalError("Can't instantiate forgot pass view controller") }
         ForgotPassWireframe.setup(viewController, withCoordinator: self) {
             $0.email = email
@@ -54,18 +54,20 @@ extension AuthorizationCoordinator: SignInCoordinator {
         router.push(viewController: viewController, animated: true)
     }
     
-    func next() {
-        appCoordinator.showMainScreen(withNavigationController: router.navigationController)
+    func selectTeam() {
+        guard let viewController = R.storyboard.authorization.teamSelectionViewController()
+            else { fatalError("Can't instantiate forgot pass view controller") }
+        TeamSelectionWireframe.setup(viewController, withCoordinator: self)
+        router.push(viewController: viewController)
     }
     
-    func alert(withMessage message: String) {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: R.string.localizable.okAlertTitle(),
-                                      style: .default,
-                                      handler: nil))
-        router.present(viewController: alert)
+}
+
+//MARK: - TeamSelectionCoordinator
+extension AuthorizationCoordinator: TeamSelectionCoordinator {
+    func showMain() {
+        appCoordinator.showMainScreen()
     }
-    
 }
 
 //MARK: - ForgotPassCoordinator

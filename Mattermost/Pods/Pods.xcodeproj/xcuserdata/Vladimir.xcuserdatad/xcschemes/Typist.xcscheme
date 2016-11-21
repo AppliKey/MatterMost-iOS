@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D154E630A6584B4475C2EDD58E4D5E61'
+               BlueprintIdentifier = '27621945E637E92C41A0499AD7F6C388'
                BlueprintName = 'Typist'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Typist.framework'>

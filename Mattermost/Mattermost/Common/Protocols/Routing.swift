@@ -36,7 +36,7 @@ protocol NavigationRouting: Routing {
 
 extension NavigationRouting {
     
-    func push(viewController: UIViewController, animated: Bool) {
+    func push(viewController: UIViewController, animated: Bool = true) {
         navigationController.pushViewController(viewController, animated: animated)
         topViewController = viewController
     }

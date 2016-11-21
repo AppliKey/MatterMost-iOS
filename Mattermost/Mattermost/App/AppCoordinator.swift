@@ -23,7 +23,7 @@ class AppCoordinator {
         coordinator.start()
     }
     
-    func showMainScreen(withNavigationController navigationController: UINavigationController) {
+    func showMainScreen() {
         setupSideMenu()
         let sideMenu = SideMenuController()
         let router = MainRouter(withSideMenuController: sideMenu)
