@@ -1,4 +1,4 @@
-//
+    //
 //  UserSession.swift
 //  Mattermost
 //
@@ -8,6 +8,15 @@
 
 import Foundation
 import Locksmith
+    
+struct UserSession: DictionaryConvertible {
+    
+    let accessToken: String
+    
+    var dictionary: [String: AnyObject] {
+        return [ "access_token" : accessToken as AnyObject ]
+    }
+}
 
 struct UserSessionService {
     

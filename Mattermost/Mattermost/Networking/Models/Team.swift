@@ -7,9 +7,18 @@
 //
 
 import Foundation
+import Unbox
 
-final class Team {
-    var id: String?
-    var name: String?
-    var displayName: String?    
+struct Team {
+    var id: String
+    var name: String
+    var displayName: String
+}
+
+extension Team: Unboxable {
+    init(unboxer: Unboxer) throws {
+        id = try unboxer.unbox(key: "id")
+        name = try unboxer.unbox(key: "name")
+        displayName = try unboxer.unbox(key: "display_name")
+    }
 }

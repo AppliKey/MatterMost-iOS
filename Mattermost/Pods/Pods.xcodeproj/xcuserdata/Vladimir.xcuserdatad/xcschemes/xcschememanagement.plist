@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Moya.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -34,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Result.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -44,15 +54,35 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Unbox.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0CC7A7C019835DD68D4B566A9544220E</key>
+		<key>27621945E637E92C41A0499AD7F6C388</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>21AC191144945298D2342966C8654C29</key>
+		<key>3B8DF141854479B7D487C442F177BA5D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6336399C45B9215AA2E9B9BE4F3F5A8B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6FC62FA5436773238ACEDBEB51CC9225</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>808E311AD70EB8ACC991967B8E65DC44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8E9CAC148BECA9D7E8D5CBD948D085A4</key>
+		<key>A63B74CA9090DD5F4B184DA77A5D5516</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,7 +112,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D154E630A6584B4475C2EDD58E4D5E61</key>
+		<key>DCBD7538AFDB636233723EB3DD58D4AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

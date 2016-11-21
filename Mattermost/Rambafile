@@ -12,10 +12,10 @@ xcodeproj_path: Mattermost.xcodeproj
 project_target: Mattermost
 
 # The file path for new modules
-project_file_path: Mattermost/Main
+project_file_path: Mattermost/Authorization
 
 # The Xcode group path to new modules
-project_group_path: Mattermost/Main
+project_group_path: Mattermost/Authorization
 
 ### Dependencies settings section
 podfile_path: Podfile

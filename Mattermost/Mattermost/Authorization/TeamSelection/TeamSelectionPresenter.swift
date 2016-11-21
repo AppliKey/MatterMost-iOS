@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TeamSelectionPresenter {
+class TeamSelectionPresenter: TeamSelectionConfigurator {
     
 	//MARK: - Properties
     weak var view: TeamSelectionViewing!
@@ -24,11 +24,35 @@ class TeamSelectionPresenter {
     fileprivate let coordinator: TeamSelectionCoordinator
 }
 
-extension TeamSelectionPresenter: TeamSelectionConfigurator {
+extension TeamSelectionPresenter: TeamSelectionEventHandling {
+    
+    func refresh() {
+        view.showActivityIndicator()
+        interactor.loadTeams()
+    }
+    
 }
 
 extension TeamSelectionPresenter: TeamSelectionPresenting {
-}
-
-extension TeamSelectionPresenter: TeamSelectionEventHandling {
+    
+    func present(_ teams: [Team]) {
+        view.hideActivityIndicator()
+        view.show(teams.map(representation))
+    }
+    
+    func present(_ errorMessage: String) {
+        view.alert(errorMessage)
+    }
+    
+    private func representation(for team: Team) -> TeamRepresentation {
+        return TeamRepresentation(name: team.displayName, selection: selection(for: team))
+    }
+    
+    private func selection(for team: Team) -> VoidClosure {
+        return {
+            self.interactor.save(team)
+            self.coordinator.showMain()
+        }
+    }
+    
 }

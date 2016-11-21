@@ -13,13 +13,15 @@ protocol ServerSelectionConfigurator: class {
 }
 
 protocol ServerSelectionInteracting: class {
-    func isAddressValid(address: String, completion: @escaping (_ isValid: Bool, _ message: String?) -> ())
+    func ping(address: String)
 }
 
 protocol ServerSelectionPresenting: class {
+    func completeServerSelection()
+    func present(_ errorMessage: String)
 }
 
-protocol ServerSelectionViewing: class {
+protocol ServerSelectionViewing: class, ActivityIndicating, ErrorShowable {
 }
 
 protocol ServerSelectionEventHandling: class {

@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import Rswift
 
-class ServerSelectionViewController: UIViewController {
+class ServerSelectionViewController: UIViewController, ActivityIndicatorHolder {
     //MARK: - Properties
     var eventHandler: ServerSelectionEventHandling!
     //MARK: - Outlets
@@ -18,6 +19,7 @@ class ServerSelectionViewController: UIViewController {
     @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var serverTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
     
     //MARK: - Life cycle
     
@@ -35,6 +37,7 @@ class ServerSelectionViewController: UIViewController {
     }
     
     //MARK: - Private -
+    private var keyboardHandler: KeyboardHandler?
     private var tapRecognizer: HideKeyboardRecognizer?
     
     //MARK: - UI
@@ -43,6 +46,7 @@ class ServerSelectionViewController: UIViewController {
         localizeViews()
         serverTextField.delegate = self
         tapRecognizer = HideKeyboardRecognizer(withView: view)
+        setupKeyboardHandler()
     }
     
     private func localizeViews() {
@@ -53,6 +57,10 @@ class ServerSelectionViewController: UIViewController {
         nextButton.setTitle(R.string.localizable.nextButtonTitle(), for: .normal)
     }
     
+    private func setupKeyboardHandler() {
+        guard let passwordView = serverTextField.superview else { return }
+        keyboardHandler = KeyboardHandler(withView: passwordView)
+    }
 }
 
 //MARK: - ServerSelectionViewing
@@ -67,6 +75,14 @@ extension ServerSelectionViewController: UITextFieldDelegate {
         let currentText = textField.text ?? ""
         let resultString = NSString(string: currentText).replacingCharacters(in: range, with: string)
         nextButton.isEnabled = !resultString.isEmpty
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField === serverTextField {
+            view.endEditing(true)
+            nextButtonPressed(nextButton)
+        }
         return true
     }
     

@@ -13,7 +13,7 @@ class TeamSelectionWireframe {
     class func setup(_ viewController: TeamSelectionViewController,
                      withCoordinator coordinator: TeamSelectionCoordinator,
                      configutation: TeamSelectionConfiguration? = nil) {
-        let interactor = TeamSelectionInteractor()
+        let interactor = TeamSelectionInteractor(service: AuthorizationService())
         let presenter = TeamSelectionPresenter(coordinator: coordinator)
         presenter.view = viewController
         presenter.interactor = interactor

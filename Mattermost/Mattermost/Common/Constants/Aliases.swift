@@ -7,14 +7,9 @@
 //
 
 import Foundation
+import Result
 
 typealias VoidClosure = () -> ()
-typealias ServerPingClosure = (_ result: Result<ServerPing?>) -> Void
-
-enum Result<T> {
-    case success(T)
-    case failure(Error)
-}
 
 enum UserDefaultsKeys : String {
     case hideUnreadController = "hideUnreadControllerKey"

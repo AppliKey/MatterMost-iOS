@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, ActivityIndicatorHolder {
 	
 	//MARK: Properties
   	var eventHandler: SignInEventHandling!
@@ -20,6 +20,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var nextButton: GradientButton!
     @IBOutlet weak var forgotPassButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
     
   
   	//MARK: Life cycle
@@ -54,6 +55,8 @@ class SignInViewController: UIViewController {
     private func configureInterface() {
         localizeViews()
         setupKeyboardHandler()
+        passwordTextField.delegate = self
+        emailTextField.delegate = self
         tapRecognizer = HideKeyboardRecognizer(withView: view)
     }
     
@@ -68,10 +71,39 @@ class SignInViewController: UIViewController {
     
     private func setupKeyboardHandler() {
         guard let passwordView = passwordTextField.superview else { return }
-        keyboardHandler = KeyboardHandler(withViews: [passwordView], superview: view)
+        keyboardHandler = KeyboardHandler(withView: passwordView)
     }
+    
+    //MARK: - Error handling
 
 }
 
+//MARK: - SignInViewing
 extension SignInViewController: SignInViewing {
+    
+    func show(_ error: SignInError) {
+        switch error {
+        case .email(let message):
+            alert(message)
+        case .password(let message):
+            alert(message)
+        case .other(let message):
+            alert(message)
+        }
+    }
+    
+}
+
+//MARK: - UITextFieldDelegate
+extension SignInViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField === emailTextField {
+            passwordTextField.becomeFirstResponder()
+        }
+        if textField === passwordTextField {
+            view.endEditing(true)
+            nextButtonPressed(nextButton)
+        }
+        return true
+    }
 }

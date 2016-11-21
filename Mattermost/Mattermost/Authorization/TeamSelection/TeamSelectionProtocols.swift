@@ -13,16 +13,23 @@ protocol TeamSelectionConfigurator: class {
 }
 
 protocol TeamSelectionInteracting: class {
+    func loadTeams()
+    func save(_ team: Team)
 }
 
 protocol TeamSelectionPresenting: class {
+    func present(_ teams: [Team])
+    func present(_ errorMessage: String)
 }
 
-protocol TeamSelectionViewing: class {
+protocol TeamSelectionViewing: class, ErrorShowable, ActivityIndicating {
+    func show(_ teams: [TeamRepresentation])
 }
 
 protocol TeamSelectionEventHandling: class {
+    func refresh()
 }
 
 protocol TeamSelectionCoordinator: class {
+    func showMain()
 }
