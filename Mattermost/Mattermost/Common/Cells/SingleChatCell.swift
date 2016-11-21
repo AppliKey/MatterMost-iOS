@@ -19,6 +19,18 @@ class SingleChatCell: UITableViewCell {
         avatarImageView.image = nil
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        let path = UIBezierPath(roundedRect: userOnlineStatusView.bounds, cornerRadius: 7)
+        shapeLayer = CAShapeLayer()
+        shapeLayer.frame = userOnlineStatusView.bounds
+        shapeLayer.path = path.cgPath
+        shapeLayer.fillColor = UIColor.green.cgColor
+        shapeLayer.strokeColor = UIColor.white.cgColor
+        shapeLayer.lineWidth = 2
+        userOnlineStatusView.layer.addSublayer(shapeLayer)
+    }
+    
     @IBOutlet weak var avatarImageView: UIImageView!
     
     // MARK: - Private Outlets
@@ -30,6 +42,8 @@ class SingleChatCell: UITableViewCell {
     @IBOutlet fileprivate weak var unreadStatusWidthConstraint: NSLayoutConstraint!
     
     @IBOutlet fileprivate weak var userOnlineStatusView: UIView!
+    
+    var shapeLayer:CAShapeLayer!
     
     //MARK: - Public Properties
     var userName: String? {
@@ -53,7 +67,7 @@ class SingleChatCell: UITableViewCell {
                 unreadStatusLeadingConstraint.constant = isUnread ? defaultConstraintValue : 0
                 unreadStatusWidthConstraint.constant = isUnread ? defaultConstraintValue : 0
                 
-                userOnlineStatusView.layer.borderColor = isUnread ? UIColor(rgba: "#f4f5f7").cgColor : UIColor.white.cgColor
+                shapeLayer.strokeColor = isUnread ? UIColor(rgba: "#f4f5f7").cgColor : UIColor.white.cgColor
                 
                 layoutIfNeeded()
             }
@@ -63,8 +77,21 @@ class SingleChatCell: UITableViewCell {
     var onlineStatusColor: UIColor = UIColor.clear {
         didSet {
             if oldValue != onlineStatusColor {
-                userOnlineStatusView.backgroundColor = onlineStatusColor
+                shapeLayer.fillColor = onlineStatusColor.cgColor
             }
+        }
+    }
+    
+    func configure(forRepresentationModel model:ChatRepresentationModel) {
+        userName = model.chatName
+        deliveryTime = model.deliveryTime
+        isUnread = model.isUnread
+        lastMessage = model.lastMessage
+        onlineStatusColor = model.onlineStatusColor
+        if let avatarUrl = model.avatarUrl?.first {
+            avatarImageView.setImage(withUrl: avatarUrl)
+        } else {
+            avatarImageView.image = nil
         }
     }
 }

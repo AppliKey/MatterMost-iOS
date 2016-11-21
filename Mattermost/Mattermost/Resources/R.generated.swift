@@ -69,8 +69,8 @@ struct R: Rswift.Validatable {
     static let ic_unread = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_unread")
     /// Image `newGroupBanner`.
     static let newGroupBanner = Rswift.ImageResource(bundle: R.hostingBundle, name: "newGroupBanner")
-    /// Image `track`.
-    static let track = Rswift.ImageResource(bundle: R.hostingBundle, name: "track")
+    /// Image `placeholderSmall`.
+    static let placeholderSmall = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholderSmall")
     
     /// `UIImage(named: "back", bundle: ..., traitCollection: ...)`
     static func back(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -162,9 +162,9 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.newGroupBanner, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "track", bundle: ..., traitCollection: ...)`
-    static func track(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.track, compatibleWith: traitCollection)
+    /// `UIImage(named: "placeholderSmall", bundle: ..., traitCollection: ...)`
+    static func placeholderSmall(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.placeholderSmall, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -190,8 +190,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `GroupChatCell`.
+    static let groupChatCell: Rswift.ReuseIdentifier<GroupChatCell> = Rswift.ReuseIdentifier(identifier: "GroupChatCell")
     /// Reuse identifier `LabelCell`.
     static let labelCell: Rswift.ReuseIdentifier<LabelCell> = Rswift.ReuseIdentifier(identifier: "LabelCell")
     /// Reuse identifier `SingleChatCell`.
@@ -411,15 +413,27 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     try storyboard.validate()
+    try nib.validate()
   }
   
-  struct nib {
-    struct _GroupChatCell: Rswift.NibResourceType {
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _GroupChatCell.validate()
+    }
+    
+    struct _GroupChatCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = GroupChatCell
+      
       let bundle = R.hostingBundle
+      let identifier = "GroupChatCell"
       let name = "GroupChatCell"
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> GroupChatCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GroupChatCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "ic_private_chanels_not_active") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_private_chanels_not_active' is used in nib 'GroupChatCell', but couldn't be loaded.") }
       }
       
       fileprivate init() {}

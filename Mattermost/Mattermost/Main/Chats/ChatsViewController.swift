@@ -61,23 +61,10 @@ extension ChatsViewController: UITableViewDataSource, UITableViewDelegate {
         let chatViewModel = chats[indexPath.row]
         if chatViewModel.isDirectChat {
             let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.singleChatCell, for: indexPath)!
-            configure(cell: cell, forRepresentationModel: chatViewModel)
+            cell.configure(forRepresentationModel: chatViewModel)
             return cell
         } else {
             return UITableViewCell()
-        }
-    }
-    
-    func configure(cell:SingleChatCell, forRepresentationModel model:ChatRepresentationModel) {
-        cell.userName = model.chatName
-        cell.deliveryTime = model.deliveryTime
-        cell.isUnread = model.isUnread
-        cell.lastMessage = model.lastMessage
-        cell.onlineStatusColor = model.onlineStatusColor
-        if let avatarUrl = model.avatarUrl?.first {
-            cell.avatarImageView.setImage(withUrl: avatarUrl)
-        } else {
-            cell.avatarImageView.image = nil
         }
     }
     
