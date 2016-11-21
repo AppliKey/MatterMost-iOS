@@ -66,7 +66,7 @@ extension AuthorizationCoordinator: SignInCoordinator {
 //MARK: - TeamSelectionCoordinator
 extension AuthorizationCoordinator: TeamSelectionCoordinator {
     func showMain() {
-        //TODO: Show main
+        appCoordinator.showMainScreen()
     }
 }
 
