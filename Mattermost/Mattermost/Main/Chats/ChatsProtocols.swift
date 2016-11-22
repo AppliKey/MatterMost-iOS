@@ -21,6 +21,7 @@ protocol ChatsConfigurator: class {
 }
 
 protocol ChatsInteracting: class {
+    func loadChannels()
 }
 
 protocol ChatsPresenting: class {

@@ -39,6 +39,7 @@ extension ChatsPresenter: ChatsEventHandling {
     
     func viewIsReady() {
         addRandomChats()
+        interactor.loadChannels()
         view.updateView(withRepresentationModel: representationModels)
     }
     

@@ -13,7 +13,7 @@ class ChatsWireframe {
     class func setup(_ viewController: ChatsViewController,
                      withCoordinator coordinator: ChatsCoordinator,
                      configutation: ChatsConfiguration? = nil) {
-        let interactor = ChatsInteractor()
+        let interactor = ChatsInteractor(service: ChannelsService())
         let presenter = ChatsPresenter(coordinator: coordinator)
         presenter.view = viewController
         presenter.interactor = interactor
