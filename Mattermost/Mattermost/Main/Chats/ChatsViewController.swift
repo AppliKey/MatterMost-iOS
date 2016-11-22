@@ -24,7 +24,7 @@ class ChatsViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.image.icMenu(), style: .done,
                                                            target: self, action: #selector(openMenuPressed(_:)))
         configureInterface()
-        eventHandler.viewIsReady()
+        eventHandler.refresh()
     }
     
     //MARK: -
@@ -34,15 +34,23 @@ class ChatsViewController: UIViewController {
     }
 
 	//MARK: - Private -
-
-	//MARK: - UI
     
     private func configureInterface() {
         localizeViews()
         tableView.register(R.nib.singleChatCell)
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
     
     private func localizeViews() {
+    }
+
+	//MARK: - UI
+    
+    func refresh(_ sender: UIRefreshControl) {
+        eventHandler.refresh()
     }
 
 }
@@ -75,6 +83,14 @@ extension ChatsViewController: ChatsViewing {
     func updateView(withRepresentationModel chatsRepresentation: [ChatRepresentationModel]) {
         chats = chatsRepresentation
         tableView.reloadData()
+    }
+    
+    func showActivityIndicator() {
+        tableView.refreshControl?.beginRefreshing()
+    }
+    
+    func hideActivityIndicator() {
+        tableView.refreshControl?.endRefreshing()
     }
     
 }

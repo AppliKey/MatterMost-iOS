@@ -25,15 +25,19 @@ protocol ChatsInteracting: class {
 }
 
 protocol ChatsPresenting: class {
+    func present(_ channels: [Channel])
+    func present(_ errorMessage: String)
 }
 
-protocol ChatsViewing: class {
+protocol ChatsViewing: ErrorShowable {
     func updateView(withRepresentationModel chatsRepresentation: [ChatRepresentationModel])
+    func showActivityIndicator()
+    func hideActivityIndicator()
 }
 
 protocol ChatsEventHandling: class {
     func openMenu()
-    func viewIsReady()
+    func refresh()
 }
 
 protocol ChatsCoordinator: class {

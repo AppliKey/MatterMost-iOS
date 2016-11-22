@@ -10,10 +10,12 @@ import Foundation
 
 class ChatsInteractor {
   	weak var presenter: ChatsPresenting!
+    var mode:ChatsMode
     
     //MARK: - Init
-    init(service: ChannelsService) {
+    init(service: ChannelsService, mode:ChatsMode) {
         self.service = service
+        self.mode = mode
     }
     
     //MARK: - Private
@@ -30,28 +32,19 @@ class ChatsInteractor {
 extension ChatsInteractor: ChatsInteracting {
 
     func loadChannels() {
-        guard let currentTeam = SessionManager.shared.team?.id
-            else { fatalError("Team is not selected") }
-        request = service.getAllChannels(forTeamId: currentTeam, completion: { [weak self]  result in
+        service.loadChannels(withMode: mode) { [weak self]  result in
             switch result {
             case .success(let channels):
-                break
-                //self?.presenter.present(teams)
+            self?.presenter.present(channels)
             case .failure(let errorMessage):
-                break
-                //self?.presenter.present(errorMessage)
+                self?.presenter.present(errorMessage)
             }
-        })
+        }
     }
     
 }
 
-enum ChannelsResult {
-    case success([Channel]), failure(String)
-}
-
-typealias ChannelsCompletion = (ChannelsResult) -> ()
 
 protocol ChatsService {
-    func getAllChannels(forTeamId teamId:String, completion: @escaping ChannelsCompletion) -> CancellableRequest
+    func loadChannels(withMode mode:ChatsMode, completion: @escaping ChannelsCompletion)
 }

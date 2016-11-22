@@ -30,6 +30,26 @@ extension ChatsPresenter: ChatsConfigurator {
 }
 
 extension ChatsPresenter: ChatsPresenting {
+    
+    func present(_ channels: [Channel]) {
+        view.updateView(withRepresentationModel: channels.map(representation))
+    }
+    
+    func present(_ errorMessage: String) {
+        view.alert(errorMessage)
+    }
+    
+    private func representation(for channel: Channel) -> ChatRepresentationModel {
+        let chatRepresentation = ChatRepresentationModel()
+                
+        chatRepresentation.chatName = channel.displayName
+        chatRepresentation.isDirectChat = channel.type == ChannelType.direct
+        chatRepresentation.isPrivateChannel = channel.type == ChannelType.privateChat
+        chatRepresentation.deliveryTime = DateHelper.chatTimeStringForDate(channel.lastPostAt)
+        
+        return chatRepresentation
+    }
+
 }
 
 extension ChatsPresenter: ChatsEventHandling {
@@ -37,24 +57,8 @@ extension ChatsPresenter: ChatsEventHandling {
         coordinator.openMenu()
     }
     
-    func viewIsReady() {
-        addRandomChats()
+    func refresh() {
+        view.showActivityIndicator()
         interactor.loadChannels()
-        view.updateView(withRepresentationModel: representationModels)
-    }
-    
-    func addRandomChats() {
-        for _ in 0...20 {
-            let model = ChatRepresentationModel()
-            model.avatarUrl = nil
-            model.chatName = UUID().uuidString
-            model.deliveryTime = "03:55 PM"
-            model.lastMessage = UUID().uuidString + UUID().uuidString
-            model.isPrivateChannel = true
-            model.onlineStatusColor = UIColor.green
-            model.isUnread = Int(arc4random()) % 2 == 0
-            model.isDirectChat = true
-            representationModels.append(model)
-        }
     }
 }

@@ -27,6 +27,7 @@ class MainCoordinator {
     //MARK: - Private -
     fileprivate let router: MainRouting
     fileprivate unowned let appCoordinator: AppCoordinator
+    fileprivate let channelsService = ChannelsService()
     
     fileprivate func setupTabBarViewControllers() -> [UIViewController] {
         let favouritesNavigationController = createChatsNavigationController(withMode: .favourites)
@@ -49,7 +50,7 @@ class MainCoordinator {
         guard let chats = R.storyboard.main.chats()
             else { fatalError("Can't instantiate chats view controller") }
         let navigationController = UINavigationController.init(rootViewController: chats)
-        ChatsWireframe.setup(chats, withCoordinator: self)
+        ChatsWireframe.setup(chats, withCoordinator: self, service: channelsService, mode: mode)
         switch mode {
         case .unread:
             chats.tabBarItem = UITabBarItem.withoutTitle(image: R.image.ic_unread_not_active(),
