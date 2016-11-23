@@ -24,8 +24,7 @@ struct ChannelsTarget: MattermostTarget, ResponseMapping {
     
     func map(_ response: Moya.Response) throws -> [Channel] {
         if let json = try response.mapJSON() as? UnboxableDictionary {
-            let channels = (try? unbox(dictionary: json, atKey: "channels")) ?? [Channel]()
-            return channels
+            return try unbox(dictionary: json, atKey: "channels")
         } else {
             throw UnboxError(message: "Invalid json")
         }

@@ -35,7 +35,8 @@ extension ChatsInteractor: ChatsInteracting {
         service.loadChannels(withMode: mode) { [weak self]  result in
             switch result {
             case .success(let channels):
-            self?.presenter.present(channels)
+                self?.presenter.present(channels)
+                self?.service.getChannelDetails(forChannel: channels.first!)
             case .failure(let errorMessage):
                 self?.presenter.present(errorMessage)
             }
@@ -47,4 +48,5 @@ extension ChatsInteractor: ChatsInteracting {
 
 protocol ChatsService {
     func loadChannels(withMode mode:ChatsMode, completion: @escaping ChannelsCompletion)
+    func getChannelDetails(forChannel channel:Channel)
 }

@@ -15,7 +15,7 @@ enum ChannelType: String, UnboxableEnum {
     case publicChat = "O"
 }
 
-struct Channel {
+class Channel : Unboxable {
     
     var channelId: String
     var createdAt: Date
@@ -31,10 +31,10 @@ struct Channel {
     var totalMsgCount: Int
     var extraUpdateAt: Date
     var creatorId: String
-}
-
-extension Channel : Unboxable {
-    init(unboxer: Unboxer) throws {
+    
+    var channelDetails: ChannelDetails?
+    
+    required init(unboxer: Unboxer) throws {
         channelId = try unboxer.unbox(key: "id")
         createdAt = Date(timeIntervalSince1970:(try unboxer.unbox(key: "create_at")) / 1000)
         updatedAt = Date(timeIntervalSince1970:(try unboxer.unbox(key: "update_at")) / 1000)

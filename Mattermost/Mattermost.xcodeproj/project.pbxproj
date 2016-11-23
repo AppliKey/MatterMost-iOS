@@ -42,6 +42,8 @@
 		B688D4551DE35A8E002EAE46 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F0DD21DE317D6005630B9 /* NibLoadable.swift */; };
 		B688D4561DE35A99002EAE46 /* UICollectionView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F0DD41DE317D6005630B9 /* UICollectionView+Reusable.swift */; };
 		B69548801DE4A7E400C476E1 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B695487F1DE4A7E400C476E1 /* DateHelper.swift */; };
+		B69548821DE5E02D00C476E1 /* ChannelDetailsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69548811DE5E02D00C476E1 /* ChannelDetailsTarget.swift */; };
+		B69548841DE5E29600C476E1 /* ChannelDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69548831DE5E29600C476E1 /* ChannelDetails.swift */; };
 		B6E118D81DDEFB8C0012FD13 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E118D61DDEFB8C0012FD13 /* AppearanceManager.swift */; };
 		B6E118D91DDEFB8C0012FD13 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E118D71DDEFB8C0012FD13 /* NavigationManager.swift */; };
 		B6E118DB1DDEFB9C0012FD13 /* TabBarItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E118DA1DDEFB9C0012FD13 /* TabBarItemExtension.swift */; };
@@ -184,6 +186,8 @@
 		B65C094E1DE3399700A98CED /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		B65C094F1DE3399700A98CED /* LabelCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		B695487F1DE4A7E400C476E1 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		B69548811DE5E02D00C476E1 /* ChannelDetailsTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelDetailsTarget.swift; sourceTree = "<group>"; };
+		B69548831DE5E29600C476E1 /* ChannelDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelDetails.swift; sourceTree = "<group>"; };
 		B6E118D61DDEFB8C0012FD13 /* AppearanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		B6E118D71DDEFB8C0012FD13 /* NavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		B6E118DA1DDEFB9C0012FD13 /* TabBarItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemExtension.swift; sourceTree = "<group>"; };
@@ -334,6 +338,7 @@
 				059802311DD1DD9200AE01C2 /* ClientError.swift */,
 				05A4BA8C1DD23BF7007FAA18 /* ServerPing.swift */,
 				B64CB89F1DE45745008EF34B /* Channel.swift */,
+				B69548831DE5E29600C476E1 /* ChannelDetails.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -405,6 +410,7 @@
 			isa = PBXGroup;
 			children = (
 				B64CB89D1DE4503A008EF34B /* ChannelsTarget.swift */,
+				B69548811DE5E02D00C476E1 /* ChannelDetailsTarget.swift */,
 			);
 			path = Channels;
 			sourceTree = "<group>";
@@ -1064,6 +1070,7 @@
 				E7327A7B1DE2252800512EFF /* AllTeamsTarget.swift in Sources */,
 				E7967D2E1DCCE2C30025F402 /* AuthorizationRouter.swift in Sources */,
 				B65C09501DE3399700A98CED /* LabelCollectionViewCell.swift in Sources */,
+				B69548841DE5E29600C476E1 /* ChannelDetails.swift in Sources */,
 				762226E5F9B9149D5D258BAE /* ServerSelectionPresenter.swift in Sources */,
 				E7DCD8431DC9F19400F599D8 /* KeyboardHandler.swift in Sources */,
 				B6E119171DDEFBFA0012FD13 /* SideMenuController+SideOver.swift in Sources */,
@@ -1100,6 +1107,7 @@
 				8D7CC4105BB3F751220B3B45 /* SignInInteractor.swift in Sources */,
 				E7AE43F21DCA4E4900475B8F /* UIView+CurrentConstraints.swift in Sources */,
 				E7E1C9BF1DD4A07600338846 /* FormViewController.swift in Sources */,
+				B69548821DE5E02D00C476E1 /* ChannelDetailsTarget.swift in Sources */,
 				B6E118E61DDEFBB90012FD13 /* ChatsProtocols.swift in Sources */,
 				B6E118E71DDEFBB90012FD13 /* ChatsViewController.swift in Sources */,
 				AE93AAC666D6403D05529721 /* ForgotPassProtocols.swift in Sources */,

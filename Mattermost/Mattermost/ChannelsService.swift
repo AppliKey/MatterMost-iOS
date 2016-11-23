@@ -12,7 +12,12 @@ enum ChannelsResult {
     case success([Channel]), failure(String)
 }
 
+enum ChannelDetailsResult {
+    case success(Channel), failure()
+}
+
 typealias ChannelsCompletion = (ChannelsResult) -> ()
+typealias ChannelDetailsCompletion = (ChannelDetailsResult) -> ()
 
 class ChannelsService : NetworkService {
     fileprivate let errorMapper = ErrorMapper()
@@ -46,6 +51,21 @@ class ChannelsService : NetworkService {
         }
     }
     
+    fileprivate func getChannelDetails(_ channel: Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest {
+        guard let currentTeam = SessionManager.shared.team?.id
+            else { fatalError("Team is not selected") }
+        
+        let target = ChannelDetailsTarget(teamId: currentTeam, channelId: channel.channelId)
+        return request(target) {
+            do {
+                channel.channelDetails = try target.map($0)
+                completion(.success(channel))
+            } catch {
+                completion(.failure())
+            }
+        }
+    }
+    
     deinit {
         request?.cancel()
     }
@@ -70,6 +90,18 @@ extension ChannelsService : ChatsService {
                 completion(.success(channels))
             case .failure(let errorMessage):
                 completion(.failure(errorMessage))
+            }
+        })
+    }
+    
+    func getChannelDetails(forChannel channel:Channel) {
+        getChannelDetails(channel, completion: { [weak self]  result in
+            switch result {
+            case .success(let channel):
+                let _ = self?.allChannels.count
+                print(channel)
+            case .failure():
+                print("oops")
             }
         })
     }
