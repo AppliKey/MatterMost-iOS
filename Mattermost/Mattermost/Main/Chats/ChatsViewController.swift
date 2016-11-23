@@ -38,10 +38,11 @@ class ChatsViewController: UIViewController {
     private func configureInterface() {
         localizeViews()
         tableView.register(R.nib.singleChatCell)
-        
+        tableView.register(R.nib.groupChatCell)
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
-        tableView.refreshControl = refreshControl
+        //tableView.refreshControl = refreshControl
+        tableView.addSubview(refreshControl)
     }
     
     private func localizeViews() {
@@ -72,7 +73,9 @@ extension ChatsViewController: UITableViewDataSource, UITableViewDelegate {
             cell.configure(forRepresentationModel: chatViewModel)
             return cell
         } else {
-            return UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.groupChatCell, for: indexPath)!
+            cell.configure(forRepresentationModel: chatViewModel)
+            return cell
         }
     }
     
