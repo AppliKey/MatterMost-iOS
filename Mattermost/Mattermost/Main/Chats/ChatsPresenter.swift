@@ -32,6 +32,7 @@ extension ChatsPresenter: ChatsConfigurator {
 extension ChatsPresenter: ChatsPresenting {
     
     func present(_ channels: [Channel]) {
+        view.hideActivityIndicator()
         view.updateView(withRepresentationModel: channels.map(representation))
     }
     
