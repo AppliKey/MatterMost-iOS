@@ -16,8 +16,13 @@ enum ChannelDetailsResult {
     case success(Channel), failure()
 }
 
+enum ChannelMessageResult {
+    case success(Post?), failure()
+}
+
 typealias ChannelsCompletion = (ChannelsResult) -> ()
 typealias ChannelDetailsCompletion = (ChannelDetailsResult) -> ()
+typealias ChannelMessageCompletion = (ChannelMessageResult) -> ()
 
 class ChannelsService : NetworkService {
     fileprivate let errorMapper = ErrorMapper()
@@ -66,6 +71,22 @@ class ChannelsService : NetworkService {
         }
     }
     
+    fileprivate func getLastMesage(forChannel channel: Channel, completion: @escaping ChannelMessageCompletion) -> CancellableRequest {
+        guard let currentTeam = SessionManager.shared.team?.id
+            else { fatalError("Team is not selected") }
+        
+        let target = PostsTarget(teamId: currentTeam, channelId: channel.channelId, offset: "0", limit: "1")
+        return request(target) {
+            do {
+                let posts = try target.map($0)
+                channel.lastPost = posts.first?.message
+                completion(.success(posts.first))
+            } catch {
+                completion(.failure())
+            }
+        }
+    }
+    
     deinit {
         request?.cancel()
     }
@@ -95,14 +116,25 @@ extension ChannelsService : ChatsService {
     }
     
     func getChannelDetails(forChannel channel:Channel) {
-        getChannelDetails(channel, completion: { [weak self]  result in
+        let _ = getChannelDetails(channel, completion: { [weak self]  result in
             switch result {
             case .success(let channel):
                 let _ = self?.allChannels.count
                 print(channel)
-            case .failure():
-                print("oops")
+            case .failure(): break
             }
         })
     }
+    
+    func getLastMessage(forChannel channel:Channel) {
+        let _ = getLastMesage(forChannel: channel, completion: { [weak self]  result in
+            switch result {
+            case .success(let post):
+                let _ = self?.allChannels.count
+                print(post)
+            case .failure(): break
+            }
+        })
+    }
+    
 }

@@ -33,6 +33,7 @@ class Channel : Unboxable {
     var creatorId: String
     
     var channelDetails: ChannelDetails?
+    var lastPost: String?
     
     required init(unboxer: Unboxer) throws {
         channelId = try unboxer.unbox(key: "id")
