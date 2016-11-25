@@ -51,6 +51,7 @@ class GroupChatCell: UITableViewCell {
     }
     
     var imageUrls:[URL?]?
+    var membersCount:Int = 0
 }
 
 extension GroupChatCell : UICollectionViewDataSource, UICollectionViewDelegate {
@@ -60,12 +61,11 @@ extension GroupChatCell : UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let usersCount:Int = imageUrls?.count ?? 0
-        if indexPath.row < usersCount {
+        if indexPath.row < membersCount {
             if let avatarUrl = imageUrls?[indexPath.row] {
-                if usersCount > 4 && indexPath.row == 4 {
+                if membersCount > 4 && indexPath.row == 3 {
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.labelCollectionViewCell, for: indexPath)!
-                    cell.titleLabel.text = "+" + "\(usersCount - 3)"
+                    cell.titleLabel.text = "+" + "\(membersCount - 3)"
                     return cell
                 } else {
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.imageCollectionViewCell, for: indexPath)!
@@ -95,5 +95,7 @@ extension GroupChatCell : ChannelCellViewing {
         lastMessageLabel.text = model.lastMessage
         isPrivate = model.isPrivateChannel
         imageUrls = model.avatarUrl
+        membersCount = model.peopleCount
+        collectionView.reloadData()
     }
 }

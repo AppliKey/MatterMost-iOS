@@ -24,13 +24,14 @@ class SingleChatCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        let path = UIBezierPath(roundedRect: userOnlineStatusView.bounds, cornerRadius: 7)
+        let path = UIBezierPath(roundedRect: userOnlineStatusView.bounds,
+                                cornerRadius: userOnlineStatusView.bounds.width / 2)
         shapeLayer = CAShapeLayer()
         shapeLayer.frame = userOnlineStatusView.bounds
         shapeLayer.path = path.cgPath
         shapeLayer.fillColor = UIColor.green.cgColor
         shapeLayer.strokeColor = UIColor.white.cgColor
-        shapeLayer.lineWidth = 2
+        shapeLayer.lineWidth = 4
         userOnlineStatusView.layer.addSublayer(shapeLayer)
     }
     

@@ -59,8 +59,21 @@ extension ChatsPresenter: ChatsPresenting {
         chatRepresentation.isPrivateChannel = channel.type == ChannelType.privateChat
         chatRepresentation.deliveryTime = DateHelper.chatTimeStringForDate(channel.lastPostAt)
         chatRepresentation.lastMessage = channel.lastPost ?? "Loading.."
+        chatRepresentation.peopleCount = channel.channelDetails?.membersCount ?? 0
+        let membersCount = channel.channelDetails?.members.count ?? 0
+        if membersCount >= 4 {
+            chatRepresentation.avatarUrl = channel.channelDetails?.members[0...4].map(getUrl)
+        } else {
+            chatRepresentation.avatarUrl = channel.channelDetails?.members.map(getUrl)
+        }
         
         return chatRepresentation
+    }
+    
+    private func getUrl(for user:User) -> URL? {
+        guard let serverAddress = SessionManager.shared.serverAddress else { return nil }
+        let urlString = serverAddress + "/api/v3/users/\(user.id)/image"
+        return URL(string: urlString)
     }
 
 }

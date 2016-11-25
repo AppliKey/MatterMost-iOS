@@ -14,14 +14,31 @@ extension UIImageView {
         guard let url = url else {
             return
         }
-        self.kf.setImage(with: url)
+        let modifier = AnyModifier { request in
+            var r = request
+            let token = SessionManager.shared.token
+            r.setValue(token, forHTTPHeaderField: "Authorization")
+            return r
+        }
+        self.kf.setImage(with: url, options: [ .requestModifier(modifier)])
     }
     
     func setRoundedImage(withUrl url:URL?) {
         guard let url = url else {
             return
         }
-        let processor = RoundCornerImageProcessor(cornerRadius: self.bounds.width / 2)
-        self.kf.setImage(with: url, placeholder: nil, options: [.processor(processor)], progressBlock: nil, completionHandler: nil)
+        self.kf.indicatorType = .activity
+        let modifier = AnyModifier { request in
+            var r = request
+            let token = SessionManager.shared.token
+            r.setValue(token, forHTTPHeaderField: "Authorization")
+            return r
+        }
+        self.kf.setImage(with: url, options: [.requestModifier(modifier)],
+                         completionHandler:  { (image, error, cacheType, imageURL) in
+            guard let image = image else {return}
+            let imageWidth = image.size.width
+            self.image = image.kf.image(withRoundRadius: imageWidth / 2, fit: image.size, scale: 1)
+        })
     }
 }
