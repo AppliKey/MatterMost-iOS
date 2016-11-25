@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="105"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="03:55 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUi-hL-NdL">
@@ -37,7 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Tommy Simmqweqwe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWB-jt-zgz">
-                        <rect key="frame" x="115" y="20" width="136" height="21"/>
+                        <rect key="frame" x="95" y="20" width="156" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="w2V-xB-LJw"/>
                         </constraints>
@@ -60,10 +60,10 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_private_chanels_not_active" translatesAutoresizingMaskIntoConstraints="NO" id="57d-L7-leB">
-                        <rect key="frame" x="95" y="23" width="10" height="14"/>
+                        <rect key="frame" x="95" y="23" width="0.0" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="peq-oq-Bi5"/>
-                            <constraint firstAttribute="width" constant="10" id="zEo-JF-eGP"/>
+                            <constraint firstAttribute="width" id="zEo-JF-eGP"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -73,7 +73,7 @@
                     <constraint firstAttribute="trailing" secondItem="gUi-hL-NdL" secondAttribute="trailing" constant="8" id="EVK-nJ-nO6"/>
                     <constraint firstItem="pMC-Sd-mYX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Erw-To-FZi"/>
                     <constraint firstItem="57d-L7-leB" firstAttribute="leading" secondItem="pMC-Sd-mYX" secondAttribute="trailing" constant="15" id="OyK-zQ-tth"/>
-                    <constraint firstItem="aWB-jt-zgz" firstAttribute="leading" secondItem="57d-L7-leB" secondAttribute="trailing" constant="10" id="a1x-P7-7Ya"/>
+                    <constraint firstItem="aWB-jt-zgz" firstAttribute="leading" secondItem="57d-L7-leB" secondAttribute="trailing" id="a1x-P7-7Ya"/>
                     <constraint firstItem="pMC-Sd-mYX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="kUu-jU-tsl"/>
                     <constraint firstItem="gUi-hL-NdL" firstAttribute="leading" secondItem="aWB-jt-zgz" secondAttribute="trailing" constant="8" id="nng-gH-eZa"/>
                     <constraint firstAttribute="trailing" secondItem="Aus-MS-2Ge" secondAttribute="trailing" constant="10" id="sJ3-jY-4Gy"/>
@@ -87,7 +87,7 @@
                 <outlet property="collectionView" destination="pMC-Sd-mYX" id="BQt-0g-GUT"/>
                 <outlet property="deliveryTimeLabel" destination="gUi-hL-NdL" id="nNT-SP-zTN"/>
                 <outlet property="lastMessageLabel" destination="Aus-MS-2Ge" id="d7O-rI-Wge"/>
-                <outlet property="privateChannelLeadingConstraint" destination="OyK-zQ-tth" id="qDA-GN-ibp"/>
+                <outlet property="privateChannelLeadingConstraint" destination="a1x-P7-7Ya" id="zd3-b3-vg5"/>
                 <outlet property="privateChannelWidthConstraint" destination="zEo-JF-eGP" id="fZI-wN-lvu"/>
             </connections>
             <point key="canvasLocation" x="-28" y="-128"/>

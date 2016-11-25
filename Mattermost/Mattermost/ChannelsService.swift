@@ -16,17 +16,13 @@ enum ChannelDetailsResult {
     case success(Channel), failure()
 }
 
-enum ChannelMessageResult {
-    case success(Post?), failure()
-}
-
 typealias ChannelsCompletion = (ChannelsResult) -> ()
 typealias ChannelDetailsCompletion = (ChannelDetailsResult) -> ()
-typealias ChannelMessageCompletion = (ChannelMessageResult) -> ()
 
 class ChannelsService : NetworkService {
     fileprivate let errorMapper = ErrorMapper()
     fileprivate var allChannels = [Channel]()
+    fileprivate var filteredChannels = [Channel]()
     fileprivate var isLoading = false
     fileprivate var request:CancellableRequest?
     
@@ -46,14 +42,15 @@ class ChannelsService : NetworkService {
     fileprivate func filterChannels(forMode mode:ChatsMode) -> [Channel] {
         switch mode {
         case .publicChats:
-            return allChannels.filter{$0.type == ChannelType.publicChat}
+            filteredChannels = allChannels.filter{$0.type == ChannelType.publicChat}
         case .privateChats:
-            return allChannels.filter{$0.type == ChannelType.privateChat}
+            filteredChannels = allChannels.filter{$0.type == ChannelType.privateChat}
         case .direct:
-            return allChannels.filter{$0.type == ChannelType.direct}
+            filteredChannels = allChannels.filter{$0.type == ChannelType.direct}
         default:
-            return allChannels
+            filteredChannels = allChannels
         }
+        return filteredChannels
     }
     
     fileprivate func getChannelDetails(_ channel: Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest {
@@ -71,7 +68,7 @@ class ChannelsService : NetworkService {
         }
     }
     
-    fileprivate func getLastMesage(forChannel channel: Channel, completion: @escaping ChannelMessageCompletion) -> CancellableRequest {
+    fileprivate func getLastMesage(forChannel channel: Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest {
         guard let currentTeam = SessionManager.shared.team?.id
             else { fatalError("Team is not selected") }
         
@@ -80,7 +77,7 @@ class ChannelsService : NetworkService {
             do {
                 let posts = try target.map($0)
                 channel.lastPost = posts.first?.message
-                completion(.success(posts.first))
+                completion(.success(channel))
             } catch {
                 completion(.failure())
             }
@@ -108,33 +105,23 @@ extension ChannelsService : ChatsService {
             switch result {
             case .success(let channels):
                 self?.allChannels = channels
-                completion(.success(channels))
+                if let filtered = self?.filterChannels(forMode: mode) {
+                    completion(.success(filtered))
+                }
             case .failure(let errorMessage):
                 completion(.failure(errorMessage))
             }
         })
     }
     
-    func getChannelDetails(forChannel channel:Channel) {
-        let _ = getChannelDetails(channel, completion: { [weak self]  result in
-            switch result {
-            case .success(let channel):
-                let _ = self?.allChannels.count
-                print(channel)
-            case .failure(): break
-            }
-        })
+    func getChannelDetails(forChannel channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest? {
+        let request = getChannelDetails(channel, completion: completion)
+        return request
     }
     
-    func getLastMessage(forChannel channel:Channel) {
-        let _ = getLastMesage(forChannel: channel, completion: { [weak self]  result in
-            switch result {
-            case .success(let post):
-                let _ = self?.allChannels.count
-                print(post)
-            case .failure(): break
-            }
-        })
+    func getLastMessage(forChannel channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest? {
+        let request = getLastMesage(forChannel: channel, completion: completion)
+        return request
     }
     
 }

@@ -68,15 +68,14 @@ extension ChatsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let chatViewModel = chats[indexPath.row]
+        var cell: ChannelCellViewing
         if chatViewModel.isDirectChat {
-            let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.singleChatCell, for: indexPath)!
-            cell.configure(forRepresentationModel: chatViewModel)
-            return cell
+            cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.singleChatCell, for: indexPath)!
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.groupChatCell, for: indexPath)!
-            cell.configure(forRepresentationModel: chatViewModel)
-            return cell
+            cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.groupChatCell, for: indexPath)!
         }
+        cell.configure(forRepresentationModel: chatViewModel)
+        return cell as! UITableViewCell
     }
     
 }
@@ -94,6 +93,10 @@ extension ChatsViewController: ChatsViewing {
     
     func hideActivityIndicator() {
         tableView.refreshControl?.endRefreshing()
+    }
+    
+    func updateCell(atIndex index:Int, withModel model:ChatRepresentationModel) {
+        
     }
     
 }

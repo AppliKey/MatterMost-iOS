@@ -17,6 +17,11 @@ enum ChatsMode : Int {
     case direct
 }
 
+protocol ChannelCellViewing {
+    func configure(forRepresentationModel model:ChatRepresentationModel)
+    var requests: [CancellableRequest] { get set }
+}
+
 protocol ChatsConfigurator: class {
 }
 
@@ -31,6 +36,7 @@ protocol ChatsPresenting: class {
 
 protocol ChatsViewing: ErrorShowable {
     func updateView(withRepresentationModel chatsRepresentation: [ChatRepresentationModel])
+    func updateCell(atIndex index:Int, withModel model:ChatRepresentationModel)
     func showActivityIndicator()
     func hideActivityIndicator()
 }

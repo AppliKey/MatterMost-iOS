@@ -17,6 +17,9 @@ class SingleChatCell: UITableViewCell {
         super.prepareForReuse()
         avatarImageView.kf.cancelDownloadTask()
         avatarImageView.image = nil
+        for request in requests {
+            request.cancel()
+        }
     }
     
     override func awakeFromNib() {
@@ -82,6 +85,10 @@ class SingleChatCell: UITableViewCell {
         }
     }
     
+    var requests: [CancellableRequest] = []
+}
+
+extension SingleChatCell : ChannelCellViewing {
     func configure(forRepresentationModel model:ChatRepresentationModel) {
         userName = model.chatName
         deliveryTime = model.deliveryTime
@@ -95,3 +102,4 @@ class SingleChatCell: UITableViewCell {
         }
     }
 }
+

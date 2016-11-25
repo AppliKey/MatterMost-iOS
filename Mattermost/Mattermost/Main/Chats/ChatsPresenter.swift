@@ -40,11 +40,15 @@ extension ChatsPresenter: ChatsPresenting {
         view.alert(errorMessage)
     }
     
+    func updateChannel() {
+    }
+    
     private func representation(for channel: Channel) -> ChatRepresentationModel {
         let chatRepresentation = ChatRepresentationModel()
-                
-        chatRepresentation.chatName = channel.displayName
-        chatRepresentation.isDirectChat = channel.type == ChannelType.direct
+        
+        let isDirect = channel.type == ChannelType.direct
+        chatRepresentation.chatName = isDirect ? channel.channelDetails?.members.first?.username ?? "" : channel.displayName
+        chatRepresentation.isDirectChat = isDirect
         chatRepresentation.isPrivateChannel = channel.type == ChannelType.privateChat
         chatRepresentation.deliveryTime = DateHelper.chatTimeStringForDate(channel.lastPostAt)
         

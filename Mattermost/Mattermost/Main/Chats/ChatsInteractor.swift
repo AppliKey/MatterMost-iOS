@@ -36,8 +36,6 @@ extension ChatsInteractor: ChatsInteracting {
             switch result {
             case .success(let channels):
                 self?.presenter.present(channels)
-                self?.service.getChannelDetails(forChannel: channels.first!)
-                self?.service.getLastMessage(forChannel: channels.first!)
             case .failure(let errorMessage):
                 self?.presenter.present(errorMessage)
             }
@@ -49,6 +47,6 @@ extension ChatsInteractor: ChatsInteracting {
 
 protocol ChatsService {
     func loadChannels(withMode mode:ChatsMode, completion: @escaping ChannelsCompletion)
-    func getChannelDetails(forChannel channel:Channel)
-    func getLastMessage(forChannel channel:Channel)
+    func getChannelDetails(forChannel channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest?
+    func getLastMessage(forChannel channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest?
 }

@@ -20,6 +20,13 @@ class GroupChatCell: UITableViewCell {
         collectionView.register(R.nib.labelCollectionViewCell)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        for request in requests {
+            request.cancel()
+        }
+    }
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Private Outlets
@@ -42,15 +49,7 @@ class GroupChatCell: UITableViewCell {
     }
     
     var imageUrls:[URL?]?
-    
-    func configure(forRepresentationModel model:ChatRepresentationModel) {
-        chatNameLabel.text = model.chatName
-        deliveryTimeLabel.text = model.deliveryTime
-        lastMessageLabel.text = model.lastMessage
-        isPrivate = model.isPrivateChannel
-        imageUrls = model.avatarUrl
-    }
-    
+    var requests: [CancellableRequest] = []
 }
 
 extension GroupChatCell : UICollectionViewDataSource, UICollectionViewDelegate {
@@ -86,4 +85,14 @@ extension GroupChatCell : UICollectionViewDataSource, UICollectionViewDelegate {
         return cell
     }
     
+}
+
+extension GroupChatCell : ChannelCellViewing {
+    func configure(forRepresentationModel model:ChatRepresentationModel) {
+        chatNameLabel.text = model.chatName
+        deliveryTimeLabel.text = model.deliveryTime
+        lastMessageLabel.text = model.lastMessage
+        isPrivate = model.isPrivateChannel
+        imageUrls = model.avatarUrl
+    }
 }
