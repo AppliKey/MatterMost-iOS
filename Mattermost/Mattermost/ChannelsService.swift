@@ -26,9 +26,11 @@ class ChannelsService : NetworkService {
     fileprivate var isLoading = false
     fileprivate var request:CancellableRequest?
     
+    private var queue = DispatchQueue(label: "chats.background", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
+    
     fileprivate func getAllChannels(forTeamId teamId:String, completion: @escaping ChannelsCompletion) -> CancellableRequest {
         let target = ChannelsTarget(teamId: teamId)
-        return request(target) {
+        return request(target, queue: queue) {
             do {
                 let channels = try target.map($0)
                 completion(.success(channels))
@@ -58,7 +60,7 @@ class ChannelsService : NetworkService {
             else { fatalError("Team is not selected") }
         
         let target = ChannelDetailsTarget(teamId: currentTeam, channelId: channel.channelId)
-        return request(target) {
+        return request(target, queue: queue) {
             do {
                 channel.channelDetails = try target.map($0)
                 completion(.success(channel))
@@ -73,7 +75,7 @@ class ChannelsService : NetworkService {
             else { fatalError("Team is not selected") }
         
         let target = PostsTarget(teamId: currentTeam, channelId: channel.channelId, offset: "0", limit: "1")
-        return request(target) {
+        return request(target, queue: queue) {
             do {
                 let posts = try target.map($0)
                 channel.lastPost = posts.first?.message
@@ -114,14 +116,20 @@ extension ChannelsService : ChatsService {
         })
     }
     
-    func getChannelDetails(for index:Int, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest? {
-        let channel = filteredChannels[index]
+    func getChannelDetails(for channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest? {
+        if channel.channelDetails != nil {
+            completion(.success(channel))
+            return nil
+        }
         let request = getChannelDetails(channel, completion: completion)
         return request
     }
     
-    func getLastMessage(for index:Int, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest? {
-        let channel = filteredChannels[index]
+    func getLastMessage(for channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest? {
+        if channel.lastPost != nil {
+            completion(.success(channel))
+            return nil
+        }
         let request = getLastMesage(forChannel: channel, completion: completion)
         return request
     }

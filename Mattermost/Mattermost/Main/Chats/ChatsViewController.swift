@@ -25,6 +25,10 @@ class ChatsViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.image.icMenu(), style: .done,
                                                            target: self, action: #selector(openMenuPressed(_:)))
         configureInterface()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         eventHandler.refresh()
     }
     
@@ -42,7 +46,6 @@ class ChatsViewController: UIViewController {
         tableView.register(R.nib.groupChatCell)
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
-        tableView.addSubview(refreshControl)
         tableView.refreshControl = refreshControl
     }
     
@@ -78,6 +81,12 @@ extension ChatsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.configure(for: chatViewModel)
         cell.requests = eventHandler.handleCellAppearing(at: indexPath.row).flatMap{$0}
         return cell as! UITableViewCell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.preservesSuperviewLayoutMargins = false
+        cell.layoutMargins = UIEdgeInsets.zero
     }
     
 }

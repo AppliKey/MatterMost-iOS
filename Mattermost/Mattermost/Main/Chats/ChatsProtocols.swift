@@ -19,8 +19,8 @@ enum ChatsMode : Int {
 
 protocol ChatsService {
     func loadChannels(with mode:ChatsMode, completion: @escaping ChannelsCompletion)
-    func getChannelDetails(for index:Int, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest?
-    func getLastMessage(for index:Int, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest?
+    func getChannelDetails(for channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest?
+    func getLastMessage(for channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest?
 }
 
 protocol ChannelCellViewing {

@@ -15,11 +15,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="105"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="03:55 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUi-hL-NdL">
-                        <rect key="frame" x="259" y="20" width="53" height="21"/>
+                        <rect key="frame" x="259" y="22" width="53" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="CFy-bT-iEl"/>
                         </constraints>
@@ -28,16 +28,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I was always somebody who felt  quite sorry for myself…" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aus-MS-2Ge">
-                        <rect key="frame" x="95" y="49" width="215" height="40"/>
+                        <rect key="frame" x="95" y="45" width="215" height="38.5"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="IA0-0M-bWl"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="IA0-0M-bWl"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                         <color key="textColor" red="0.56862745100000001" green="0.58039215690000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Tommy Simmqweqwe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWB-jt-zgz">
-                        <rect key="frame" x="95" y="20" width="156" height="21"/>
+                        <rect key="frame" x="95" y="22" width="156" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="w2V-xB-LJw"/>
                         </constraints>
@@ -69,7 +69,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="57d-L7-leB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="23" id="D6y-hv-XBB"/>
-                    <constraint firstItem="aWB-jt-zgz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Dzd-dE-YnV"/>
+                    <constraint firstItem="aWB-jt-zgz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="Dzd-dE-YnV"/>
                     <constraint firstAttribute="trailing" secondItem="gUi-hL-NdL" secondAttribute="trailing" constant="8" id="EVK-nJ-nO6"/>
                     <constraint firstItem="pMC-Sd-mYX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Erw-To-FZi"/>
                     <constraint firstItem="57d-L7-leB" firstAttribute="leading" secondItem="pMC-Sd-mYX" secondAttribute="trailing" constant="15" id="OyK-zQ-tth"/>
@@ -78,8 +78,8 @@
                     <constraint firstItem="gUi-hL-NdL" firstAttribute="leading" secondItem="aWB-jt-zgz" secondAttribute="trailing" constant="8" id="nng-gH-eZa"/>
                     <constraint firstAttribute="trailing" secondItem="Aus-MS-2Ge" secondAttribute="trailing" constant="10" id="sJ3-jY-4Gy"/>
                     <constraint firstItem="Aus-MS-2Ge" firstAttribute="leading" secondItem="pMC-Sd-mYX" secondAttribute="trailing" constant="15" id="vCG-dP-RQb"/>
-                    <constraint firstItem="Aus-MS-2Ge" firstAttribute="top" secondItem="gUi-hL-NdL" secondAttribute="bottom" constant="8" id="xPe-Ky-7o3"/>
-                    <constraint firstItem="gUi-hL-NdL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="zTw-fV-YgS"/>
+                    <constraint firstItem="Aus-MS-2Ge" firstAttribute="top" secondItem="gUi-hL-NdL" secondAttribute="bottom" constant="2" id="xPe-Ky-7o3"/>
+                    <constraint firstItem="gUi-hL-NdL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="zTw-fV-YgS"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

@@ -32,16 +32,22 @@ extension ChatsPresenter: ChatsConfigurator {
 extension ChatsPresenter: ChatsPresenting {
     
     func present(_ channels: [Channel]) {
-        view.hideActivityIndicator()
-        view.updateView(with: channels.map(representation))
+        DispatchQueue.main.async {
+            self.view.hideActivityIndicator()
+            self.view.updateView(with: channels.map(self.representation))
+        }
     }
     
     func present(_ errorMessage: String) {
-        view.alert(errorMessage)
+        DispatchQueue.main.async {
+            self.view.alert(errorMessage)
+        }
     }
     
     func update(channel: Channel, at index:Int) {
-        view.updateCell(at: index, with: representation(for: channel))
+        DispatchQueue.main.async {
+            self.view.updateCell(at: index, with: self.representation(for: channel))
+        }
     }
     
     private func representation(for channel: Channel) -> ChatRepresentationModel {
@@ -52,6 +58,7 @@ extension ChatsPresenter: ChatsPresenting {
         chatRepresentation.isDirectChat = isDirect
         chatRepresentation.isPrivateChannel = channel.type == ChannelType.privateChat
         chatRepresentation.deliveryTime = DateHelper.chatTimeStringForDate(channel.lastPostAt)
+        chatRepresentation.lastMessage = channel.lastPost ?? "Loading.."
         
         return chatRepresentation
     }
