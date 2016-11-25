@@ -33,14 +33,15 @@ extension ChatsPresenter: ChatsPresenting {
     
     func present(_ channels: [Channel]) {
         view.hideActivityIndicator()
-        view.updateView(withRepresentationModel: channels.map(representation))
+        view.updateView(with: channels.map(representation))
     }
     
     func present(_ errorMessage: String) {
         view.alert(errorMessage)
     }
     
-    func updateChannel() {
+    func update(channel: Channel, at index:Int) {
+        view.updateCell(at: index, with: representation(for: channel))
     }
     
     private func representation(for channel: Channel) -> ChatRepresentationModel {
@@ -65,5 +66,9 @@ extension ChatsPresenter: ChatsEventHandling {
     func refresh() {
         view.showActivityIndicator()
         interactor.loadChannels()
+    }
+    
+    func handleCellAppearing(at index:Int) -> [CancellableRequest?] {
+        return interactor.getChannelDetails(at: index)
     }
 }

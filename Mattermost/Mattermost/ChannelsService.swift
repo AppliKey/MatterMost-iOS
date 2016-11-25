@@ -90,7 +90,7 @@ class ChannelsService : NetworkService {
 }
 
 extension ChannelsService : ChatsService {
-    func loadChannels(withMode mode:ChatsMode, completion: @escaping ChannelsCompletion) {
+    func loadChannels(with mode:ChatsMode, completion: @escaping ChannelsCompletion) {
         if allChannels.count > 0 {
             completion(.success(filterChannels(forMode: mode)))
             return
@@ -114,12 +114,14 @@ extension ChannelsService : ChatsService {
         })
     }
     
-    func getChannelDetails(forChannel channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest? {
+    func getChannelDetails(for index:Int, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest? {
+        let channel = filteredChannels[index]
         let request = getChannelDetails(channel, completion: completion)
         return request
     }
     
-    func getLastMessage(forChannel channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest? {
+    func getLastMessage(for index:Int, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest? {
+        let channel = filteredChannels[index]
         let request = getLastMesage(forChannel: channel, completion: completion)
         return request
     }

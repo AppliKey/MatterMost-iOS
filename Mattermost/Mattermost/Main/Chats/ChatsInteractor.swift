@@ -25,14 +25,13 @@ class ChatsInteractor {
     //MARK: - Deinit
     deinit {
         request?.cancel()
-    }
-    
+    }    
 }
 
 extension ChatsInteractor: ChatsInteracting {
 
     func loadChannels() {
-        service.loadChannels(withMode: mode) { [weak self]  result in
+        service.loadChannels(with: mode) { [weak self]  result in
             switch result {
             case .success(let channels):
                 self?.presenter.present(channels)
@@ -42,11 +41,14 @@ extension ChatsInteractor: ChatsInteracting {
         }
     }
     
-}
+    func getChannelDetails(at index:Int) -> [CancellableRequest?] {
+        let detailsRequest = service.getChannelDetails(for: index, completion: { result in
 
-
-protocol ChatsService {
-    func loadChannels(withMode mode:ChatsMode, completion: @escaping ChannelsCompletion)
-    func getChannelDetails(forChannel channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest?
-    func getLastMessage(forChannel channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest?
+        })
+        let messageRequest = service.getLastMessage(for: index, completion: { result in
+            
+        })
+        return [detailsRequest, messageRequest]
+    }
+    
 }

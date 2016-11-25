@@ -16,6 +16,7 @@ class ChatsViewController: UIViewController {
   	var eventHandler: ChatsEventHandling!
     @IBOutlet fileprivate weak var tableView: UITableView!
     fileprivate var chats = [ChatRepresentationModel]()
+    var chatsService:ChatsService!
 
   	//MARK: - Life cycle
 
@@ -74,7 +75,8 @@ extension ChatsViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.groupChatCell, for: indexPath)!
         }
-        cell.configure(forRepresentationModel: chatViewModel)
+        cell.configure(for: chatViewModel)
+        cell.requests = eventHandler.handleCellAppearing(at: indexPath.row).flatMap{$0}
         return cell as! UITableViewCell
     }
     
@@ -82,7 +84,7 @@ extension ChatsViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension ChatsViewController: ChatsViewing {
     
-    func updateView(withRepresentationModel chatsRepresentation: [ChatRepresentationModel]) {
+    func updateView(with chatsRepresentation: [ChatRepresentationModel]) {
         chats = chatsRepresentation
         tableView.reloadData()
     }
@@ -95,8 +97,12 @@ extension ChatsViewController: ChatsViewing {
         tableView.refreshControl?.endRefreshing()
     }
     
-    func updateCell(atIndex index:Int, withModel model:ChatRepresentationModel) {
-        
+    func updateCell(at index:Int, with model:ChatRepresentationModel) {
+        let indexPath = IndexPath(row: index, section: 0)
+        chats[index] = model
+        if let cell = self.tableView.cellForRow(at: indexPath) as? ChannelCellViewing {
+            cell.configure(for: model)
+        }
     }
     
 }

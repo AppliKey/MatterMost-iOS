@@ -17,8 +17,14 @@ enum ChatsMode : Int {
     case direct
 }
 
+protocol ChatsService {
+    func loadChannels(with mode:ChatsMode, completion: @escaping ChannelsCompletion)
+    func getChannelDetails(for index:Int, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest?
+    func getLastMessage(for index:Int, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest?
+}
+
 protocol ChannelCellViewing {
-    func configure(forRepresentationModel model:ChatRepresentationModel)
+    func configure(for model:ChatRepresentationModel)
     var requests: [CancellableRequest] { get set }
 }
 
@@ -27,16 +33,18 @@ protocol ChatsConfigurator: class {
 
 protocol ChatsInteracting: class {
     func loadChannels()
+    func getChannelDetails(at index:Int) -> [CancellableRequest?]
 }
 
 protocol ChatsPresenting: class {
     func present(_ channels: [Channel])
     func present(_ errorMessage: String)
+    func update(channel: Channel, at index:Int)
 }
 
 protocol ChatsViewing: ErrorShowable {
-    func updateView(withRepresentationModel chatsRepresentation: [ChatRepresentationModel])
-    func updateCell(atIndex index:Int, withModel model:ChatRepresentationModel)
+    func updateView(with chatsRepresentation: [ChatRepresentationModel])
+    func updateCell(at index:Int, with model:ChatRepresentationModel)
     func showActivityIndicator()
     func hideActivityIndicator()
 }
@@ -44,6 +52,7 @@ protocol ChatsViewing: ErrorShowable {
 protocol ChatsEventHandling: class {
     func openMenu()
     func refresh()
+    func handleCellAppearing(at index:Int) -> [CancellableRequest?]
 }
 
 protocol ChatsCoordinator: class {

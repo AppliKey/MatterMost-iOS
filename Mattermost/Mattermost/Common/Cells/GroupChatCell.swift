@@ -25,8 +25,10 @@ class GroupChatCell: UITableViewCell {
         for request in requests {
             request.cancel()
         }
+
     }
-    
+    var requests: [CancellableRequest] = []
+        
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Private Outlets
@@ -49,7 +51,6 @@ class GroupChatCell: UITableViewCell {
     }
     
     var imageUrls:[URL?]?
-    var requests: [CancellableRequest] = []
 }
 
 extension GroupChatCell : UICollectionViewDataSource, UICollectionViewDelegate {
@@ -88,7 +89,7 @@ extension GroupChatCell : UICollectionViewDataSource, UICollectionViewDelegate {
 }
 
 extension GroupChatCell : ChannelCellViewing {
-    func configure(forRepresentationModel model:ChatRepresentationModel) {
+    func configure(for model:ChatRepresentationModel) {
         chatNameLabel.text = model.chatName
         deliveryTimeLabel.text = model.deliveryTime
         lastMessageLabel.text = model.lastMessage

@@ -89,7 +89,7 @@ class SingleChatCell: UITableViewCell {
 }
 
 extension SingleChatCell : ChannelCellViewing {
-    func configure(forRepresentationModel model:ChatRepresentationModel) {
+    func configure(for model:ChatRepresentationModel) {
         userName = model.chatName
         deliveryTime = model.deliveryTime
         isUnread = model.isUnread
