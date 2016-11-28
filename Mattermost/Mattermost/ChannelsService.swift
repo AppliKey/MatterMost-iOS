@@ -49,6 +49,8 @@ class ChannelsService : NetworkService {
             filteredChannels = allChannels.filter{$0.type == ChannelType.privateChat}
         case .direct:
             filteredChannels = allChannels.filter{$0.type == ChannelType.direct}
+        case .unread:
+            filteredChannels = allChannels.filter{$0.isUnread == true}
         default:
             filteredChannels = allChannels
         }

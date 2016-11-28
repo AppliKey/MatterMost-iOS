@@ -72,6 +72,7 @@ class SingleChatCell: UITableViewCell {
                 unreadStatusWidthConstraint.constant = isUnread ? defaultConstraintValue : 0
                 
                 shapeLayer.strokeColor = isUnread ? UIColor(rgba: "#f4f5f7").cgColor : UIColor.white.cgColor
+                self.backgroundColor = isUnread ? UIColor(rgba: "#f4f5f7") : UIColor.white
                 
                 layoutIfNeeded()
             }

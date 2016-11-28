@@ -60,6 +60,7 @@ extension ChatsPresenter: ChatsPresenting {
         chatRepresentation.deliveryTime = DateHelper.chatTimeStringForDate(channel.lastPostAt)
         chatRepresentation.lastMessage = channel.lastPost ?? "Loading.."
         chatRepresentation.peopleCount = channel.channelDetails?.membersCount ?? 0
+        chatRepresentation.isUnread = channel.isUnread
         let membersCount = channel.channelDetails?.members.count ?? 0
         if membersCount >= 4 {
             chatRepresentation.avatarUrl = channel.channelDetails?.members[0...4].map(getUrl)
