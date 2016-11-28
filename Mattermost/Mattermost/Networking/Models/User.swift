@@ -9,6 +9,12 @@
 import Foundation
 import Unbox
 
+enum OnlineStatus: String, UnboxableEnum {
+    case online = "online"
+    case offline = "offline"
+    case away = "away"
+}
+
 struct User {
     let id: String
     let username: String

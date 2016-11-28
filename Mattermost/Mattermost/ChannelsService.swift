@@ -26,7 +26,7 @@ class ChannelsService : NetworkService {
     fileprivate var isLoading = false
     fileprivate var request:CancellableRequest?
     
-    private var queue = DispatchQueue(label: "chats.background", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
+    fileprivate var queue = DispatchQueue(label: "chats.background", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
     
     fileprivate func getAllChannels(forTeamId teamId:String, completion: @escaping ChannelsCompletion) -> CancellableRequest {
         let target = ChannelsTarget(teamId: teamId)
@@ -88,6 +88,12 @@ class ChannelsService : NetworkService {
         }
     }
     
+    
+    fileprivate func getOtherUsersIds() -> [String] {
+        let directChats = allChannels.filter{$0.type == ChannelType.direct}
+        return directChats.map{$0.otherUserId!}
+    }
+    
     deinit {
         request?.cancel()
     }
@@ -136,4 +142,19 @@ extension ChannelsService : ChatsService {
         return request
     }
     
+    func getUsersStatuses(completion: @escaping ChannelsCompletion) -> CancellableRequest {
+        let target = UserStatusesTarget(userIds: getOtherUsersIds())
+        return request(target, queue: queue) {
+            do {
+                let statuses = try target.map($0)
+                let directChats = self.allChannels.filter{$0.type == ChannelType.direct}
+                for chat in directChats {
+                    chat.onlineStatus = statuses[chat.otherUserId!]
+                }
+                completion(.success(self.filteredChannels))
+            } catch {
+                completion(.failure(""))
+            }
+        }
+    }
 }
