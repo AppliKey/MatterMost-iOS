@@ -33,11 +33,24 @@ class GradientButton: UIButton {
         updateGradient()
     }
     
+    override var isHighlighted: Bool {
+        didSet {
+            updateGradient()
+        }
+    }
+    
+    override var isEnabled: Bool {
+        didSet {
+            updateGradient()
+        }
+    }
+    
     //MARK: Private
     
     private func updateGradient() {
         guard let layer = layer as? CAGradientLayer else { return }
-        layer.colors = [startColor.cgColor, endColor.cgColor]
+        layer.colors = [startColor.forControlState(state).cgColor,
+                        endColor.forControlState(state).cgColor]
         layer.locations = [0, 1]
         if (isHorizontal){
             layer.endPoint = CGPoint(x: 1, y: 0)
