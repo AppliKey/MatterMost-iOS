@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0598020C1DD0CFD800AE01C2 /* NSErrorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598020B1DD0CFD800AE01C2 /* NSErrorExtensions.swift */; };
-		059802151DD0E59500AE01C2 /* UserSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802141DD0E59500AE01C2 /* UserSessionService.swift */; };
+		059802151DD0E59500AE01C2 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802141DD0E59500AE01C2 /* SessionService.swift */; };
 		0598021A1DD0E6A600AE01C2 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802191DD0E6A600AE01C2 /* Dictionary.swift */; };
 		059802321DD1DD9200AE01C2 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802311DD1DD9200AE01C2 /* ClientError.swift */; };
 		059802351DD1F2E500AE01C2 /* DefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059802341DD1F2E500AE01C2 /* DefaultsService.swift */; };
@@ -98,7 +98,6 @@
 		E7327A7B1DE2252800512EFF /* AllTeamsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7327A7A1DE2252800512EFF /* AllTeamsTarget.swift */; };
 		E7327A7D1DE2257D00512EFF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7327A7C1DE2257D00512EFF /* NetworkService.swift */; };
 		E734990E1DE319B300C257A5 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598021D1DD0EAEF00AE01C2 /* AuthorizationService.swift */; };
-		E734990F1DE319E700C257A5 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598021B1DD0E7AB00AE01C2 /* Keychain.swift */; };
 		E75F0DD01DE2F954005630B9 /* SignInTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F0DCF1DE2F954005630B9 /* SignInTarget.swift */; };
 		E75F0DD71DE317D6005630B9 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F0DD31DE317D6005630B9 /* Reusable.swift */; };
 		E75F0DD91DE317D6005630B9 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F0DD51DE317D6005630B9 /* UITableView+Reusable.swift */; };
@@ -153,16 +152,15 @@
 
 /* Begin PBXFileReference section */
 		0598020B1DD0CFD800AE01C2 /* NSErrorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSErrorExtensions.swift; sourceTree = "<group>"; };
-		059802141DD0E59500AE01C2 /* UserSessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSessionService.swift; path = Services/UserSessionService.swift; sourceTree = "<group>"; };
+		059802141DD0E59500AE01C2 /* SessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionService.swift; path = Services/SessionService.swift; sourceTree = "<group>"; };
 		059802191DD0E6A600AE01C2 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
-		0598021B1DD0E7AB00AE01C2 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		0598021D1DD0EAEF00AE01C2 /* AuthorizationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthorizationService.swift; path = Services/AuthorizationService.swift; sourceTree = "<group>"; };
 		059802311DD1DD9200AE01C2 /* ClientError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
 		059802341DD1F2E500AE01C2 /* DefaultsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultsService.swift; path = Services/DefaultsService.swift; sourceTree = "<group>"; };
 		059802371DD1FE6500AE01C2 /* ObjectMapperMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObjectMapperMapping.swift; path = Mapping/ObjectMapperMapping.swift; sourceTree = "<group>"; };
 		059802391DD1FFA000AE01C2 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		0598023A1DD1FFA000AE01C2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		05A4BA891DD215FA007FAA18 /* Mattermost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mattermost.entitlements; sourceTree = "<group>"; };
+		05A4BA891DD215FA007FAA18 /* Mattermost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Mattermost.entitlements; path = ../Mattermost.entitlements; sourceTree = "<group>"; };
 		05A4BA8A1DD21B1B007FAA18 /* URL+Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Validation.swift"; sourceTree = "<group>"; };
 		05A4BA8C1DD23BF7007FAA18 /* ServerPing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerPing.swift; sourceTree = "<group>"; };
 		1D26ACE9D1BF8CF3D67C8F44 /* SignInInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInInteractor.swift; sourceTree = "<group>"; };
@@ -326,7 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				E7327A7C1DE2257D00512EFF /* NetworkService.swift */,
-				059802141DD0E59500AE01C2 /* UserSessionService.swift */,
+				059802141DD0E59500AE01C2 /* SessionService.swift */,
 				0598021D1DD0EAEF00AE01C2 /* AuthorizationService.swift */,
 				059802341DD1F2E500AE01C2 /* DefaultsService.swift */,
 				B64CB89A1DE447C6008EF34B /* ChannelsService.swift */,
@@ -579,7 +577,6 @@
 			isa = PBXGroup;
 			children = (
 				E7662BDF1DC7497000E82AFC /* Aliases.swift */,
-				0598021B1DD0E7AB00AE01C2 /* Keychain.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -603,6 +600,7 @@
 		E1FEBC21F4502D5B95BB8926 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				05A4BA891DD215FA007FAA18 /* Mattermost.entitlements */,
 				E7A5B2211DC2137400ED2887 /* R.generated.swift */,
 				E1FEB52FE2B328F7662C3D9E /* Assets.xcassets */,
 				E1FEB3756A1639D28C72AA79 /* LaunchScreen.storyboard */,
@@ -713,7 +711,6 @@
 			isa = PBXGroup;
 			children = (
 				B6E119071DDEFBFA0012FD13 /* 3rdPartyLibraries */,
-				05A4BA891DD215FA007FAA18 /* Mattermost.entitlements */,
 				E7A3288D1DAFE13B00C8A6B9 /* App */,
 				E1FEB0CDBF27AD3F5D411DBE /* Common */,
 				E7967D331DCFB0CB0025F402 /* Networking */,
@@ -1095,7 +1092,6 @@
 				32BC97FE87976F5750722109 /* ServerSelectionInteractor.swift in Sources */,
 				BFE20322EC44EEB648B2F19A /* SignInProtocols.swift in Sources */,
 				B6E119031DDEFBD60012FD13 /* SettingsProtocols.swift in Sources */,
-				E734990F1DE319E700C257A5 /* Keychain.swift in Sources */,
 				B6E118E91DDEFBB90012FD13 /* MainRouting.swift in Sources */,
 				EEC2A5C891FD92145D059CCF /* SignInViewController.swift in Sources */,
 				616CF365F1D150AAD8132D66 /* SignInPresenter.swift in Sources */,
@@ -1106,7 +1102,7 @@
 				B6E118FD1DDEFBD60012FD13 /* MenuViewController.swift in Sources */,
 				E75F0DD91DE317D6005630B9 /* UITableView+Reusable.swift in Sources */,
 				E7AE43F41DCA531700475B8F /* UIResponder+FirstResponder.swift in Sources */,
-				059802151DD0E59500AE01C2 /* UserSessionService.swift in Sources */,
+				059802151DD0E59500AE01C2 /* SessionService.swift in Sources */,
 				B688D4551DE35A8E002EAE46 /* NibLoadable.swift in Sources */,
 				B6E1191D1DDEFC410012FD13 /* LabelCell.swift in Sources */,
 				B6E118D91DDEFB8C0012FD13 /* NavigationManager.swift in Sources */,

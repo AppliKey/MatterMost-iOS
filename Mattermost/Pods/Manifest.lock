@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.0.1)
+  - KeychainAccess (3.0.1)
   - Kingfisher (3.1.4)
-  - Locksmith (3.0.0)
   - Moya (8.0.0-beta.4):
     - Moya/Core (= 8.0.0-beta.4)
   - Moya/Core (8.0.0-beta.4):
@@ -17,8 +17,8 @@ PODS:
   - Unbox (2.2.0)
 
 DEPENDENCIES:
+  - KeychainAccess
   - Kingfisher (~> 3.1)
-  - Locksmith
   - Moya (= 8.0.0-beta.4)
   - ObjectMapper
   - R.swift
@@ -28,8 +28,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
   Kingfisher: 6c67e3e57f2d81a9cfdfa25052cd86f33ceac9bb
-  Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   Moya: bad6f72ec40661f09a8cd85ab470226d2795a485
   ObjectMapper: 4060d739febae11ab0c6af8d786f98667c82e1bd
   R.swift: 14400e5784224d1e4e59a8fc5549198c7e8fe360
@@ -39,6 +39,6 @@ SPEC CHECKSUMS:
   Typist: 8a43e050e9560acac93dc9006525c414b37f5a22
   Unbox: 03d7128ce429987986bc08d967e9d5e0da158946
 
-PODFILE CHECKSUM: a599e273cca03ae280927991dc8d9950eed14e3f
+PODFILE CHECKSUM: cd10154aa4ed203f85748c60b9c5747a9011950a
 
 COCOAPODS: 1.1.1
