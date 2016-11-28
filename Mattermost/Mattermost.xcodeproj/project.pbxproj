@@ -122,6 +122,7 @@
 		E7AE43F21DCA4E4900475B8F /* UIView+CurrentConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE43F11DCA4E4900475B8F /* UIView+CurrentConstraints.swift */; };
 		E7AE43F41DCA531700475B8F /* UIResponder+FirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE43F31DCA531700475B8F /* UIResponder+FirstResponder.swift */; };
 		E7AE43F61DCA5A6500475B8F /* HideKeyboardRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE43F51DCA5A6500475B8F /* HideKeyboardRecognizer.swift */; };
+		E7C8BD071DEC91E700A707F5 /* ErrorIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C8BD061DEC91E700A707F5 /* ErrorIndicatorView.swift */; };
 		E7DCD8431DC9F19400F599D8 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCD8421DC9F19400F599D8 /* KeyboardHandler.swift */; };
 		E7DCD8451DCA155000F599D8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7DCD8441DCA155000F599D8 /* Localizable.strings */; };
 		E7E1C9BF1DD4A07600338846 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1C9BE1DD4A07600338846 /* FormViewController.swift */; };
@@ -275,6 +276,7 @@
 		E7AE43F11DCA4E4900475B8F /* UIView+CurrentConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+CurrentConstraints.swift"; sourceTree = "<group>"; };
 		E7AE43F31DCA531700475B8F /* UIResponder+FirstResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+FirstResponder.swift"; sourceTree = "<group>"; };
 		E7AE43F51DCA5A6500475B8F /* HideKeyboardRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideKeyboardRecognizer.swift; sourceTree = "<group>"; };
+		E7C8BD061DEC91E700A707F5 /* ErrorIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorIndicatorView.swift; sourceTree = "<group>"; };
 		E7DCD8421DC9F19400F599D8 /* KeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		E7DCD8441DCA155000F599D8 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		E7E1C9BE1DD4A07600338846 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
@@ -626,6 +628,7 @@
 			isa = PBXGroup;
 			children = (
 				E7A5B22A1DC258AE00ED2887 /* GradientButton.swift */,
+				E7C8BD061DEC91E700A707F5 /* ErrorIndicatorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1134,6 +1137,7 @@
 				B64CB89E1DE4503A008EF34B /* ChannelsTarget.swift in Sources */,
 				14B13733842F1F1044A404E9 /* TeamSelectionWireframe.swift in Sources */,
 				B6E119231DDF30690012FD13 /* UIColorExtensions.swift in Sources */,
+				E7C8BD071DEC91E700A707F5 /* ErrorIndicatorView.swift in Sources */,
 				0598021A1DD0E6A600AE01C2 /* Dictionary.swift in Sources */,
 				E7327A791DE21E8F00512EFF /* ResponseMapping.swift in Sources */,
 				E7327A771DE21B4A00512EFF /* ServerPingTarget.swift in Sources */,

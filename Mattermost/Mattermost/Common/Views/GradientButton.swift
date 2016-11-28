@@ -11,6 +11,8 @@ import UIKit
 @IBDesignable
 class GradientButton: UIButton {
     
+    //MARK: - Properties
+    
     @IBInspectable var startColor: UIColor = .white {
         didSet { updateGradient() }
     }
@@ -34,15 +36,11 @@ class GradientButton: UIButton {
     }
     
     override var isHighlighted: Bool {
-        didSet {
-            updateGradient()
-        }
+        didSet { updateGradient() }
     }
     
     override var isEnabled: Bool {
-        didSet {
-            updateGradient()
-        }
+        didSet { updateGradient() }
     }
     
     //MARK: Private

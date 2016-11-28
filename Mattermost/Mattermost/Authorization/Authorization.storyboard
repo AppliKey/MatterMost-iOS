@@ -184,12 +184,21 @@ anywhere.</string>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                                     </textField>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80i-th-qXc" userLabel="Separator">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80i-th-qXc" userLabel="Separator" customClass="ErrorIndicatorView" customModule="Mattermost" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="75" width="315" height="1"/>
                                         <color key="backgroundColor" red="0.78823529410000004" green="0.80392156859999997" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="LF1-Hd-Jgg"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                <color key="value" red="0.78823529410000004" green="0.80392156859999997" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                                <color key="value" red="1" green="0.0" blue="0.0" alpha="0.54569212147887325" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isIndicating" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="HEM-LO-aAT">
                                         <rect key="frame" x="295" y="0.0" width="20" height="20"/>
@@ -228,12 +237,20 @@ anywhere.</string>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m3V-dc-bOq" userLabel="Separator">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m3V-dc-bOq" userLabel="Separator" customClass="ErrorIndicatorView" customModule="Mattermost" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="75" width="315" height="1"/>
                                         <color key="backgroundColor" red="0.78823529410000004" green="0.80392156859999997" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="9z6-B9-s81"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                <color key="value" red="0.78823529410000004" green="0.80392156859999997" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                                <color key="value" red="1" green="0.0" blue="0.0" alpha="0.54569212150000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -309,10 +326,12 @@ anywhere.</string>
                         <outlet property="activityIndicator" destination="HEM-LO-aAT" id="58b-cC-Soq"/>
                         <outlet property="emailLabel" destination="ReZ-aY-TFD" id="vdk-QU-YKU"/>
                         <outlet property="emailTextField" destination="S2A-Ot-P0e" id="D1R-Qb-bwY"/>
+                        <outlet property="emailUnderline" destination="80i-th-qXc" id="v2v-8X-VEW"/>
                         <outlet property="forgotPassButton" destination="zdl-AP-Mkc" id="h6R-cp-A68"/>
                         <outlet property="nextButton" destination="4SW-48-nNE" id="Wtq-hS-SlW"/>
                         <outlet property="passwordLabel" destination="Dm6-Jc-oas" id="S8r-FR-S86"/>
                         <outlet property="passwordTextField" destination="pwD-dK-ypp" id="Pao-ct-8ty"/>
+                        <outlet property="passwordUnderline" destination="m3V-dc-bOq" id="wKo-uU-dxu"/>
                         <segue destination="ap5-xR-axR" kind="show" id="dqi-Jb-OIo"/>
                         <segue destination="2pE-qZ-jFE" kind="show" id="Ns6-xj-53z"/>
                     </connections>
