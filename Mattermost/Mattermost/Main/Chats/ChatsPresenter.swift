@@ -66,7 +66,7 @@ extension ChatsPresenter: ChatsPresenting {
         chatRepresentation.onlineStatus = channel.onlineStatus ?? .offline
         let membersCount = channel.channelDetails?.members.count ?? 0
         if membersCount >= 4 {
-            chatRepresentation.avatarUrl = channel.channelDetails?.members[0...4].map(getUrl)
+            chatRepresentation.avatarUrl = channel.channelDetails?.members[0...3].map(getUrl)
         } else {
             chatRepresentation.avatarUrl = channel.channelDetails?.members.map(getUrl)
         }
@@ -94,6 +94,11 @@ extension ChatsPresenter: ChatsEventHandling {
     }
     
     func refresh() {
+        view.showActivityIndicator()
+        interactor.refresh()
+    }
+    
+    func viewIsReady() {
         view.showActivityIndicator()
         interactor.loadChannels()
     }

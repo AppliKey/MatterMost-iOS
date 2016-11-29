@@ -19,7 +19,8 @@ enum ChatsMode : Int {
 
 protocol ChatsService {
     func loadChannels(with mode:ChatsMode, completion: @escaping ChannelsCompletion)
-    func getChannelDetails(for channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest?
+    func refresh(with mode:ChatsMode, completion: @escaping ChannelsCompletion)
+    func getDetails(for channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest?
     func getLastMessage(for channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest?
     func getUsersStatuses(completion: @escaping ChannelsCompletion) -> CancellableRequest
 }
@@ -34,6 +35,7 @@ protocol ChatsConfigurator: class {
 
 protocol ChatsInteracting: class {
     func loadChannels()
+    func refresh()
     func getChannelDetails(at index:Int) -> [CancellableRequest?]
 }
 
@@ -53,6 +55,7 @@ protocol ChatsViewing: ErrorShowable {
 protocol ChatsEventHandling: class {
     func openMenu()
     func refresh()
+    func viewIsReady()
     func handleCellAppearing(at index:Int) -> [CancellableRequest?]
 }
 

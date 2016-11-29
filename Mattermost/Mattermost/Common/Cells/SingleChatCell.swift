@@ -104,13 +104,11 @@ extension SingleChatCell : ChannelCellViewing {
         }
         switch  model.onlineStatus {
         case .online:
-            userOnlineStatusView.isHidden = false
             shapeLayer.fillColor = UIColor.green.cgColor
         case .away:
-            userOnlineStatusView.isHidden = false
             shapeLayer.fillColor = UIColor.yellow.cgColor
         default:
-            userOnlineStatusView.isHidden = true
+            shapeLayer.fillColor = UIColor.lightGray.cgColor
         }
     }
 }
