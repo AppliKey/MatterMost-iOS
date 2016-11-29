@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCollectionViewCell" id="gTV-IL-0wX" customClass="ImageCollectionViewCell" customModule="Mattermost" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CiC-E9-f4T">
+                        <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="CiC-E9-f4T" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="04M-hJ-oeK"/>
+                <constraint firstAttribute="trailing" secondItem="CiC-E9-f4T" secondAttribute="trailing" id="Css-KW-hSK"/>
+                <constraint firstAttribute="bottom" secondItem="CiC-E9-f4T" secondAttribute="bottom" id="bGx-0n-Uny"/>
+                <constraint firstItem="CiC-E9-f4T" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="s76-MD-khO"/>
+            </constraints>
+            <size key="customSize" width="28" height="27"/>
+            <connections>
+                <outlet property="imageView" destination="CiC-E9-f4T" id="aYp-GE-QpK"/>
+            </connections>
+            <point key="canvasLocation" x="16" y="48.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

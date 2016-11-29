@@ -8,41 +8,72 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Locksmith.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Moya.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
 		</dict>
 		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>Pods-Mattermost.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>R.swift.Library.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>Result.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 		<key>Typist.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>Unbox.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -57,12 +88,42 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>27621945E637E92C41A0499AD7F6C388</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3B8DF141854479B7D487C442F177BA5D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6336399C45B9215AA2E9B9BE4F3F5A8B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6FC62FA5436773238ACEDBEB51CC9225</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>808E311AD70EB8ACC991967B8E65DC44</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>8E9CAC148BECA9D7E8D5CBD948D085A4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A63B74CA9090DD5F4B184DA77A5D5516</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -83,6 +144,11 @@
 			<true/>
 		</dict>
 		<key>D154E630A6584B4475C2EDD58E4D5E61</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DCBD7538AFDB636233723EB3DD58D4AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

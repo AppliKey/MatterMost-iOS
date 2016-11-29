@@ -10,14 +10,14 @@ import Foundation
 import Moya
 
 protocol NetworkService {
-    func request<Target: MattermostTarget>(_ target: Target,
+    func request<Target: MattermostTarget>(_ target: Target, queue: DispatchQueue?,
                  completion: @escaping Moya.Completion) -> CancellableRequest
 }
 
 extension NetworkService {
-    func request<Target: MattermostTarget>(_ target: Target,
+    func request<Target: MattermostTarget>(_ target: Target, queue: DispatchQueue? = DispatchQueue.main,
                  completion: @escaping Moya.Completion) -> CancellableRequest {
         let provider = MoyaProvider<Target>(endpointClosure: { $0.defaultEndpoint })
-        return provider.request(target, completion: completion)
+        return provider.request(target, queue: queue, completion: completion)
     }
 }

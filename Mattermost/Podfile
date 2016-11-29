@@ -11,4 +11,6 @@ target 'Mattermost' do
 	pod 'Typist'
 	pod 'Moya', '8.0.0-beta.4'
 	pod 'Unbox'
+    pod 'Fabric'
+    pod 'Crashlytics'
 end
