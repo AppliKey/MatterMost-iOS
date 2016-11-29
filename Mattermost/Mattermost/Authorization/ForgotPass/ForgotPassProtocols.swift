@@ -1,4 +1,4 @@
-//
+     //
 //  ForgotPassForgotPassProtocols.swift
 //  Mattermost
 //
@@ -14,16 +14,21 @@ protocol ForgotPassConfigurator: class {
 }
 
 protocol ForgotPassInteracting: class {
+    func send(_ email: String)
 }
 
 protocol ForgotPassPresenting: class {
+    func complete()
+    func present(_ errorMessage: String)
 }
 
-protocol ForgotPassViewing: class {
+protocol ForgotPassViewing: class, ActivityIndicating, AlertShowable {
 }
 
 protocol ForgotPassEventHandling: class {
+    func send(_ email: String)
 }
 
 protocol ForgotPassCoordinator: class {
+    func back()
 }

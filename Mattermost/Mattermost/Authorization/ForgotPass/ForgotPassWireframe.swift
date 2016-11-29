@@ -13,7 +13,7 @@ class ForgotPassWireframe {
     class func setup(_ viewController: ForgotPassViewController,
                      withCoordinator coordinator: ForgotPassCoordinator,
                      configutation: ForgotPassConfiguration? = nil) {
-        let interactor = ForgotPassInteractor()
+        let interactor = ForgotPassInteractor(service: AuthorizationService())
         let presenter = ForgotPassPresenter(coordinator: coordinator)
         presenter.view = viewController
         presenter.interactor = interactor

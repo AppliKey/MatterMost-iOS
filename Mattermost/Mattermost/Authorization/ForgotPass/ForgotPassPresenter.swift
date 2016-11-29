@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ForgotPassPresenter {
+class ForgotPassPresenter: ForgotPassConfigurator {
     
 	//MARK: - Properties
     weak var view: ForgotPassViewing!
@@ -25,11 +25,25 @@ class ForgotPassPresenter {
     fileprivate let coordinator: ForgotPassCoordinator
 }
 
-extension ForgotPassPresenter: ForgotPassConfigurator {
+extension ForgotPassPresenter: ForgotPassEventHandling {
+    func send(_ email: String) {
+        view.showActivityIndicator()
+        interactor.send(email)
+    }
 }
 
 extension ForgotPassPresenter: ForgotPassPresenting {
-}
-
-extension ForgotPassPresenter: ForgotPassEventHandling {
+    
+    func complete() {
+        view.hideActivityIndicator()
+        view.alert(R.string.localizable.passwordWasReset()) {
+            self.coordinator.back()
+        }
+    }
+    
+    func present(_ errorMessage: String) {
+        view.hideActivityIndicator()
+        view.alert(errorMessage)
+    }
+    
 }

@@ -1,5 +1,5 @@
 //
-//  ErrorShowing.swift
+//  AlertShowing.swift
 //  Mattermost
 //
 //  Created by Vladimir Kravchenko on 11/11/16.
@@ -9,16 +9,24 @@
 import Foundation
 import UIKit
 
-protocol ErrorShowable: class {
+protocol AlertShowable: class {
     func alert(_ message: String)
+    func alert(_ message: String, completion: VoidClosure?)
 }
 
-extension ErrorShowable where Self: UIViewController {
+extension AlertShowable where Self: UIViewController {
+    
     func alert(_ message: String) {
+        alert(message, completion: nil)
+    }
+    
+    func alert(_ message: String, completion: VoidClosure?) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: R.string.localizable.okAlertTitle(),
-                                      style: .default,
-                                      handler: nil))
+                                      style: .default) { _ in
+                                        completion?()
+        })
         self.present(alert, animated: true, completion: nil)
     }
+    
 }

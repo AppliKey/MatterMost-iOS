@@ -377,13 +377,18 @@ anywhere.</string>
                                             <constraint firstAttribute="height" constant="1" id="sVL-j1-Aac"/>
                                         </constraints>
                                     </view>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="EVM-LO-iYw">
+                                        <rect key="frame" x="295" y="0.0" width="20" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="EVM-LO-iYw" firstAttribute="top" secondItem="SMU-x1-cin" secondAttribute="top" id="8gZ-yP-GoE"/>
                                     <constraint firstItem="zGe-Ad-tMC" firstAttribute="leading" secondItem="SMU-x1-cin" secondAttribute="leading" id="IQq-mk-0UL"/>
                                     <constraint firstItem="IbN-w6-9fq" firstAttribute="top" secondItem="SMU-x1-cin" secondAttribute="top" id="L2J-ZV-5fH"/>
                                     <constraint firstAttribute="trailing" secondItem="zGe-Ad-tMC" secondAttribute="trailing" id="Luh-Hz-xd9"/>
                                     <constraint firstItem="dbi-19-Yjd" firstAttribute="top" secondItem="IbN-w6-9fq" secondAttribute="bottom" id="ODy-a8-5GW"/>
+                                    <constraint firstAttribute="trailing" secondItem="EVM-LO-iYw" secondAttribute="trailing" id="OTH-qF-uZG"/>
                                     <constraint firstItem="IbN-w6-9fq" firstAttribute="leading" secondItem="SMU-x1-cin" secondAttribute="leading" id="Xc2-kJ-e0o"/>
                                     <constraint firstAttribute="trailing" secondItem="dbi-19-Yjd" secondAttribute="trailing" id="izo-T0-S03"/>
                                     <constraint firstItem="dbi-19-Yjd" firstAttribute="leading" secondItem="SMU-x1-cin" secondAttribute="leading" id="l9N-Ra-vE8"/>
@@ -411,6 +416,9 @@ anywhere.</string>
                                         <real key="value" value="27"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sendButtonPressed:" destination="ap5-xR-axR" eventType="touchUpInside" id="VCf-h1-Arz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -428,10 +436,10 @@ anywhere.</string>
                         <barButtonItem key="backBarButtonItem" title=" " id="6sf-Fa-qZJ"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="EVM-LO-iYw" id="O1o-uc-6nq"/>
                         <outlet property="emailLabel" destination="IbN-w6-9fq" id="9PQ-pM-P08"/>
                         <outlet property="emailTextField" destination="dbi-19-Yjd" id="HMl-Yi-nms"/>
                         <outlet property="sendButton" destination="pDa-Es-vXi" id="yws-mf-xJb"/>
-                        <outlet property="sendButtonPressed" destination="pDa-Es-vXi" id="TGK-9U-gu1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jrz-0c-ZZF" userLabel="First Responder" sceneMemberID="firstResponder"/>

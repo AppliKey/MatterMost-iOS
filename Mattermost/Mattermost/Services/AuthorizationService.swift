@@ -99,5 +99,22 @@ extension AuthorizationService: SignInService {
     
 }
 
+extension AuthorizationService: ResetPassService {
+    
+    func resetPass(for email: String, completion: @escaping (ResetPassResult) -> ()) -> CancellableRequest {
+        let target = ResetPassTarget(email: email)
+        return request(target) {
+            do {
+                _ = try $0.dematerialize().filterSuccessfulStatusCodes()
+                completion(.success)
+            } catch {
+                let errorMessage = self.errorMapper.message(for: error)
+                completion(.failure(errorMessage))
+            }
+        }
+    }
+    
+}
+
 
 

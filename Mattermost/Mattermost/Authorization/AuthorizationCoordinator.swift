@@ -91,6 +91,8 @@ extension AuthorizationCoordinator: TeamSelectionCoordinator {
 
 //MARK: - ForgotPassCoordinator
 extension AuthorizationCoordinator: ForgotPassCoordinator {
-    
+    func back() {
+        router.pop()
+    }
 }
 

@@ -21,7 +21,7 @@ protocol ServerSelectionPresenting: class {
     func present(_ errorMessage: String)
 }
 
-protocol ServerSelectionViewing: class, ActivityIndicating, ErrorShowable {
+protocol ServerSelectionViewing: class, ActivityIndicating, AlertShowable {
 }
 
 protocol ServerSelectionEventHandling: class {
