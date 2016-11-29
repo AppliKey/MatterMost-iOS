@@ -29,3 +29,17 @@ struct SignInTarget: MattermostTarget, ResponseMapping {
     }
     
 }
+
+struct ResetPassTarget: MattermostTarget {
+    //MARK: - Properties
+    let email: String
+    
+    //MARK: - MattermostTarget -
+    
+    let path = "/users/send_password_reset"
+    let method = Moya.Method.post
+    
+    var parameters: [String : Any]? {
+        return ["email": email]
+    }
+}

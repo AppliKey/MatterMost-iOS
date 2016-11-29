@@ -8,6 +8,7 @@
 
 // Common
 "next.button.title" = "NEXT";
+"send.button.title" = "SEND";
 "ok.alert.title" = "Ok";
 
 // Errors
@@ -29,6 +30,9 @@
 "email.field.placeholder" = "Enter your email";
 "password.field.placeholder" = "Enter your password";
 "forgot.password" = "FORGOT PASSWORD";
+
+// Forgot pass
+"password.was.reset" = "Please check your email";
 
 // Teams view
 "team.selection.header" = "Select your team";

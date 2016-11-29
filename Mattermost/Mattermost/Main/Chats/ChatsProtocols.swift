@@ -45,7 +45,7 @@ protocol ChatsPresenting: class {
     func update(channel: Channel, at index:Int)
 }
 
-protocol ChatsViewing: ErrorShowable {
+protocol ChatsViewing: AlertShowable {
     func updateView(with chatsRepresentation: [ChatRepresentationModel])
     func updateCell(at index:Int, with model:ChatRepresentationModel)
     func showActivityIndicator()

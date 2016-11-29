@@ -5,7 +5,7 @@ use_frameworks!
 target 'Mattermost' do
 	pod 'SwiftyJSON', '3.1'
 	pod 'Kingfisher', '~> 3.1'
-	pod 'Locksmith'
+	pod 'KeychainAccess'
 	pod 'R.swift'
 	pod 'ObjectMapper'
 	pod 'Typist'

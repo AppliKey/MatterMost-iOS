@@ -31,7 +31,7 @@ protocol NavigationRouting: Routing {
     var navigationController: UINavigationController {get}
     func push(viewController: UIViewController, animated: Bool)
     func pop()
-    func root(viewController: UIViewController)
+    func root(viewController: UIViewController, animated: Bool)
 }
 
 extension NavigationRouting {
@@ -46,8 +46,8 @@ extension NavigationRouting {
         topViewController = navigationController.topViewController ?? navigationController
     }
     
-    func root(viewController: UIViewController) {
-        navigationController.setViewControllers([viewController], animated: true)
+    func root(viewController: UIViewController, animated: Bool = true) {
+        navigationController.setViewControllers([viewController], animated: animated)
     }
     
 }

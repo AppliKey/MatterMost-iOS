@@ -22,7 +22,7 @@ protocol SignInPresenting: class {
     func present(_ error: SignInError)
 }
 
-protocol SignInViewing: class, ActivityIndicating, ErrorShowable {
+protocol SignInViewing: class, ActivityIndicating, AlertShowable {
     func show(_ error: SignInError)
 }
 

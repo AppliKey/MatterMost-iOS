@@ -152,4 +152,26 @@ extension UIColor {
     open override var debugDescription: String {
         return self.hexString(true)
     }
+    
+}
+
+extension UIColor {
+    
+    public func highlitedColor() -> UIColor {
+        return self.withAlphaComponent(0.8)
+    }
+    
+    public func disabledColor() -> UIColor {
+        return self.withAlphaComponent(0.5)
+    }
+    
+    public func forControlState(_ state: UIControlState) -> UIColor {
+        switch state {
+        case UIControlState.normal: return self
+        case UIControlState.highlighted: return self.highlitedColor()
+        case UIControlState.disabled: return self.disabledColor()
+        default: return self
+        }
+    }
+    
 }

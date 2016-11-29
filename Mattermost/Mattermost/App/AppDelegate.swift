@@ -31,7 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = appCoordinator.rootViewController()
         window?.makeKeyAndVisible()
-        //appCoordinator.showMainScreen()
+        if SessionManager.shared.hasValidSession {
+            appCoordinator.showMainScreen()            
+        }
     }
 
 }

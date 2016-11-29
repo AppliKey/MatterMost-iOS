@@ -9,12 +9,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Kingfisher.xcscheme</key>
+		<key>KeychainAccess.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Locksmith.xcscheme</key>
+		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -62,32 +62,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>27621945E637E92C41A0499AD7F6C388</key>
+		<key>3204A773276EF399C452CC6595D7BBF3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3B8DF141854479B7D487C442F177BA5D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6336399C45B9215AA2E9B9BE4F3F5A8B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6FC62FA5436773238ACEDBEB51CC9225</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>808E311AD70EB8ACC991967B8E65DC44</key>
+		<key>38F4673FFAD0CC35039DAEA33998D21A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8905DB6521F8FDC34752B69DEE3FDEB7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8DBFB394FD60CD01843EAC4C4AEC0F45</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,12 +102,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C7F727D48928BF47D913AFC48BB6A978</key>
+		<key>D4BD632280D69B3652F97F62DC63C087</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>DCBD7538AFDB636233723EB3DD58D4AD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF9F8D22067979BD4905CEFB6DC48028</key>
 		<dict>
 			<key>primary</key>
 			<true/>

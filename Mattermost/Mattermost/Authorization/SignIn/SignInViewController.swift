@@ -18,6 +18,8 @@ class SignInViewController: UIViewController, ActivityIndicatorHolder {
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var emailUnderline: ErrorIndicatorView!
+    @IBOutlet weak var passwordUnderline: ErrorIndicatorView!
     @IBOutlet weak var nextButton: GradientButton!
     @IBOutlet weak var forgotPassButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
@@ -65,8 +67,8 @@ class SignInViewController: UIViewController, ActivityIndicatorHolder {
         passwordLabel.text = R.string.localizable.passwordFieldHint()
         emailTextField.placeholder = R.string.localizable.emailFieldPlaceholder()
         passwordTextField.placeholder = R.string.localizable.passwordFieldPlaceholder()
-        nextButton.setTitle(R.string.localizable.nextButtonTitle(), for: .normal)
-        forgotPassButton.setTitle(R.string.localizable.forgotPassword(), for: .normal)
+        nextButton.setTitle(R.string.localizable.nextButtonTitle(), for: UIControlState.normal)
+        forgotPassButton.setTitle(R.string.localizable.forgotPassword(), for: UIControlState.normal)
     }
     
     private func setupKeyboardHandler() {
@@ -84,8 +86,10 @@ extension SignInViewController: SignInViewing {
     func show(_ error: SignInError) {
         switch error {
         case .email(let message):
+            emailUnderline.isIndicating = true
             alert(message)
         case .password(let message):
+            passwordUnderline.isIndicating = true
             alert(message)
         case .other(let message):
             alert(message)
@@ -96,6 +100,16 @@ extension SignInViewController: SignInViewing {
 
 //MARK: - UITextFieldDelegate
 extension SignInViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField === emailTextField {
+            emailUnderline.isIndicating = false
+        }
+        if textField === passwordTextField {
+            passwordUnderline.isIndicating = false
+        }
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField === emailTextField {
             passwordTextField.becomeFirstResponder()
@@ -106,4 +120,5 @@ extension SignInViewController: UITextFieldDelegate {
         }
         return true
     }
+    
 }

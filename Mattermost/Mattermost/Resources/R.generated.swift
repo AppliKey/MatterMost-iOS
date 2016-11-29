@@ -268,7 +268,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 25 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 27 localization keys.
     struct localizable {
       /// Value: Address format is not valid
       static let serverAddressWrongFormat = Rswift.StringResource(key: "server.address.wrong.format", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -306,6 +306,10 @@ struct R: Rswift.Validatable {
       static let passwordFieldHint = Rswift.StringResource(key: "password.field.hint", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Password is invalid
       static let passwordNotValid = Rswift.StringResource(key: "password.not.valid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Please check your email
+      static let passwordWasReset = Rswift.StringResource(key: "password.was.reset", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: SEND
+      static let sendButtonTitle = Rswift.StringResource(key: "send.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Select your team
       static let teamSelectionHeader = Rswift.StringResource(key: "team.selection.header", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Settings
@@ -409,6 +413,16 @@ struct R: Rswift.Validatable {
       /// Value: Password is invalid
       static func passwordNotValid(_: Void = ()) -> String {
         return NSLocalizedString("password.not.valid", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Please check your email
+      static func passwordWasReset(_: Void = ()) -> String {
+        return NSLocalizedString("password.was.reset", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: SEND
+      static func sendButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.button.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Select your team

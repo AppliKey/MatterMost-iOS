@@ -62,14 +62,18 @@ extension AuthorizationService: SignInService {
                 let response = try $0.dematerialize().filterSuccessfulStatusCodes()
                 let user = try target.map(response)
                 SessionManager.shared.user = user
-                if let httpResponse = response.response as? HTTPURLResponse,
-                    let token = httpResponse.allHeaderFields["Token"] as? String {
-                    SessionManager.shared.token = "Bearer " + token
-                }
+                self.findToken(in: response)
                 completion(.success)
             } catch {
                 self.handle(error, completion: completion)
             }
+        }
+    }
+    
+    private func findToken(in response: Moya.Response) {
+        if let httpResponse = response.response as? HTTPURLResponse,
+            let token = httpResponse.allHeaderFields["Token"] as? String {
+            SessionManager.shared.token = "Bearer " + token
         }
     }
     
@@ -90,6 +94,23 @@ extension AuthorizationService: SignInService {
             return .email(clientError.message)
         default:
             return .other(clientError.message)
+        }
+    }
+    
+}
+
+extension AuthorizationService: ResetPassService {
+    
+    func resetPass(for email: String, completion: @escaping (ResetPassResult) -> ()) -> CancellableRequest {
+        let target = ResetPassTarget(email: email)
+        return request(target) {
+            do {
+                _ = try $0.dematerialize().filterSuccessfulStatusCodes()
+                completion(.success)
+            } catch {
+                let errorMessage = self.errorMapper.message(for: error)
+                completion(.failure(errorMessage))
+            }
         }
     }
     

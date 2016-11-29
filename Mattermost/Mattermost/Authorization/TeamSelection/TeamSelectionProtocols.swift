@@ -22,7 +22,7 @@ protocol TeamSelectionPresenting: class {
     func present(_ errorMessage: String)
 }
 
-protocol TeamSelectionViewing: class, ErrorShowable, ActivityIndicating {
+protocol TeamSelectionViewing: class, AlertShowable, ActivityIndicating {
     func show(_ teams: [TeamRepresentation])
 }
 
