@@ -54,7 +54,9 @@ extension ChatsPresenter: ChatsPresenting {
         let chatRepresentation = ChatRepresentationModel()
         
         let isDirect = channel.type == ChannelType.direct
-        let userId = SessionManager.shared.user!.id
+        guard let userId = SessionManager.shared.user?.id else {
+            fatalError("User is nil")
+        }
         chatRepresentation.chatName = isDirect ? channel.channelDetails?.members.filter{$0.id != userId}.first?.username ?? ""
                                                : channel.displayName
         chatRepresentation.isDirectChat = isDirect
