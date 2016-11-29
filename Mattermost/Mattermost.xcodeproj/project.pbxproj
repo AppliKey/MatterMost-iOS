@@ -827,6 +827,7 @@
 				2757F9DD36F9FE29AA558135 /* [CP] Embed Pods Frameworks */,
 				AB1ACFFB5E71824607102CD3 /* [CP] Copy Pods Resources */,
 				0598021F1DD0ED3E00AE01C2 /* ShellScript */,
+				DFE309CB1DED781A000C0E55 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -886,7 +887,7 @@
 					E7A3285B1DAFE02200C8A6B9 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 2B98M2M42F;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -1018,6 +1019,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mattermost/Pods-Mattermost-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		DFE309CB1DED781A000C0E55 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 0c7675012470bd5f6ee23c7d90806bb92d1c4bd8 686b2add38b10b5a368b07ef2a35272eb1ad3f6d7e91eb0946b5fc7732fa3917";
 		};
 		E7A5B21C1DC1F0B700ED2887 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1297,13 +1311,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Mattermost/Mattermost.entitlements;
-				DEVELOPMENT_TEAM = 2B98M2M42F;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Mattermost/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.applikey.Mattermost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "50dd01c5-0880-4586-a629-8888420be157";
-				PROVISIONING_PROFILE_SPECIFIER = "Mattermost Development";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1315,14 +1330,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Mattermost/Mattermost.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 2B98M2M42F;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Mattermost/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.applikey.Mattermost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "225e32fa-4adf-4a3a-a71f-5810effadb80";
-				PROVISIONING_PROFILE_SPECIFIER = "Mattermost Distribution";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
