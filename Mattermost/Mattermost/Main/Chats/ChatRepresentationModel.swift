@@ -20,4 +20,5 @@ class ChatRepresentationModel {
     
     var peopleCount = 1
     var isPrivateChannel = false
+    var onlineStatus: OnlineStatus = .offline
 }

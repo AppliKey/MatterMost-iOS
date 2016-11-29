@@ -35,6 +35,11 @@ class Channel : Unboxable {
     var channelDetails: ChannelDetails?
     var lastPost: String?
     var isUnread = false
+    var onlineStatus: OnlineStatus? = OnlineStatus.offline
+    var otherUserId: String? {
+        guard let userId = SessionManager.shared.user?.id else { return nil }
+        return name.replacingOccurrences(of: "_", with: "").replacingOccurrences(of: userId, with: "")
+    }
     
     required init(unboxer: Unboxer) throws {
         channelId = try unboxer.unbox(key: "id")

@@ -54,18 +54,27 @@ extension ChatsPresenter: ChatsPresenting {
         let chatRepresentation = ChatRepresentationModel()
         
         let isDirect = channel.type == ChannelType.direct
-        chatRepresentation.chatName = isDirect ? channel.channelDetails?.members.first?.username ?? "" : channel.displayName
+        let userId = SessionManager.shared.user!.id
+        chatRepresentation.chatName = isDirect ? channel.channelDetails?.members.filter{$0.id != userId}.first?.username ?? ""
+                                               : channel.displayName
         chatRepresentation.isDirectChat = isDirect
         chatRepresentation.isPrivateChannel = channel.type == ChannelType.privateChat
         chatRepresentation.deliveryTime = DateHelper.chatTimeStringForDate(channel.lastPostAt)
         chatRepresentation.lastMessage = channel.lastPost ?? "Loading.."
         chatRepresentation.peopleCount = channel.channelDetails?.membersCount ?? 0
         chatRepresentation.isUnread = channel.isUnread
+        chatRepresentation.onlineStatus = channel.onlineStatus ?? .offline
         let membersCount = channel.channelDetails?.members.count ?? 0
         if membersCount >= 4 {
             chatRepresentation.avatarUrl = channel.channelDetails?.members[0...4].map(getUrl)
         } else {
             chatRepresentation.avatarUrl = channel.channelDetails?.members.map(getUrl)
+        }
+        
+        if isDirect, let serverAddress = SessionManager.shared.serverAddress,
+            let userId = channel.otherUserId {
+            let urlString = serverAddress + "/api/v3/users/\(userId)/image"
+            chatRepresentation.avatarUrl = [URL(string: urlString)]
         }
         
         return chatRepresentation

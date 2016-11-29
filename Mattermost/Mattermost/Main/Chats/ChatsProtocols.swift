@@ -21,6 +21,7 @@ protocol ChatsService {
     func loadChannels(with mode:ChatsMode, completion: @escaping ChannelsCompletion)
     func getChannelDetails(for channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest?
     func getLastMessage(for channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest?
+    func getUsersStatuses(completion: @escaping ChannelsCompletion) -> CancellableRequest
 }
 
 protocol ChannelCellViewing {

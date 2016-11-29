@@ -37,6 +37,7 @@ extension ChatsInteractor: ChatsInteracting {
             case .success(let channels):
                 self?.channels = channels
                 self?.presenter.present(channels)
+                self?.getUserStatuses()
             case .failure(let errorMessage):
                 self?.presenter.present(errorMessage)
             }
@@ -60,6 +61,17 @@ extension ChatsInteractor: ChatsInteracting {
             }
         })
         return [detailsRequest, messageRequest]
+    }
+    
+    func getUserStatuses() {
+        request = service.getUsersStatuses { [weak self]  result in
+            switch result {
+            case .success(let channels):
+                self?.channels = channels
+                self?.presenter.present(channels)
+            case .failure(_): break
+            }
+        }
     }
     
 }
