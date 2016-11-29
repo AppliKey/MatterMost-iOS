@@ -28,11 +28,12 @@ class ChannelsService : NetworkService {
     
     fileprivate var queue = DispatchQueue(label: "chats.background", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
     
-    fileprivate func getAllChannels(forTeamId teamId:String, completion: @escaping ChannelsCompletion) -> CancellableRequest {
+    fileprivate func requestAllChannels(forTeamId teamId:String, completion: @escaping ChannelsCompletion) -> CancellableRequest {
         let target = ChannelsTarget(teamId: teamId)
         return request(target, queue: queue) {
             do {
-                let channels = try target.map($0)
+                var channels = try target.map($0)
+                channels.sort{$0.0.lastPostAt > $0.1.lastPostAt}
                 completion(.success(channels))
             } catch {
                 let errorMessage = self.errorMapper.message(for: error)
@@ -57,7 +58,7 @@ class ChannelsService : NetworkService {
         return filteredChannels
     }
     
-    fileprivate func getChannelDetails(_ channel: Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest {
+    fileprivate func requestDetails(forChannel channel: Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest {
         guard let currentTeam = SessionManager.shared.team?.id
             else { fatalError("Team is not selected") }
         
@@ -72,7 +73,7 @@ class ChannelsService : NetworkService {
         }
     }
     
-    fileprivate func getLastMesage(forChannel channel: Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest {
+    fileprivate func requestLastMesage(forChannel channel: Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest {
         guard let currentTeam = SessionManager.shared.team?.id
             else { fatalError("Team is not selected") }
         
@@ -110,7 +111,7 @@ extension ChannelsService : ChatsService {
         guard isLoading == false else { return }
         
         isLoading = true
-        request = getAllChannels(forTeamId: currentTeam, completion: { [weak self]  result in
+        request = requestAllChannels(forTeamId: currentTeam, completion: { [weak self]  result in
             self?.isLoading = false
             switch result {
             case .success(let channels):
@@ -124,12 +125,12 @@ extension ChannelsService : ChatsService {
         })
     }
     
-    func getChannelDetails(for channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest? {
+    func getDetails(for channel:Channel, completion: @escaping ChannelDetailsCompletion) -> CancellableRequest? {
         if channel.channelDetails != nil {
             completion(.success(channel))
             return nil
         }
-        let request = getChannelDetails(channel, completion: completion)
+        let request = requestDetails(forChannel: channel, completion: completion)
         return request
     }
     
@@ -138,7 +139,7 @@ extension ChannelsService : ChatsService {
             completion(.success(channel))
             return nil
         }
-        let request = getLastMesage(forChannel: channel, completion: completion)
+        let request = requestLastMesage(forChannel: channel, completion: completion)
         return request
     }
     
@@ -156,5 +157,10 @@ extension ChannelsService : ChatsService {
                 completion(.failure(""))
             }
         }
+    }
+    
+    func refresh(with mode:ChatsMode, completion: @escaping ChannelsCompletion) {
+        self.allChannels = []
+        loadChannels(with: mode, completion: completion)
     }
 }

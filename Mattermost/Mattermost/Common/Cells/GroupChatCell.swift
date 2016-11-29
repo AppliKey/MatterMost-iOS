@@ -76,7 +76,9 @@ extension GroupChatCell : UICollectionViewDataSource, UICollectionViewDelegate {
                 return getPlaceholderCell(collectionView, indexPath: indexPath)
             }
         } else {
-            return getPlaceholderCell(collectionView, indexPath: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.imageCollectionViewCell, for: indexPath)!
+            cell.imageView.image = nil
+            return cell
         }
     }
     
