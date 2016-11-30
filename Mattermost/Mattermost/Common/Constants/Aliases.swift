@@ -11,6 +11,10 @@ import Result
 
 typealias VoidClosure = () -> ()
 
-enum UserDefaultsKeys : String {
-    case hideUnreadController = "hideUnreadControllerKey"
+struct UserDefaultsKeys {
+    static let hideUnreadController = "hideUnreadControllerKey"
+    static let userName = "user.nickname"
+    static let userId = "user.id"
+    static let teamName = "team.name"
+    static let teamId = "team.id"
 }

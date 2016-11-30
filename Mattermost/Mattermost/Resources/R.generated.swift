@@ -268,7 +268,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 27 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 29 localization keys.
     struct localizable {
       /// Value: Address format is not valid
       static let serverAddressWrongFormat = Rswift.StringResource(key: "server.address.wrong.format", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -294,12 +294,16 @@ struct R: Rswift.Validatable {
       static let forgotPassword = Rswift.StringResource(key: "forgot.password", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Invite new member
       static let menuItemInvite = Rswift.StringResource(key: "menu.item.invite", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Loading...
+      static let loadingMessagesTitle = Rswift.StringResource(key: "loading.messages.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Logout
       static let settingsLogout = Rswift.StringResource(key: "settings.logout", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: NEW GROUP OR CHANNEL
       static let newGroupChannel = Rswift.StringResource(key: "new.group.channel", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: NEXT
       static let nextButtonTitle = Rswift.StringResource(key: "next.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: No messages yet =(
+      static let noMessages = Rswift.StringResource(key: "no.messages", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Ok
       static let okAlertTitle = Rswift.StringResource(key: "ok.alert.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: PASSWORD
@@ -385,6 +389,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("menu.item.invite", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: Loading...
+      static func loadingMessagesTitle(_: Void = ()) -> String {
+        return NSLocalizedString("loading.messages.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: Logout
       static func settingsLogout(_: Void = ()) -> String {
         return NSLocalizedString("settings.logout", bundle: R.hostingBundle, comment: "")
@@ -398,6 +407,11 @@ struct R: Rswift.Validatable {
       /// Value: NEXT
       static func nextButtonTitle(_: Void = ()) -> String {
         return NSLocalizedString("next.button.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: No messages yet =(
+      static func noMessages(_: Void = ()) -> String {
+        return NSLocalizedString("no.messages", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Ok

@@ -38,7 +38,7 @@ class MainCoordinator {
         var tabBarControllers = [favouritesNavigationController, publicChannelsNavigationController,
                                  privateChannelsNavigationController, directNavigationController]
         
-        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.hideUnreadController.rawValue) == false {
+        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.hideUnreadController) == false {
             let unreadNavigationController = createChatsNavigationController(withMode: .unread)
             tabBarControllers.insert(unreadNavigationController, at: 0)
         }
@@ -72,7 +72,7 @@ class MainCoordinator {
     }
     
     func checkTabBarControllers() {
-        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.hideUnreadController.rawValue) {
+        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.hideUnreadController) {
             hideUnreadController()
         } else {
             showUnreadController()

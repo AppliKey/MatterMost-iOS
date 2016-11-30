@@ -49,3 +49,7 @@
 "settings.unread.messages" = "Unread messages";
 "settings.logout" = "Logout";
 
+//Chats
+
+"loading.messages.title" = "Loading...";
+"no.messages" = "No messages yet =(";

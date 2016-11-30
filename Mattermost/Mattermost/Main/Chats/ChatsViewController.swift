@@ -44,6 +44,7 @@ class ChatsViewController: UIViewController {
         localizeViews()
         tableView.register(R.nib.singleChatCell)
         tableView.register(R.nib.groupChatCell)
+        tableView.tableFooterView = UIView()
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
         tableView.refreshControl = refreshControl

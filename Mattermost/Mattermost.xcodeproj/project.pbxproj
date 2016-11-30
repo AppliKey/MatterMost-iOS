@@ -45,6 +45,7 @@
 		B69548821DE5E02D00C476E1 /* ChannelDetailsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69548811DE5E02D00C476E1 /* ChannelDetailsTarget.swift */; };
 		B69548841DE5E29600C476E1 /* ChannelDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69548831DE5E29600C476E1 /* ChannelDetails.swift */; };
 		B69548861DE6F4E300C476E1 /* PostsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69548851DE6F4E300C476E1 /* PostsTarget.swift */; };
+		B6A085AB1DEEF55C00AEE98B /* OptionalComparers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A085AA1DEEF55C00AEE98B /* OptionalComparers.swift */; };
 		B6BC89B91DE7032C00318EC8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC89B81DE7032C00318EC8 /* Post.swift */; };
 		B6E118D81DDEFB8C0012FD13 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E118D61DDEFB8C0012FD13 /* AppearanceManager.swift */; };
 		B6E118D91DDEFB8C0012FD13 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E118D71DDEFB8C0012FD13 /* NavigationManager.swift */; };
@@ -192,6 +193,7 @@
 		B69548811DE5E02D00C476E1 /* ChannelDetailsTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelDetailsTarget.swift; sourceTree = "<group>"; };
 		B69548831DE5E29600C476E1 /* ChannelDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelDetails.swift; sourceTree = "<group>"; };
 		B69548851DE6F4E300C476E1 /* PostsTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsTarget.swift; sourceTree = "<group>"; };
+		B6A085AA1DEEF55C00AEE98B /* OptionalComparers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalComparers.swift; sourceTree = "<group>"; };
 		B6BC89B81DE7032C00318EC8 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		B6E118D61DDEFB8C0012FD13 /* AppearanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		B6E118D71DDEFB8C0012FD13 /* NavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
@@ -449,6 +451,7 @@
 			isa = PBXGroup;
 			children = (
 				B695487F1DE4A7E400C476E1 /* DateHelper.swift */,
+				B6A085AA1DEEF55C00AEE98B /* OptionalComparers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1149,6 +1152,7 @@
 				520649B1426F38DD83F40367 /* TeamSelectionProtocols.swift in Sources */,
 				E7967D3E1DD04FE10025F402 /* MainCoordinator.swift in Sources */,
 				E7E1C9C61DD8A9AE00338846 /* MattermostTarget.swift in Sources */,
+				B6A085AB1DEEF55C00AEE98B /* OptionalComparers.swift in Sources */,
 				FABCACF157FD70E5DD6A644E /* TeamSelectionViewController.swift in Sources */,
 				05A4BA8B1DD21B1B007FAA18 /* URL+Validation.swift in Sources */,
 				E7E1C9C11DD61DB400338846 /* ActivityIndication.swift in Sources */,

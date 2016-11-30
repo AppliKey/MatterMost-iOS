@@ -11,6 +11,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>KeychainAccess.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
 		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -93,6 +98,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3204A773276EF399C452CC6595D7BBF3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>38F4673FFAD0CC35039DAEA33998D21A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3B8DF141854479B7D487C442F177BA5D</key>
 		<dict>
 			<key>primary</key>
@@ -114,6 +129,16 @@
 			<true/>
 		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8905DB6521F8FDC34752B69DEE3FDEB7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8DBFB394FD60CD01843EAC4C4AEC0F45</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -148,7 +173,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>D4BD632280D69B3652F97F62DC63C087</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>DCBD7538AFDB636233723EB3DD58D4AD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF9F8D22067979BD4905CEFB6DC48028</key>
 		<dict>
 			<key>primary</key>
 			<true/>

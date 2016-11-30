@@ -61,8 +61,12 @@ extension ChatsPresenter: ChatsPresenting {
                                                : channel.displayName
         chatRepresentation.isDirectChat = isDirect
         chatRepresentation.isPrivateChannel = channel.type == ChannelType.privateChat
-        chatRepresentation.deliveryTime = DateHelper.chatTimeStringForDate(channel.lastPostAt)
-        chatRepresentation.lastMessage = channel.lastPost ?? "Loading.."
+        if let date = channel.lastPostAt {
+            chatRepresentation.deliveryTime = DateHelper.chatTimeStringForDate(date)
+            chatRepresentation.lastMessage = channel.lastPost ?? R.string.localizable.loadingMessagesTitle()
+        } else {
+            chatRepresentation.lastMessage = R.string.localizable.noMessages()
+        }
         chatRepresentation.peopleCount = channel.channelDetails?.membersCount ?? 0
         chatRepresentation.isUnread = channel.isUnread
         chatRepresentation.onlineStatus = channel.onlineStatus ?? .offline

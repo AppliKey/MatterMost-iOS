@@ -27,7 +27,7 @@ class Channel : Unboxable {
     var name: String
     var header: String
     var purpose: String
-    var lastPostAt: Date
+    var lastPostAt: Date?
     var totalMsgCount: Int
     var extraUpdateAt: Date
     var creatorId: String
@@ -52,7 +52,9 @@ class Channel : Unboxable {
         name = try unboxer.unbox(key: "name")
         header = try unboxer.unbox(key: "header")
         purpose = try unboxer.unbox(key: "purpose")
-        lastPostAt = Date(timeIntervalSince1970:(try unboxer.unbox(key: "last_post_at")) / 1000)
+        if let lastPostTime:TimeInterval = unboxer.unbox(key: "last_post_at"), lastPostTime > 0 {
+            lastPostAt = Date(timeIntervalSince1970:(lastPostTime / 1000))
+        }
         totalMsgCount = try unboxer.unbox(key: "total_msg_count")
         extraUpdateAt = Date(timeIntervalSince1970:(try unboxer.unbox(key: "extra_update_at")) / 1000)
         creatorId = try unboxer.unbox(key: "creator_id")

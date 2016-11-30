@@ -8,6 +8,7 @@
 
 import Foundation
 import KeychainAccess
+import Unbox
 
 struct SessionService {
     
@@ -37,6 +38,38 @@ struct SessionService {
     
     func deleteServerAddress() {
         keychain[serverAddressKey] = nil
+    }
+    
+    // MARK - User
+    
+    var user:User? {
+        get {
+            if let userId = UserDefaults.standard.value(forKey: UserDefaultsKeys.userId) as? String,
+                let userName = UserDefaults.standard.value(forKey: UserDefaultsKeys.userName) as? String {
+                return User(id: userId, username: userName, email: nil, nickname: nil, firstname: nil, lastname: nil)
+            } else {
+                return nil
+            }
+        } set {
+            UserDefaults.standard.set(newValue?.id, forKey: UserDefaultsKeys.userId)
+            UserDefaults.standard.set(newValue?.username, forKey: UserDefaultsKeys.userName)
+        }
+    }
+    
+    // MARK - Team 
+    
+    var team: Team? {
+        get {
+            if let teamId = UserDefaults.standard.value(forKey: UserDefaultsKeys.teamId) as? String,
+                let teamName = UserDefaults.standard.value(forKey: UserDefaultsKeys.teamName) as? String {
+                return Team(id: teamId, name: teamName, displayName: teamName)
+            } else {
+                return nil
+            }
+        } set {
+            UserDefaults.standard.set(newValue?.id, forKey: UserDefaultsKeys.teamId)
+            UserDefaults.standard.set(newValue?.displayName, forKey: UserDefaultsKeys.teamName)
+        }
     }
     
     //MARK: - Private 

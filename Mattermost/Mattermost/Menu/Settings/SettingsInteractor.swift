@@ -16,9 +16,9 @@ extension SettingsInteractor: SettingsInteracting {
     
     var hideUnreadController: Bool {
         get {
-            return UserDefaults.standard.bool(forKey: UserDefaultsKeys.hideUnreadController.rawValue)
+            return UserDefaults.standard.bool(forKey: UserDefaultsKeys.hideUnreadController)
         } set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.hideUnreadController.rawValue)
+            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.hideUnreadController)
         }
     }
     

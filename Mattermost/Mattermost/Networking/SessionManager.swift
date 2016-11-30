@@ -13,8 +13,6 @@ class SessionManager {
     static let shared = SessionManager()
     
     //MARK: - Properties
-    var user: User?
-    var team: Team?
     var serverVersion: String?
     
     //MARK: - Token
@@ -47,15 +45,39 @@ class SessionManager {
         }
     }
     
+    //MARK: User
+    var user: User? {
+        get {
+            return _user
+        }
+        set {
+            _user = newValue
+            service.user = newValue
+        }
+    }
+    
+    //MARK: Team
+    var team: Team? {
+        get {
+            return _team
+        }
+        set {
+            _team = newValue
+            service.team = newValue
+        }
+    }
+    
     //MARK: - Helpers
     
     var hasValidSession: Bool {
-        return serverAddress != nil && token != nil && team != nil
+        return serverAddress != nil && token != nil && team != nil && user != nil
     }
     
     //MARK: - Private
     private lazy var _token: String? = self.service.savedToken()
     private lazy var _serverAddress: String? = self.service.savedServerAddress()
-    private let service = SessionService()
+    private lazy var _user: User? = self.service.user
+    private lazy var _team: Team? = self.service.team
+    private var service = SessionService()
     
 }

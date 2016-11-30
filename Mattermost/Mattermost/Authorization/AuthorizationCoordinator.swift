@@ -23,7 +23,7 @@ class AuthorizationCoordinator {
             if SessionManager.shared.serverAddress != nil {
                 signIn()
             }
-            if SessionManager.shared.token != nil {
+            if SessionManager.shared.token != nil && SessionManager.shared.user != nil {
                 selectTeam()
             }
         }
