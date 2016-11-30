@@ -268,7 +268,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 29 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 32 localization keys.
     struct localizable {
       /// Value: Address format is not valid
       static let serverAddressWrongFormat = Rswift.StringResource(key: "server.address.wrong.format", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -278,6 +278,8 @@ struct R: Rswift.Validatable {
       static let menuItemChannels = Rswift.StringResource(key: "menu.item.channels", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: All your team communication in one  place, searchable and accessible  anywhere.
       static let description = Rswift.StringResource(key: "description", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Are you sure you want to logout?
+      static let settingsLogoutAlertMessage = Rswift.StringResource(key: "settings.logout.alert.message", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: EMAIL
       static let emailFieldHint = Rswift.StringResource(key: "email.field.hint", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: ENTER SERVER URL
@@ -302,6 +304,8 @@ struct R: Rswift.Validatable {
       static let newGroupChannel = Rswift.StringResource(key: "new.group.channel", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: NEXT
       static let nextButtonTitle = Rswift.StringResource(key: "next.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: No
+      static let noAlertTitle = Rswift.StringResource(key: "no.alert.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: No messages yet =(
       static let noMessages = Rswift.StringResource(key: "no.messages", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Ok
@@ -326,6 +330,8 @@ struct R: Rswift.Validatable {
       static let settingsUnreadMessages = Rswift.StringResource(key: "settings.unread.messages", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Welcome to Mattermost
       static let welcome = Rswift.StringResource(key: "welcome", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Yes
+      static let yesAlertTitle = Rswift.StringResource(key: "yes.alert.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: http://server.com/
       static let serverFieldPlaceholder = Rswift.StringResource(key: "server.field.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       
@@ -347,6 +353,11 @@ struct R: Rswift.Validatable {
       /// Value: All your team communication in one  place, searchable and accessible  anywhere.
       static func description(_: Void = ()) -> String {
         return NSLocalizedString("description", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Are you sure you want to logout?
+      static func settingsLogoutAlertMessage(_: Void = ()) -> String {
+        return NSLocalizedString("settings.logout.alert.message", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: EMAIL
@@ -409,6 +420,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("next.button.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: No
+      static func noAlertTitle(_: Void = ()) -> String {
+        return NSLocalizedString("no.alert.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: No messages yet =(
       static func noMessages(_: Void = ()) -> String {
         return NSLocalizedString("no.messages", bundle: R.hostingBundle, comment: "")
@@ -467,6 +483,11 @@ struct R: Rswift.Validatable {
       /// Value: Welcome to Mattermost
       static func welcome(_: Void = ()) -> String {
         return NSLocalizedString("welcome", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Yes
+      static func yesAlertTitle(_: Void = ()) -> String {
+        return NSLocalizedString("yes.alert.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: http://server.com/

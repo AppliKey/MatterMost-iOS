@@ -24,6 +24,10 @@ class MainCoordinator {
         NavigationManager.setRootController(router.rootController)
     }
     
+    func showAuthorization() {
+        NavigationManager.setRootController(appCoordinator.rootViewController())
+    }
+    
     //MARK: - Private -
     fileprivate let router: MainRouting
     fileprivate unowned let appCoordinator: AppCoordinator

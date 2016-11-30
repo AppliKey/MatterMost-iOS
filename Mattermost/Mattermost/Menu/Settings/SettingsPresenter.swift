@@ -49,6 +49,7 @@ extension SettingsPresenter: SettingsEventHandling {
     }
     
     func handleLogout() {
-        print("handle logout")
+        SessionManager.shared.clearCurrentSession()
+        coordinator.showAuthorization()
     }
 }

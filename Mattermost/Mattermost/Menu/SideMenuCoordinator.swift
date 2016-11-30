@@ -45,4 +45,8 @@ extension SideMenuCoordinator : SettingsCoordinator {
     func checkTabBarControllers() {
         coordinator.checkTabBarControllers()
     }
+    
+    func showAuthorization() {
+        coordinator.showAuthorization()
+    }
 }

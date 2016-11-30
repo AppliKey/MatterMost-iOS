@@ -10,6 +10,8 @@
 "next.button.title" = "NEXT";
 "send.button.title" = "SEND";
 "ok.alert.title" = "Ok";
+"yes.alert.title" = "Yes";
+"no.alert.title" = "No";
 
 // Errors
 "server.address.not.valid" = "Address is not valid";
@@ -48,6 +50,7 @@
 "settings.edit.profile" = "Edit profile";
 "settings.unread.messages" = "Unread messages";
 "settings.logout" = "Logout";
+"settings.logout.alert.message" = "Are you sure you want to logout?";
 
 //Chats
 

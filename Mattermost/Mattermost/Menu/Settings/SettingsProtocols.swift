@@ -34,4 +34,5 @@ protocol SettingsEventHandling: class {
 
 protocol SettingsCoordinator: class {
     func checkTabBarControllers()
+    func showAuthorization()
 }

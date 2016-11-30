@@ -60,7 +60,18 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func logoutTapped(_ sender: Any) {
-        eventHandler.handleLogout()
+        showLogoutAlert()
+    }
+    
+    func showLogoutAlert() {
+        let alert = UIAlertController(title: nil, message: R.string.localizable.settingsLogoutAlertMessage(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: R.string.localizable.yesAlertTitle(),
+                                      style: .default) { [unowned self] _ in
+                                        self.eventHandler.handleLogout()
+        })
+        alert.addAction(UIAlertAction(title: R.string.localizable.noAlertTitle(),
+                                      style: .default))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

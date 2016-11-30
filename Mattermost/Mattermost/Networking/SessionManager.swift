@@ -73,6 +73,13 @@ class SessionManager {
         return serverAddress != nil && token != nil && team != nil && user != nil
     }
     
+    func clearCurrentSession() {
+        team = nil
+        user = nil
+        serverAddress = nil
+        token = nil
+    }
+    
     //MARK: - Private
     private lazy var _token: String? = self.service.savedToken()
     private lazy var _serverAddress: String? = self.service.savedServerAddress()
