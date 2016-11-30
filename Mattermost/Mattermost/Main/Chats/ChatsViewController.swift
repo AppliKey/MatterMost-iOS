@@ -109,8 +109,8 @@ extension ChatsViewController: ChatsViewing {
     
     func updateCell(at index:Int, with model:ChatRepresentationModel) {
         let indexPath = IndexPath(row: index, section: 0)
-        chats[index] = model
         if let cell = self.tableView.cellForRow(at: indexPath) as? ChannelCellViewing {
+            chats[index] = model
             cell.configure(for: model)
         }
     }

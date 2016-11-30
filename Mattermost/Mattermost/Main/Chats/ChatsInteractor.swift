@@ -52,17 +52,17 @@ extension ChatsInteractor: ChatsInteracting {
     
     func getChannelDetails(at index:Int) -> [CancellableRequest?] {
         guard let channel = channels?[index] else { return [] }
-        let detailsRequest = service.getDetails(for: channel, completion: { result in
+        let detailsRequest = service.getDetails(for: channel, completion: { [weak self] result in
             switch result {
             case .success(let channel):
-                self.presenter.update(channel: channel, at: index)
+                self?.presenter.update(channel: channel, at: index)
             case .failure(): break
             }
         })
-        let messageRequest = service.getLastMessage(for: channel, completion: { result in
+        let messageRequest = service.getLastMessage(for: channel, completion: { [weak self] result in
             switch result {
             case .success(let channel):
-                self.presenter.update(channel: channel, at: index)
+                self?.presenter.update(channel: channel, at: index)
             case .failure(): break
             }
         })

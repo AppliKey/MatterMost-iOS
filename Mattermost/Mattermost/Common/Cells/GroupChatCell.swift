@@ -25,7 +25,8 @@ class GroupChatCell: UITableViewCell {
         for request in requests {
             request.cancel()
         }
-
+        imageUrls = nil
+        membersCount = 0
     }
     var requests: [CancellableRequest] = []
         
@@ -57,37 +58,20 @@ class GroupChatCell: UITableViewCell {
 extension GroupChatCell : UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return imageUrls?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row < membersCount {
-            if let avatarUrl = imageUrls?[indexPath.row] {
-                if membersCount > 4 && indexPath.row == 3 {
-                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.labelCollectionViewCell, for: indexPath)!
-                    cell.titleLabel.text = "+" + "\(membersCount - 3)"
-                    return cell
-                } else {
-                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.imageCollectionViewCell, for: indexPath)!
-                    cell.imageView.setRoundedImage(withUrl: avatarUrl)
-                    return cell
-                }
-            } else {
-                return getPlaceholderCell(collectionView, indexPath: indexPath)
-            }
+        if membersCount > 4 && indexPath.row == 3 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.labelCollectionViewCell, for: indexPath)!
+            cell.titleLabel.text = "+" + "\(membersCount - 3)"
+            return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.imageCollectionViewCell, for: indexPath)!
-            cell.imageView.image = nil
+            cell.imageView.setRoundedImage(withUrl: imageUrls?[indexPath.row])
             return cell
         }
     }
-    
-    func getPlaceholderCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> ImageCollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.imageCollectionViewCell, for: indexPath)!
-        cell.imageView.image = R.image.placeholderSmall()
-        return cell
-    }
-    
 }
 
 extension GroupChatCell : ChannelCellViewing {
