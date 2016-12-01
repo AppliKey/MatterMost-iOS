@@ -26,8 +26,14 @@ extension AuthorizationService: PingService {
                 SessionManager.shared.serverVersion = pingInfo.version
                 SessionManager.shared.serverAddress = address
                 completion(.success)
-            } catch {
-                let errorMessage = self.errorMapper.message(for: error)
+            } catch {                
+                let nsError = error as NSError
+                var errorMessage = R.string.localizable.serverIsWrong()
+                switch nsError.code {
+                case NSURLErrorTimedOut, NSURLErrorNetworkConnectionLost, NSURLErrorNotConnectedToInternet:
+                     errorMessage = self.errorMapper.message(for: error)
+                default: break
+                }
                 completion(.failure(errorMessage))
             }
         }

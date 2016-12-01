@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 19 images.
+  /// This `R.image` struct is generated, and contains static references to 21 images.
   struct image {
     /// Image `back`.
     static let back = Rswift.ImageResource(bundle: R.hostingBundle, name: "back")
@@ -39,6 +39,10 @@ struct R: Rswift.Validatable {
     static let forward = Rswift.ImageResource(bundle: R.hostingBundle, name: "forward")
     /// Image `ic-menu`.
     static let icMenu = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic-menu")
+    /// Image `ic-send`.
+    static let icSend = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic-send")
+    /// Image `ic_attachment`.
+    static let ic_attachment = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_attachment")
     /// Image `ic_direct_new`.
     static let ic_direct_new = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_direct_new")
     /// Image `ic_direct_not_active`.
@@ -85,6 +89,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "ic-menu", bundle: ..., traitCollection: ...)`
     static func icMenu(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.icMenu, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic-send", bundle: ..., traitCollection: ...)`
+    static func icSend(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icSend, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_attachment", bundle: ..., traitCollection: ...)`
+    static func ic_attachment(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_attachment, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "ic_direct", bundle: ..., traitCollection: ...)`
@@ -268,12 +282,10 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 32 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 33 localization keys.
     struct localizable {
       /// Value: Address format is not valid
       static let serverAddressWrongFormat = Rswift.StringResource(key: "server.address.wrong.format", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Address is not valid
-      static let serverAddressNotValid = Rswift.StringResource(key: "server.address.not.valid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: All channels
       static let menuItemChannels = Rswift.StringResource(key: "menu.item.channels", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: All your team communication in one  place, searchable and accessible  anywhere.
@@ -328,21 +340,20 @@ struct R: Rswift.Validatable {
       static let unknownServerError = Rswift.StringResource(key: "unknown.server.error", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Unread messages
       static let settingsUnreadMessages = Rswift.StringResource(key: "settings.unread.messages", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: We could not connect to the Mattermost server or the server is running in an incompatible version
+      static let serverIsWrong = Rswift.StringResource(key: "server.is.wrong", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Welcome to Mattermost
       static let welcome = Rswift.StringResource(key: "welcome", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Yes
       static let yesAlertTitle = Rswift.StringResource(key: "yes.alert.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Yesterday
+      static let timeYesterday = Rswift.StringResource(key: "time.yesterday", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: http://server.com/
       static let serverFieldPlaceholder = Rswift.StringResource(key: "server.field.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       
       /// Value: Address format is not valid
       static func serverAddressWrongFormat(_: Void = ()) -> String {
         return NSLocalizedString("server.address.wrong.format", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// Value: Address is not valid
-      static func serverAddressNotValid(_: Void = ()) -> String {
-        return NSLocalizedString("server.address.not.valid", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: All channels
@@ -480,6 +491,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("settings.unread.messages", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: We could not connect to the Mattermost server or the server is running in an incompatible version
+      static func serverIsWrong(_: Void = ()) -> String {
+        return NSLocalizedString("server.is.wrong", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: Welcome to Mattermost
       static func welcome(_: Void = ()) -> String {
         return NSLocalizedString("welcome", bundle: R.hostingBundle, comment: "")
@@ -488,6 +504,11 @@ struct R: Rswift.Validatable {
       /// Value: Yes
       static func yesAlertTitle(_: Void = ()) -> String {
         return NSLocalizedString("yes.alert.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Yesterday
+      static func timeYesterday(_: Void = ()) -> String {
+        return NSLocalizedString("time.yesterday", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: http://server.com/
@@ -656,9 +677,14 @@ struct _R: Rswift.Validatable {
     
     struct main: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
+      let chatDetailsViewController = StoryboardViewControllerResource<ChatDetailsViewController>(identifier: "ChatDetailsViewController")
       let chats = StoryboardViewControllerResource<ChatsViewController>(identifier: "Chats")
       let name = "Main"
       let tabBar = StoryboardViewControllerResource<UIKit.UITabBarController>(identifier: "TabBar")
+      
+      func chatDetailsViewController(_: Void = ()) -> ChatDetailsViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: chatDetailsViewController)
+      }
       
       func chats(_: Void = ()) -> ChatsViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: chats)
@@ -669,8 +695,11 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "ic_attachment") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_attachment' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic-send") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic-send' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().chats() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'chats' could not be loaded from storyboard 'Main' as 'ChatsViewController'.") }
         if _R.storyboard.main().tabBar() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBar' could not be loaded from storyboard 'Main' as 'UIKit.UITabBarController'.") }
+        if _R.storyboard.main().chatDetailsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'chatDetailsViewController' could not be loaded from storyboard 'Main' as 'ChatDetailsViewController'.") }
       }
       
       fileprivate init() {}

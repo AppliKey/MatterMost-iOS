@@ -31,7 +31,7 @@ extension ServerSelectionInteractor: ServerSelectionInteracting {
     
     func ping(address: String) {
         guard let url = URL(string: address) else {
-            presenter.present(R.string.localizable.serverAddressNotValid())
+            presenter.present(R.string.localizable.serverAddressWrongFormat())
             return
         }
         guard (url.isValid(regex: URL.validIpAddressRegex) ||

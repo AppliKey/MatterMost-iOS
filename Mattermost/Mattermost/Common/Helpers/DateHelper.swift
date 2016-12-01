@@ -12,11 +12,20 @@ class DateHelper {
 
     static func chatTimeStringForDate(_ date:Date) -> String {
         let dateFormatter = DateFormatter()
-        let days = Calendar.current.dateComponents([Calendar.Component.day], from: date, to: Date()).day ?? 0
-        if days >= 1 {
-            dateFormatter.dateFormat = "dd.MM.YYYY"
-        } else {
+        let calendar = Calendar.autoupdatingCurrent
+        if calendar.isDateInToday(date) {
             dateFormatter.dateFormat = "hh:mm a"
+        } else if calendar.isDateInYesterday(date) {
+            return R.string.localizable.timeYesterday()
+        } else {
+            let days = calendar.dateComponents([Calendar.Component.day], from: date, to: Date()).day
+            if days < 7 {
+                dateFormatter.dateFormat = "EEEE"
+            } else if days < 365 {
+                dateFormatter.dateFormat = "dd MMM"
+            } else {
+                dateFormatter.dateFormat = "dd.MM.YYYY"
+            }
         }
         return dateFormatter.string(from: date)
     }

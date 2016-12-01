@@ -14,7 +14,7 @@
 "no.alert.title" = "No";
 
 // Errors
-"server.address.not.valid" = "Address is not valid";
+"server.is.wrong" = "We could not connect to the Mattermost server or the server is running in an incompatible version";
 "server.address.wrong.format" = "Address format is not valid";
 "email.not.valid" = "Email is invalid";
 "password.not.valid" = "Password is invalid";
@@ -56,3 +56,4 @@
 
 "loading.messages.title" = "Loading...";
 "no.messages" = "No messages yet =(";
+"time.yesterday" = "Yesterday";
