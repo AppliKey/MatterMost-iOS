@@ -37,6 +37,7 @@ protocol ChatsInteracting: class {
     func loadChannels()
     func refresh()
     func getChannelDetails(at index:Int) -> [CancellableRequest?]
+    func getChannel(at index:Int) -> Channel?
 }
 
 protocol ChatsPresenting: class {
@@ -57,8 +58,10 @@ protocol ChatsEventHandling: class {
     func refresh()
     func viewIsReady()
     func handleCellAppearing(at index:Int) -> [CancellableRequest?]
+    func handleRowSelection(at index:Int)
 }
 
 protocol ChatsCoordinator: class {
     func openMenu()
+    func openDetails(forChannel channel:Channel)
 }

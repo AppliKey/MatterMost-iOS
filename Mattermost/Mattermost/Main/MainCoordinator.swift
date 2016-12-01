@@ -93,9 +93,20 @@ class MainCoordinator {
     }
 }
 
-//MARK: - UnreadCoordinator
+//MARK: - ChatsCoordinator
 extension MainCoordinator : ChatsCoordinator {
     func openMenu() {
         router.toggleMenu()
     }
+    
+    func openDetails(forChannel channel:Channel) {
+        guard let chatDetails = R.storyboard.main.chatDetailsViewController()
+            else { fatalError("Can't instantiate chats details view controller") }
+        ChatDetailsWireframe.setup(chatDetails, channel:channel, withCoordinator: self)
+        router.push(viewController: chatDetails, animated: true)
+    }
+}
+
+//MARK: - ChatDetailsCoordinator
+extension MainCoordinator : ChatDetailsCoordinator {
 }

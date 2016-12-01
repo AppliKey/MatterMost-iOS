@@ -80,4 +80,8 @@ extension ChatsInteractor: ChatsInteracting {
         }
     }
     
+    func getChannel(at index:Int) -> Channel? {
+        return channels?[index]
+    }
+    
 }

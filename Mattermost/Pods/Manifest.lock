@@ -3,6 +3,7 @@ PODS:
   - Crashlytics (3.8.3):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.11)
+  - GrowingTextViewHandler-Swift (1.1)
   - KeychainAccess (3.0.1)
   - Kingfisher (3.1.4)
   - Moya (8.0.0-beta.4):
@@ -22,6 +23,7 @@ PODS:
 DEPENDENCIES:
   - Crashlytics
   - Fabric
+  - GrowingTextViewHandler-Swift (= 1.1)
   - KeychainAccess
   - Kingfisher (~> 3.1)
   - Moya (= 8.0.0-beta.4)
@@ -35,6 +37,7 @@ SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  GrowingTextViewHandler-Swift: c5da012c47e2a6836355080f1432125881d4732c
   KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
   Kingfisher: 6c67e3e57f2d81a9cfdfa25052cd86f33ceac9bb
   Moya: bad6f72ec40661f09a8cd85ab470226d2795a485
@@ -46,6 +49,6 @@ SPEC CHECKSUMS:
   Typist: 8a43e050e9560acac93dc9006525c414b37f5a22
   Unbox: 03d7128ce429987986bc08d967e9d5e0da158946
 
-PODFILE CHECKSUM: 22c0d8747a40a2b1246d341dfdf885b5b93b5e53
+PODFILE CHECKSUM: 1ec40711f4761581715c75108a059a8f05c30088
 
 COCOAPODS: 1.1.1

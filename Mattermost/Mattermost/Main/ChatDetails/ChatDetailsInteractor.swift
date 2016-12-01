@@ -10,6 +10,7 @@ import Foundation
 
 class ChatDetailsInteractor {
   	weak var presenter: ChatDetailsPresenting!
+    weak var channel: Channel!
 }
 
 extension ChatDetailsInteractor: ChatDetailsInteracting {

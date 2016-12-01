@@ -112,4 +112,10 @@ extension ChatsPresenter: ChatsEventHandling {
     func handleCellAppearing(at index:Int) -> [CancellableRequest?] {
         return interactor.getChannelDetails(at: index)
     }
+    
+    func handleRowSelection(at index:Int) {
+        if let channel = interactor.getChannel(at: index) {
+            coordinator.openDetails(forChannel: channel)
+        }
+    }
 }

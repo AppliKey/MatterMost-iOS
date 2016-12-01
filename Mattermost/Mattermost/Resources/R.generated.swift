@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 21 images.
+  /// This `R.image` struct is generated, and contains static references to 22 images.
   struct image {
     /// Image `back`.
     static let back = Rswift.ImageResource(bundle: R.hostingBundle, name: "back")
@@ -43,6 +43,8 @@ struct R: Rswift.Validatable {
     static let icSend = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic-send")
     /// Image `ic_attachment`.
     static let ic_attachment = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_attachment")
+    /// Image `ic_close`.
+    static let ic_close = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_close")
     /// Image `ic_direct_new`.
     static let ic_direct_new = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_direct_new")
     /// Image `ic_direct_not_active`.
@@ -99,6 +101,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "ic_attachment", bundle: ..., traitCollection: ...)`
     static func ic_attachment(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.ic_attachment, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_close", bundle: ..., traitCollection: ...)`
+    static func ic_close(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_close, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "ic_direct", bundle: ..., traitCollection: ...)`
@@ -696,6 +703,7 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "ic_attachment") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_attachment' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ic_close") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_close' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ic-send") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic-send' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().chats() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'chats' could not be loaded from storyboard 'Main' as 'ChatsViewController'.") }
         if _R.storyboard.main().tabBar() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tabBar' could not be loaded from storyboard 'Main' as 'UIKit.UITabBarController'.") }

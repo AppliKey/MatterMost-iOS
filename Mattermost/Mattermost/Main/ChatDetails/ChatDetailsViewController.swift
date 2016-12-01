@@ -8,12 +8,19 @@
 
 import Foundation
 import UIKit
+import GrowingTextViewHandler_Swift
 
 class ChatDetailsViewController: UIViewController {
 	
 	//MARK: - Properties
+    
   	var eventHandler: ChatDetailsEventHandling!
-  
+    fileprivate var textViewHandler: GrowingTextViewHandler!
+    
+    @IBOutlet fileprivate weak var tableView: UITableView!
+    @IBOutlet weak var messageTextView: UITextView!
+    @IBOutlet weak var messageTextViewHeightConstraint: NSLayoutConstraint!
+    
   	//MARK: - Life cycle
 
 	override func viewDidLoad() {
@@ -27,6 +34,10 @@ class ChatDetailsViewController: UIViewController {
     
     private func configureInterface() {
         localizeViews()
+        messageTextView.delegate = self
+        textViewHandler = GrowingTextViewHandler(textView: messageTextView, heightConstraint: messageTextViewHeightConstraint)
+        textViewHandler.minimumNumberOfLines = 1
+        textViewHandler.maximumNumberOfLines = 6
     }
     
     private func localizeViews() {
@@ -35,4 +46,10 @@ class ChatDetailsViewController: UIViewController {
 }
 
 extension ChatDetailsViewController: ChatDetailsViewing {
+}
+
+extension ChatDetailsViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        textViewHandler.resizeTextView(false)
+    }
 }

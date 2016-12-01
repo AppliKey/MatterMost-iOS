@@ -1,0 +1,6 @@
+framework module GrowingTextViewHandler_Swift {
+  umbrella header "GrowingTextViewHandler-Swift-umbrella.h"
+
+  export *
+  module * { export * }
+}

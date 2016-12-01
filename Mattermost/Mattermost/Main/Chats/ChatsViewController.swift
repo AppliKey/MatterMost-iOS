@@ -90,6 +90,10 @@ extension ChatsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.layoutMargins = UIEdgeInsets.zero
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        eventHandler.handleRowSelection(at: indexPath.row)
+    }
+    
 }
 
 extension ChatsViewController: ChatsViewing {

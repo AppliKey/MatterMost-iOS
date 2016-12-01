@@ -8,122 +8,81 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
+		</dict>
+		<key>GrowingTextViewHandler-Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>KeychainAccess.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>12</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>Locksmith.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>Moya.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>9</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>Pods-Mattermost.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>R.swift.Library.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
 		<key>Result.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>10</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 		<key>Typist.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>8</integer>
 		</dict>
 		<key>Unbox.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>11</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0CC7A7C019835DD68D4B566A9544220E</key>
+		<key>2FB7820B930F5339CE135105AB095963</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>21AC191144945298D2342966C8654C29</key>
+		<key>61152861F1DCC4F53BF3BF074D7DEC03</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>27621945E637E92C41A0499AD7F6C388</key>
+		<key>7489EB496F5FD2D63D225E8177D9518B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3204A773276EF399C452CC6595D7BBF3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>38F4673FFAD0CC35039DAEA33998D21A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3B8DF141854479B7D487C442F177BA5D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6336399C45B9215AA2E9B9BE4F3F5A8B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6FC62FA5436773238ACEDBEB51CC9225</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>808E311AD70EB8ACC991967B8E65DC44</key>
+		<key>87F031BB6D2C15E658C5D123FBC1F30E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -138,16 +97,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8DBFB394FD60CD01843EAC4C4AEC0F45</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8E9CAC148BECA9D7E8D5CBD948D085A4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>A63B74CA9090DD5F4B184DA77A5D5516</key>
 		<dict>
 			<key>primary</key>
@@ -158,32 +107,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>BF6C22FF567F3A0B65D40898ECAC035B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C05A4F95AF296086B7DEA65AE3F0554F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C4944FEC314D1A66588651D006273ADE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C7F727D48928BF47D913AFC48BB6A978</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D154E630A6584B4475C2EDD58E4D5E61</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D4BD632280D69B3652F97F62DC63C087</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>DCBD7538AFDB636233723EB3DD58D4AD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EF9F8D22067979BD4905CEFB6DC48028</key>
 		<dict>
 			<key>primary</key>
 			<true/>

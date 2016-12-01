@@ -11,6 +11,7 @@ typealias ChatDetailsConfiguration = (ChatDetailsConfigurator) -> Void
 class ChatDetailsWireframe {
     
     class func setup(_ viewController: ChatDetailsViewController,
+                     channel: Channel,
                      withCoordinator coordinator: ChatDetailsCoordinator,
                      configutation: ChatDetailsConfiguration? = nil) {
         let interactor = ChatDetailsInteractor()
@@ -19,6 +20,7 @@ class ChatDetailsWireframe {
         presenter.interactor = interactor
         viewController.eventHandler = presenter
         interactor.presenter = presenter
+        interactor.channel = channel
         configutation?(presenter)
     }
     
