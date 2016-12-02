@@ -44,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RSKPlaceholderTextView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Result.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,26 +72,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2FB7820B930F5339CE135105AB095963</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>61152861F1DCC4F53BF3BF074D7DEC03</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7489EB496F5FD2D63D225E8177D9518B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>87F031BB6D2C15E658C5D123FBC1F30E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
@@ -97,17 +82,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>97BD643D337C01EA7721D2546AD875DC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>99FC1ECAF892044FDF71580E15FC175C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F203765F75524DDC5A22304C9E06174</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A63B74CA9090DD5F4B184DA77A5D5516</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B43918AB915242B851ABEFB5D70BE0AD</key>
+		<key>AF47816C1EC2E7D00D93039BCC82F894</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BF6C22FF567F3A0B65D40898ECAC035B</key>
+		<key>B43918AB915242B851ABEFB5D70BE0AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -123,6 +123,16 @@
 			<true/>
 		</dict>
 		<key>DCBD7538AFDB636233723EB3DD58D4AD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E2A884FCA0903D5691C31D138FBF776B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC16107D254A366FDA7602B593709988</key>
 		<dict>
 			<key>primary</key>
 			<true/>

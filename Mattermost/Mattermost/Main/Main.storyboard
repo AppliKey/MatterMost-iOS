@@ -81,15 +81,21 @@
                                         </constraints>
                                         <state key="normal" image="ic-send"/>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed d" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Ka-TA-0do">
-                                        <rect key="frame" x="56" y="0.0" width="263" height="57"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Ka-TA-0do" customClass="RSKPlaceholderTextView" customModule="RSKPlaceholderTextView">
+                                        <rect key="frame" x="56" y="10" width="263" height="47"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="57" id="qMq-KP-ada"/>
+                                            <constraint firstAttribute="height" constant="47" id="qMq-KP-ada"/>
                                         </constraints>
-                                        <color key="textColor" red="0.56862745098039214" green="0.58039215686274503" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Message..."/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" red="0.56862745100000001" green="0.58039215690000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MkW-kw-ZK2">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
@@ -107,7 +113,7 @@
                                     <constraint firstItem="MkW-kw-ZK2" firstAttribute="leading" secondItem="FXA-1Q-x7I" secondAttribute="leading" id="Tbc-Jb-SGI"/>
                                     <constraint firstAttribute="trailing" secondItem="MkW-kw-ZK2" secondAttribute="trailing" id="a2l-tT-Qph"/>
                                     <constraint firstItem="MkW-kw-ZK2" firstAttribute="top" secondItem="FXA-1Q-x7I" secondAttribute="top" id="aLJ-jI-1yZ"/>
-                                    <constraint firstItem="4Ka-TA-0do" firstAttribute="top" secondItem="FXA-1Q-x7I" secondAttribute="top" id="bxV-Hs-QpD"/>
+                                    <constraint firstItem="4Ka-TA-0do" firstAttribute="top" secondItem="FXA-1Q-x7I" secondAttribute="top" constant="10" id="bxV-Hs-QpD"/>
                                     <constraint firstAttribute="bottom" secondItem="7b0-fI-Or2" secondAttribute="bottom" id="nPs-5I-06e"/>
                                     <constraint firstAttribute="trailing" secondItem="aPq-Q1-ICL" secondAttribute="trailing" id="nZl-yl-PuD"/>
                                     <constraint firstItem="4Ka-TA-0do" firstAttribute="leading" secondItem="7b0-fI-Or2" secondAttribute="trailing" id="wze-7E-UyQ"/>

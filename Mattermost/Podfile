@@ -14,4 +14,5 @@ target 'Mattermost' do
     pod 'Fabric'
     pod 'Crashlytics'
     pod 'GrowingTextViewHandler-Swift', '1.1'
+    pod 'RSKPlaceholderTextView'
 end
