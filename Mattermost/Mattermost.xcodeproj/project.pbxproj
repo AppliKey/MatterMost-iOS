@@ -52,6 +52,7 @@
 		B6A085B51DF0239100AEE98B /* ChatDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A085B01DF0239000AEE98B /* ChatDetailsViewController.swift */; };
 		B6A085B61DF0239100AEE98B /* ChatDetailsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A085B11DF0239000AEE98B /* ChatDetailsWireframe.swift */; };
 		B6BC89B91DE7032C00318EC8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC89B81DE7032C00318EC8 /* Post.swift */; };
+		B6D518C81DF5BA4D00F53D9F /* ChatDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D518C71DF5BA4D00F53D9F /* ChatDetailsService.swift */; };
 		B6E118D81DDEFB8C0012FD13 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E118D61DDEFB8C0012FD13 /* AppearanceManager.swift */; };
 		B6E118D91DDEFB8C0012FD13 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E118D71DDEFB8C0012FD13 /* NavigationManager.swift */; };
 		B6E118DB1DDEFB9C0012FD13 /* TabBarItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E118DA1DDEFB9C0012FD13 /* TabBarItemExtension.swift */; };
@@ -205,6 +206,7 @@
 		B6A085B01DF0239000AEE98B /* ChatDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailsViewController.swift; sourceTree = "<group>"; };
 		B6A085B11DF0239000AEE98B /* ChatDetailsWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailsWireframe.swift; sourceTree = "<group>"; };
 		B6BC89B81DE7032C00318EC8 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		B6D518C71DF5BA4D00F53D9F /* ChatDetailsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatDetailsService.swift; path = Services/ChatDetailsService.swift; sourceTree = "<group>"; };
 		B6E118D61DDEFB8C0012FD13 /* AppearanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		B6E118D71DDEFB8C0012FD13 /* NavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		B6E118DA1DDEFB9C0012FD13 /* TabBarItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemExtension.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				0598021D1DD0EAEF00AE01C2 /* AuthorizationService.swift */,
 				059802341DD1F2E500AE01C2 /* DefaultsService.swift */,
 				B64CB89A1DE447C6008EF34B /* ChannelsService.swift */,
+				B6D518C71DF5BA4D00F53D9F /* ChatDetailsService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -1185,6 +1188,7 @@
 				05A4BA8B1DD21B1B007FAA18 /* URL+Validation.swift in Sources */,
 				E7E1C9C11DD61DB400338846 /* ActivityIndication.swift in Sources */,
 				E7327A7D1DE2257D00512EFF /* NetworkService.swift in Sources */,
+				B6D518C81DF5BA4D00F53D9F /* ChatDetailsService.swift in Sources */,
 				2A44C1DC0FB2F137E249CE0A /* TeamSelectionPresenter.swift in Sources */,
 				05A4BA8D1DD23BF7007FAA18 /* ServerPing.swift in Sources */,
 				87FA385537A2102552BBE990 /* TeamSelectionInteractor.swift in Sources */,

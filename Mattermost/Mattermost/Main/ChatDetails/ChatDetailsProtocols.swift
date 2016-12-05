@@ -9,10 +9,15 @@
 import Foundation
 import UIKit
 
+protocol PostsService {
+    func requestPosts(offset:String, completion: @escaping PostsCompletion) -> CancellableRequest?
+}
+
 protocol ChatDetailsConfigurator: class {
 }
 
 protocol ChatDetailsInteracting: class {
+    func getMorePosts(completion: @escaping PostsCompletion)
 }
 
 protocol ChatDetailsPresenting: class {
