@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = appCoordinator.rootViewController()
         window?.makeKeyAndVisible()
         if SessionManager.shared.hasValidSession {
-            appCoordinator.showMainScreen()            
+            appCoordinator.showMainScreen()
         }
     }
 

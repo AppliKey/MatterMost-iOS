@@ -191,7 +191,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
   struct nib {
     /// Nib `GroupChatCell`.
     static let groupChatCell = _R.nib._GroupChatCell()
@@ -199,6 +199,8 @@ struct R: Rswift.Validatable {
     static let imageCollectionViewCell = _R.nib._ImageCollectionViewCell()
     /// Nib `LabelCollectionViewCell`.
     static let labelCollectionViewCell = _R.nib._LabelCollectionViewCell()
+    /// Nib `MyMessagesCell`.
+    static let myMessagesCell = _R.nib._MyMessagesCell()
     /// Nib `SingleChatCell`.
     static let singleChatCell = _R.nib._SingleChatCell()
     /// Nib `TeamCell`.
@@ -219,6 +221,11 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.labelCollectionViewCell)
     }
     
+    /// `UINib(name: "MyMessagesCell", in: bundle)`
+    static func myMessagesCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.myMessagesCell)
+    }
+    
     /// `UINib(name: "SingleChatCell", in: bundle)`
     static func singleChatCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.singleChatCell)
@@ -232,7 +239,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 5 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 6 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `GroupChatCell`.
     static let groupChatCell: Rswift.ReuseIdentifier<GroupChatCell> = Rswift.ReuseIdentifier(identifier: "GroupChatCell")
@@ -242,6 +249,8 @@ struct R: Rswift.Validatable {
     static let labelCell: Rswift.ReuseIdentifier<LabelCell> = Rswift.ReuseIdentifier(identifier: "LabelCell")
     /// Reuse identifier `LabelCollectionViewCell`.
     static let labelCollectionViewCell: Rswift.ReuseIdentifier<LabelCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "LabelCollectionViewCell")
+    /// Reuse identifier `MyMessagesCell`.
+    static let myMessagesCell: Rswift.ReuseIdentifier<MyMessagesCell> = Rswift.ReuseIdentifier(identifier: "MyMessagesCell")
     /// Reuse identifier `SingleChatCell`.
     static let singleChatCell: Rswift.ReuseIdentifier<SingleChatCell> = Rswift.ReuseIdentifier(identifier: "SingleChatCell")
     
@@ -593,6 +602,20 @@ struct _R: Rswift.Validatable {
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> LabelCollectionViewCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? LabelCollectionViewCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _MyMessagesCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = MyMessagesCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "MyMessagesCell"
+      let name = "MyMessagesCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> MyMessagesCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MyMessagesCell
       }
       
       fileprivate init() {}

@@ -22,6 +22,14 @@ class ChatDetailsPresenter {
     
     //MARK: - Private -
     fileprivate let coordinator: ChatDetailsCoordinator
+    
+    func transform(post:Post) -> PostRepresentationModel {
+        let date = post.updateDate != nil ? post.updateDate! : post.createDate
+        let isMyPost = post.userId == SessionManager.shared.user?.id
+        return PostRepresentationModel(userName: post.userId, userAvatarUrl: nil,
+                                       message: post.message, date: date, topViewText: nil,
+                                       isMyMessage: isMyPost, showAvatar: false, showTopView: false, showBottomView: false)
+    }
 }
 
 extension ChatDetailsPresenter: ChatDetailsConfigurator {
@@ -31,4 +39,17 @@ extension ChatDetailsPresenter: ChatDetailsPresenting {
 }
 
 extension ChatDetailsPresenter: ChatDetailsEventHandling {
+    
+    func viewIsReady() {
+        interactor.getMorePosts { [weak self] result in
+            switch result {
+            case .success(let posts):
+                DispatchQueue.main.async {
+                    self?.view.addMorePosts(posts.map(self!.transform))
+                }
+            default: break
+            }
+        }
+    }
+    
 }

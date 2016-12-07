@@ -77,7 +77,7 @@ class ChannelsService : NetworkService {
         guard let currentTeam = SessionManager.shared.team?.id
             else { fatalError("Team is not selected") }
         
-        let target = PostsTarget(teamId: currentTeam, channelId: channel.channelId, offset: "0", limit: "1")
+        let target = FirstPostsTarget(teamId: currentTeam, channelId: channel.channelId, offset: "0", limit: "1")
         return request(target, queue: queue) {
             do {
                 let posts = try target.map($0)

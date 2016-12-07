@@ -11,6 +11,7 @@ import UIKit
 
 protocol PostsService {
     func requestPosts(offset:String, completion: @escaping PostsCompletion) -> CancellableRequest?
+    func requestMorePosts(afterPost postId:String, completion: @escaping PostsCompletion) -> CancellableRequest?
 }
 
 protocol ChatDetailsConfigurator: class {
@@ -24,9 +25,11 @@ protocol ChatDetailsPresenting: class {
 }
 
 protocol ChatDetailsViewing: class {
+    func addMorePosts(_ posts: [PostRepresentationModel])
 }
 
 protocol ChatDetailsEventHandling: class {
+    func viewIsReady()
 }
 
 protocol ChatDetailsCoordinator: class {

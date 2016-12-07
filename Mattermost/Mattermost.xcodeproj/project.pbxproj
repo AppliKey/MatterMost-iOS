@@ -31,6 +31,12 @@
 		8D7CC4105BB3F751220B3B45 /* SignInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D26ACE9D1BF8CF3D67C8F44 /* SignInInteractor.swift */; };
 		99E70DE0B255E98927AA1AB2 /* ForgotPassPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52545F73EEA28BF1B8E7EC49 /* ForgotPassPresenter.swift */; };
 		AE93AAC666D6403D05529721 /* ForgotPassProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF4B694C44E5732CEEBFAB6 /* ForgotPassProtocols.swift */; };
+		B641BE0C1DF81E07003697AB /* MyMessagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641BE0A1DF81E07003697AB /* MyMessagesCell.swift */; };
+		B641BE0D1DF81E07003697AB /* MyMessagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B641BE0B1DF81E07003697AB /* MyMessagesCell.xib */; };
+		B641BE0F1DF84F4B003697AB /* PostRepresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641BE0E1DF84F4B003697AB /* PostRepresentationModel.swift */; };
+		B641BE111DF85967003697AB /* HeightProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641BE101DF85967003697AB /* HeightProcessor.swift */; };
+		B641BE131DF859D7003697AB /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641BE121DF859D7003697AB /* StringExtensions.swift */; };
+		B641BE151DF866E1003697AB /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641BE141DF866E1003697AB /* Fonts.swift */; };
 		B64CB89B1DE447C6008EF34B /* ChannelsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64CB89A1DE447C6008EF34B /* ChannelsService.swift */; };
 		B64CB89E1DE4503A008EF34B /* ChannelsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64CB89D1DE4503A008EF34B /* ChannelsTarget.swift */; };
 		B64CB8A01DE45745008EF34B /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64CB89F1DE45745008EF34B /* Channel.swift */; };
@@ -188,6 +194,12 @@
 		969B8EF2C72488B7A8BAB5BD /* TeamSelectionPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TeamSelectionPresenter.swift; sourceTree = "<group>"; };
 		A01F046DF9EC8F9899A7F700 /* Pods-Mattermost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mattermost.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mattermost/Pods-Mattermost.debug.xcconfig"; sourceTree = "<group>"; };
 		AE16C366B8EDD757FF705697 /* SignInPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
+		B641BE0A1DF81E07003697AB /* MyMessagesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMessagesCell.swift; sourceTree = "<group>"; };
+		B641BE0B1DF81E07003697AB /* MyMessagesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyMessagesCell.xib; sourceTree = "<group>"; };
+		B641BE0E1DF84F4B003697AB /* PostRepresentationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRepresentationModel.swift; sourceTree = "<group>"; };
+		B641BE101DF85967003697AB /* HeightProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeightProcessor.swift; sourceTree = "<group>"; };
+		B641BE121DF859D7003697AB /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		B641BE141DF866E1003697AB /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		B64CB89A1DE447C6008EF34B /* ChannelsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelsService.swift; sourceTree = "<group>"; };
 		B64CB89D1DE4503A008EF34B /* ChannelsTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelsTarget.swift; sourceTree = "<group>"; };
 		B64CB89F1DE45745008EF34B /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
@@ -431,6 +443,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B641BE091DF81DE3003697AB /* MyMessagesCell */ = {
+			isa = PBXGroup;
+			children = (
+				B641BE0A1DF81E07003697AB /* MyMessagesCell.swift */,
+				B641BE0B1DF81E07003697AB /* MyMessagesCell.xib */,
+			);
+			path = MyMessagesCell;
+			sourceTree = "<group>";
+		};
 		B64CB89C1DE4501A008EF34B /* Channels */ = {
 			isa = PBXGroup;
 			children = (
@@ -465,6 +486,7 @@
 			children = (
 				B695487F1DE4A7E400C476E1 /* DateHelper.swift */,
 				B6A085AA1DEEF55C00AEE98B /* OptionalComparers.swift */,
+				B641BE101DF85967003697AB /* HeightProcessor.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -477,6 +499,7 @@
 				B6A085AF1DF0239000AEE98B /* ChatDetailsProtocols.swift */,
 				B6A085B01DF0239000AEE98B /* ChatDetailsViewController.swift */,
 				B6A085B11DF0239000AEE98B /* ChatDetailsWireframe.swift */,
+				B641BE0E1DF84F4B003697AB /* PostRepresentationModel.swift */,
 			);
 			path = ChatDetails;
 			sourceTree = "<group>";
@@ -613,6 +636,7 @@
 			isa = PBXGroup;
 			children = (
 				E7662BDF1DC7497000E82AFC /* Aliases.swift */,
+				B641BE141DF866E1003697AB /* Fonts.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -629,6 +653,7 @@
 				05A4BA8A1DD21B1B007FAA18 /* URL+Validation.swift */,
 				B6E119221DDF30690012FD13 /* UIColorExtensions.swift */,
 				B6E119261DDF563D0012FD13 /* UIImageView+ImageDownloading.swift */,
+				B641BE121DF859D7003697AB /* StringExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -650,6 +675,7 @@
 			isa = PBXGroup;
 			children = (
 				B6E1191C1DDEFC410012FD13 /* LabelCell.swift */,
+				B641BE091DF81DE3003697AB /* MyMessagesCell */,
 				B6E119281DDF620C0012FD13 /* SingleChatCell */,
 				B6E1192D1DDF638F0012FD13 /* GroupChatCell */,
 				B65C094D1DE3218C00A98CED /* ImageCollectionViewCell */,
@@ -961,6 +987,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7A5B2281DC24FEE00ED2887 /* Authorization.storyboard in Resources */,
+				B641BE0D1DF81E07003697AB /* MyMessagesCell.xib in Resources */,
 				E7967D3C1DD04FB40025F402 /* Main.storyboard in Resources */,
 				E7DCD8451DCA155000F599D8 /* Localizable.strings in Resources */,
 				B6E119001DDEFBD60012FD13 /* Menu.storyboard in Resources */,
@@ -1089,6 +1116,7 @@
 				B6E119011DDEFBD60012FD13 /* SettingsInteractor.swift in Sources */,
 				B64CB89B1DE447C6008EF34B /* ChannelsService.swift in Sources */,
 				E7A5B2201DC20EC400ED2887 /* AuthorizationCoordinator.swift in Sources */,
+				B641BE0C1DF81E07003697AB /* MyMessagesCell.swift in Sources */,
 				B65C094B1DE3218600A98CED /* ImageCollectionViewCell.swift in Sources */,
 				B6E119051DDEFBD60012FD13 /* SettingsWireframe.swift in Sources */,
 				B6E118E81DDEFBB90012FD13 /* ChatsWireframe.swift in Sources */,
@@ -1137,6 +1165,7 @@
 				E7AE43F61DCA5A6500475B8F /* HideKeyboardRecognizer.swift in Sources */,
 				E7327A6A1DDDD21500512EFF /* TeamCell.swift in Sources */,
 				B6E118FC1DDEFBD60012FD13 /* MenuProtocols.swift in Sources */,
+				B641BE151DF866E1003697AB /* Fonts.swift in Sources */,
 				B6E118FE1DDEFBD60012FD13 /* MenuViewModel.swift in Sources */,
 				B64CB8A01DE45745008EF34B /* Channel.swift in Sources */,
 				B688D4561DE35A99002EAE46 /* UICollectionView+Reusable.swift in Sources */,
@@ -1191,17 +1220,20 @@
 				B6D518C81DF5BA4D00F53D9F /* ChatDetailsService.swift in Sources */,
 				2A44C1DC0FB2F137E249CE0A /* TeamSelectionPresenter.swift in Sources */,
 				05A4BA8D1DD23BF7007FAA18 /* ServerPing.swift in Sources */,
+				B641BE0F1DF84F4B003697AB /* PostRepresentationModel.swift in Sources */,
 				87FA385537A2102552BBE990 /* TeamSelectionInteractor.swift in Sources */,
 				B64CB89E1DE4503A008EF34B /* ChannelsTarget.swift in Sources */,
 				14B13733842F1F1044A404E9 /* TeamSelectionWireframe.swift in Sources */,
 				B6E119231DDF30690012FD13 /* UIColorExtensions.swift in Sources */,
 				E7C8BD071DEC91E700A707F5 /* ErrorIndicatorView.swift in Sources */,
+				B641BE131DF859D7003697AB /* StringExtensions.swift in Sources */,
 				0598021A1DD0E6A600AE01C2 /* Dictionary.swift in Sources */,
 				E7327A791DE21E8F00512EFF /* ResponseMapping.swift in Sources */,
 				E7327A771DE21B4A00512EFF /* ServerPingTarget.swift in Sources */,
 				B6E118FB1DDEFBD60012FD13 /* MenuPresenter.swift in Sources */,
 				B6E119151DDEFBFA0012FD13 /* SideContainmentSegue.swift in Sources */,
 				B6E119191DDEFBFA0012FD13 /* SideMenuController.swift in Sources */,
+				B641BE111DF85967003697AB /* HeightProcessor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,17 +30,27 @@ extension ChatDetailsInteractor: ChatDetailsInteracting {
             completion(.canceled())
             return
         }
-        request = service.requestPosts(offset: "\(currentOffset)", completion: { [weak self] result in
-            switch result {
-            case .success(let posts):
-                self?.posts.append(contentsOf: posts)
-                self?.hasNextPage = posts.count > 1
-                self?.currentOffset += 1
-                completion(result)
-            default:
-                completion(result)
-            }
-        })
+        if posts.count > 0, let postId = posts.last?.id {
+            request = service.requestMorePosts(afterPost: postId, completion: { [weak self] result in
+                self?.handleCompletion(result, completion: completion)
+            })
+        } else {
+            request = service.requestPosts(offset: "\(currentOffset)", completion: { [weak self] result in
+                self?.handleCompletion(result, completion: completion)
+            })
+        }
+    }
+    
+    private func handleCompletion(_ result:PostsResult, completion: @escaping PostsCompletion) {
+        switch result {
+        case .success(let posts):
+            self.posts.append(contentsOf: posts)
+            hasNextPage = posts.count > 1
+            currentOffset += 1
+            completion(result)
+        default:
+            completion(result)
+        }
     }
     
 }
