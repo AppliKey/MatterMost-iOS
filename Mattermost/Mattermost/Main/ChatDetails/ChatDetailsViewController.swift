@@ -74,20 +74,31 @@ extension ChatDetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.myMessagesCell, for: indexPath)
             else { fatalError("Can not load myMessagesCell from nib") }
-        
-        cell.messageLabel.text = posts[indexPath.row].message
+        let postRepresentation = posts[indexPath.row]
+        cell.messageLabel.text = postRepresentation.message
+        cell.isBottomViewHidden = !postRepresentation.showBottomView
+        cell.isTopViewHidden = !postRepresentation.showTopView
+        cell.date = postRepresentation.date
         
         return cell
     }
     
 }
 
+private let margins: CGFloat = 24
+
 extension ChatDetailsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let model = posts[indexPath.row]
-        let textHieght = heightHelper.getheight(forString: model.message ?? "",
-                                                withConstrainedWidth: 256, font: AppFonts.avenirNext())
-        return textHieght + 24
+        var elementsHeight = heightHelper.getheight(forString: model.message ?? "",
+                                                withConstrainedWidth: 200, font: AppFonts.avenirNext())
+        if model.showTopView {
+            elementsHeight += 40
+        }
+        if model.showBottomView {
+            elementsHeight += 30
+        }
+        return elementsHeight + margins
     }
 }

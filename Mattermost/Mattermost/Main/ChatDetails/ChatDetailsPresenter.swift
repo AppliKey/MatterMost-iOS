@@ -28,7 +28,7 @@ class ChatDetailsPresenter {
         let isMyPost = post.userId == SessionManager.shared.user?.id
         return PostRepresentationModel(userName: post.userId, userAvatarUrl: nil,
                                        message: post.message, date: date, topViewText: nil,
-                                       isMyMessage: isMyPost, showAvatar: false, showTopView: false, showBottomView: false)
+                                       isMyMessage: isMyPost, showAvatar: false, showTopView: false, showBottomView: true)
     }
 }
 
@@ -45,7 +45,11 @@ extension ChatDetailsPresenter: ChatDetailsEventHandling {
             switch result {
             case .success(let posts):
                 DispatchQueue.main.async {
-                    self?.view.addMorePosts(posts.map(self!.transform))
+                    var postsModels = posts.map(self!.transform)
+                    for index in posts.count - 1...0 {
+                        
+                    }
+                    self?.view.addMorePosts(postsModels)
                 }
             default: break
             }

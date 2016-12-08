@@ -13,6 +13,18 @@ class ChatDetailsInteractor {
     weak var channel: Channel!
     var service: PostsService!
     
+    lazy var members: Dictionary<String, User> = { [unowned self] in
+        var users = Dictionary<String, User>()
+        
+        if let members = self.channel.channelDetails?.members {
+            for member in members {
+                users[member.id] = member
+            }
+        }
+        
+        return users
+    }()
+    
     fileprivate var request:CancellableRequest?
     fileprivate var posts = [Post]()
     fileprivate var currentOffset = 0
@@ -44,6 +56,9 @@ extension ChatDetailsInteractor: ChatDetailsInteracting {
     private func handleCompletion(_ result:PostsResult, completion: @escaping PostsCompletion) {
         switch result {
         case .success(let posts):
+            for post in posts {
+                post.user = members[post.userId]
+            }
             self.posts.append(contentsOf: posts)
             hasNextPage = posts.count > 1
             currentOffset += 1

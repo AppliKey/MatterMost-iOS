@@ -39,7 +39,7 @@ extension ChatDetailsService: PostsService {
         return request(target, queue: queue) { [weak self] in
             do {
                 let posts = try target.map($0)
-                let sortedPosts = posts.sorted{$0.0.createDate < $0.1.createDate}
+                let sortedPosts = posts.sorted{$0.0.createDate > $0.1.createDate}
                 completion(.success(sortedPosts))
             } catch {
                 guard let errorMessage = self?.errorMapper.message(for: error) else { return }
@@ -57,7 +57,7 @@ extension ChatDetailsService: PostsService {
         return request(target, queue: queue) { [weak self] in
             do {
                 let posts = try target.map($0)
-                let sortedPosts = posts.sorted{$0.0.createDate < $0.1.createDate}
+                let sortedPosts = posts.sorted{$0.0.createDate > $0.1.createDate}
                 completion(.success(sortedPosts))
             } catch {
                 guard let errorMessage = self?.errorMapper.message(for: error) else { return }

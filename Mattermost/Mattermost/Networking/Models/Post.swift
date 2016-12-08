@@ -9,7 +9,7 @@
 import Foundation
 import Unbox
 
-struct Post {
+class Post : Unboxable {
     var id: String
     var createDate: Date
     var updateDate: Date?
@@ -24,10 +24,10 @@ struct Post {
     var hashtag: String?
     var filenames: [String]?
     var pendingPostId: String?
-}
-
-extension Post: Unboxable {
-    init(unboxer: Unboxer) throws {
+    
+    var user: User?
+    
+    required init(unboxer: Unboxer) throws {
         id = try unboxer.unbox(key: "id")
         createDate =  Date(timeIntervalSince1970:(try unboxer.unbox(key: "create_at")) / 1000)
         updateDate =  Date(timeIntervalSince1970:(try unboxer.unbox(key: "update_at")) / 1000)

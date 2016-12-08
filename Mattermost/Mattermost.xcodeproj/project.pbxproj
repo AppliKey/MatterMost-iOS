@@ -37,6 +37,7 @@
 		B641BE111DF85967003697AB /* HeightProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641BE101DF85967003697AB /* HeightProcessor.swift */; };
 		B641BE131DF859D7003697AB /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641BE121DF859D7003697AB /* StringExtensions.swift */; };
 		B641BE151DF866E1003697AB /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641BE141DF866E1003697AB /* Fonts.swift */; };
+		B641BE171DF95FF7003697AB /* InverseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641BE161DF95FF7003697AB /* InverseTableView.swift */; };
 		B64CB89B1DE447C6008EF34B /* ChannelsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64CB89A1DE447C6008EF34B /* ChannelsService.swift */; };
 		B64CB89E1DE4503A008EF34B /* ChannelsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64CB89D1DE4503A008EF34B /* ChannelsTarget.swift */; };
 		B64CB8A01DE45745008EF34B /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64CB89F1DE45745008EF34B /* Channel.swift */; };
@@ -200,6 +201,7 @@
 		B641BE101DF85967003697AB /* HeightProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeightProcessor.swift; sourceTree = "<group>"; };
 		B641BE121DF859D7003697AB /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		B641BE141DF866E1003697AB /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		B641BE161DF95FF7003697AB /* InverseTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InverseTableView.swift; sourceTree = "<group>"; };
 		B64CB89A1DE447C6008EF34B /* ChannelsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelsService.swift; sourceTree = "<group>"; };
 		B64CB89D1DE4503A008EF34B /* ChannelsTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelsTarget.swift; sourceTree = "<group>"; };
 		B64CB89F1DE45745008EF34B /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
@@ -689,6 +691,7 @@
 			children = (
 				E7A5B22A1DC258AE00ED2887 /* GradientButton.swift */,
 				E7C8BD061DEC91E700A707F5 /* ErrorIndicatorView.swift */,
+				B641BE161DF95FF7003697AB /* InverseTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1195,6 +1198,7 @@
 				8D7CC4105BB3F751220B3B45 /* SignInInteractor.swift in Sources */,
 				B6A085B31DF0239100AEE98B /* ChatDetailsPresenter.swift in Sources */,
 				E7AE43F21DCA4E4900475B8F /* UIView+CurrentConstraints.swift in Sources */,
+				B641BE171DF95FF7003697AB /* InverseTableView.swift in Sources */,
 				E7E1C9BF1DD4A07600338846 /* FormViewController.swift in Sources */,
 				B69548821DE5E02D00C476E1 /* ChannelDetailsTarget.swift in Sources */,
 				B6E118E61DDEFBB90012FD13 /* ChatsProtocols.swift in Sources */,
