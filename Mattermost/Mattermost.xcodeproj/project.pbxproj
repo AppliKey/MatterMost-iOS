@@ -51,6 +51,8 @@
 		B68C7D651DFACF1A00DD344D /* GroupMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C7D631DFACF1A00DD344D /* GroupMessageCell.swift */; };
 		B68C7D661DFACF1A00DD344D /* GroupMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B68C7D641DFACF1A00DD344D /* GroupMessageCell.xib */; };
 		B68C7D681DFAD85700DD344D /* BaseChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C7D671DFAD85700DD344D /* BaseChatMessageCell.swift */; };
+		B68C7D6B1DFB075C00DD344D /* DirectMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C7D691DFB075C00DD344D /* DirectMessageCell.swift */; };
+		B68C7D6C1DFB075C00DD344D /* DirectMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B68C7D6A1DFB075C00DD344D /* DirectMessageCell.xib */; };
 		B69548801DE4A7E400C476E1 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B695487F1DE4A7E400C476E1 /* DateHelper.swift */; };
 		B69548821DE5E02D00C476E1 /* ChannelDetailsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69548811DE5E02D00C476E1 /* ChannelDetailsTarget.swift */; };
 		B69548841DE5E29600C476E1 /* ChannelDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69548831DE5E29600C476E1 /* ChannelDetails.swift */; };
@@ -215,6 +217,8 @@
 		B68C7D631DFACF1A00DD344D /* GroupMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMessageCell.swift; sourceTree = "<group>"; };
 		B68C7D641DFACF1A00DD344D /* GroupMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupMessageCell.xib; sourceTree = "<group>"; };
 		B68C7D671DFAD85700DD344D /* BaseChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChatMessageCell.swift; sourceTree = "<group>"; };
+		B68C7D691DFB075C00DD344D /* DirectMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectMessageCell.swift; sourceTree = "<group>"; };
+		B68C7D6A1DFB075C00DD344D /* DirectMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DirectMessageCell.xib; sourceTree = "<group>"; };
 		B695487F1DE4A7E400C476E1 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		B69548811DE5E02D00C476E1 /* ChannelDetailsTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelDetailsTarget.swift; sourceTree = "<group>"; };
 		B69548831DE5E29600C476E1 /* ChannelDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelDetails.swift; sourceTree = "<group>"; };
@@ -451,12 +455,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		B641BE091DF81DE3003697AB /* MyMessagesCell */ = {
+		B641BE091DF81DE3003697AB /* DirectMessages */ = {
 			isa = PBXGroup;
 			children = (
 				B641BE0A1DF81E07003697AB /* MyMessagesCell.swift */,
 				B641BE0B1DF81E07003697AB /* MyMessagesCell.xib */,
+				B68C7D691DFB075C00DD344D /* DirectMessageCell.swift */,
+				B68C7D6A1DFB075C00DD344D /* DirectMessageCell.xib */,
 			);
+			name = DirectMessages;
 			path = MyMessagesCell;
 			sourceTree = "<group>";
 		};
@@ -694,7 +701,7 @@
 				B68C7D671DFAD85700DD344D /* BaseChatMessageCell.swift */,
 				B6E1191C1DDEFC410012FD13 /* LabelCell.swift */,
 				B68C7D621DFACEE600DD344D /* GroupMessageCell */,
-				B641BE091DF81DE3003697AB /* MyMessagesCell */,
+				B641BE091DF81DE3003697AB /* DirectMessages */,
 				B6E119281DDF620C0012FD13 /* SingleChatCell */,
 				B6E1192D1DDF638F0012FD13 /* GroupChatCell */,
 				B65C094D1DE3218C00A98CED /* ImageCollectionViewCell */,
@@ -1006,6 +1013,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B68C7D6C1DFB075C00DD344D /* DirectMessageCell.xib in Resources */,
 				E7A5B2281DC24FEE00ED2887 /* Authorization.storyboard in Resources */,
 				B641BE0D1DF81E07003697AB /* MyMessagesCell.xib in Resources */,
 				E7967D3C1DD04FB40025F402 /* Main.storyboard in Resources */,
@@ -1193,6 +1201,7 @@
 				B688D4561DE35A99002EAE46 /* UICollectionView+Reusable.swift in Sources */,
 				E7967D321DCFA92D0025F402 /* UINavigationBar+Shadow.swift in Sources */,
 				B6E118FA1DDEFBD60012FD13 /* MenuInteractor.swift in Sources */,
+				B68C7D6B1DFB075C00DD344D /* DirectMessageCell.swift in Sources */,
 				E734990E1DE319B300C257A5 /* AuthorizationService.swift in Sources */,
 				B6E118E41DDEFBB90012FD13 /* ChatsInteractor.swift in Sources */,
 				32BC97FE87976F5750722109 /* ServerSelectionInteractor.swift in Sources */,

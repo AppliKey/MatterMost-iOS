@@ -19,6 +19,7 @@ protocol ChatDetailsConfigurator: class {
 
 protocol ChatDetailsInteracting: class {
     func getMorePosts(completion: @escaping PostsCompletion)
+    weak var channel:Channel! { get }
 }
 
 protocol ChatDetailsPresenting: class {

@@ -40,10 +40,11 @@ class ChatDetailsViewController: UIViewController {
         messageTextView.delegate = self
         textViewHandler = GrowingTextViewHandler(textView: messageTextView, heightConstraint: messageTextViewHeightConstraint)
         textViewHandler.minimumNumberOfLines = 1
-        textViewHandler.maximumNumberOfLines = 6
+        textViewHandler.maximumNumberOfLines = 5
         tableView.tableFooterView = UIView()
         tableView.register(R.nib.myMessagesCell)
         tableView.register(R.nib.groupMessageCell)
+        tableView.register(R.nib.directMessageCell)
     }
     
     private func localizeViews() {
@@ -78,7 +79,11 @@ extension ChatDetailsViewController: UITableViewDataSource {
         if postRepresentation.isMyMessage {
             cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.myMessagesCell, for: indexPath)
         } else {
-            cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.groupMessageCell, for: indexPath)
+            if postRepresentation.isDirectChat || !postRepresentation.showAvatar {
+                cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.directMessageCell, for: indexPath)
+            } else {
+                cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.groupMessageCell, for: indexPath)
+            }
         }
         cell.configure(withRepresentationModel: postRepresentation)
         return cell as! UITableViewCell
@@ -87,24 +92,26 @@ extension ChatDetailsViewController: UITableViewDataSource {
 }
 
 private let margins: CGFloat = 24
+private let topViewHeight: CGFloat = 40
+private let bottomViewHeight: CGFloat = 30
+private let avatarHeight: CGFloat = 33
+private let maxMessageWidth: CGFloat = 200
 
 extension ChatDetailsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let model = posts[indexPath.row]
         var elementsHeight = heightHelper.getheight(forString: model.message ?? "",
-                                                withConstrainedWidth: 200, font: AppFonts.avenirNext())
+                                                    withConstrainedWidth: maxMessageWidth, font: AppFonts.avenirNext())
         if model.showTopView {
-            elementsHeight += 40
+            elementsHeight += topViewHeight
         }
         if model.showBottomView {
-            elementsHeight += 30
+            elementsHeight += bottomViewHeight
         }
-        
-        if !model.isMyMessage {
-            elementsHeight += 33
+        if !model.isMyMessage && !model.isDirectChat && model.showAvatar {
+            elementsHeight += avatarHeight
         }
-        
         return elementsHeight + margins
     }
 }

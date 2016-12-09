@@ -27,8 +27,9 @@ class ChatDetailsPresenter {
         let isMyPost = post.userId == SessionManager.shared.user?.id
         let userName = post.user?.username ?? R.string.localizable.loadingMessagesTitle()
         return PostRepresentationModel(userName: userName, userAvatarUrl: post.user?.avatarUrl, userOnlineStatus: .offline,
+                                       isDirectChat: interactor.channel.type == .direct,
                                        message: post.message, date: post.createDate, topViewText: nil,
-                                       isMyMessage: isMyPost, showAvatar: false, showTopView: true,
+                                       isMyMessage: isMyPost, showAvatar: true, showTopView: true,
                                        showBottomView: true, isUnread: post.isUnread)
     }
     
@@ -53,7 +54,9 @@ extension ChatDetailsPresenter: ChatDetailsEventHandling {
                         postsModels[index].showBottomView = strongSelf.showBottomView(forPost: postsModels[index],
                                                                                       previousPost: postsModels[index - 1])
                         postsModels[index - 1].showTopView = strongSelf.showTopView(forPost: postsModels[index],
-                                                                                previousPost: postsModels[index - 1])
+                                                                                    previousPost: postsModels[index - 1])
+                        postsModels[index - 1].showAvatar = strongSelf.showAvatar(forPost: postsModels[index - 1],
+                                                                                  previousPost: postsModels[index])
                     }
                     self?.view.addMorePosts(postsModels)
                 }
@@ -76,6 +79,19 @@ extension ChatDetailsPresenter: ChatDetailsEventHandling {
             if DateHelper.prettyDateString(forDate: date) == DateHelper.prettyDateString(forDate: previousDate) {
                 return false
             }
+        }
+        if post.isUnread && previousPost.isUnread {
+            return false
+        }
+        return true
+    }
+    
+    private func showAvatar(forPost post:PostRepresentationModel, previousPost:PostRepresentationModel) -> Bool {
+        if post.isMyMessage {
+            return false
+        }
+        if post.userAvatarUrl == previousPost.userAvatarUrl {
+            return post.showTopView
         }
         return true
     }

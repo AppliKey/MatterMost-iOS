@@ -191,8 +191,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 7 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 8 nibs.
   struct nib {
+    /// Nib `DirectMessageCell`.
+    static let directMessageCell = _R.nib._DirectMessageCell()
     /// Nib `GroupChatCell`.
     static let groupChatCell = _R.nib._GroupChatCell()
     /// Nib `GroupMessageCell`.
@@ -207,6 +209,11 @@ struct R: Rswift.Validatable {
     static let singleChatCell = _R.nib._SingleChatCell()
     /// Nib `TeamCell`.
     static let teamCell = _R.nib._TeamCell()
+    
+    /// `UINib(name: "DirectMessageCell", in: bundle)`
+    static func directMessageCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.directMessageCell)
+    }
     
     /// `UINib(name: "GroupChatCell", in: bundle)`
     static func groupChatCell(_: Void = ()) -> UIKit.UINib {
@@ -246,8 +253,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 7 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 8 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `DirectMessageCell`.
+    static let directMessageCell: Rswift.ReuseIdentifier<DirectMessageCell> = Rswift.ReuseIdentifier(identifier: "DirectMessageCell")
     /// Reuse identifier `GroupChatCell`.
     static let groupChatCell: Rswift.ReuseIdentifier<GroupChatCell> = Rswift.ReuseIdentifier(identifier: "GroupChatCell")
     /// Reuse identifier `GroupMessageCell`.
@@ -582,6 +591,20 @@ struct _R: Rswift.Validatable {
     static func validate() throws {
       try _TeamCell.validate()
       try _GroupChatCell.validate()
+    }
+    
+    struct _DirectMessageCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = DirectMessageCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "DirectMessageCell"
+      let name = "DirectMessageCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> DirectMessageCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? DirectMessageCell
+      }
+      
+      fileprivate init() {}
     }
     
     struct _GroupChatCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {

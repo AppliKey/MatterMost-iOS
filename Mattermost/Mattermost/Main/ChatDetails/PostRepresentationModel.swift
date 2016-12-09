@@ -12,6 +12,7 @@ struct PostRepresentationModel {
     var userName: String?
     var userAvatarUrl: URL?
     var userOnlineStatus: OnlineStatus?
+    var isDirectChat = true
     var message: String?
     var date: Date?
     var topViewText: String?
