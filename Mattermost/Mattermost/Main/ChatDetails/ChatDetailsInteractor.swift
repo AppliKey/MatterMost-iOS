@@ -27,7 +27,6 @@ class ChatDetailsInteractor {
     
     fileprivate var request:CancellableRequest?
     fileprivate var posts = [Post]()
-    fileprivate var currentOffset = 0
     var hasNextPage = true
 
     deinit {
@@ -47,10 +46,16 @@ extension ChatDetailsInteractor: ChatDetailsInteracting {
                 self?.handleCompletion(result, completion: completion)
             })
         } else {
-            request = service.requestPosts(offset: "\(currentOffset)", completion: { [weak self] result in
+            request = service.requestPosts(offset: "0", completion: { [weak self] result in
                 self?.handleCompletion(result, completion: completion)
             })
         }
+    }
+    
+    func refresh(completion: @escaping PostsCompletion) {
+        posts = []
+        hasNextPage = true
+        getMorePosts(completion: completion)
     }
     
     private func handleCompletion(_ result:PostsResult, completion: @escaping PostsCompletion) {
@@ -62,7 +67,6 @@ extension ChatDetailsInteractor: ChatDetailsInteracting {
             }
             self.posts.append(contentsOf: posts)
             hasNextPage = posts.count > 1
-            currentOffset += 1
             completion(result)
         default:
             completion(result)

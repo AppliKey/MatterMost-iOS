@@ -72,6 +72,9 @@
                                             <constraint firstAttribute="width" constant="56" id="nV6-4f-771"/>
                                         </constraints>
                                         <state key="normal" image="ic_attachment"/>
+                                        <connections>
+                                            <action selector="attachButtonPressed:" destination="jIa-4v-mZq" eventType="touchUpInside" id="lHV-NH-EfR"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPq-Q1-ICL">
                                         <rect key="frame" x="319" y="1" width="56" height="56"/>
@@ -80,6 +83,9 @@
                                             <constraint firstAttribute="height" constant="56" id="z79-ih-biJ"/>
                                         </constraints>
                                         <state key="normal" image="ic-send"/>
+                                        <connections>
+                                            <action selector="sendButtonPressed:" destination="jIa-4v-mZq" eventType="touchDragInside" id="OjY-Ul-vwy"/>
+                                        </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Ka-TA-0do" customClass="RSKPlaceholderTextView" customModule="RSKPlaceholderTextView">
                                         <rect key="frame" x="56" y="10" width="263" height="47"/>
@@ -121,18 +127,18 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z4c-aP-3lB" customClass="InverseTableView" customModule="Mattermost" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="490"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="546"/>
                                 <color key="backgroundColor" red="0.94951266050338745" green="0.95293420553207397" blue="0.96528512239456177" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="jIa-4v-mZq" id="wWZ-OA-4bY"/>
                                     <outlet property="delegate" destination="jIa-4v-mZq" id="WpF-mL-043"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9i-hl-J5P">
-                                <rect key="frame" x="0.0" y="554" width="375" height="56"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9i-hl-J5P">
+                                <rect key="frame" x="0.0" y="610" width="375" height="0.0"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJA-jY-hbt">
-                                        <rect key="frame" x="325" y="0.0" width="50" height="56"/>
+                                        <rect key="frame" x="325" y="-28" width="50" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="2U4-A9-8yI"/>
                                             <constraint firstAttribute="height" constant="56" id="cYI-NJ-bY9"/>
@@ -142,7 +148,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="SOo-x9-nAZ"/>
+                                    <constraint firstAttribute="height" id="SOo-x9-nAZ"/>
                                     <constraint firstItem="DJA-jY-hbt" firstAttribute="centerY" secondItem="r9i-hl-J5P" secondAttribute="centerY" id="TJi-cP-9xW"/>
                                     <constraint firstAttribute="trailing" secondItem="DJA-jY-hbt" secondAttribute="trailing" id="fAg-lG-5YH"/>
                                 </constraints>
@@ -166,6 +172,7 @@
                     <connections>
                         <outlet property="messageTextView" destination="4Ka-TA-0do" id="SxH-IW-Td1"/>
                         <outlet property="messageTextViewHeightConstraint" destination="qMq-KP-ada" id="gmh-uQ-bMA"/>
+                        <outlet property="quotationViewHeightConstraint" destination="SOo-x9-nAZ" id="TBh-BI-41A"/>
                         <outlet property="tableView" destination="Z4c-aP-3lB" id="hZK-QK-v5p"/>
                     </connections>
                 </viewController>

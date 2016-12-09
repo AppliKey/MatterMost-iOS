@@ -19,6 +19,7 @@ protocol ChatDetailsConfigurator: class {
 
 protocol ChatDetailsInteracting: class {
     func getMorePosts(completion: @escaping PostsCompletion)
+    func refresh(completion: @escaping PostsCompletion)
     weak var channel:Channel! { get }
 }
 
@@ -29,12 +30,19 @@ protocol MessageCellViewing {
     func configure(withRepresentationModel model: PostRepresentationModel)
 }
 
-protocol ChatDetailsViewing: class {
+protocol ChatDetailsViewing: AlertShowable {
+    func refreshData(withPosts posts: [PostRepresentationModel])
     func addMorePosts(_ posts: [PostRepresentationModel])
+    func showActivityIndicator()
+    func hideActivityIndicator()
 }
 
 protocol ChatDetailsEventHandling: class {
     func viewIsReady()
+    func handlePagination()
+    func refresh()
+    func handleSendMessage(_ message:String)
+    func handleAttachPressed()
 }
 
 protocol ChatDetailsCoordinator: class {

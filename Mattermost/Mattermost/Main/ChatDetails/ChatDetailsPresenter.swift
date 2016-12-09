@@ -43,25 +43,64 @@ extension ChatDetailsPresenter: ChatDetailsPresenting {
 
 extension ChatDetailsPresenter: ChatDetailsEventHandling {
     
+    func handleSendMessage(_ message:String) {
+        
+    }
+    
+    func handleAttachPressed() {
+        view.alert("In development")
+    }
+    
     func viewIsReady() {
+        loadMoreData()
+    }
+    
+    func handlePagination() {
+        loadMoreData()
+    }
+    
+    func refresh() {
+        view.showActivityIndicator()
+        interactor.refresh { [weak self] result in
+            self?.handleCompletion(withResult: result, isRefresh: true)
+        }
+    }
+    
+    private func loadMoreData() {
+        view.showActivityIndicator()
         interactor.getMorePosts { [weak self] result in
-            switch result {
-            case .success(let posts):
-                DispatchQueue.main.async {
-                    guard let strongSelf = self else {return}
-                    var postsModels = posts.map(strongSelf.transform)
-                    for index in (1..<posts.count).reversed() {
-                        postsModels[index].showBottomView = strongSelf.showBottomView(forPost: postsModels[index],
-                                                                                      previousPost: postsModels[index - 1])
-                        postsModels[index - 1].showTopView = strongSelf.showTopView(forPost: postsModels[index],
-                                                                                    previousPost: postsModels[index - 1])
-                        postsModels[index - 1].showAvatar = strongSelf.showAvatar(forPost: postsModels[index - 1],
-                                                                                  previousPost: postsModels[index])
-                    }
-                    self?.view.addMorePosts(postsModels)
-                }
-            default: break
+            self?.handleCompletion(withResult: result)
+        }
+    }
+    
+    private func handleCompletion(withResult result: PostsResult, isRefresh: Bool = false) {
+        DispatchQueue.main.async {
+            self.view.hideActivityIndicator()
+        }
+        switch result {
+        case .success(let posts):
+            var postsModels = posts.map(transform)
+            guard postsModels.count > 0 else {return}
+            for index in (1..<posts.count).reversed() {
+                postsModels[index].showBottomView = showBottomView(forPost: postsModels[index],
+                                                                   previousPost: postsModels[index - 1])
+                postsModels[index - 1].showTopView = showTopView(forPost: postsModels[index],
+                                                                 previousPost: postsModels[index - 1])
+                postsModels[index - 1].showAvatar = showAvatar(forPost: postsModels[index - 1],
+                                                               previousPost: postsModels[index])
             }
+            DispatchQueue.main.async {
+                if isRefresh {
+                    self.view.refreshData(withPosts: postsModels)
+                } else {
+                    self.view.addMorePosts(postsModels)
+                }
+            }
+        case .failure(let errorMessage):
+            DispatchQueue.main.async {
+                self.view.alert(errorMessage)
+            }
+        default: break
         }
     }
     

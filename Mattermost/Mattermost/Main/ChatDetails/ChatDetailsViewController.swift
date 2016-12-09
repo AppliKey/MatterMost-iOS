@@ -23,6 +23,8 @@ class ChatDetailsViewController: UIViewController {
     @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var messageTextViewHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var quotationViewHeightConstraint: NSLayoutConstraint!
+    
   	//MARK: - Life cycle
 
 	override func viewDidLoad() {
@@ -45,18 +47,45 @@ class ChatDetailsViewController: UIViewController {
         tableView.register(R.nib.myMessagesCell)
         tableView.register(R.nib.groupMessageCell)
         tableView.register(R.nib.directMessageCell)
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
     
     private func localizeViews() {
     }
+    
+    func refresh(_ sender: UIRefreshControl) {
+        eventHandler.refresh()
+    }
 
+    @IBAction func attachButtonPressed(_ sender: Any) {
+        eventHandler.handleAttachPressed()
+    }
+    
+    @IBAction func sendButtonPressed(_ sender: Any) {
+        eventHandler.handleSendMessage(messageTextView.text)
+    }
 }
 
 extension ChatDetailsViewController: ChatDetailsViewing {
     
+    func refreshData(withPosts posts: [PostRepresentationModel]) {
+        self.posts = posts
+        tableView.reloadData()
+    }
+    
     func addMorePosts(_ posts: [PostRepresentationModel]) {
         self.posts.append(contentsOf: posts)
         tableView.reloadData()
+    }
+    
+    func showActivityIndicator() {
+        tableView.refreshControl?.beginRefreshing()
+    }
+    
+    func hideActivityIndicator() {
+        tableView.refreshControl?.endRefreshing()
     }
     
 }
@@ -87,6 +116,12 @@ extension ChatDetailsViewController: UITableViewDataSource {
         }
         cell.configure(withRepresentationModel: postRepresentation)
         return cell as! UITableViewCell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == posts.count - 1 {
+            eventHandler.handlePagination()
+        }
     }
     
 }

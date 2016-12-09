@@ -52,7 +52,7 @@ struct NextPostsTarget: MattermostTarget, ResponseMapping {
     //MARK: - MattermostTarget -
     
     var path:String {
-        return "/teams/\(teamId)/channels/\(channelId)/posts\(postId)/before/\(offset)/\(limit)"
+        return "/teams/\(teamId)/channels/\(channelId)/posts/\(postId)/before/\(offset)/\(limit)"
     }
     
     func map(_ response: Moya.Response) throws -> [Post] {
