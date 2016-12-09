@@ -57,3 +57,5 @@
 "loading.messages.title" = "Loading...";
 "no.messages" = "No messages yet =(";
 "time.yesterday" = "Yesterday";
+"time.today" = "Today";
+"new.messages" = "New messages";

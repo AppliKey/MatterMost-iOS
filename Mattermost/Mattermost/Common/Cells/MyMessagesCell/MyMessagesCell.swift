@@ -8,8 +8,8 @@
 
 import UIKit
 
-fileprivate let dateBackgrpundColor = UIColor(rgba: "#64b0ff")
-fileprivate let newMessageBackgroundColor = UIColor(rgba: "#c9cdd4")
+fileprivate let dateBackgrpundColor = UIColor(rgba: "#c9cdd4")
+fileprivate let newMessageBackgroundColor = UIColor(rgba: "#64b0ff")
 
 enum TopViewMode {
     case date

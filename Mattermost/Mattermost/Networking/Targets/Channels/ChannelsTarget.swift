@@ -30,9 +30,9 @@ struct ChannelsTarget: MattermostTarget, ResponseMapping {
             for channel in channels {
                 let member = membersDict?[channel.channelId] as? UnboxableDictionary
                 if let lastViewedTimeStamp = member?["last_viewed_at"] as? TimeInterval {
-                    let lastViewedDate = Date(timeIntervalSince1970:(lastViewedTimeStamp / 1000))
+                    channel.lastViewedDate = Date(timeIntervalSince1970:(lastViewedTimeStamp / 1000))
                     if let lastPostTime = channel.lastPostAt {
-                        channel.isUnread = lastPostTime > lastViewedDate
+                        channel.isUnread = lastPostTime > channel.lastViewedDate
                     } else {
                         channel.isUnread = false
                     }

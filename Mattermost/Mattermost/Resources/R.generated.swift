@@ -298,7 +298,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 33 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 35 localization keys.
     struct localizable {
       /// Value: Address format is not valid
       static let serverAddressWrongFormat = Rswift.StringResource(key: "server.address.wrong.format", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -332,6 +332,8 @@ struct R: Rswift.Validatable {
       static let newGroupChannel = Rswift.StringResource(key: "new.group.channel", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: NEXT
       static let nextButtonTitle = Rswift.StringResource(key: "next.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: New messages
+      static let newMessages = Rswift.StringResource(key: "new.messages", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: No
       static let noAlertTitle = Rswift.StringResource(key: "no.alert.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: No messages yet =(
@@ -352,6 +354,8 @@ struct R: Rswift.Validatable {
       static let menuItemSettings = Rswift.StringResource(key: "menu.item.settings", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Settings
       static let settingsTitle = Rswift.StringResource(key: "settings.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Today
+      static let timeToday = Rswift.StringResource(key: "time.today", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Unknown server error
       static let unknownServerError = Rswift.StringResource(key: "unknown.server.error", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Unread messages
@@ -447,6 +451,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("next.button.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: New messages
+      static func newMessages(_: Void = ()) -> String {
+        return NSLocalizedString("new.messages", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: No
       static func noAlertTitle(_: Void = ()) -> String {
         return NSLocalizedString("no.alert.title", bundle: R.hostingBundle, comment: "")
@@ -495,6 +504,11 @@ struct R: Rswift.Validatable {
       /// Value: Settings
       static func settingsTitle(_: Void = ()) -> String {
         return NSLocalizedString("settings.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Today
+      static func timeToday(_: Void = ()) -> String {
+        return NSLocalizedString("time.today", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Unknown server error

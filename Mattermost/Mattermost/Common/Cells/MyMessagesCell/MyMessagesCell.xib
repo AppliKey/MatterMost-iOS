@@ -15,17 +15,17 @@
             <rect key="frame" x="0.0" y="0.0" width="333" height="125"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="333" height="125"/>
+                <rect key="frame" x="0.0" y="0.0" width="333" height="124"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdg-0A-R4D">
                         <rect key="frame" x="0.0" y="0.0" width="333" height="40"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJy-RG-Jbu">
-                                <rect key="frame" x="104" y="8" width="126" height="21"/>
+                                <rect key="frame" x="98" y="8" width="138" height="21"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16, September 2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4O-4V-n14">
-                                        <rect key="frame" x="6" y="0.0" width="114" height="21"/>
+                                        <rect key="frame" x="12" y="0.0" width="114" height="21"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,21 +35,21 @@
                                 <color key="backgroundColor" red="0.79011517760000005" green="0.80380839110000002" blue="0.8329381347" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="C4O-4V-n14" secondAttribute="bottom" id="43U-vb-GwP"/>
-                                    <constraint firstItem="C4O-4V-n14" firstAttribute="leading" secondItem="fJy-RG-Jbu" secondAttribute="leading" constant="6" id="FkJ-4o-xRy"/>
-                                    <constraint firstAttribute="trailing" secondItem="C4O-4V-n14" secondAttribute="trailing" constant="6" id="mXl-Cc-KMa"/>
+                                    <constraint firstItem="C4O-4V-n14" firstAttribute="leading" secondItem="fJy-RG-Jbu" secondAttribute="leading" constant="12" id="FkJ-4o-xRy"/>
+                                    <constraint firstAttribute="trailing" secondItem="C4O-4V-n14" secondAttribute="trailing" constant="12" id="mXl-Cc-KMa"/>
                                     <constraint firstAttribute="height" constant="21" id="uTS-oh-usR"/>
                                     <constraint firstItem="C4O-4V-n14" firstAttribute="top" secondItem="fJy-RG-Jbu" secondAttribute="top" id="v8f-li-8Dp"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
+                                        <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="Mg5-RR-2Tf"/>
+                            <constraint firstAttribute="height" priority="750" constant="40" id="Mg5-RR-2Tf"/>
                             <constraint firstItem="fJy-RG-Jbu" firstAttribute="centerX" secondItem="xdg-0A-R4D" secondAttribute="centerX" id="qR7-NL-T8c"/>
                             <constraint firstItem="fJy-RG-Jbu" firstAttribute="top" secondItem="xdg-0A-R4D" secondAttribute="top" constant="8" id="szP-Ju-qqH"/>
                         </constraints>
@@ -111,9 +111,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="sMt-X6-xFz" secondAttribute="trailing" constant="12" id="2hq-AN-Soc"/>
-                    <constraint firstItem="sMt-X6-xFz" firstAttribute="top" secondItem="xdg-0A-R4D" secondAttribute="bottom" constant="6" id="3HB-FF-wLQ"/>
+                    <constraint firstItem="sMt-X6-xFz" firstAttribute="top" secondItem="xdg-0A-R4D" secondAttribute="bottom" priority="999" constant="6" id="3HB-FF-wLQ"/>
                     <constraint firstAttribute="trailing" secondItem="t7D-vI-Okh" secondAttribute="trailing" constant="12" id="4wa-oO-yEZ"/>
                     <constraint firstAttribute="trailing" secondItem="xdg-0A-R4D" secondAttribute="trailing" id="Jg9-O8-Gy7"/>
+                    <constraint firstItem="sMt-X6-xFz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" priority="250" constant="6" id="KKV-Jh-xX4"/>
                     <constraint firstItem="t7D-vI-Okh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Kbb-2S-IIS"/>
                     <constraint firstAttribute="bottom" secondItem="t7D-vI-Okh" secondAttribute="bottom" id="LhG-9G-Zi0"/>
                     <constraint firstItem="xdg-0A-R4D" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mSU-gd-Vpa"/>

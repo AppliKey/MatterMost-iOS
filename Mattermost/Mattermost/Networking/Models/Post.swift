@@ -25,6 +25,7 @@ class Post : Unboxable {
     var filenames: [String]?
     var pendingPostId: String?
     
+    var isUnread = false
     var user: User?
     
     required init(unboxer: Unboxer) throws {

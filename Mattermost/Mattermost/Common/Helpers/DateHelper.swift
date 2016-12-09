@@ -37,10 +37,13 @@ class DateHelper {
         return dateFormatter.string(from: date)
     }
     
-    static func prettyDateString(forDate date:Date) -> String {
+    static func prettyDateString(forDate date:Date?) -> String {
+        guard let date = date else { return "" }
         let dateFormatter = DateFormatter()
         let calendar = Calendar.autoupdatingCurrent
-        if calendar.isDateInYesterday(date) {
+        if calendar.isDateInToday(date) {
+            return R.string.localizable.timeToday()
+        } else if calendar.isDateInYesterday(date) {
             return R.string.localizable.timeYesterday()
         } else {
             let calendar = Calendar.autoupdatingCurrent

@@ -18,4 +18,5 @@ struct PostRepresentationModel {
     var showAvatar: Bool
     var showTopView: Bool
     var showBottomView: Bool
+    var isUnread: Bool
 }

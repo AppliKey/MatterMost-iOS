@@ -58,6 +58,7 @@ extension ChatDetailsInteractor: ChatDetailsInteracting {
         case .success(let posts):
             for post in posts {
                 post.user = members[post.userId]
+                post.isUnread = post.createDate > channel.lastViewedDate
             }
             self.posts.append(contentsOf: posts)
             hasNextPage = posts.count > 1

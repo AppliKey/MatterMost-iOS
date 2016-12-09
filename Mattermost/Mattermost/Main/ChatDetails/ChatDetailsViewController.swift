@@ -79,6 +79,9 @@ extension ChatDetailsViewController: UITableViewDataSource {
         cell.isBottomViewHidden = !postRepresentation.showBottomView
         cell.isTopViewHidden = !postRepresentation.showTopView
         cell.date = postRepresentation.date
+        cell.topLabel.text = postRepresentation.isUnread ? R.string.localizable.newMessages()
+                                                         : DateHelper.prettyDateString(forDate: postRepresentation.date)
+        cell.topViewMode = postRepresentation.isUnread ? .newMessage : .date
         
         return cell
     }
