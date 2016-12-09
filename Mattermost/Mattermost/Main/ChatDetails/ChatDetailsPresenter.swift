@@ -25,7 +25,8 @@ class ChatDetailsPresenter {
     
     func transform(post:Post) -> PostRepresentationModel {
         let isMyPost = post.userId == SessionManager.shared.user?.id
-        return PostRepresentationModel(userName: post.userId, userAvatarUrl: nil,
+        let userName = post.user?.username ?? R.string.localizable.loadingMessagesTitle()
+        return PostRepresentationModel(userName: userName, userAvatarUrl: post.user?.avatarUrl, userOnlineStatus: .offline,
                                        message: post.message, date: post.createDate, topViewText: nil,
                                        isMyMessage: isMyPost, showAvatar: false, showTopView: true,
                                        showBottomView: true, isUnread: post.isUnread)

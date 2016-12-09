@@ -22,6 +22,12 @@ struct User {
     let nickname: String?
     let firstname: String?
     let lastname: String?
+    
+    var avatarUrl: URL? {
+        guard let serverAddress = SessionManager.shared.serverAddress else { return nil }
+        let urlString = serverAddress + "/api/v3/users/\(id)/image"
+        return URL(string: urlString)
+    }
 }
 
 extension User: Unboxable {

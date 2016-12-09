@@ -24,6 +24,10 @@ protocol ChatDetailsInteracting: class {
 protocol ChatDetailsPresenting: class {
 }
 
+protocol MessageCellViewing {
+    func configure(withRepresentationModel model: PostRepresentationModel)
+}
+
 protocol ChatDetailsViewing: class {
     func addMorePosts(_ posts: [PostRepresentationModel])
 }

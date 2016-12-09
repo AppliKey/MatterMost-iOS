@@ -87,9 +87,7 @@ extension ChatsPresenter: ChatsPresenting {
     }
     
     private func getUrl(for user:User) -> URL? {
-        guard let serverAddress = SessionManager.shared.serverAddress else { return nil }
-        let urlString = serverAddress + "/api/v3/users/\(user.id)/image"
-        return URL(string: urlString)
+        return user.avatarUrl
     }
 
 }

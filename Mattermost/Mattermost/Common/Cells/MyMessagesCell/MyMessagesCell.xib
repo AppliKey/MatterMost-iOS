@@ -47,7 +47,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" priority="750" constant="40" id="Mg5-RR-2Tf"/>
                             <constraint firstItem="fJy-RG-Jbu" firstAttribute="centerX" secondItem="xdg-0A-R4D" secondAttribute="centerX" id="qR7-NL-T8c"/>
@@ -73,7 +73,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="vfw-Cu-Ecq" secondAttribute="bottom" id="AqO-cD-qRK"/>
                             <constraint firstItem="gbs-5g-eay" firstAttribute="top" secondItem="t7D-vI-Okh" secondAttribute="top" constant="5" id="JmQ-RH-kl0"/>
@@ -104,11 +104,12 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="5"/>
+                                <real key="value" value="10"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="sMt-X6-xFz" secondAttribute="trailing" constant="12" id="2hq-AN-Soc"/>
                     <constraint firstItem="sMt-X6-xFz" firstAttribute="top" secondItem="xdg-0A-R4D" secondAttribute="bottom" priority="999" constant="6" id="3HB-FF-wLQ"/>
@@ -122,6 +123,7 @@
                     <constraint firstItem="xdg-0A-R4D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rEg-lX-D2b"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="bottomLabel" destination="gbs-5g-eay" id="vhw-uV-txK"/>
                 <outlet property="bottomViewHeightConstraint" destination="RAQ-UY-b6Q" id="PDc-Eu-fyd"/>
@@ -130,7 +132,7 @@
                 <outlet property="topView" destination="fJy-RG-Jbu" id="5fA-m9-87d"/>
                 <outlet property="topViewHeightConstraint" destination="Mg5-RR-2Tf" id="pf9-RY-Ut9"/>
             </connections>
-            <point key="canvasLocation" x="-18.5" y="-278.5"/>
+            <point key="canvasLocation" x="-15" y="-295"/>
         </tableViewCell>
     </objects>
 </document>

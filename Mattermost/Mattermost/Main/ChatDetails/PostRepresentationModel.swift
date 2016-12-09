@@ -11,6 +11,7 @@ import UIKit
 struct PostRepresentationModel {
     var userName: String?
     var userAvatarUrl: URL?
+    var userOnlineStatus: OnlineStatus?
     var message: String?
     var date: Date?
     var topViewText: String?

@@ -43,6 +43,7 @@ class ChatDetailsViewController: UIViewController {
         textViewHandler.maximumNumberOfLines = 6
         tableView.tableFooterView = UIView()
         tableView.register(R.nib.myMessagesCell)
+        tableView.register(R.nib.groupMessageCell)
     }
     
     private func localizeViews() {
@@ -72,18 +73,15 @@ extension ChatDetailsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.myMessagesCell, for: indexPath)
-            else { fatalError("Can not load myMessagesCell from nib") }
+        var cell:MessageCellViewing!
         let postRepresentation = posts[indexPath.row]
-        cell.messageLabel.text = postRepresentation.message
-        cell.isBottomViewHidden = !postRepresentation.showBottomView
-        cell.isTopViewHidden = !postRepresentation.showTopView
-        cell.date = postRepresentation.date
-        cell.topLabel.text = postRepresentation.isUnread ? R.string.localizable.newMessages()
-                                                         : DateHelper.prettyDateString(forDate: postRepresentation.date)
-        cell.topViewMode = postRepresentation.isUnread ? .newMessage : .date
-        
-        return cell
+        if postRepresentation.isMyMessage {
+            cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.myMessagesCell, for: indexPath)
+        } else {
+            cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.groupMessageCell, for: indexPath)
+        }
+        cell.configure(withRepresentationModel: postRepresentation)
+        return cell as! UITableViewCell
     }
     
 }
@@ -102,6 +100,11 @@ extension ChatDetailsViewController: UITableViewDelegate {
         if model.showBottomView {
             elementsHeight += 30
         }
+        
+        if !model.isMyMessage {
+            elementsHeight += 33
+        }
+        
         return elementsHeight + margins
     }
 }

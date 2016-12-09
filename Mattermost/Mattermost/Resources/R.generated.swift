@@ -191,10 +191,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 7 nibs.
   struct nib {
     /// Nib `GroupChatCell`.
     static let groupChatCell = _R.nib._GroupChatCell()
+    /// Nib `GroupMessageCell`.
+    static let groupMessageCell = _R.nib._GroupMessageCell()
     /// Nib `ImageCollectionViewCell`.
     static let imageCollectionViewCell = _R.nib._ImageCollectionViewCell()
     /// Nib `LabelCollectionViewCell`.
@@ -209,6 +211,11 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "GroupChatCell", in: bundle)`
     static func groupChatCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.groupChatCell)
+    }
+    
+    /// `UINib(name: "GroupMessageCell", in: bundle)`
+    static func groupMessageCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.groupMessageCell)
     }
     
     /// `UINib(name: "ImageCollectionViewCell", in: bundle)`
@@ -239,10 +246,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 6 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 7 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `GroupChatCell`.
     static let groupChatCell: Rswift.ReuseIdentifier<GroupChatCell> = Rswift.ReuseIdentifier(identifier: "GroupChatCell")
+    /// Reuse identifier `GroupMessageCell`.
+    static let groupMessageCell: Rswift.ReuseIdentifier<GroupMessageCell> = Rswift.ReuseIdentifier(identifier: "GroupMessageCell")
     /// Reuse identifier `ImageCollectionViewCell`.
     static let imageCollectionViewCell: Rswift.ReuseIdentifier<ImageCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "ImageCollectionViewCell")
     /// Reuse identifier `LabelCell`.
@@ -588,6 +597,20 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "ic_private_chanels_not_active") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_private_chanels_not_active' is used in nib 'GroupChatCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _GroupMessageCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = GroupMessageCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "GroupMessageCell"
+      let name = "GroupMessageCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> GroupMessageCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GroupMessageCell
       }
       
       fileprivate init() {}
