@@ -58,7 +58,7 @@
                         <rect key="frame" x="0.0" y="119.5" width="321" height="30"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03:55 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbC-BM-hBD">
-                                <rect key="frame" x="65" y="5" width="54" height="20"/>
+                                <rect key="frame" x="72" y="5" width="54" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="EAw-8A-ND9"/>
                                 </constraints>
@@ -76,7 +76,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="Ckk-I5-nvH"/>
-                            <constraint firstItem="rbC-BM-hBD" firstAttribute="leading" secondItem="Wz1-42-19S" secondAttribute="leading" constant="65" id="Its-36-6aM"/>
+                            <constraint firstItem="rbC-BM-hBD" firstAttribute="leading" secondItem="Wz1-42-19S" secondAttribute="leading" constant="72" id="Its-36-6aM"/>
                             <constraint firstItem="gbr-1g-e1I" firstAttribute="leading" secondItem="Wz1-42-19S" secondAttribute="leading" id="V7T-Lj-uxa"/>
                             <constraint firstAttribute="trailing" secondItem="gbr-1g-e1I" secondAttribute="trailing" id="XNf-Mb-Qza"/>
                             <constraint firstItem="rbC-BM-hBD" firstAttribute="top" secondItem="Wz1-42-19S" secondAttribute="top" constant="5" id="en2-I8-cws"/>
@@ -85,7 +85,7 @@
                         </constraints>
                     </view>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWE-rJ-439" userLabel="message">
-                        <rect key="frame" x="65" y="79" width="134" height="34.5"/>
+                        <rect key="frame" x="72" y="79" width="134" height="34.5"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2s-rZ-JWx">
                                 <rect key="frame" x="12" y="6" width="110" height="22.5"/>
@@ -109,7 +109,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zLG-Ah-Wlh">
-                        <rect key="frame" x="12" y="48" width="40" height="40"/>
+                        <rect key="frame" x="20" y="48" width="40" height="40"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="eCj-Xf-mTC"/>
@@ -117,7 +117,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Tommy Simmqweqwe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKB-IG-9tI">
-                        <rect key="frame" x="64" y="50" width="257" height="21"/>
+                        <rect key="frame" x="72" y="50" width="249" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="aj5-By-cbT"/>
                         </constraints>
@@ -126,7 +126,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdU-cq-6mF">
-                        <rect key="frame" x="12" y="48" width="14" height="14"/>
+                        <rect key="frame" x="20" y="48" width="14" height="14"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="fu2-UD-NGs"/>
@@ -144,9 +144,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="ZWE-rJ-439" firstAttribute="top" secondItem="qKB-IG-9tI" secondAttribute="bottom" constant="8" id="6ul-gl-arA"/>
-                    <constraint firstItem="ZWE-rJ-439" firstAttribute="leading" secondItem="c0X-16-qPG" secondAttribute="leading" constant="65" id="CCV-Ue-rBT"/>
+                    <constraint firstItem="ZWE-rJ-439" firstAttribute="leading" secondItem="c0X-16-qPG" secondAttribute="leading" constant="72" id="CCV-Ue-rBT"/>
                     <constraint firstItem="fdU-cq-6mF" firstAttribute="top" secondItem="zLG-Ah-Wlh" secondAttribute="top" id="KnQ-FH-bci"/>
-                    <constraint firstItem="zLG-Ah-Wlh" firstAttribute="leading" secondItem="c0X-16-qPG" secondAttribute="leading" constant="12" id="M8f-it-UZb"/>
+                    <constraint firstItem="zLG-Ah-Wlh" firstAttribute="leading" secondItem="c0X-16-qPG" secondAttribute="leading" constant="20" id="M8f-it-UZb"/>
                     <constraint firstItem="Wz1-42-19S" firstAttribute="top" secondItem="ZWE-rJ-439" secondAttribute="bottom" constant="6" id="MPM-ZH-pbc"/>
                     <constraint firstItem="qKB-IG-9tI" firstAttribute="leading" secondItem="zLG-Ah-Wlh" secondAttribute="trailing" constant="12" id="MaJ-yV-K9c"/>
                     <constraint firstAttribute="trailing" secondItem="bwt-Mc-LmJ" secondAttribute="trailing" id="RcM-i6-65V"/>

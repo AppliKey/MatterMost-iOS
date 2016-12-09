@@ -58,7 +58,7 @@
                         <rect key="frame" x="0.0" y="94" width="321" height="30"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03:55 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QrA-7C-8Cg">
-                                <rect key="frame" x="65" y="5" width="54" height="20"/>
+                                <rect key="frame" x="72" y="5" width="54" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="s8Z-Qu-qqU"/>
                                 </constraints>
@@ -84,7 +84,7 @@
                         </constraints>
                     </view>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9S-dA-pqU">
-                        <rect key="frame" x="65" y="46" width="134" height="42"/>
+                        <rect key="frame" x="72" y="46" width="134" height="42"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wf7-uv-KO8">
                                 <rect key="frame" x="12" y="6" width="110" height="30"/>
@@ -113,7 +113,7 @@
                     <constraint firstItem="QrA-7C-8Cg" firstAttribute="leading" secondItem="t9S-dA-pqU" secondAttribute="leading" id="Icl-Hz-mjh"/>
                     <constraint firstAttribute="trailing" secondItem="pDv-Jm-2Q3" secondAttribute="trailing" id="Xso-8T-RQf"/>
                     <constraint firstAttribute="bottom" secondItem="TPP-45-YQ1" secondAttribute="bottom" id="bue-qy-CVo"/>
-                    <constraint firstItem="t9S-dA-pqU" firstAttribute="leading" secondItem="taL-iy-OYt" secondAttribute="leading" constant="65" id="cVo-cc-sFA"/>
+                    <constraint firstItem="t9S-dA-pqU" firstAttribute="leading" secondItem="taL-iy-OYt" secondAttribute="leading" constant="72" id="cVo-cc-sFA"/>
                     <constraint firstItem="t9S-dA-pqU" firstAttribute="top" secondItem="taL-iy-OYt" secondAttribute="top" priority="250" constant="6" id="jnP-d6-aWr"/>
                     <constraint firstItem="t9S-dA-pqU" firstAttribute="top" secondItem="pDv-Jm-2Q3" secondAttribute="bottom" priority="999" constant="6" id="k02-l1-D1G"/>
                     <constraint firstItem="pDv-Jm-2Q3" firstAttribute="top" secondItem="taL-iy-OYt" secondAttribute="top" id="oDX-ex-w8G"/>

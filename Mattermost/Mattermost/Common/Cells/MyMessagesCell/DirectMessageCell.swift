@@ -8,8 +8,8 @@
 
 import UIKit
 
-private let leadingMarginInGroupChats: CGFloat = 65
-private let leadingMarginInDirectChats: CGFloat = 12
+private let leadingMarginInGroupChats: CGFloat = 72
+private let leadingMarginInDirectChats: CGFloat = 20
 
 class DirectMessageCell: BaseChatMessageCell {
     

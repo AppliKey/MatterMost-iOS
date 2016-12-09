@@ -55,10 +55,10 @@
                         </constraints>
                     </view>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t7D-vI-Okh">
-                        <rect key="frame" x="0.0" y="94" width="321" height="30"/>
+                        <rect key="frame" x="0.0" y="94" width="313" height="30"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03:55 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbs-5g-eay">
-                                <rect key="frame" x="267" y="5" width="54" height="20"/>
+                                <rect key="frame" x="259" y="5" width="54" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="zhd-vL-6yv"/>
                                 </constraints>
@@ -67,7 +67,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfw-Cu-Ecq">
-                                <rect key="frame" x="0.0" y="0.0" width="321" height="30"/>
+                                <rect key="frame" x="0.0" y="0.0" width="313" height="30"/>
                                 <connections>
                                     <action selector="bottomViewTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pRH-5J-eRJ"/>
                                 </connections>
@@ -85,7 +85,7 @@
                         </constraints>
                     </view>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sMt-X6-xFz">
-                        <rect key="frame" x="187" y="46" width="134" height="42"/>
+                        <rect key="frame" x="179" y="46" width="134" height="42"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCX-x9-vPt">
                                 <rect key="frame" x="12" y="6" width="110" height="30"/>
@@ -111,9 +111,9 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="sMt-X6-xFz" secondAttribute="trailing" constant="12" id="2hq-AN-Soc"/>
+                    <constraint firstAttribute="trailing" secondItem="sMt-X6-xFz" secondAttribute="trailing" constant="20" id="2hq-AN-Soc"/>
                     <constraint firstItem="sMt-X6-xFz" firstAttribute="top" secondItem="xdg-0A-R4D" secondAttribute="bottom" priority="999" constant="6" id="3HB-FF-wLQ"/>
-                    <constraint firstAttribute="trailing" secondItem="t7D-vI-Okh" secondAttribute="trailing" constant="12" id="4wa-oO-yEZ"/>
+                    <constraint firstAttribute="trailing" secondItem="t7D-vI-Okh" secondAttribute="trailing" constant="20" id="4wa-oO-yEZ"/>
                     <constraint firstAttribute="trailing" secondItem="xdg-0A-R4D" secondAttribute="trailing" id="Jg9-O8-Gy7"/>
                     <constraint firstItem="sMt-X6-xFz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" priority="250" constant="6" id="KKV-Jh-xX4"/>
                     <constraint firstItem="t7D-vI-Okh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Kbb-2S-IIS"/>
