@@ -47,6 +47,7 @@ protocol ChatDetailsEventHandling: class {
     func handlePagination()
     func refresh()
     func handleSendMessage(_ message:String)
+    func handleRetry(forPlaceholderPost post: PostRepresentationModel)
     func handleAttachPressed()
 }
 

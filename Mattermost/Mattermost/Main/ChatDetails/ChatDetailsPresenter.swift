@@ -73,6 +73,25 @@ extension ChatDetailsPresenter: ChatDetailsEventHandling {
         view.insert(post: getPlaceholder(withMessage: message, placeholderId: placeholderId))
     }
     
+    func handleRetry(forPlaceholderPost placeholder: PostRepresentationModel) {
+        let _ = interactor.sendMessage(message: placeholder.message!, completion: { [weak self] result in
+            switch result {
+            case .success(let post):
+                var model = self?.transform(post: post)
+                model?.placeholderId = placeholder.placeholderId
+                if let model = model {
+                    DispatchQueue.main.async {
+                        self?.view.update(post: model)
+                    }
+                }
+            case .failure(let placeholder):
+                DispatchQueue.main.async {
+                    self?.view.showError(forPostWithPlaceholderId: placeholder)
+                }
+            }
+        })
+    }
+    
     func handleAttachPressed() {
         view.alert("In development")
     }

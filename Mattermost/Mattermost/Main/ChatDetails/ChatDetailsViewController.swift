@@ -70,20 +70,21 @@ class ChatDetailsViewController: UIViewController {
         messageTextView.text = ""
     }
     
-    fileprivate func checkPostsAfterInsert() {
-        guard posts.count > 1
+    fileprivate func checkUpdatedPost(atIndex index:Int) {
+        guard posts.count > index + 1
             else { return }
         tableView.beginUpdates()
-        posts[0].showTopView = PostRepresentationModel.showTopView(forPost: posts[0], previousPost: posts[1])
-        posts[1].showBottomView = PostRepresentationModel.showBottomView(forPost: posts[1], previousPost: posts[0])
-        
-        let indexPath = IndexPath(row: 0, section: 0)
-        let nextRow = IndexPath(row: 1, section: 0)
+        posts[index].showTopView = PostRepresentationModel.showTopView(forPost: posts[index],
+                                                                       previousPost: posts[index + 1])
+        posts[index + 1].showBottomView = PostRepresentationModel.showBottomView(forPost: posts[index + 1],
+                                                                                 previousPost: posts[index])
+        let indexPath = IndexPath(row: index, section: 0)
+        let nextRow = IndexPath(row: index + 1, section: 0)
         if let cell = tableView.cellForRow(at: indexPath) as? MessageCellViewing {
-            cell.configure(withRepresentationModel: posts[0])
+            cell.configure(withRepresentationModel: posts[index])
         }
         if let nextCell = tableView.cellForRow(at: nextRow) as? MessageCellViewing {
-            nextCell.configure(withRepresentationModel: posts[1])
+            nextCell.configure(withRepresentationModel: posts[index + 1])
         }
         tableView.endUpdates()
     }
@@ -97,7 +98,7 @@ extension ChatDetailsViewController: ChatDetailsViewing {
         tableView.beginUpdates()
         tableView.insertRows(at: [indexPath], with: .top)
         tableView.endUpdates()
-        checkPostsAfterInsert()
+        checkUpdatedPost(atIndex: 0)
     }
     
     func update(post: PostRepresentationModel) {
@@ -107,7 +108,7 @@ extension ChatDetailsViewController: ChatDetailsViewing {
             if let cell = tableView.cellForRow(at: indexPath) as? MessageCellViewing {
                 cell.configure(withRepresentationModel: post)
             }
-            checkPostsAfterInsert()
+            checkUpdatedPost(atIndex: index)
         }
     }
     
@@ -158,6 +159,12 @@ extension ChatDetailsViewController: UITableViewDataSource {
         let postRepresentation = posts[indexPath.row]
         if postRepresentation.isMyMessage {
             cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.myMessagesCell, for: indexPath)
+            (cell as! MyMessagesCell).retryCallback = { [unowned self] in
+                if let index = tableView.indexPath(for: cell as! UITableViewCell) {
+                    let post = self.posts[index.row]
+                    self.eventHandler.handleRetry(forPlaceholderPost: post)
+                }
+            }
         } else {
             if postRepresentation.isDirectChat || !postRepresentation.showAvatar {
                 cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.directMessageCell, for: indexPath)
