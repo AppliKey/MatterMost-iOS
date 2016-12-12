@@ -68,6 +68,7 @@ class ChatDetailsViewController: UIViewController {
             else {return}
         eventHandler.handleSendMessage(messageTextView.text)
         messageTextView.text = ""
+        textViewHandler.resizeTextView(false)
     }
     
     fileprivate func checkUpdatedPost(atIndex index:Int) {
