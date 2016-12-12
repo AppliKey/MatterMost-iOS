@@ -56,7 +56,9 @@ struct NextPostsTarget: MattermostTarget, ResponseMapping {
     }
     
     func map(_ response: Moya.Response) throws -> [Post] {
-        if let json = try response.mapJSON() as? UnboxableDictionary, let postsJson = json["posts"] as? UnboxableDictionary {
+        if let json = try response.mapJSON() as? UnboxableDictionary {
+            guard let postsJson = json["posts"] as? UnboxableDictionary
+                else { return [] }
             var posts: [Post] = []
             for key in postsJson.keys {
                 if let post = try? unbox(dictionary: postsJson, atKey: key) as Post {

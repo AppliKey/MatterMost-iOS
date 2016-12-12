@@ -9,16 +9,22 @@
 import UIKit
 
 struct PostRepresentationModel {
+    
+    enum PostStatus {
+        case sending, sended, failed
+    }
+    
     var userName: String?
     var userAvatarUrl: URL?
     var userOnlineStatus: OnlineStatus?
     var isDirectChat = true
     var message: String?
     var date: Date?
-    var topViewText: String?
+    var topViewText: String? = nil
     var isMyMessage: Bool
-    var showAvatar: Bool
-    var showTopView: Bool
-    var showBottomView: Bool
+    var showAvatar: Bool = true
+    var showTopView: Bool = true
+    var showBottomView: Bool = true
     var isUnread: Bool
+    var postStatus: PostStatus?
 }

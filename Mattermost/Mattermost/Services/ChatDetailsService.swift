@@ -15,6 +15,11 @@ enum PostsResult {
     case success([Post]), failure(String), canceled()
 }
 
+enum PostResult {
+    case success(Post), failure()
+}
+
+typealias PostCompletion = (PostResult) -> ()
 typealias PostsCompletion = (PostsResult) -> ()
 
 class ChatDetailsService : NetworkService {
@@ -62,6 +67,23 @@ extension ChatDetailsService: PostsService {
             } catch {
                 guard let errorMessage = self?.errorMapper.message(for: error) else { return }
                 completion(.failure(errorMessage))
+            }
+        }
+    }
+    
+    func sendPost(withMessage message:String, channelId:String, completion: @escaping PostCompletion) -> CancellableRequest? {
+        guard let currentTeam = SessionManager.shared.team?.id,
+              let userId = SessionManager.shared.user?.id
+            else { fatalError("Team is not selected, or User is nil") }
+        
+        let target = SendPostTarget(teamId: currentTeam, channelId: channelId, message: message, userId: userId)
+        
+        return request(target, queue: queue) { [weak self] in
+            do {
+                let post = try target.map($0)
+                completion(.success(post))
+            } catch {
+                completion(.failure())
             }
         }
     }

@@ -70,6 +70,14 @@ class ChatDetailsViewController: UIViewController {
 
 extension ChatDetailsViewController: ChatDetailsViewing {
     
+    func insert(post:PostRepresentationModel) {
+        self.posts.insert(post, at: 0)
+        let indexPath = IndexPath(row: 0, section: 0)
+        tableView.beginUpdates()
+        tableView.insertRows(at: [indexPath], with: .top)
+        tableView.endUpdates()
+    }
+    
     func refreshData(withPosts posts: [PostRepresentationModel]) {
         self.posts = posts
         tableView.reloadData()

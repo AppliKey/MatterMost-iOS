@@ -58,6 +58,10 @@ extension ChatDetailsInteractor: ChatDetailsInteracting {
         getMorePosts(completion: completion)
     }
     
+    func sendMessage(message:String, completion:@escaping PostCompletion) {
+        let _ = service.sendPost(withMessage: message, channelId: channel.channelId, completion: completion)
+    }
+    
     private func handleCompletion(_ result:PostsResult, completion: @escaping PostsCompletion) {
         switch result {
         case .success(let posts):
