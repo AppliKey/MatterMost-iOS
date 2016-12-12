@@ -129,7 +129,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="mMf-Wv-uCY" secondAttribute="trailing" id="17p-uc-vRt"/>
                             <constraint firstItem="mMf-Wv-uCY" firstAttribute="top" secondItem="bto-cc-vKW" secondAttribute="top" id="7ty-aO-45V"/>

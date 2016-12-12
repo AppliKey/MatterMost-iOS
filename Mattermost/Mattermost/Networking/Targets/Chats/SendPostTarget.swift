@@ -19,6 +19,7 @@ struct SendPostTarget: MattermostTarget, ResponseMapping {
     
     let message: String
     let userId: String
+    let dateStamp: Int
     
     //MARK: - MattermostTarget -
     
@@ -31,7 +32,6 @@ struct SendPostTarget: MattermostTarget, ResponseMapping {
     }
     
     var parameters: [String: Any]? {
-        let dateStamp = Int(Date().timeIntervalSince1970)
         return ["filenames:": [],
                 "message": message,
                 "channel_id": channelId,

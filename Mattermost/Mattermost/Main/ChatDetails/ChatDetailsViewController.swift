@@ -64,18 +64,61 @@ class ChatDetailsViewController: UIViewController {
     }
     
     @IBAction func sendButtonPressed(_ sender: Any) {
+        guard messageTextView.text.characters.count > 0
+            else {return}
         eventHandler.handleSendMessage(messageTextView.text)
+        messageTextView.text = ""
+    }
+    
+    fileprivate func checkPostsAfterInsert() {
+        guard posts.count > 1
+            else { return }
+        tableView.beginUpdates()
+        posts[0].showTopView = PostRepresentationModel.showTopView(forPost: posts[0], previousPost: posts[1])
+        posts[1].showBottomView = PostRepresentationModel.showBottomView(forPost: posts[1], previousPost: posts[0])
+        
+        let indexPath = IndexPath(row: 0, section: 0)
+        let nextRow = IndexPath(row: 1, section: 0)
+        if let cell = tableView.cellForRow(at: indexPath) as? MessageCellViewing {
+            cell.configure(withRepresentationModel: posts[0])
+        }
+        if let nextCell = tableView.cellForRow(at: nextRow) as? MessageCellViewing {
+            nextCell.configure(withRepresentationModel: posts[1])
+        }
+        tableView.endUpdates()
     }
 }
 
 extension ChatDetailsViewController: ChatDetailsViewing {
     
     func insert(post:PostRepresentationModel) {
-        self.posts.insert(post, at: 0)
+        posts.insert(post, at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.beginUpdates()
         tableView.insertRows(at: [indexPath], with: .top)
         tableView.endUpdates()
+        checkPostsAfterInsert()
+    }
+    
+    func update(post: PostRepresentationModel) {
+        if let index = posts.index(where: {$0.placeholderId == post.placeholderId}) {
+            let indexPath = IndexPath(row: index, section: 0)
+            posts[index] = post
+            if let cell = tableView.cellForRow(at: indexPath) as? MessageCellViewing {
+                cell.configure(withRepresentationModel: post)
+            }
+            checkPostsAfterInsert()
+        }
+    }
+    
+    func showError(forPostWithPlaceholderId id:String) {
+        if let index = posts.index(where: {$0.placeholderId == id}) {
+            let indexPath = IndexPath(row: index, section: 0)
+            posts[index].postStatus = .failed
+            if let cell = tableView.cellForRow(at: indexPath) as? MessageCellViewing {
+                cell.configure(withRepresentationModel: posts[index])
+            }
+        }
     }
     
     func refreshData(withPosts posts: [PostRepresentationModel]) {

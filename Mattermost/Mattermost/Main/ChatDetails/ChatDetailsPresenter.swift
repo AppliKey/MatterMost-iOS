@@ -30,7 +30,19 @@ class ChatDetailsPresenter {
                                        isDirectChat: interactor.channel.type == .direct,
                                        message: post.message, date: post.createDate, topViewText: nil,
                                        isMyMessage: isMyPost, showAvatar: true, showTopView: true,
-                                       showBottomView: true, isUnread: post.isUnread, postStatus: .sended)
+                                       showBottomView: true, isUnread: post.isUnread, postStatus: .sended,
+                                       placeholderId: post.pendingPostId)
+    }
+    
+    fileprivate func getPlaceholder(withMessage message:String, placeholderId: String) -> PostRepresentationModel {
+        return PostRepresentationModel(userName: SessionManager.shared.user?.username,
+                                       userAvatarUrl: SessionManager.shared.user?.avatarUrl,
+                                       userOnlineStatus: .online,
+                                       isDirectChat: interactor.channel.type == .direct,
+                                       message: message, date: Date(), topViewText: nil,
+                                       isMyMessage: true, showAvatar: false, showTopView: false,
+                                       showBottomView: true, isUnread: false, postStatus: .sending,
+                                       placeholderId: placeholderId)
     }
     
 }
@@ -44,28 +56,21 @@ extension ChatDetailsPresenter: ChatDetailsPresenting {
 extension ChatDetailsPresenter: ChatDetailsEventHandling {
     
     func handleSendMessage(_ message:String) {
-        interactor.sendMessage(message: message, completion: { result in
+        let placeholderId = interactor.sendMessage(message: message, completion: { [weak self] result in
             switch result {
             case .success(let post):
-                print(post)
-            case .failure():
-                print("failed to send a post")
+                if let model = self?.transform(post: post) {
+                    DispatchQueue.main.async {
+                        self?.view.update(post: model)
+                    }
+                }
+            case .failure(let placeholder):
+                DispatchQueue.main.async {
+                    self?.view.showError(forPostWithPlaceholderId: placeholder)
+                }
             }
         })
-        let postRepresentation = PostRepresentationModel(userName: SessionManager.shared.user?.username,
-                                                         userAvatarUrl: SessionManager.shared.user?.avatarUrl,
-                                                         userOnlineStatus: .online,
-                                                         isDirectChat: interactor.channel.type == .direct,
-                                                         message: message,
-                                                         date: Date(),
-                                                         topViewText: nil,
-                                                         isMyMessage: true,
-                                                         showAvatar: false,
-                                                         showTopView: false,
-                                                         showBottomView: true,
-                                                         isUnread: false,
-                                                         postStatus: .sending)
-        view.insert(post: postRepresentation)
+        view.insert(post: getPlaceholder(withMessage: message, placeholderId: placeholderId))
     }
     
     func handleAttachPressed() {
@@ -103,12 +108,12 @@ extension ChatDetailsPresenter: ChatDetailsEventHandling {
             var postsModels = posts.map(transform)
             guard postsModels.count > 0 else {return}
             for index in (1..<posts.count).reversed() {
-                postsModels[index].showBottomView = showBottomView(forPost: postsModels[index],
-                                                                   previousPost: postsModels[index - 1])
-                postsModels[index - 1].showTopView = showTopView(forPost: postsModels[index],
-                                                                 previousPost: postsModels[index - 1])
-                postsModels[index - 1].showAvatar = showAvatar(forPost: postsModels[index - 1],
-                                                               previousPost: postsModels[index])
+                postsModels[index].showBottomView = PostRepresentationModel.showBottomView(forPost: postsModels[index],
+                                                                                           previousPost: postsModels[index - 1])
+                postsModels[index - 1].showTopView = PostRepresentationModel.showTopView(forPost: postsModels[index],
+                                                                                         previousPost: postsModels[index - 1])
+                postsModels[index - 1].showAvatar = PostRepresentationModel.showAvatar(forPost: postsModels[index - 1],
+                                                                                       previousPost: postsModels[index])
             }
             DispatchQueue.main.async {
                 if isRefresh {
@@ -125,35 +130,6 @@ extension ChatDetailsPresenter: ChatDetailsEventHandling {
         }
     }
     
-    private func showBottomView(forPost post:PostRepresentationModel, previousPost:PostRepresentationModel) -> Bool {
-        if let date = post.date, let previousDate = previousPost.date, post.userAvatarUrl == previousPost.userAvatarUrl {
-            if DateHelper.fullDateTimeString(forDate: date) == DateHelper.fullDateTimeString(forDate: previousDate) {
-                return false
-            }
-        }
-        return true
-    }
     
-    private func showTopView(forPost post:PostRepresentationModel, previousPost:PostRepresentationModel) -> Bool {
-        if let date = post.date, let previousDate = previousPost.date, !post.isUnread, !previousPost.isUnread {
-            if DateHelper.prettyDateString(forDate: date) == DateHelper.prettyDateString(forDate: previousDate) {
-                return false
-            }
-        }
-        if post.isUnread && previousPost.isUnread {
-            return false
-        }
-        return true
-    }
-    
-    private func showAvatar(forPost post:PostRepresentationModel, previousPost:PostRepresentationModel) -> Bool {
-        if post.isMyMessage {
-            return false
-        }
-        if post.userAvatarUrl == previousPost.userAvatarUrl {
-            return post.showTopView
-        }
-        return true
-    }
     
 }

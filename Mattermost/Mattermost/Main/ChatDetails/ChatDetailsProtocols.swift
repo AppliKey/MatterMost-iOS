@@ -12,7 +12,7 @@ import UIKit
 protocol PostsService {
     func requestPosts(offset:String, completion: @escaping PostsCompletion) -> CancellableRequest?
     func requestMorePosts(afterPost postId:String, completion: @escaping PostsCompletion) -> CancellableRequest?
-    func sendPost(withMessage message:String, channelId:String, completion: @escaping PostCompletion) -> CancellableRequest?
+    func sendPost(withMessage message:String, channelId:String, completion: @escaping PostCompletion) -> String
 }
 
 protocol ChatDetailsConfigurator: class {
@@ -21,7 +21,7 @@ protocol ChatDetailsConfigurator: class {
 protocol ChatDetailsInteracting: class {
     func getMorePosts(completion: @escaping PostsCompletion)
     func refresh(completion: @escaping PostsCompletion)
-    func sendMessage(message:String, completion:@escaping PostCompletion)
+    func sendMessage(message:String, completion:@escaping PostCompletion) -> String
     weak var channel:Channel! { get }
 }
 
@@ -36,6 +36,8 @@ protocol ChatDetailsViewing: AlertShowable {
     func refreshData(withPosts posts: [PostRepresentationModel])
     func addMorePosts(_ posts: [PostRepresentationModel])
     func insert(post:PostRepresentationModel)
+    func update(post: PostRepresentationModel)
+    func showError(forPostWithPlaceholderId id:String)
     func showActivityIndicator()
     func hideActivityIndicator()
 }

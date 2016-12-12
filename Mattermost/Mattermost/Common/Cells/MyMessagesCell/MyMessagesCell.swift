@@ -41,4 +41,9 @@ class MyMessagesCell: BaseChatMessageCell {
         }
     }
     
+    override func configure(withRepresentationModel model: PostRepresentationModel) {
+        super.configure(withRepresentationModel: model)
+        postStatus = model.postStatus
+    }
+    
 }

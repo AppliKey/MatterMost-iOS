@@ -16,7 +16,7 @@ enum PostsResult {
 }
 
 enum PostResult {
-    case success(Post), failure()
+    case success(Post), failure(String)
 }
 
 typealias PostCompletion = (PostResult) -> ()
@@ -71,20 +71,22 @@ extension ChatDetailsService: PostsService {
         }
     }
     
-    func sendPost(withMessage message:String, channelId:String, completion: @escaping PostCompletion) -> CancellableRequest? {
+    func sendPost(withMessage message:String, channelId:String, completion: @escaping PostCompletion) -> String {
         guard let currentTeam = SessionManager.shared.team?.id,
               let userId = SessionManager.shared.user?.id
             else { fatalError("Team is not selected, or User is nil") }
         
-        let target = SendPostTarget(teamId: currentTeam, channelId: channelId, message: message, userId: userId)
-        
-        return request(target, queue: queue) { [weak self] in
+        let dateStamp = Int(Date().timeIntervalSince1970 * 1000)
+        let target = SendPostTarget(teamId: currentTeam, channelId: channelId,
+                                    message: message, userId: userId, dateStamp: dateStamp)
+        let _ = request(target, queue: queue) { result in
             do {
-                let post = try target.map($0)
+                let post = try target.map(result)
                 completion(.success(post))
             } catch {
-                completion(.failure())
+                completion(.failure("\(userId):\(dateStamp)"))
             }
         }
+        return "\(userId):\(dateStamp)"
     }
 }
