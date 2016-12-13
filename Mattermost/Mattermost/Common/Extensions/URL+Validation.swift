@@ -21,3 +21,18 @@ extension URL {
     
     
 }
+
+public enum URLScheme: String {
+    case WS    = "ws"
+    case WSS   = "wss"
+    case HTTP  = "http"
+    case HTTPS = "https"
+}
+
+extension URL {
+    func URLWithScheme(_ scheme: URLScheme) -> URL? {
+        var components = URLComponents(url: self, resolvingAgainstBaseURL: true)
+        components?.scheme = scheme.rawValue
+        return components?.url
+    }
+}

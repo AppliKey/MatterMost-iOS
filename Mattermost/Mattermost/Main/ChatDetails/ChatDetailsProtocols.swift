@@ -13,6 +13,7 @@ protocol PostsService {
     func requestPosts(offset:String, completion: @escaping PostsCompletion) -> CancellableRequest?
     func requestMorePosts(afterPost postId:String, completion: @escaping PostsCompletion) -> CancellableRequest?
     func sendPost(withMessage message:String, channelId:String, completion: @escaping PostCompletion) -> String
+    func updateLastViewedDate(atChannel channelId: String)
 }
 
 protocol ChatDetailsConfigurator: class {

@@ -22,6 +22,9 @@ class MainCoordinator {
         router.embed(centerViewController: tabBarViewController)
         tabBarViewController.viewControllers = setupTabBarViewControllers()
         NavigationManager.setRootController(router.rootController)
+        if let address = SessionManager.shared.serverAddress, let userToken = SessionManager.shared.token {
+            SocketManager.shared.connect(toServerAddress:address, withToken: userToken)
+        }
     }
     
     func showAuthorization() {
@@ -103,6 +106,10 @@ extension MainCoordinator : ChatsCoordinator {
         guard let chatDetails = R.storyboard.main.chatDetailsViewController()
             else { fatalError("Can't instantiate chats details view controller") }
         ChatDetailsWireframe.setup(chatDetails, channel:channel, withCoordinator: self)
+        let userId = SessionManager.shared.user?.id
+        let chatName = channel.type == .direct ? channel.channelDetails?.members.filter{$0.id != userId}.first?.username ?? ""
+                                               : channel.displayName
+        chatDetails.navigationItem.title = chatName
         router.push(viewController: chatDetails, animated: true)
     }
 }

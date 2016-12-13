@@ -15,7 +15,7 @@ class ChatsInteractor {
     //MARK: - Init
     init(service: ChannelsService, mode:ChatsMode) {
         self.service = service
-        self.mode = mode
+        self.mode = mode        
     }
     
     //MARK: - Private

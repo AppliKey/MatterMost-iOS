@@ -89,4 +89,12 @@ extension ChatDetailsService: PostsService {
         }
         return "\(userId):\(dateStamp)"
     }
+    
+    func updateLastViewedDate(atChannel channelId: String) {
+        guard let currentTeam = SessionManager.shared.team?.id
+            else { fatalError("Team is not selected") }
+        
+        let target = UpdateLastViewedTarget(teamId: currentTeam, channelId: channelId)
+        let _ = request(target, queue: queue, completion: {_ in })
+    }
 }

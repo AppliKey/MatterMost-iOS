@@ -65,6 +65,8 @@
 		B6A085B41DF0239100AEE98B /* ChatDetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A085AF1DF0239000AEE98B /* ChatDetailsProtocols.swift */; };
 		B6A085B51DF0239100AEE98B /* ChatDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A085B01DF0239000AEE98B /* ChatDetailsViewController.swift */; };
 		B6A085B61DF0239100AEE98B /* ChatDetailsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A085B11DF0239000AEE98B /* ChatDetailsWireframe.swift */; };
+		B6ABF9E91E00005B00972E59 /* UpdateLastViewedTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ABF9E81E00005B00972E59 /* UpdateLastViewedTarget.swift */; };
+		B6ABF9EB1E002CCF00972E59 /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ABF9EA1E002CCF00972E59 /* SocketManager.swift */; };
 		B6BC89B91DE7032C00318EC8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC89B81DE7032C00318EC8 /* Post.swift */; };
 		B6D518C81DF5BA4D00F53D9F /* ChatDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D518C71DF5BA4D00F53D9F /* ChatDetailsService.swift */; };
 		B6E118D81DDEFB8C0012FD13 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E118D61DDEFB8C0012FD13 /* AppearanceManager.swift */; };
@@ -232,6 +234,9 @@
 		B6A085AF1DF0239000AEE98B /* ChatDetailsProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailsProtocols.swift; sourceTree = "<group>"; };
 		B6A085B01DF0239000AEE98B /* ChatDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailsViewController.swift; sourceTree = "<group>"; };
 		B6A085B11DF0239000AEE98B /* ChatDetailsWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailsWireframe.swift; sourceTree = "<group>"; };
+		B6ABF9E81E00005B00972E59 /* UpdateLastViewedTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateLastViewedTarget.swift; sourceTree = "<group>"; };
+		B6ABF9EA1E002CCF00972E59 /* SocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
+		B6ABF9EC1E006CD700972E59 /* Breadging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Breadging-Header.h"; sourceTree = "<group>"; };
 		B6BC89B81DE7032C00318EC8 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		B6D518C71DF5BA4D00F53D9F /* ChatDetailsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatDetailsService.swift; path = Services/ChatDetailsService.swift; sourceTree = "<group>"; };
 		B6E118D61DDEFB8C0012FD13 /* AppearanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
@@ -495,6 +500,7 @@
 				B6647EF01DFEAC1B001C4377 /* PostsTarget.swift */,
 				B6647EF11DFEAC1B001C4377 /* SendPostTarget.swift */,
 				B6647EF21DFEAC1B001C4377 /* UserStatusesTarget.swift */,
+				B6ABF9E81E00005B00972E59 /* UpdateLastViewedTarget.swift */,
 			);
 			path = Chats;
 			sourceTree = "<group>";
@@ -694,6 +700,7 @@
 				E1FEB3756A1639D28C72AA79 /* LaunchScreen.storyboard */,
 				E1FEBB2EA6D014656D7AE150 /* Info.plist */,
 				E7DCD8441DCA155000F599D8 /* Localizable.strings */,
+				B6ABF9EC1E006CD700972E59 /* Breadging-Header.h */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -756,6 +763,7 @@
 		E7967D331DCFB0CB0025F402 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				B6ABF9EA1E002CCF00972E59 /* SocketManager.swift */,
 				E7E1C9C71DD8AA4300338846 /* SessionManager.swift */,
 				E7327A741DE2075C00512EFF /* NetworkingConstants.swift */,
 				E7E1C9C41DD8A99000338846 /* Targets */,
@@ -1199,6 +1207,7 @@
 				E7327A6A1DDDD21500512EFF /* TeamCell.swift in Sources */,
 				B6E118FC1DDEFBD60012FD13 /* MenuProtocols.swift in Sources */,
 				B641BE151DF866E1003697AB /* Fonts.swift in Sources */,
+				B6ABF9E91E00005B00972E59 /* UpdateLastViewedTarget.swift in Sources */,
 				B6E118FE1DDEFBD60012FD13 /* MenuViewModel.swift in Sources */,
 				B64CB8A01DE45745008EF34B /* Channel.swift in Sources */,
 				B688D4561DE35A99002EAE46 /* UICollectionView+Reusable.swift in Sources */,
@@ -1210,6 +1219,7 @@
 				B6E118E41DDEFBB90012FD13 /* ChatsInteractor.swift in Sources */,
 				B6647EF41DFEAC1B001C4377 /* ChannelsTarget.swift in Sources */,
 				32BC97FE87976F5750722109 /* ServerSelectionInteractor.swift in Sources */,
+				B6ABF9EB1E002CCF00972E59 /* SocketManager.swift in Sources */,
 				B68C7D651DFACF1A00DD344D /* GroupMessageCell.swift in Sources */,
 				BFE20322EC44EEB648B2F19A /* SignInProtocols.swift in Sources */,
 				B6E119031DDEFBD60012FD13 /* SettingsProtocols.swift in Sources */,
@@ -1424,6 +1434,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "50dd01c5-0880-4586-a629-8888420be157";
 				PROVISIONING_PROFILE_SPECIFIER = "Mattermost Development";
+				SWIFT_OBJC_BRIDGING_HEADER = "Mattermost/Resources/Breadging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1443,6 +1454,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6f642d47-c0a0-4cfc-b9e3-88828d2dca7e";
 				PROVISIONING_PROFILE_SPECIFIER = "Mattermost Distribution";
+				SWIFT_OBJC_BRIDGING_HEADER = "Mattermost/Resources/Breadging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

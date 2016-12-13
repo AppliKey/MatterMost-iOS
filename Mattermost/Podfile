@@ -15,4 +15,5 @@ target 'Mattermost' do
     pod 'Crashlytics'
     pod 'GrowingTextViewHandler-Swift', '1.1'
     pod 'RSKPlaceholderTextView'
+    pod 'SocketRocket', '0.5.1'
 end
