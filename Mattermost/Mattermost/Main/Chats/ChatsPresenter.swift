@@ -15,6 +15,7 @@ class ChatsPresenter {
     weak var view: ChatsViewing!
     var interactor: ChatsInteracting!
     var representationModels = [ChatRepresentationModel]()
+    fileprivate var isViewLoaded = false
 	
 	//MARK: - Init
     
@@ -38,12 +39,14 @@ extension ChatsPresenter: ChatsPresenting {
     }
     
     func newPost(in channel: Channel, at index:Int) {
+        guard isViewLoaded else { return }
         DispatchQueue.main.async {
             self.view.moveToTop(channel: self.representation(for: channel), fromIndex: index)
         }
     }
     
     func present(_ channels: [Channel]) {
+        guard isViewLoaded else { return }
         DispatchQueue.main.async {
             self.view.hideActivityIndicator()
             self.view.updateView(with: channels.map(self.representation))
@@ -51,12 +54,14 @@ extension ChatsPresenter: ChatsPresenting {
     }
     
     func present(_ errorMessage: String) {
+        guard isViewLoaded else { return }
         DispatchQueue.main.async {
             self.view.alert(errorMessage)
         }
     }
     
     func update(channel: Channel, at index:Int) {
+        guard isViewLoaded else { return }
         DispatchQueue.main.async {
             self.view.updateCell(at: index, with: self.representation(for: channel))
         }
@@ -115,6 +120,7 @@ extension ChatsPresenter: ChatsEventHandling {
     }
     
     func viewIsReady() {
+        isViewLoaded = true
         view.showActivityIndicator()
         interactor.loadChannels()
     }

@@ -118,12 +118,9 @@
                                     <constraint firstAttribute="width" constant="20" id="V5Z-YU-zRf"/>
                                 </constraints>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMf-Wv-uCY">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMf-Wv-uCY">
                                 <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="16"/>
-                                <state key="normal" title="(!)">
-                                    <color key="titleColor" red="0.93246960639999998" green="0.41838821770000001" blue="0.40303140879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
+                                <state key="normal" image="ic_fail"/>
                                 <connections>
                                     <action selector="retryPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ad7-Vr-rd7"/>
                                 </connections>
@@ -173,4 +170,7 @@
             <point key="canvasLocation" x="-15.5" y="-295.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ic_fail" width="20" height="20"/>
+    </resources>
 </document>

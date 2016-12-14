@@ -15,6 +15,9 @@ class MenuViewController: UIViewController {
   	var eventHandler: MenuEventHandling!
     @IBOutlet weak var createGroupButton: UIButton!
     
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var teamNameLabel: UILabel!
   	//MARK: - Life cycle
 
     override func viewDidLoad() {
@@ -45,6 +48,13 @@ extension MenuViewController: MenuViewing {
     
     func updateView(withViewModel vm: MenuViewModel) {
         self.viewModel = vm
+        userNameLabel.text = vm.userName
+        teamNameLabel.text = vm.teamName
+        if let avatarUrl = vm.avatarUrl {
+            avatarImageView.setRoundedImage(withUrl: avatarUrl)
+        } else {
+            avatarImageView.image = R.image.placeholderSmall()
+        }
         tableView.reloadData()
     }
     

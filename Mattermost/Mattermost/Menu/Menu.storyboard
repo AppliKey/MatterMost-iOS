@@ -123,20 +123,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQN-KL-bVP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="lNc-jH-DSr"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
-                                <inset key="titleEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="NEW GROUP OR CHANNEL" backgroundImage="newGroupBanner">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Rc-aK-D1e">
-                                <rect key="frame" x="0.0" y="85" width="375" height="582"/>
+                                <rect key="frame" x="0.0" y="125" width="375" height="488"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LabelCell" rowHeight="40" id="FOn-zW-dDJ" customClass="LabelCell" customModule="Mattermost" customModuleProvider="target">
@@ -172,21 +160,80 @@
                                     <outlet property="delegate" destination="aUF-xd-oqg" id="ifj-EA-aay"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rah-Qy-ZAI">
+                                <rect key="frame" x="0.0" y="613" width="375" height="54"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="zbU-zb-jdS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                                <state key="normal" title="NEW GROUP OR CHANNEL" backgroundImage="newGroupBanner">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60e-Ya-y8W">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X85-jE-lI2">
+                                        <rect key="frame" x="30" y="36" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="LdM-2k-4UZ"/>
+                                            <constraint firstAttribute="width" constant="40" id="iRL-GI-dIB"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marian Figueroa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLG-b6-fxA">
+                                        <rect key="frame" x="78" y="36" width="289" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="Fej-NV-sdu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                        <color key="textColor" red="0.14117647058823529" green="0.16078431372549018" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AppliKey Solutions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fj-vb-aS2">
+                                        <rect key="frame" x="78" y="56" width="289" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="wc9-dU-VYZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                        <color key="textColor" red="0.56862745098039214" green="0.58039215686274503" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.95686274509803915" green="0.96078431372549022" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="105" id="4Hw-1T-yj1"/>
+                                    <constraint firstAttribute="trailing" secondItem="PLG-b6-fxA" secondAttribute="trailing" constant="8" id="7A3-l4-1qu"/>
+                                    <constraint firstItem="PLG-b6-fxA" firstAttribute="leading" secondItem="X85-jE-lI2" secondAttribute="trailing" constant="8" id="84B-VW-VDN"/>
+                                    <constraint firstItem="X85-jE-lI2" firstAttribute="leading" secondItem="60e-Ya-y8W" secondAttribute="leading" constant="30" id="JRX-es-e7g"/>
+                                    <constraint firstItem="5fj-vb-aS2" firstAttribute="top" secondItem="PLG-b6-fxA" secondAttribute="bottom" id="Tur-2g-VPg"/>
+                                    <constraint firstAttribute="trailing" secondItem="5fj-vb-aS2" secondAttribute="trailing" constant="8" id="gOH-eB-jzh"/>
+                                    <constraint firstItem="X85-jE-lI2" firstAttribute="top" secondItem="60e-Ya-y8W" secondAttribute="top" constant="36" id="h3a-WW-JQh"/>
+                                    <constraint firstItem="PLG-b6-fxA" firstAttribute="top" secondItem="60e-Ya-y8W" secondAttribute="top" constant="36" id="hgI-De-5zw"/>
+                                    <constraint firstItem="5fj-vb-aS2" firstAttribute="leading" secondItem="X85-jE-lI2" secondAttribute="trailing" constant="8" id="l2b-dF-z3a"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HQN-KL-bVP" firstAttribute="top" secondItem="egr-Tu-BYG" secondAttribute="top" id="31t-ev-jXU"/>
-                            <constraint firstAttribute="trailing" secondItem="HQN-KL-bVP" secondAttribute="trailing" id="97q-7p-puw"/>
-                            <constraint firstItem="HQN-KL-bVP" firstAttribute="leading" secondItem="egr-Tu-BYG" secondAttribute="leading" id="KHb-zh-bJ7"/>
-                            <constraint firstItem="4Rc-aK-D1e" firstAttribute="top" secondItem="HQN-KL-bVP" secondAttribute="bottom" constant="15" id="LPo-mE-3X8"/>
+                            <constraint firstItem="vYD-eR-Ggk" firstAttribute="top" secondItem="rah-Qy-ZAI" secondAttribute="bottom" id="02f-Qp-bWD"/>
+                            <constraint firstItem="rah-Qy-ZAI" firstAttribute="leading" secondItem="egr-Tu-BYG" secondAttribute="leading" id="04u-Sq-ehi"/>
+                            <constraint firstItem="rah-Qy-ZAI" firstAttribute="top" secondItem="4Rc-aK-D1e" secondAttribute="bottom" id="94d-jZ-iAV"/>
+                            <constraint firstAttribute="trailing" secondItem="rah-Qy-ZAI" secondAttribute="trailing" id="MET-V9-BYx"/>
+                            <constraint firstItem="60e-Ya-y8W" firstAttribute="leading" secondItem="egr-Tu-BYG" secondAttribute="leading" id="OI2-k6-Ef2"/>
                             <constraint firstItem="4Rc-aK-D1e" firstAttribute="leading" secondItem="egr-Tu-BYG" secondAttribute="leading" id="Odi-ku-E5O"/>
-                            <constraint firstItem="vYD-eR-Ggk" firstAttribute="top" secondItem="4Rc-aK-D1e" secondAttribute="bottom" id="RLJ-rY-DJ7"/>
                             <constraint firstAttribute="trailing" secondItem="4Rc-aK-D1e" secondAttribute="trailing" id="XEN-Xu-5xd"/>
+                            <constraint firstAttribute="trailing" secondItem="60e-Ya-y8W" secondAttribute="trailing" id="bHC-Jp-LjR"/>
+                            <constraint firstItem="60e-Ya-y8W" firstAttribute="top" secondItem="egr-Tu-BYG" secondAttribute="top" id="jRB-ar-gR9"/>
+                            <constraint firstItem="4Rc-aK-D1e" firstAttribute="top" secondItem="60e-Ya-y8W" secondAttribute="bottom" constant="20" id="rKf-7D-YUc"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="createGroupButton" destination="HQN-KL-bVP" id="JMb-Lb-aDE"/>
+                        <outlet property="avatarImageView" destination="X85-jE-lI2" id="fCv-fF-Oxn"/>
+                        <outlet property="createGroupButton" destination="rah-Qy-ZAI" id="lUo-IF-EsR"/>
                         <outlet property="tableView" destination="4Rc-aK-D1e" id="hJn-93-Y9p"/>
+                        <outlet property="teamNameLabel" destination="5fj-vb-aS2" id="8GV-y6-iY8"/>
+                        <outlet property="userNameLabel" destination="PLG-b6-fxA" id="bBO-y7-0Q3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pFF-cn-Squ" userLabel="First Responder" sceneMemberID="firstResponder"/>

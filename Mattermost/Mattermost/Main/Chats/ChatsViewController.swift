@@ -14,7 +14,7 @@ class ChatsViewController: UIViewController {
 	//MARK: - Properties
     
   	var eventHandler: ChatsEventHandling!
-    @IBOutlet fileprivate weak var tableView: UITableView?
+    @IBOutlet fileprivate weak var tableView: UITableView!
     fileprivate var chats = [ChatRepresentationModel]()
     var chatsService:ChatsService!
 
@@ -42,12 +42,12 @@ class ChatsViewController: UIViewController {
     
     private func configureInterface() {
         localizeViews()
-        tableView?.register(R.nib.singleChatCell)
-        tableView?.register(R.nib.groupChatCell)
-        tableView?.tableFooterView = UIView()
+        tableView.register(R.nib.singleChatCell)
+        tableView.register(R.nib.groupChatCell)
+        tableView.tableFooterView = UIView()
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
-        tableView?.refreshControl = refreshControl
+        tableView.refreshControl = refreshControl
     }
     
     private func localizeViews() {
@@ -57,6 +57,10 @@ class ChatsViewController: UIViewController {
     
     func refresh(_ sender: UIRefreshControl) {
         eventHandler.refresh()
+    }
+    
+    deinit {
+        print("deinited why?")
     }
 
 }
@@ -119,20 +123,20 @@ extension ChatsViewController: ChatsViewing {
     
     func updateView(with chatsRepresentation: [ChatRepresentationModel]) {
         chats = chatsRepresentation
-        tableView?.reloadData()
+        tableView.reloadData()
     }
     
     func showActivityIndicator() {
-        tableView?.refreshControl?.beginRefreshing()
+        tableView.refreshControl?.beginRefreshing()
     }
     
     func hideActivityIndicator() {
-        tableView?.refreshControl?.endRefreshing()
+        tableView.refreshControl?.endRefreshing()
     }
     
     func updateCell(at index:Int, with model:ChatRepresentationModel) {
         let indexPath = IndexPath(row: index, section: 0)
-        if let cell = tableView?.cellForRow(at: indexPath) as? ChannelCellViewing {
+        if let cell = tableView.cellForRow(at: indexPath) as? ChannelCellViewing {
             chats[index] = model
             cell.configure(for: model)
         }
@@ -143,10 +147,10 @@ extension ChatsViewController: ChatsViewing {
         chats.insert(channel, at: 0)
         let oldIndexPath = IndexPath(row: index, section: 0)
         let newIndexPath = IndexPath(row: 0, section: 0)
-        tableView?.beginUpdates()
-        tableView?.moveRow(at: oldIndexPath, to: newIndexPath)
-        tableView?.endUpdates()
-        if let cell = tableView?.cellForRow(at: newIndexPath) as? ChannelCellViewing {
+        tableView.beginUpdates()
+        tableView.moveRow(at: oldIndexPath, to: newIndexPath)
+        tableView.endUpdates()
+        if let cell = tableView.cellForRow(at: newIndexPath) as? ChannelCellViewing {
             cell.configure(for: channel)
         }
     }

@@ -34,6 +34,9 @@ extension MenuPresenter: MenuPresenting {
 extension MenuPresenter: MenuEventHandling {
     func viewIsReady() {
         let vm = MenuViewModel()
+        vm.userName = SessionManager.shared.user?.username
+        vm.teamName = SessionManager.shared.team?.name
+        vm.avatarUrl = SessionManager.shared.user?.avatarUrl
         view.updateView(withViewModel: vm)
     }
     

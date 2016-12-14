@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 22 images.
+  /// This `R.image` struct is generated, and contains static references to 23 images.
   struct image {
     /// Image `back`.
     static let back = Rswift.ImageResource(bundle: R.hostingBundle, name: "back")
@@ -51,6 +51,8 @@ struct R: Rswift.Validatable {
     static let ic_direct_not_active = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_direct_not_active")
     /// Image `ic_direct`.
     static let ic_direct = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_direct")
+    /// Image `ic_fail`.
+    static let ic_fail = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_fail")
     /// Image `ic_favorites_new`.
     static let ic_favorites_new = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_favorites_new")
     /// Image `ic_favorites_not_active`.
@@ -121,6 +123,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "ic_direct_not_active", bundle: ..., traitCollection: ...)`
     static func ic_direct_not_active(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.ic_direct_not_active, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_fail", bundle: ..., traitCollection: ...)`
+    static func ic_fail(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ic_fail, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "ic_favorites", bundle: ..., traitCollection: ...)`
@@ -589,6 +596,7 @@ struct _R: Rswift.Validatable {
   
   struct nib: Rswift.Validatable {
     static func validate() throws {
+      try _MyMessagesCell.validate()
       try _TeamCell.validate()
       try _GroupChatCell.validate()
     }
@@ -667,7 +675,7 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct _MyMessagesCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+    struct _MyMessagesCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
       typealias ReusableType = MyMessagesCell
       
       let bundle = R.hostingBundle
@@ -676,6 +684,10 @@ struct _R: Rswift.Validatable {
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> MyMessagesCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MyMessagesCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "ic_fail") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_fail' is used in nib 'MyMessagesCell', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
