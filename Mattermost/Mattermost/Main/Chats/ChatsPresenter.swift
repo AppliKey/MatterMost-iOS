@@ -31,6 +31,10 @@ extension ChatsPresenter: ChatsConfigurator {
 
 extension ChatsPresenter: ChatsPresenting {
     
+    func newPost(in channel: Channel, at index:Int) {
+        view.moveToTop(channel: representation(for: channel), fromIndex: index)
+    }
+    
     func present(_ channels: [Channel]) {
         DispatchQueue.main.async {
             self.view.hideActivityIndicator()

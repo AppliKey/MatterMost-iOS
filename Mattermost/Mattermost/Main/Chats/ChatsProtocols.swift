@@ -41,6 +41,7 @@ protocol ChatsInteracting: class {
 }
 
 protocol ChatsPresenting: class {
+    func newPost(in channel: Channel, at index:Int)
     func present(_ channels: [Channel])
     func present(_ errorMessage: String)
     func update(channel: Channel, at index:Int)
@@ -51,6 +52,7 @@ protocol ChatsViewing: AlertShowable {
     func updateCell(at index:Int, with model:ChatRepresentationModel)
     func showActivityIndicator()
     func hideActivityIndicator()
+    func moveToTop(channel: ChatRepresentationModel, fromIndex index:Int)
 }
 
 protocol ChatsEventHandling: class {

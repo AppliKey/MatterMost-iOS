@@ -10,6 +10,12 @@ import Foundation
 
 extension Notification.Name {
     static func newPost(inChannel channel:String) -> Notification.Name {
-        return Notification.Name("newPost" + channel)
+        return Notification.Name("newPostInChannel:" + channel)
     }
+    
+    static func newPost(inTeam team:String) -> Notification.Name {
+        return Notification.Name("newPostInTeam:" + team)
+    }
+    
+    static let updatedChanel = Notification.Name("channelUpdated")
 }

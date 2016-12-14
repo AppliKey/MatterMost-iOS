@@ -15,7 +15,9 @@ class ChatsInteractor {
     //MARK: - Init
     init(service: ChannelsService, mode:ChatsMode) {
         self.service = service
-        self.mode = mode        
+        self.mode = mode
+        NotificationCenter.default.addObserver(self, selector: #selector(handleChatUpdated(notification:)),
+                                               name: .updatedChanel, object: nil)
     }
     
     //MARK: - Private
@@ -23,8 +25,19 @@ class ChatsInteractor {
     fileprivate var request: CancellableRequest?
     fileprivate var channels: [Channel]?
     
+    @objc func handleChatUpdated(notification: Notification) {
+        debugPrint(notification)
+        if let channel = notification.object as? Channel,
+           let index = channels?.index(where: {$0.channelId == channel.channelId}) {
+            channels?.remove(at: index)
+            channels?.insert(channel, at: 0)
+            presenter.newPost(in: channel, at: index)
+        }
+    }
+    
     //MARK: - Deinit
     deinit {
+        NotificationCenter.default.removeObserver(self)
         request?.cancel()
     }
 }

@@ -28,6 +28,23 @@ class ChannelsService : NetworkService {
     
     fileprivate var queue = DispatchQueue(label: "chats.background", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
     
+    init() {
+        guard let currentTeam = SessionManager.shared.team?.id
+            else { return }
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNewPost(notification:)),
+                                               name: .newPost(inTeam: currentTeam), object: nil)
+    }
+    
+    @objc fileprivate func handleNewPost(notification: Notification) {
+        debugPrint(notification)
+        if let post = notification.object as? Post,
+           let channel = allChannels.first(where: {$0.channelId == post.channelId}) {
+            channel.lastPost = post.message
+            channel.lastPostAt = post.createDate
+            NotificationCenter.default.post(Notification(name: .updatedChanel, object: channel, userInfo: nil))
+        }
+    }
+    
     fileprivate func requestAllChannels(forTeamId teamId:String, completion: @escaping ChannelsCompletion) -> CancellableRequest {
         let target = ChannelsTarget(teamId: teamId)
         return request(target, queue: queue) {
@@ -97,6 +114,7 @@ class ChannelsService : NetworkService {
     }
     
     deinit {
+        NotificationCenter.default.removeObserver(self)
         request?.cancel()
     }
 }

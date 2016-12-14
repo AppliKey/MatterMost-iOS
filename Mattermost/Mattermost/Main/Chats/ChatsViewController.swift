@@ -113,10 +113,22 @@ extension ChatsViewController: ChatsViewing {
     
     func updateCell(at index:Int, with model:ChatRepresentationModel) {
         let indexPath = IndexPath(row: index, section: 0)
-        if let cell = self.tableView.cellForRow(at: indexPath) as? ChannelCellViewing {
+        if let cell = tableView.cellForRow(at: indexPath) as? ChannelCellViewing {
             chats[index] = model
             cell.configure(for: model)
         }
     }
     
+    func moveToTop(channel: ChatRepresentationModel, fromIndex index:Int) {
+        chats.remove(at: index)
+        chats.insert(channel, at: 0)
+        let oldIndexPath = IndexPath(row: index, section: 0)
+        let newIndexPath = IndexPath(row: 0, section: 0)
+        tableView.beginUpdates()
+        tableView.moveRow(at: oldIndexPath, to: newIndexPath)
+        tableView.endUpdates()
+        if let cell = tableView.cellForRow(at: newIndexPath) as? ChannelCellViewing {
+            cell.configure(for: channel)
+        }
+    }
 }
