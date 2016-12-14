@@ -51,11 +51,9 @@ extension ChatDetailsPresenter: ChatDetailsConfigurator {
 }
 
 extension ChatDetailsPresenter: ChatDetailsPresenting {
-    
     func addNew(post:Post) {
         view.insert(post: transform(post: post))
-    }
-    
+    }        
 }
 
 extension ChatDetailsPresenter: ChatDetailsEventHandling {

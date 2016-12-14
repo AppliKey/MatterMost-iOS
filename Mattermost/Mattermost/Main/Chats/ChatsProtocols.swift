@@ -45,6 +45,7 @@ protocol ChatsPresenting: class {
     func present(_ channels: [Channel])
     func present(_ errorMessage: String)
     func update(channel: Channel, at index:Int)
+    func updateTabBarItem(for mode:ChatsMode, isUnread: Bool)
 }
 
 protocol ChatsViewing: AlertShowable {
@@ -53,6 +54,7 @@ protocol ChatsViewing: AlertShowable {
     func showActivityIndicator()
     func hideActivityIndicator()
     func moveToTop(channel: ChatRepresentationModel, fromIndex index:Int)
+    func updateTabBarItem(for mode:ChatsMode, isUnread: Bool)
 }
 
 protocol ChatsEventHandling: class {

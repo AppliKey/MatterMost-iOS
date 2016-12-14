@@ -140,7 +140,6 @@ extension ChatDetailsViewController: ChatDetailsViewing {
     func hideActivityIndicator() {
         tableView.refreshControl?.endRefreshing()
     }
-    
 }
 
 extension ChatDetailsViewController: UITextViewDelegate {

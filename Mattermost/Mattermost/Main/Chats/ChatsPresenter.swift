@@ -29,10 +29,18 @@ class ChatsPresenter {
 extension ChatsPresenter: ChatsConfigurator {
 }
 
-extension ChatsPresenter: ChatsPresenting {
+extension ChatsPresenter: ChatsPresenting {    
+    
+    func updateTabBarItem(for mode:ChatsMode, isUnread: Bool) {
+        DispatchQueue.main.async {
+            self.view.updateTabBarItem(for: mode, isUnread: isUnread)
+        }
+    }
     
     func newPost(in channel: Channel, at index:Int) {
-        view.moveToTop(channel: representation(for: channel), fromIndex: index)
+        DispatchQueue.main.async {
+            self.view.moveToTop(channel: self.representation(for: channel), fromIndex: index)
+        }
     }
     
     func present(_ channels: [Channel]) {

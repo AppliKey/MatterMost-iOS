@@ -25,6 +25,7 @@ class ChannelsService : NetworkService {
     fileprivate var filteredChannels = [Channel]()
     fileprivate var isLoading = false
     fileprivate var request:CancellableRequest?
+    fileprivate var queuedCompletions: [ChatsMode : ChannelsCompletion] = [:]
     
     fileprivate var queue = DispatchQueue(label: "chats.background", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
     
@@ -36,7 +37,6 @@ class ChannelsService : NetworkService {
     }
     
     @objc fileprivate func handleNewPost(notification: Notification) {
-        debugPrint(notification)
         if let post = notification.object as? Post,
            let channel = allChannels.first(where: {$0.channelId == post.channelId}) {
             channel.lastPost = post.message
@@ -48,13 +48,21 @@ class ChannelsService : NetworkService {
     
     fileprivate func requestAllChannels(forTeamId teamId:String, completion: @escaping ChannelsCompletion) -> CancellableRequest {
         let target = ChannelsTarget(teamId: teamId)
-        return request(target, queue: queue) {
+        return request(target, queue: queue) { [weak self] in
             do {
                 var channels = try target.map($0)
                 channels.sort{$0.0.lastPostAt > $0.1.lastPostAt}
                 completion(.success(channels))
+                if let keys = self?.queuedCompletions.keys {
+                    for mode in keys {
+                        let delayedCompletion = self?.queuedCompletions[mode]
+                        let filtered = self?.filterChannels(forMode: mode) ?? []
+                        delayedCompletion?(.success(filtered))
+                    }
+                    self?.queuedCompletions = [:]
+                }
             } catch {
-                let errorMessage = self.errorMapper.message(for: error)
+                let errorMessage = self?.errorMapper.message(for: error) ?? ""
                 completion(.failure(errorMessage))
             }
         }
@@ -128,7 +136,10 @@ extension ChannelsService : ChatsService {
         }
         guard let currentTeam = SessionManager.shared.team?.id
             else { fatalError("Team is not selected") }
-        guard isLoading == false else { return }
+        guard isLoading == false else {
+            queuedCompletions[mode] = completion
+            return
+        }
         
         isLoading = true
         request = requestAllChannels(forTeamId: currentTeam, completion: { [weak self]  result in

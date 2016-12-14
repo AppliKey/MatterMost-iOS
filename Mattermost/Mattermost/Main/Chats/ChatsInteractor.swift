@@ -26,13 +26,18 @@ class ChatsInteractor {
     fileprivate var channels: [Channel]?
     
     @objc func handleChatUpdated(notification: Notification) {
-        debugPrint(notification)
         if let channel = notification.object as? Channel,
            let index = channels?.index(where: {$0.channelId == channel.channelId}) {
             channels?.remove(at: index)
             channels?.insert(channel, at: 0)
             presenter.newPost(in: channel, at: index)
         }
+        checkIsUnread()
+    }
+    
+    fileprivate func checkIsUnread() {
+        let isUnread = channels?.filter{$0.isUnread == true}.count > 0 ? true : false
+        presenter.updateTabBarItem(for: mode, isUnread: isUnread)
     }
     
     //MARK: - Deinit
@@ -58,6 +63,7 @@ extension ChatsInteractor: ChatsInteracting {
             self.channels = channels
             presenter.present(channels)
             getUserStatuses()
+            checkIsUnread()
         case .failure(let errorMessage):
             presenter.present(errorMessage)
         }
