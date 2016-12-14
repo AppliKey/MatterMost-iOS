@@ -8,6 +8,8 @@
 
 import UIKit
 import SocketRocket
+import SwiftyJSON
+import Unbox
 
 fileprivate let socketPath = "/api/v3/users/websocket"
 
@@ -30,18 +32,42 @@ class SocketManager: NSObject {
 
 extension SocketManager: SRWebSocketDelegate {
     func webSocketDidOpen(_ webSocket: SRWebSocket!) {
-        print("webSocketDidOpen")
+        debugPrint("webSocketDidOpen")
     }
     
     func webSocket(_ webSocket: SRWebSocket!, didReceiveMessage message: Any!) {
-        print("didReceiveMessage - \(message as? String)")
+        guard let data = message as? Data
+            else { return }
+        
+        let json = JSON(data: data)
+        if let action =  json["action"].string {
+            switch action {
+            case "posted":
+                if let props = json["props"].dictionary,
+                   let postString = props["post"]?.string,
+                   let postDict = JSON.parse(postString).dictionaryObject,
+                   let post = try? unbox(dictionary: postDict) as Post {
+                    handle(newPost: post)
+                }
+            default:
+                debugPrint("didReceiveMessage - \(json)")
+            }
+        }
+    }
+    
+    func handle(newPost post: Post) {
+        guard let channel = post.channelId
+            else { return }
+        
+        post.isUnread = true
+        NotificationCenter.default.post(Notification(name: .newPost(inChannel: channel), object: post, userInfo: nil))
     }
     
     func webSocket(_ webSocket: SRWebSocket!, didFailWithError error: Error!) {
-        print("didFailWithError - \(error.localizedDescription)")
+        debugPrint("didFailWithError - \(error.localizedDescription)")
     }
     
     func webSocketShouldConvertTextFrame(toString webSocket: SRWebSocket!) -> Bool {
-        return true
+        return false
     }
 }

@@ -23,10 +23,12 @@ protocol ChatDetailsInteracting: class {
     func getMorePosts(completion: @escaping PostsCompletion)
     func refresh(completion: @escaping PostsCompletion)
     func sendMessage(message:String, completion:@escaping PostCompletion) -> String
-    weak var channel:Channel! { get }
+    func updateLastPost(with post:Post)
+    var channel:Channel { get }
 }
 
 protocol ChatDetailsPresenting: class {
+    func addNew(post:Post)
 }
 
 protocol MessageCellViewing {

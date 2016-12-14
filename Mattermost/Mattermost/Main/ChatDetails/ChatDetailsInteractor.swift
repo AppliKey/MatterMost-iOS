@@ -10,7 +10,7 @@ import Foundation
 
 class ChatDetailsInteractor {
   	weak var presenter: ChatDetailsPresenting!
-    weak var channel: Channel!
+    unowned var channel: Channel
     var service: PostsService!
     
     lazy var members: Dictionary<String, User> = { [unowned self] in
@@ -28,13 +28,39 @@ class ChatDetailsInteractor {
     fileprivate var request:CancellableRequest?
     fileprivate var posts = [Post]()
     var hasNextPage = true
+    
+    init(withChannel channel:Channel) {
+        self.channel = channel
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNewPost(notification:)),
+                                               name: .newPost(inChannel: channel.channelId), object: nil)
+    }
+    
+    @objc func handleNewPost(notification: Notification) {
+        debugPrint(notification)
+        if let post = notification.object as? Post {
+            guard post.userId != SessionManager.shared.user?.id
+                else { return }
+            post.user = members[post.userId]
+            post.isUnread = false
+            service.updateLastViewedDate(atChannel: channel.channelId)
+            presenter.addNew(post: post)
+            updateLastPost(with: post)
+        }
+    }
 
     deinit {
+        NotificationCenter.default.removeObserver(self)
         request?.cancel()
     }
 }
 
 extension ChatDetailsInteractor: ChatDetailsInteracting {
+    
+    func updateLastPost(with post:Post) {
+        channel.lastPost = post.message
+        channel.lastPostAt = post.createDate
+        channel.lastViewedDate = post.createDate
+    }
     
     func getMorePosts(completion: @escaping PostsCompletion) {
         guard hasNextPage else {

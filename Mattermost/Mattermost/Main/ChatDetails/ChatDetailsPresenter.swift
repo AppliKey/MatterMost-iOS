@@ -51,6 +51,11 @@ extension ChatDetailsPresenter: ChatDetailsConfigurator {
 }
 
 extension ChatDetailsPresenter: ChatDetailsPresenting {
+    
+    func addNew(post:Post) {
+        view.insert(post: transform(post: post))
+    }
+    
 }
 
 extension ChatDetailsPresenter: ChatDetailsEventHandling {
@@ -59,6 +64,7 @@ extension ChatDetailsPresenter: ChatDetailsEventHandling {
         let placeholderId = interactor.sendMessage(message: message, completion: { [weak self] result in
             switch result {
             case .success(let post):
+                self?.interactor.updateLastPost(with: post)
                 if let model = self?.transform(post: post) {
                     DispatchQueue.main.async {
                         self?.view.update(post: model)

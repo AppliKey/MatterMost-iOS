@@ -67,6 +67,7 @@
 		B6A085B61DF0239100AEE98B /* ChatDetailsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A085B11DF0239000AEE98B /* ChatDetailsWireframe.swift */; };
 		B6ABF9E91E00005B00972E59 /* UpdateLastViewedTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ABF9E81E00005B00972E59 /* UpdateLastViewedTarget.swift */; };
 		B6ABF9EB1E002CCF00972E59 /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ABF9EA1E002CCF00972E59 /* SocketManager.swift */; };
+		B6ABF9EE1E0158C600972E59 /* NotificationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ABF9ED1E0158C600972E59 /* NotificationConstants.swift */; };
 		B6BC89B91DE7032C00318EC8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC89B81DE7032C00318EC8 /* Post.swift */; };
 		B6D518C81DF5BA4D00F53D9F /* ChatDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D518C71DF5BA4D00F53D9F /* ChatDetailsService.swift */; };
 		B6E118D81DDEFB8C0012FD13 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E118D61DDEFB8C0012FD13 /* AppearanceManager.swift */; };
@@ -237,6 +238,7 @@
 		B6ABF9E81E00005B00972E59 /* UpdateLastViewedTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateLastViewedTarget.swift; sourceTree = "<group>"; };
 		B6ABF9EA1E002CCF00972E59 /* SocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
 		B6ABF9EC1E006CD700972E59 /* Breadging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Breadging-Header.h"; sourceTree = "<group>"; };
+		B6ABF9ED1E0158C600972E59 /* NotificationConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationConstants.swift; sourceTree = "<group>"; };
 		B6BC89B81DE7032C00318EC8 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		B6D518C71DF5BA4D00F53D9F /* ChatDetailsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatDetailsService.swift; path = Services/ChatDetailsService.swift; sourceTree = "<group>"; };
 		B6E118D61DDEFB8C0012FD13 /* AppearanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
@@ -670,6 +672,7 @@
 			children = (
 				E7662BDF1DC7497000E82AFC /* Aliases.swift */,
 				B641BE141DF866E1003697AB /* Fonts.swift */,
+				B6ABF9ED1E0158C600972E59 /* NotificationConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1257,6 +1260,7 @@
 				B6E1191A1DDEFBFA0012FD13 /* TransitionAnimator.swift in Sources */,
 				E29BE190D7FDF84BF453E961 /* ForgotPassWireframe.swift in Sources */,
 				520649B1426F38DD83F40367 /* TeamSelectionProtocols.swift in Sources */,
+				B6ABF9EE1E0158C600972E59 /* NotificationConstants.swift in Sources */,
 				E7967D3E1DD04FE10025F402 /* MainCoordinator.swift in Sources */,
 				E7E1C9C61DD8A9AE00338846 /* MattermostTarget.swift in Sources */,
 				B6A085AB1DEEF55C00AEE98B /* OptionalComparers.swift in Sources */,

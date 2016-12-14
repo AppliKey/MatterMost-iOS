@@ -14,13 +14,12 @@ class ChatDetailsWireframe {
                      channel: Channel,
                      withCoordinator coordinator: ChatDetailsCoordinator,
                      configutation: ChatDetailsConfiguration? = nil) {
-        let interactor = ChatDetailsInteractor()
+        let interactor = ChatDetailsInteractor(withChannel: channel)
         let presenter = ChatDetailsPresenter(coordinator: coordinator)
         presenter.view = viewController
         presenter.interactor = interactor
         viewController.eventHandler = presenter
         interactor.presenter = presenter
-        interactor.channel = channel
         interactor.service = ChatDetailsService(withChannel: channel)
         configutation?(presenter)
     }
