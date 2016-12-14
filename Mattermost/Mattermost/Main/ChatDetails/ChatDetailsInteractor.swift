@@ -42,6 +42,7 @@ class ChatDetailsInteractor {
                 else { return }
             post.user = members[post.userId]
             post.isUnread = false
+            channel.isUnread = false
             service.updateLastViewedDate(atChannel: channel.channelId)
             presenter.addNew(post: post)
             updateLastPost(with: post)
@@ -91,6 +92,8 @@ extension ChatDetailsInteractor: ChatDetailsInteracting {
     private func handleCompletion(_ result:PostsResult, completion: @escaping PostsCompletion) {
         switch result {
         case .success(let posts):
+            channel.isUnread = false
+            service.updateLastViewedDate(atChannel: channel.channelId)
             for post in posts {
                 post.user = members[post.userId]
                 post.isUnread = post.createDate > channel.lastViewedDate

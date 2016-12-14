@@ -41,6 +41,7 @@ class ChannelsService : NetworkService {
            let channel = allChannels.first(where: {$0.channelId == post.channelId}) {
             channel.lastPost = post.message
             channel.lastPostAt = post.createDate
+            channel.isUnread = (channel.lastPostAt > channel.lastViewedDate) && post.userId != SessionManager.shared.user?.id
             NotificationCenter.default.post(Notification(name: .updatedChanel, object: channel, userInfo: nil))
         }
     }
