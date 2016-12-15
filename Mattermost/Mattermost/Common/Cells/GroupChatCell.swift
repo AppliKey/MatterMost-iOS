@@ -27,6 +27,8 @@ class GroupChatCell: UITableViewCell {
         }
         imageUrls = nil
         membersCount = 0
+        isPrivate = false
+        isUnread = false
     }
     var requests: [CancellableRequest] = []
         
@@ -40,12 +42,26 @@ class GroupChatCell: UITableViewCell {
     @IBOutlet fileprivate weak var privateChannelLeadingConstraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var privateChannelWidthConstraint: NSLayoutConstraint!
     
+    @IBOutlet fileprivate weak var unreadStatusLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var unreadStatusWidthConstraint: NSLayoutConstraint!
+    
     var isPrivate: Bool = false {
         didSet {
             if oldValue != isPrivate {
                 privateChannelLeadingConstraint.constant = isPrivate ? defaultConstraintValue : 0
                 privateChannelWidthConstraint.constant = isPrivate ? defaultConstraintValue : 0
                 
+                layoutIfNeeded()
+            }
+        }
+    }
+    
+    var isUnread: Bool = false {
+        didSet {
+            if oldValue != isUnread {
+                unreadStatusLeadingConstraint.constant = isUnread ? defaultConstraintValue : 0
+                unreadStatusWidthConstraint.constant = isUnread ? defaultConstraintValue : 0
+                self.backgroundColor = isUnread ? UIColor(rgba: "#f4f5f7") : UIColor.white
                 layoutIfNeeded()
             }
         }
@@ -80,6 +96,7 @@ extension GroupChatCell : ChannelCellViewing {
         deliveryTimeLabel.text = model.deliveryTime
         lastMessageLabel.text = model.lastMessage
         isPrivate = model.isPrivateChannel
+        isUnread = model.isUnread
         imageUrls = model.avatarUrl
         membersCount = model.peopleCount
         collectionView.reloadData()

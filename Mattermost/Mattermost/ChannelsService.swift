@@ -119,7 +119,6 @@ class ChannelsService : NetworkService {
         }
     }
     
-    
     fileprivate func getOtherUsersIds() -> [String] {
         let directChats = allChannels.filter{$0.type == ChannelType.direct}
         let otherUserIds: [String?] = directChats.map{$0.otherUserId}

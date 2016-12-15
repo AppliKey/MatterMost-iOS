@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="105"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="03:55 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUi-hL-NdL">
@@ -66,14 +66,29 @@
                             <constraint firstAttribute="width" id="zEo-JF-eGP"/>
                         </constraints>
                     </imageView>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2u5-o2-1TM" userLabel="unread">
+                        <rect key="frame" x="95" y="27" width="0.0" height="10"/>
+                        <color key="backgroundColor" red="0.93246960639999998" green="0.41838821770000001" blue="0.40303140879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" id="7dS-h7-iX1"/>
+                            <constraint firstAttribute="height" constant="10" id="mSI-Wu-Mve"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="aWB-jt-zgz" firstAttribute="leading" secondItem="2u5-o2-1TM" secondAttribute="trailing" id="2Q9-55-yZl"/>
+                    <constraint firstItem="2u5-o2-1TM" firstAttribute="leading" secondItem="57d-L7-leB" secondAttribute="trailing" id="5aJ-dG-Ulx"/>
                     <constraint firstItem="57d-L7-leB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="23" id="D6y-hv-XBB"/>
                     <constraint firstItem="aWB-jt-zgz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="Dzd-dE-YnV"/>
                     <constraint firstAttribute="trailing" secondItem="gUi-hL-NdL" secondAttribute="trailing" constant="8" id="EVK-nJ-nO6"/>
                     <constraint firstItem="pMC-Sd-mYX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Erw-To-FZi"/>
+                    <constraint firstItem="aWB-jt-zgz" firstAttribute="centerY" secondItem="2u5-o2-1TM" secondAttribute="centerY" id="KpY-X2-VFy"/>
                     <constraint firstItem="57d-L7-leB" firstAttribute="leading" secondItem="pMC-Sd-mYX" secondAttribute="trailing" constant="15" id="OyK-zQ-tth"/>
-                    <constraint firstItem="aWB-jt-zgz" firstAttribute="leading" secondItem="57d-L7-leB" secondAttribute="trailing" id="a1x-P7-7Ya"/>
                     <constraint firstItem="pMC-Sd-mYX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="kUu-jU-tsl"/>
                     <constraint firstItem="gUi-hL-NdL" firstAttribute="leading" secondItem="aWB-jt-zgz" secondAttribute="trailing" constant="8" id="nng-gH-eZa"/>
                     <constraint firstAttribute="trailing" secondItem="Aus-MS-2Ge" secondAttribute="trailing" constant="10" id="sJ3-jY-4Gy"/>
@@ -87,8 +102,10 @@
                 <outlet property="collectionView" destination="pMC-Sd-mYX" id="BQt-0g-GUT"/>
                 <outlet property="deliveryTimeLabel" destination="gUi-hL-NdL" id="nNT-SP-zTN"/>
                 <outlet property="lastMessageLabel" destination="Aus-MS-2Ge" id="d7O-rI-Wge"/>
-                <outlet property="privateChannelLeadingConstraint" destination="a1x-P7-7Ya" id="zd3-b3-vg5"/>
+                <outlet property="privateChannelLeadingConstraint" destination="5aJ-dG-Ulx" id="AkT-X5-OUN"/>
                 <outlet property="privateChannelWidthConstraint" destination="zEo-JF-eGP" id="fZI-wN-lvu"/>
+                <outlet property="unreadStatusLeadingConstraint" destination="2Q9-55-yZl" id="4Wy-Pu-uDY"/>
+                <outlet property="unreadStatusWidthConstraint" destination="7dS-h7-iX1" id="OSG-CG-er9"/>
             </connections>
             <point key="canvasLocation" x="-28" y="-128"/>
         </tableViewCell>

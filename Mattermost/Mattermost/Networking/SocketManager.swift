@@ -16,21 +16,43 @@ fileprivate let socketPath = "/api/v3/users/websocket"
 class SocketManager: NSObject {
     static let shared = SocketManager()
     
-    var socketClient: SRWebSocket!
+    override init() {
+        super.init()
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive),
+                                               name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
+    }
+    
+    var socketClient: SRWebSocket?
+    private var address:String?
+    private var token:String?
     
     func connect(toServerAddress address:String, withToken token:String) {
         guard let url = URL(string: address + socketPath)?.URLWithScheme(.WS)
             else { fatalError("Can't create url with address: \(address)") }
         
+        self.address = address
+        self.token = token
         var urlRequest = URLRequest(url: url)
         urlRequest.addValue(token, forHTTPHeaderField: "Authorization")
         socketClient = SRWebSocket(urlRequest: urlRequest)
-        socketClient.delegate = self
-        socketClient.open()
+        socketClient?.delegate = self
+        socketClient?.open()
     }
     
     func closeConnection() {
-        socketClient.close()
+        socketClient?.close()
+        socketClient = nil
+    }
+    
+    func applicationDidBecomeActive() {
+        closeConnection()
+        if let token = token, let address = address {
+            connect(toServerAddress: address, withToken: token)
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
