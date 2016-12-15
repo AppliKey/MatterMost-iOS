@@ -18,6 +18,8 @@ class ChatDetailsViewController: UIViewController {
     fileprivate var textViewHandler: GrowingTextViewHandler!
     fileprivate var posts: [PostRepresentationModel] = []
     fileprivate var heightHelper = HeightProcessor()
+    private var keyboardHandler: KeyboardHandler?
+    private var tapRecognizer: HideKeyboardRecognizer?
     
     @IBOutlet fileprivate weak var tableView: UITableView!
     @IBOutlet weak var messageTextView: UITextView!
@@ -39,6 +41,8 @@ class ChatDetailsViewController: UIViewController {
     
     private func configureInterface() {
         localizeViews()
+        setupKeyboardHandler()
+        tapRecognizer = HideKeyboardRecognizer(withView: view)
         messageTextView.delegate = self
         textViewHandler = GrowingTextViewHandler(textView: messageTextView, heightConstraint: messageTextViewHeightConstraint)
         textViewHandler.minimumNumberOfLines = 1
@@ -88,6 +92,11 @@ class ChatDetailsViewController: UIViewController {
             nextCell.configure(withRepresentationModel: posts[index + 1])
         }
         tableView.endUpdates()
+    }
+    
+    private func setupKeyboardHandler() {
+        guard let passwordView = messageTextView.superview else { return }
+        keyboardHandler = KeyboardHandler(withView: passwordView, offset: 0)
     }
 }
 
