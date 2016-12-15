@@ -92,7 +92,6 @@ extension ChatDetailsInteractor: ChatDetailsInteracting {
         switch result {
         case .success(let posts):
             channel.isUnread = false
-            NotificationCenter.default.post(Notification(name: .updatedChanel, object: channel, userInfo: nil))
             service.updateLastViewedDate(atChannel: channel.channelId)
             for post in posts {
                 post.user = members[post.userId]

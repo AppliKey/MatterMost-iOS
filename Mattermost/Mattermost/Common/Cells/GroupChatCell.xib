@@ -47,7 +47,7 @@
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="pMC-Sd-mYX">
                         <rect key="frame" x="20" y="20" width="60" height="60"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="2Vh-3c-EcO"/>
                             <constraint firstAttribute="height" constant="60" id="S1S-I9-blg"/>
@@ -66,12 +66,12 @@
                             <constraint firstAttribute="width" id="zEo-JF-eGP"/>
                         </constraints>
                     </imageView>
-                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2u5-o2-1TM" userLabel="unread">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBp-gz-MUp" userLabel="unread">
                         <rect key="frame" x="95" y="27" width="0.0" height="10"/>
                         <color key="backgroundColor" red="0.93246960639999998" green="0.41838821770000001" blue="0.40303140879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" id="7dS-h7-iX1"/>
-                            <constraint firstAttribute="height" constant="10" id="mSI-Wu-Mve"/>
+                            <constraint firstAttribute="height" constant="10" id="uCv-Oe-Ejb"/>
+                            <constraint firstAttribute="width" id="zM2-FM-JOy"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -81,16 +81,16 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="aWB-jt-zgz" firstAttribute="leading" secondItem="2u5-o2-1TM" secondAttribute="trailing" id="2Q9-55-yZl"/>
-                    <constraint firstItem="2u5-o2-1TM" firstAttribute="leading" secondItem="57d-L7-leB" secondAttribute="trailing" id="5aJ-dG-Ulx"/>
+                    <constraint firstItem="aWB-jt-zgz" firstAttribute="leading" secondItem="57d-L7-leB" secondAttribute="trailing" id="7eE-xw-4gE"/>
                     <constraint firstItem="57d-L7-leB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="23" id="D6y-hv-XBB"/>
                     <constraint firstItem="aWB-jt-zgz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="Dzd-dE-YnV"/>
                     <constraint firstAttribute="trailing" secondItem="gUi-hL-NdL" secondAttribute="trailing" constant="8" id="EVK-nJ-nO6"/>
                     <constraint firstItem="pMC-Sd-mYX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Erw-To-FZi"/>
-                    <constraint firstItem="aWB-jt-zgz" firstAttribute="centerY" secondItem="2u5-o2-1TM" secondAttribute="centerY" id="KpY-X2-VFy"/>
-                    <constraint firstItem="57d-L7-leB" firstAttribute="leading" secondItem="pMC-Sd-mYX" secondAttribute="trailing" constant="15" id="OyK-zQ-tth"/>
+                    <constraint firstItem="57d-L7-leB" firstAttribute="leading" secondItem="yBp-gz-MUp" secondAttribute="trailing" id="HbH-sO-Kx7"/>
+                    <constraint firstItem="yBp-gz-MUp" firstAttribute="leading" secondItem="pMC-Sd-mYX" secondAttribute="trailing" constant="15" id="gLf-ai-r0i"/>
                     <constraint firstItem="pMC-Sd-mYX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="kUu-jU-tsl"/>
                     <constraint firstItem="gUi-hL-NdL" firstAttribute="leading" secondItem="aWB-jt-zgz" secondAttribute="trailing" constant="8" id="nng-gH-eZa"/>
+                    <constraint firstItem="aWB-jt-zgz" firstAttribute="centerY" secondItem="yBp-gz-MUp" secondAttribute="centerY" id="rJr-Oc-b5h"/>
                     <constraint firstAttribute="trailing" secondItem="Aus-MS-2Ge" secondAttribute="trailing" constant="10" id="sJ3-jY-4Gy"/>
                     <constraint firstItem="Aus-MS-2Ge" firstAttribute="leading" secondItem="pMC-Sd-mYX" secondAttribute="trailing" constant="15" id="vCG-dP-RQb"/>
                     <constraint firstItem="Aus-MS-2Ge" firstAttribute="top" secondItem="gUi-hL-NdL" secondAttribute="bottom" constant="2" id="xPe-Ky-7o3"/>
@@ -102,10 +102,10 @@
                 <outlet property="collectionView" destination="pMC-Sd-mYX" id="BQt-0g-GUT"/>
                 <outlet property="deliveryTimeLabel" destination="gUi-hL-NdL" id="nNT-SP-zTN"/>
                 <outlet property="lastMessageLabel" destination="Aus-MS-2Ge" id="d7O-rI-Wge"/>
-                <outlet property="privateChannelLeadingConstraint" destination="5aJ-dG-Ulx" id="AkT-X5-OUN"/>
+                <outlet property="privateChannelLeadingConstraint" destination="7eE-xw-4gE" id="JVy-of-vSz"/>
                 <outlet property="privateChannelWidthConstraint" destination="zEo-JF-eGP" id="fZI-wN-lvu"/>
-                <outlet property="unreadStatusLeadingConstraint" destination="2Q9-55-yZl" id="4Wy-Pu-uDY"/>
-                <outlet property="unreadStatusWidthConstraint" destination="7dS-h7-iX1" id="OSG-CG-er9"/>
+                <outlet property="unreadStatusLeadingConstraint" destination="HbH-sO-Kx7" id="xBb-2q-l1R"/>
+                <outlet property="unreadStatusWidthConstraint" destination="zM2-FM-JOy" id="9Ru-vr-KDi"/>
             </connections>
             <point key="canvasLocation" x="-28" y="-128"/>
         </tableViewCell>
