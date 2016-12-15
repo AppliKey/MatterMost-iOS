@@ -13,6 +13,7 @@ class SettingsPresenter {
 	//MARK: - Properties
     weak var view: SettingsViewing!
     var interactor: SettingsInteracting!
+    fileprivate var oldUnreadValue:Bool = false
 	
 	//MARK: - Init
     
@@ -33,6 +34,7 @@ extension SettingsPresenter: SettingsPresenting {
 extension SettingsPresenter: SettingsEventHandling {
     
     func viewIsReady() {
+        oldUnreadValue = interactor.hideUnreadController
         view.setUnreadSwitcher(withValue: !interactor.hideUnreadController)
     }
     
@@ -41,7 +43,10 @@ extension SettingsPresenter: SettingsEventHandling {
     }
     
     func viewWillDissapear() {
-        coordinator.checkTabBarControllers()
+        let newUnreadValue = interactor.hideUnreadController
+        if oldUnreadValue != newUnreadValue {
+            coordinator.checkTabBarControllers()
+        }
     }
     
     func handleEditProfile() {

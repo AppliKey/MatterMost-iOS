@@ -34,6 +34,10 @@ class ChannelsService : NetworkService {
             else { return }
         NotificationCenter.default.addObserver(self, selector: #selector(handleNewPost(notification:)),
                                                name: .newPost(inTeam: currentTeam), object: nil)
+        
+        if let address = SessionManager.shared.serverAddress, let userToken = SessionManager.shared.token {
+            SocketManager.shared.connect(toServerAddress:address, withToken: userToken)
+        }
     }
     
     @objc fileprivate func handleNewPost(notification: Notification) {
@@ -125,6 +129,7 @@ class ChannelsService : NetworkService {
     deinit {
         NotificationCenter.default.removeObserver(self)
         request?.cancel()
+        SocketManager.shared.closeConnection()
     }
 }
 

@@ -58,11 +58,6 @@ class ChatsViewController: UIViewController {
     func refresh(_ sender: UIRefreshControl) {
         eventHandler.refresh()
     }
-    
-    deinit {
-        print("deinited why?")
-    }
-
 }
 
 extension ChatsViewController: UITableViewDataSource, UITableViewDelegate {

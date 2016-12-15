@@ -21,10 +21,7 @@ class MainCoordinator {
         let tabBarViewController = UITabBarController()
         router.embed(centerViewController: tabBarViewController)
         tabBarViewController.viewControllers = setupTabBarViewControllers()
-        NavigationManager.setRootController(router.rootController)
-        if let address = SessionManager.shared.serverAddress, let userToken = SessionManager.shared.token {
-            SocketManager.shared.connect(toServerAddress:address, withToken: userToken)
-        }
+        NavigationManager.setRootController(router.rootController)        
     }
     
     func showAuthorization() {

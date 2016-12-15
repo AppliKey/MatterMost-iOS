@@ -327,8 +327,6 @@ struct R: Rswift.Validatable {
     struct localizable {
       /// Value: Address format is not valid
       static let serverAddressWrongFormat = Rswift.StringResource(key: "server.address.wrong.format", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: All channels
-      static let menuItemChannels = Rswift.StringResource(key: "menu.item.channels", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: All your team communication in one  place, searchable and accessible  anywhere.
       static let description = Rswift.StringResource(key: "description", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Are you sure you want to logout?
@@ -347,6 +345,8 @@ struct R: Rswift.Validatable {
       static let passwordFieldPlaceholder = Rswift.StringResource(key: "password.field.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: FORGOT PASSWORD
       static let forgotPassword = Rswift.StringResource(key: "forgot.password", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Find more channels
+      static let menuItemChannels = Rswift.StringResource(key: "menu.item.channels", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Invite new member
       static let menuItemInvite = Rswift.StringResource(key: "menu.item.invite", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Loading...
@@ -401,11 +401,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("server.address.wrong.format", bundle: R.hostingBundle, comment: "")
       }
       
-      /// Value: All channels
-      static func menuItemChannels(_: Void = ()) -> String {
-        return NSLocalizedString("menu.item.channels", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// Value: All your team communication in one  place, searchable and accessible  anywhere.
       static func description(_: Void = ()) -> String {
         return NSLocalizedString("description", bundle: R.hostingBundle, comment: "")
@@ -449,6 +444,11 @@ struct R: Rswift.Validatable {
       /// Value: FORGOT PASSWORD
       static func forgotPassword(_: Void = ()) -> String {
         return NSLocalizedString("forgot.password", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Find more channels
+      static func menuItemChannels(_: Void = ()) -> String {
+        return NSLocalizedString("menu.item.channels", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Invite new member

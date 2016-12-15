@@ -40,7 +40,7 @@
 "team.selection.header" = "Select your team";
 
 // Left Menu
-"menu.item.channels" = "All channels";
+"menu.item.channels" = "Find more channels";
 "menu.item.invite" = "Invite new member";
 "menu.item.settings" = "Settings";
 "new.group.channel" = "NEW GROUP OR CHANNEL";

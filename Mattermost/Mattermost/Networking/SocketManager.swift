@@ -28,6 +28,10 @@ class SocketManager: NSObject {
         socketClient.delegate = self
         socketClient.open()
     }
+    
+    func closeConnection() {
+        socketClient.close()
+    }
 }
 
 extension SocketManager: SRWebSocketDelegate {
