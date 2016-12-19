@@ -8,56 +8,93 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>GrowingTextViewHandler-Swift.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>KeychainAccess.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>Moya.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 		<key>Pods-Mattermost.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 		<key>R.swift.Library.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>RSKPlaceholderTextView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
 		</dict>
 		<key>Result.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+		<key>SocketRocket.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>11</integer>
 		</dict>
 		<key>Typist.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>12</integer>
 		</dict>
 		<key>Unbox.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>13</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -68,6 +105,26 @@
 			<true/>
 		</dict>
 		<key>38F4673FFAD0CC35039DAEA33998D21A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>40CA86A0A96F1EA6EBCF163C41CB4F6B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>479ABB163DB90934DA51E4E4215F7891</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>49DA2CB8C9863F5074017F32620FFF6C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>66B5F82BCBCF15A8B1A93503B7AB855B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,6 +144,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9541A332AE5986A865FC951F7A95D118</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A63B74CA9090DD5F4B184DA77A5D5516</key>
 		<dict>
 			<key>primary</key>
@@ -97,7 +159,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C05A4F95AF296086B7DEA65AE3F0554F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C4944FEC314D1A66588651D006273ADE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CC985C9CF448CDC586220B7BD90E94DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -113,6 +185,11 @@
 			<true/>
 		</dict>
 		<key>EF9F8D22067979BD4905CEFB6DC48028</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F3656DDDA88396F2F0C23DF6956E92E2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

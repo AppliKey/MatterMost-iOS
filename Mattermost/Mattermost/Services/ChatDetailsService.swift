@@ -27,7 +27,8 @@ class ChatDetailsService : NetworkService {
     fileprivate var channel: Channel
 
     fileprivate let errorMapper = ErrorMapper()
-    fileprivate let queue = DispatchQueue(label: "posts.background", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
+    fileprivate let queue = DispatchQueue(label: "posts.background", qos: DispatchQoS.userInitiated,
+                                          attributes: DispatchQueue.Attributes.concurrent)
     
     init(withChannel channel:Channel) {
         self.channel = channel
@@ -40,7 +41,9 @@ extension ChatDetailsService: PostsService {
         guard let currentTeam = SessionManager.shared.team?.id
             else { fatalError("Team is not selected") }
         
-        let target = FirstPostsTarget(teamId: currentTeam, channelId: channel.channelId, offset: offset, limit: limit)
+        let target = FirstPostsTarget(teamId: currentTeam,
+                                      channelId: channel.channelId,
+                                      offset: offset, limit: limit)
         return request(target, queue: queue) { [weak self] in
             do {
                 let posts = try target.map($0)
@@ -53,7 +56,8 @@ extension ChatDetailsService: PostsService {
         }
     }
     
-    func requestMorePosts(afterPost postId:String, completion: @escaping PostsCompletion) -> CancellableRequest? {
+    func requestMorePosts(afterPost postId:String,
+                          completion: @escaping PostsCompletion) -> CancellableRequest? {
         guard let currentTeam = SessionManager.shared.team?.id
             else { fatalError("Team is not selected") }
         
@@ -71,7 +75,8 @@ extension ChatDetailsService: PostsService {
         }
     }
     
-    func sendPost(withMessage message:String, channelId:String, completion: @escaping PostCompletion) -> String {
+    func sendPost(withMessage message:String, channelId:String,
+                  completion: @escaping PostCompletion) -> String {
         guard let currentTeam = SessionManager.shared.team?.id,
               let userId = SessionManager.shared.user?.id
             else { fatalError("Team is not selected, or User is nil") }

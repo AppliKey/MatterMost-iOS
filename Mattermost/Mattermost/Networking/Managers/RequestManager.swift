@@ -12,10 +12,13 @@ import Alamofire
 
 class RequestManager {
     
+    //MARK: - Shared
+    static let shared = RequestManager()
+    
     func request<Target: MattermostTarget>(_ target: Target,
                  queue: DispatchQueue? = DispatchQueue.main,
                  completion: @escaping Moya.Completion) -> CancellableRequest {
-        let provider = MoyaProvider<Target>(endpointClosure: { $0.defaultEndpoint },
+        let provider = MoyaProvider<Target>(endpointClosure: { $0.endpoint },
                                             manager: manager)
         return provider.request(target, queue: queue, completion: completion)
     }
@@ -28,6 +31,7 @@ class RequestManager {
         let configuration = URLSessionConfiguration.default
         configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
         let manager = Alamofire.SessionManager(configuration: configuration)
+        manager.startRequestsImmediately = false
         return manager
     }
     

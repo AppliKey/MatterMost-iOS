@@ -15,12 +15,23 @@ protocol EncodingProvider {
 
 protocol MattermostTarget: TargetType, EncodingProvider {
     var apiPath: String {get}
+    var endpoint: Moya.Endpoint<Self> {get}
 }
 
 extension MattermostTarget {
+    
     var apiPath: String {
         return "/api/v3"
     }
+    
+    var endpoint: Moya.Endpoint<Self> {
+        var endpoint = defaultEndpoint
+        if let token = SessionManager.shared.token {
+            endpoint = endpoint.adding(newHttpHeaderFields: ["Authorization": token])
+        }
+        return endpoint
+    }
+    
 }
 
 extension TargetType where Self: MattermostTarget {
@@ -60,16 +71,13 @@ extension TargetType where Self: MattermostTarget {
         return nil
     }
     
-    var defaultEndpoint: Endpoint<Self> {
+    fileprivate var defaultEndpoint: Endpoint<Self> {
         let url = self.baseURL.appendingPathComponent(self.path).absoluteString
-        var endpoint = Endpoint<Self>(URL: url,
+        let endpoint = Endpoint<Self>(URL: url,
                                       sampleResponseClosure: {.networkResponse(200, self.sampleData)},
                                       method: self.method,
                                       parameters: self.parameters,
                                       parameterEncoding: self.parameterEncoding)
-        if let token = SessionManager.shared.token {
-            endpoint = endpoint.adding(newHttpHeaderFields: ["Authorization": token])
-        }
         return endpoint
     }
     

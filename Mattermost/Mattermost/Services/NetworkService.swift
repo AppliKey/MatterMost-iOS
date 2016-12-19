@@ -17,7 +17,6 @@ protocol NetworkService {
 extension NetworkService {
     func request<Target: MattermostTarget>(_ target: Target, queue: DispatchQueue? = DispatchQueue.main,
                  completion: @escaping Moya.Completion) -> CancellableRequest {
-        let provider = MoyaProvider<Target>(endpointClosure: { $0.defaultEndpoint })
-        return provider.request(target, queue: queue, completion: completion)
+        return RequestManager.shared.request(target, queue: queue, completion: completion)
     }
 }
