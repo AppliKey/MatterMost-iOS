@@ -155,6 +155,8 @@ extension UIColor {
     
 }
 
+//MARK: - Color for UIControlState
+
 extension UIColor {
     
     public func highlitedColor() -> UIColor {
@@ -174,4 +176,11 @@ extension UIColor {
         }
     }
     
+}
+
+//MARK: - App colors
+
+extension UIColor {
+    static let active = UIColor(rgba: "#242933")
+    static let inactive = UIColor(rgba: "#919499")
 }

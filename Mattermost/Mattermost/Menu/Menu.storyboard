@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -109,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yvw-uZ-cOt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3902" y="-2871"/>
+            <point key="canvasLocation" x="-2711" y="-2033"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="krU-mK-kr3">
@@ -160,16 +160,27 @@
                                     <outlet property="delegate" destination="aUF-xd-oqg" id="ifj-EA-aay"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rah-Qy-ZAI">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rah-Qy-ZAI" customClass="GradientButton" customModule="Mattermost" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="613" width="375" height="54"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="zbU-zb-jdS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
-                                <state key="normal" title="NEW GROUP OR CHANNEL" backgroundImage="newGroupBanner">
+                                <state key="normal" title="NEW GROUP OR CHANNEL">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" red="0.38823529410000002" green="0.80392156859999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" red="0.4039215686" green="0.58039215690000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="createGroupButtonPressed:" destination="aUF-xd-oqg" eventType="touchUpInside" id="NWX-lS-prm"/>
+                                </connections>
                             </button>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60e-Ya-y8W">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
@@ -234,14 +245,46 @@
                         <outlet property="tableView" destination="4Rc-aK-D1e" id="hJn-93-Y9p"/>
                         <outlet property="teamNameLabel" destination="5fj-vb-aS2" id="8GV-y6-iY8"/>
                         <outlet property="userNameLabel" destination="PLG-b6-fxA" id="bBO-y7-0Q3"/>
+                        <segue destination="KQy-qX-FzS" kind="show" id="nZY-Yw-3za"/>
+                        <segue destination="MQf-2b-Jwk" kind="show" id="sVW-qD-dJn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pFF-cn-Squ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2967.1999999999998" y="-2871.8140929535234"/>
         </scene>
+        <!--New Group View Controller-->
+        <scene sceneID="hiJ-Ik-wrB">
+            <objects>
+                <viewController storyboardIdentifier="NewGroupViewController" id="KQy-qX-FzS" customClass="NewGroupViewController" customModule="Mattermost" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="du9-y6-nXf"/>
+                        <viewControllerLayoutGuide type="bottom" id="o2C-2b-7kR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ELz-RN-vhI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XDw-B8-aLH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o2C-2b-7kR" firstAttribute="top" secondItem="XDw-B8-aLH" secondAttribute="bottom" id="Hrx-kC-pi6"/>
+                            <constraint firstItem="XDw-B8-aLH" firstAttribute="top" secondItem="ELz-RN-vhI" secondAttribute="top" id="c98-mv-hMC"/>
+                            <constraint firstAttribute="trailing" secondItem="XDw-B8-aLH" secondAttribute="trailing" id="pOs-kk-NTF"/>
+                            <constraint firstItem="XDw-B8-aLH" firstAttribute="leading" secondItem="ELz-RN-vhI" secondAttribute="leading" id="spu-At-8KZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="XDw-B8-aLH" id="qfO-Bi-xmS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pYV-zs-g56" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3201" y="-2033"/>
+        </scene>
     </scenes>
-    <resources>
-        <image name="newGroupBanner" width="260" height="54"/>
-    </resources>
 </document>

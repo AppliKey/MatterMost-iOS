@@ -25,15 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     //MARK: Private
-    private let appCoordinator = AppCoordinator()
+    private var appCoordinator: AppCoordinator!
     
     private func setupWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = appCoordinator.rootViewController()
-        window?.makeKeyAndVisible()
-        if SessionManager.shared.hasValidSession {
-            appCoordinator.showMainScreen()
-        }
+        guard let window = window else { fatalError("No window") }
+        appCoordinator = AppCoordinator(window: window)
+        appCoordinator.setup()
     }
 
 }

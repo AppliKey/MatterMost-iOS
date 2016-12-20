@@ -32,6 +32,7 @@ extension MenuPresenter: MenuPresenting {
 }
 
 extension MenuPresenter: MenuEventHandling {
+    
     func viewIsReady() {
         let vm = MenuViewModel()
         vm.userName = SessionManager.shared.user?.username
@@ -50,4 +51,9 @@ extension MenuPresenter: MenuEventHandling {
             coordinator.openSettings()
         }
     }
+    
+    func createGroup() {
+        coordinator.createGroup()
+    }
+    
 }

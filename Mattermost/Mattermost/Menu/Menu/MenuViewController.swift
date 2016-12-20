@@ -41,6 +41,12 @@ class MenuViewController: UIViewController {
     private func localizeViews() {
         createGroupButton.setTitle(R.string.localizable.newGroupChannel(), for: .normal)
     }
+    
+    //MARK: - IBAction
+    
+    @IBAction func createGroupButtonPressed(_ sender: Any) {
+        eventHandler.createGroup()
+    }
 
 }
 

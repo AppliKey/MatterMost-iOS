@@ -22,8 +22,10 @@ class ChatsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.image.icMenu(), style: .done,
-                                                           target: self, action: #selector(openMenuPressed(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.image.icMenu(),
+                                                           style: .done,
+                                                           target: self,
+                                                           action: #selector(openMenuPressed(_:)))
         configureInterface()
     }
     
@@ -74,16 +76,19 @@ extension ChatsViewController: UITableViewDataSource, UITableViewDelegate {
         let chatViewModel = chats[indexPath.row]
         var cell: ChannelCellViewing
         if chatViewModel.isDirectChat {
-            cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.singleChatCell, for: indexPath)!
+            cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.singleChatCell,
+                                                 for: indexPath)!
         } else {
-            cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.groupChatCell, for: indexPath)!
+            cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.groupChatCell,
+                                                 for: indexPath)!
         }
         cell.configure(for: chatViewModel)
         cell.requests = eventHandler.handleCellAppearing(at: indexPath.row).flatMap{$0}
         return cell as! UITableViewCell
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell,
+                   forRowAt indexPath: IndexPath) {
         cell.separatorInset = UIEdgeInsets.zero
         cell.preservesSuperviewLayoutMargins = false
         cell.layoutMargins = UIEdgeInsets.zero
@@ -97,19 +102,23 @@ extension ChatsViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension ChatsViewController: ChatsViewing {
     
-    func updateTabBarItem(for mode:ChatsMode, isUnread: Bool) {
+    func updateTabBarItem(for mode: ChatsMode, isUnread: Bool) {
         switch mode {
         case .unread:
-            tabBarItem = UITabBarItem.withoutTitle(image: R.image.ic_unread_not_active(), selectedImage: R.image.ic_unread())
+            tabBarItem = UITabBarItem.withoutTitle(image: R.image.ic_unread_not_active(),
+                                                   selectedImage: R.image.ic_unread())
         case .favourites:
             let image = isUnread ? R.image.ic_favorites_new() : R.image.ic_favorites_not_active()
-            tabBarItem = UITabBarItem.withoutTitle(image: image, selectedImage: R.image.ic_favorites())
+            tabBarItem = UITabBarItem.withoutTitle(image: image,
+                                                   selectedImage: R.image.ic_favorites())
         case .publicChats:
             let image = isUnread ? R.image.ic_public_chanels_new() : R.image.ic_public_chanels_not_active()
-            tabBarItem = UITabBarItem.withoutTitle(image: image, selectedImage: R.image.ic_public_chanels())
+            tabBarItem = UITabBarItem.withoutTitle(image: image,
+                                                   selectedImage: R.image.ic_public_chanels())
         case .privateChats:
             let image = isUnread ? R.image.ic_private_chanels_new() : R.image.ic_private_chanels_not_active()
-            tabBarItem = UITabBarItem.withoutTitle(image: image, selectedImage: R.image.ic_private_chanels())
+            tabBarItem = UITabBarItem.withoutTitle(image: image,
+                                                   selectedImage: R.image.ic_private_chanels())
         case .direct:
             let image = isUnread ? R.image.ic_direct_new() : R.image.ic_direct_not_active()
             tabBarItem = UITabBarItem.withoutTitle(image: image, selectedImage: R.image.ic_direct())
@@ -129,7 +138,7 @@ extension ChatsViewController: ChatsViewing {
         tableView.refreshControl?.endRefreshing()
     }
     
-    func updateCell(at index:Int, with model:ChatRepresentationModel) {
+    func updateCell(at index: Int, with model: ChatRepresentationModel) {
         let indexPath = IndexPath(row: index, section: 0)
         if let cell = tableView.cellForRow(at: indexPath) as? ChannelCellViewing {
             chats[index] = model
@@ -137,7 +146,7 @@ extension ChatsViewController: ChatsViewing {
         }
     }
     
-    func moveToTop(channel: ChatRepresentationModel, fromIndex index:Int) {
+    func moveToTop(channel: ChatRepresentationModel, fromIndex index: Int) {
         chats.remove(at: index)
         chats.insert(channel, at: 0)
         let oldIndexPath = IndexPath(row: index, section: 0)

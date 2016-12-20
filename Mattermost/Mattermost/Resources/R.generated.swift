@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 23 images.
+  /// This `R.image` struct is generated, and contains static references to 24 images.
   struct image {
     /// Image `back`.
     static let back = Rswift.ImageResource(bundle: R.hostingBundle, name: "back")
@@ -75,10 +75,12 @@ struct R: Rswift.Validatable {
     static let ic_unread_not_active = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_unread_not_active")
     /// Image `ic_unread`.
     static let ic_unread = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_unread")
-    /// Image `newGroupBanner`.
-    static let newGroupBanner = Rswift.ImageResource(bundle: R.hostingBundle, name: "newGroupBanner")
     /// Image `placeholderSmall`.
     static let placeholderSmall = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholderSmall")
+    /// Image `private_group_icon`.
+    static let private_group_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "private_group_icon")
+    /// Image `public_group_icon`.
+    static let public_group_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "public_group_icon")
     
     /// `UIImage(named: "back", bundle: ..., traitCollection: ...)`
     static func back(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -185,20 +187,25 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.ic_unread_not_active, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "newGroupBanner", bundle: ..., traitCollection: ...)`
-    static func newGroupBanner(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.newGroupBanner, compatibleWith: traitCollection)
-    }
-    
     /// `UIImage(named: "placeholderSmall", bundle: ..., traitCollection: ...)`
     static func placeholderSmall(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.placeholderSmall, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "private_group_icon", bundle: ..., traitCollection: ...)`
+    static func private_group_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.private_group_icon, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "public_group_icon", bundle: ..., traitCollection: ...)`
+    static func public_group_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.public_group_icon, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 8 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 9 nibs.
   struct nib {
     /// Nib `DirectMessageCell`.
     static let directMessageCell = _R.nib._DirectMessageCell()
@@ -212,6 +219,8 @@ struct R: Rswift.Validatable {
     static let labelCollectionViewCell = _R.nib._LabelCollectionViewCell()
     /// Nib `MyMessagesCell`.
     static let myMessagesCell = _R.nib._MyMessagesCell()
+    /// Nib `NewGroupTypeCell`.
+    static let newGroupTypeCell = _R.nib._NewGroupTypeCell()
     /// Nib `SingleChatCell`.
     static let singleChatCell = _R.nib._SingleChatCell()
     /// Nib `TeamCell`.
@@ -245,6 +254,11 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "MyMessagesCell", in: bundle)`
     static func myMessagesCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.myMessagesCell)
+    }
+    
+    /// `UINib(name: "NewGroupTypeCell", in: bundle)`
+    static func newGroupTypeCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.newGroupTypeCell)
     }
     
     /// `UINib(name: "SingleChatCell", in: bundle)`
@@ -598,6 +612,7 @@ struct _R: Rswift.Validatable {
     static func validate() throws {
       try _MyMessagesCell.validate()
       try _TeamCell.validate()
+      try _NewGroupTypeCell.validate()
       try _GroupChatCell.validate()
     }
     
@@ -688,6 +703,22 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "ic_fail") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_fail' is used in nib 'MyMessagesCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _NewGroupTypeCell: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "NewGroupTypeCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> NewGroupTypeCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? NewGroupTypeCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "private_group_icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'private_group_icon' is used in nib 'NewGroupTypeCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "public_group_icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'public_group_icon' is used in nib 'NewGroupTypeCell', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
@@ -812,10 +843,15 @@ struct _R: Rswift.Validatable {
       let bundle = R.hostingBundle
       let menuViewController = StoryboardViewControllerResource<MenuViewController>(identifier: "MenuViewController")
       let name = "Menu"
+      let newGroupViewController = StoryboardViewControllerResource<Mattermost.NewGroupViewController>(identifier: "NewGroupViewController")
       let settingsViewController = StoryboardViewControllerResource<SettingsViewController>(identifier: "SettingsViewController")
       
       func menuViewController(_: Void = ()) -> MenuViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: menuViewController)
+      }
+      
+      func newGroupViewController(_: Void = ()) -> Mattermost.NewGroupViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: newGroupViewController)
       }
       
       func settingsViewController(_: Void = ()) -> SettingsViewController? {
@@ -823,9 +859,9 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "newGroupBanner") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'newGroupBanner' is used in storyboard 'Menu', but couldn't be loaded.") }
         if _R.storyboard.menu().menuViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'menuViewController' could not be loaded from storyboard 'Menu' as 'MenuViewController'.") }
         if _R.storyboard.menu().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'Menu' as 'SettingsViewController'.") }
+        if _R.storyboard.menu().newGroupViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'newGroupViewController' could not be loaded from storyboard 'Menu' as 'Mattermost.NewGroupViewController'.") }
       }
       
       fileprivate init() {}

@@ -15,7 +15,7 @@ project_target: Mattermost
 project_file_path: Mattermost/Authorization
 
 # The Xcode group path to new modules
-project_group_path: Mattermost/Authorization
+project_group_path: Mattermost/Menu
 
 ### Dependencies settings section
 podfile_path: Podfile
