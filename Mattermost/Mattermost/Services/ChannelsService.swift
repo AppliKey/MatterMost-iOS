@@ -41,12 +41,14 @@ class ChannelsService : NetworkService {
     }
     
     @objc fileprivate func handleNewPost(notification: Notification) {
-        if let post = notification.object as? Post,
-           let channel = allChannels.first(where: {$0.channelId == post.channelId}) {
+        guard let post = notification.object as? Post else { return }
+        if let channel = allChannels.first(where: {$0.channelId == post.channelId}) {
             channel.lastPost = post.message
             channel.lastPostAt = post.createDate
             channel.isUnread = (channel.lastPostAt > channel.lastViewedDate) && post.userId != SessionManager.shared.user?.id
             NotificationCenter.default.post(Notification(name: .updatedChanel, object: channel, userInfo: nil))
+        } else {
+            //TODO: load channel
         }
     }
     
@@ -54,8 +56,7 @@ class ChannelsService : NetworkService {
         let target = ChannelsTarget(teamId: teamId)
         return request(target, queue: queue) { [weak self] in
             do {
-                var channels = try target.map($0)
-                channels.sort{$0.0.lastPostAt > $0.1.lastPostAt}
+                let channels = try target.map($0)
                 completion(.success(channels))
                 if let keys = self?.queuedCompletions.keys {
                     for mode in keys {

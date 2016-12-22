@@ -16,7 +16,6 @@ class ChatsViewController: UIViewController {
   	var eventHandler: ChatsEventHandling!
     @IBOutlet fileprivate weak var tableView: UITableView!
     fileprivate var chats = [ChatRepresentationModel]()
-    var chatsService:ChatsService!
 
   	//MARK: - Life cycle
 
