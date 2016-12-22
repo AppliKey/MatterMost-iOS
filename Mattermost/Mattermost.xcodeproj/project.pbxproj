@@ -164,6 +164,7 @@
 		E7AE43F61DCA5A6500475B8F /* HideKeyboardRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE43F51DCA5A6500475B8F /* HideKeyboardRecognizer.swift */; };
 		E7C082F81E0AD15E00692E7F /* NewGroupTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C082F61E0AD15E00692E7F /* NewGroupTextCell.swift */; };
 		E7C082F91E0AD15E00692E7F /* NewGroupTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7C082F71E0AD15E00692E7F /* NewGroupTextCell.xib */; };
+		E7C0E6991E0BF40B009DDA74 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C0E6981E0BF40B009DDA74 /* UIFontExtension.swift */; };
 		E7C8BD071DEC91E700A707F5 /* ErrorIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C8BD061DEC91E700A707F5 /* ErrorIndicatorView.swift */; };
 		E7DCD8431DC9F19400F599D8 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCD8421DC9F19400F599D8 /* KeyboardHandler.swift */; };
 		E7DCD8451DCA155000F599D8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7DCD8441DCA155000F599D8 /* Localizable.strings */; };
@@ -359,6 +360,7 @@
 		E7AE43F51DCA5A6500475B8F /* HideKeyboardRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideKeyboardRecognizer.swift; sourceTree = "<group>"; };
 		E7C082F61E0AD15E00692E7F /* NewGroupTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGroupTextCell.swift; sourceTree = "<group>"; };
 		E7C082F71E0AD15E00692E7F /* NewGroupTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewGroupTextCell.xib; sourceTree = "<group>"; };
+		E7C0E6981E0BF40B009DDA74 /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		E7C8BD061DEC91E700A707F5 /* ErrorIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorIndicatorView.swift; sourceTree = "<group>"; };
 		E7DCD8421DC9F19400F599D8 /* KeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		E7DCD8441DCA155000F599D8 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -739,6 +741,7 @@
 				E7967D311DCFA92D0025F402 /* UINavigationBar+Shadow.swift */,
 				05A4BA8A1DD21B1B007FAA18 /* URL+Validation.swift */,
 				B6E119221DDF30690012FD13 /* UIColorExtensions.swift */,
+				E7C0E6981E0BF40B009DDA74 /* UIFontExtension.swift */,
 				B6E119261DDF563D0012FD13 /* UIImageView+ImageDownloading.swift */,
 				B641BE121DF859D7003697AB /* StringExtensions.swift */,
 			);
@@ -1235,6 +1238,7 @@
 				B65C094B1DE3218600A98CED /* ImageCollectionViewCell.swift in Sources */,
 				E797F8651E0806AC00F0F99B /* ErrorMapper.swift in Sources */,
 				B6E119051DDEFBD60012FD13 /* SettingsWireframe.swift in Sources */,
+				E7C0E6991E0BF40B009DDA74 /* UIFontExtension.swift in Sources */,
 				B6E118E81DDEFBB90012FD13 /* ChatsWireframe.swift in Sources */,
 				B6E1192B1DDF623A0012FD13 /* GroupChatCell.swift in Sources */,
 				0598023C1DD1FFA000AE01C2 /* User.swift in Sources */,

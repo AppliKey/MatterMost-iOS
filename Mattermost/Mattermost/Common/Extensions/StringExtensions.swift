@@ -9,6 +9,7 @@
 import UIKit
 
 extension String {
+    
     func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin,
@@ -16,4 +17,14 @@ extension String {
         
         return boundingBox.height
     }
+    
+    var separatedWithSpaces: String {
+        var result = ""
+        for character in self.characters {
+            result.append(character)
+            result.append(" ")
+        }
+        return result
+    }
+    
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import RSKPlaceholderTextView
 
 class NewGroupViewController: UIViewController {
 	
@@ -152,8 +153,8 @@ extension NewGroupViewController: UITableViewDelegate {
         guard let row = GroupInfoRow(rawValue: indexPath.row) else { fatalError("Wrong row") }
         var text = textForGroupInfoRow(row)
         if text.isEmpty { text = row.placeholder }
-        //TODO: calculate height
-        return 130
+        let height = NewGroupTextCell.heightForText(text, withViewWidth: tableView.frame.width)
+        return height
     }
     
     private func groupTextCellHeightAt(_ indexPath: IndexPath) -> CGFloat {
@@ -174,25 +175,57 @@ extension NewGroupViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange,
                   replacementText text: String) -> Bool {
-        tableView.beginUpdates()
-        tableView.endUpdates()
+        let currentText = textView.text ?? ""
+        let resultString = NSString(string: currentText).replacingCharacters(in: range, with: text)
+        saveText(resultString, for: textView)
+        updateTableViewForChangedText(resultString, in: textView)
         return true
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        saveTextForTextView(textView)
+        saveText(textView.text, for: textView)
     }
     
-    private func saveTextForTextView(_ textView: UITextView) {
+    private func saveText(_ text: String, for textView: UITextView) {
         let origin = tableView.convert(textView.frame.origin, from: textView.superview)
         guard let indexPath = tableView.indexPathForRow(at: origin) else { return }
         guard Section.groupInfo.rawValue == indexPath.section else { return }
         guard let row = GroupInfoRow(rawValue: indexPath.row) else { return }
         switch row {
-        case .name: name = textView.text
-        case .url: url = textView.text
-        case .purpose: purpose = textView.text
+        case .name: name = text
+        case .url: url = text
+        case .purpose: purpose = text
         }
+    }
+    
+    private func updateTableViewForChangedText(_ resultText: String, `in` textView: UITextView) {
+        let previousText = textFromTextView(textView)
+        var newText = resultText
+        if newText.isEmpty {
+            newText = placeholderForTextView(textView)
+        }
+        let previousHeight = NewGroupTextCell.heightForText(previousText, withViewWidth: tableView.frame.width)
+        let newHeight = NewGroupTextCell.heightForText(newText, withViewWidth: tableView.frame.width)
+        if (previousHeight != newHeight) {
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
+    }
+    
+    private func textFromTextView(_ textView: UITextView) -> String {
+        var text = textView.text ?? ""
+        if text.isEmpty {
+            text = placeholderForTextView(textView)
+        }
+        return text
+    }
+    
+    private func placeholderForTextView(_ textView: UITextView) -> String {
+        if let textView = textView as? RSKPlaceholderTextView,
+            let placeholder = textView.placeholder {
+            return placeholder as String
+        }
+        return ""
     }
     
 }
@@ -212,9 +245,9 @@ fileprivate enum GroupInfoRow: Int {
     
     var label: String {
         switch self {
-        case .name: return R.string.localizable.groupNameLabel()
-        case .url: return R.string.localizable.groupUrlLabel()
-        case .purpose: return R.string.localizable.groupPurposeLabel()
+        case .name: return R.string.localizable.groupNameLabel().uppercased().separatedWithSpaces
+        case .url: return R.string.localizable.groupUrlLabel().uppercased().separatedWithSpaces
+        case .purpose: return R.string.localizable.groupPurposeLabel().uppercased().separatedWithSpaces
         }
     }
     
