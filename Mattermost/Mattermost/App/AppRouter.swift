@@ -15,12 +15,8 @@ class AppRouter {
         self.window = window
     }
     
-    func setRootController(_ rootController: UIViewController?) {
-        
-        guard let controller = rootController else {
-            return
-        }
-        
+    func setRootController(_ viewController: UIViewController?) {
+        guard let controller = viewController else { return }
         guard let currentRootController = window.rootViewController else {
             window.rootViewController = controller
             return

@@ -59,3 +59,13 @@
 "time.yesterday" = "Yesterday";
 "time.today" = "Today";
 "new.messages" = "New messages";
+
+//Groups
+"public.type.label" = "Public";
+"private.type.label" = "Private";
+"group.name.label" = "Name";
+"group.name.placeholder" = "Example: Project name, Bugs, Sales";
+"group.url.label" = "URL";
+"group.url.placeholder" = "Example: ???";
+"group.purpose.label" = "Purpose";
+"group.purpose.placeholder" = "What are you going to discuss in this group";

@@ -162,6 +162,8 @@
 		E7AE43F21DCA4E4900475B8F /* UIView+CurrentConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE43F11DCA4E4900475B8F /* UIView+CurrentConstraints.swift */; };
 		E7AE43F41DCA531700475B8F /* UIResponder+FirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE43F31DCA531700475B8F /* UIResponder+FirstResponder.swift */; };
 		E7AE43F61DCA5A6500475B8F /* HideKeyboardRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE43F51DCA5A6500475B8F /* HideKeyboardRecognizer.swift */; };
+		E7C082F81E0AD15E00692E7F /* NewGroupTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C082F61E0AD15E00692E7F /* NewGroupTextCell.swift */; };
+		E7C082F91E0AD15E00692E7F /* NewGroupTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7C082F71E0AD15E00692E7F /* NewGroupTextCell.xib */; };
 		E7C8BD071DEC91E700A707F5 /* ErrorIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C8BD061DEC91E700A707F5 /* ErrorIndicatorView.swift */; };
 		E7DCD8431DC9F19400F599D8 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCD8421DC9F19400F599D8 /* KeyboardHandler.swift */; };
 		E7DCD8451DCA155000F599D8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7DCD8441DCA155000F599D8 /* Localizable.strings */; };
@@ -355,6 +357,8 @@
 		E7AE43F11DCA4E4900475B8F /* UIView+CurrentConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+CurrentConstraints.swift"; sourceTree = "<group>"; };
 		E7AE43F31DCA531700475B8F /* UIResponder+FirstResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+FirstResponder.swift"; sourceTree = "<group>"; };
 		E7AE43F51DCA5A6500475B8F /* HideKeyboardRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideKeyboardRecognizer.swift; sourceTree = "<group>"; };
+		E7C082F61E0AD15E00692E7F /* NewGroupTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGroupTextCell.swift; sourceTree = "<group>"; };
+		E7C082F71E0AD15E00692E7F /* NewGroupTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewGroupTextCell.xib; sourceTree = "<group>"; };
 		E7C8BD061DEC91E700A707F5 /* ErrorIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorIndicatorView.swift; sourceTree = "<group>"; };
 		E7DCD8421DC9F19400F599D8 /* KeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		E7DCD8441DCA155000F599D8 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -851,6 +855,8 @@
 			children = (
 				E797F8721E084BDF00F0F99B /* NewGroupTypeCell.swift */,
 				E797F8731E084BDF00F0F99B /* NewGroupTypeCell.xib */,
+				E7C082F61E0AD15E00692E7F /* NewGroupTextCell.swift */,
+				E7C082F71E0AD15E00692E7F /* NewGroupTextCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1093,6 +1099,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E797F8751E084BDF00F0F99B /* NewGroupTypeCell.xib in Resources */,
+				E7C082F91E0AD15E00692E7F /* NewGroupTextCell.xib in Resources */,
 				B68C7D6C1DFB075C00DD344D /* DirectMessageCell.xib in Resources */,
 				E7A5B2281DC24FEE00ED2887 /* Authorization.storyboard in Resources */,
 				B641BE0D1DF81E07003697AB /* MyMessagesCell.xib in Resources */,
@@ -1295,6 +1302,7 @@
 				32BC97FE87976F5750722109 /* ServerSelectionInteractor.swift in Sources */,
 				B68C7D651DFACF1A00DD344D /* GroupMessageCell.swift in Sources */,
 				BFE20322EC44EEB648B2F19A /* SignInProtocols.swift in Sources */,
+				E7C082F81E0AD15E00692E7F /* NewGroupTextCell.swift in Sources */,
 				B6E119031DDEFBD60012FD13 /* SettingsProtocols.swift in Sources */,
 				B6E118E91DDEFBB90012FD13 /* MainRouting.swift in Sources */,
 				EEC2A5C891FD92145D059CCF /* SignInViewController.swift in Sources */,

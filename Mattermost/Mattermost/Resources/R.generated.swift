@@ -205,7 +205,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 9 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 10 nibs.
   struct nib {
     /// Nib `DirectMessageCell`.
     static let directMessageCell = _R.nib._DirectMessageCell()
@@ -219,6 +219,8 @@ struct R: Rswift.Validatable {
     static let labelCollectionViewCell = _R.nib._LabelCollectionViewCell()
     /// Nib `MyMessagesCell`.
     static let myMessagesCell = _R.nib._MyMessagesCell()
+    /// Nib `NewGroupTextCell`.
+    static let newGroupTextCell = _R.nib._NewGroupTextCell()
     /// Nib `NewGroupTypeCell`.
     static let newGroupTypeCell = _R.nib._NewGroupTypeCell()
     /// Nib `SingleChatCell`.
@@ -254,6 +256,11 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "MyMessagesCell", in: bundle)`
     static func myMessagesCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.myMessagesCell)
+    }
+    
+    /// `UINib(name: "NewGroupTextCell", in: bundle)`
+    static func newGroupTextCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.newGroupTextCell)
     }
     
     /// `UINib(name: "NewGroupTypeCell", in: bundle)`
@@ -337,7 +344,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 35 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 43 localization keys.
     struct localizable {
       /// Value: Address format is not valid
       static let serverAddressWrongFormat = Rswift.StringResource(key: "server.address.wrong.format", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -357,6 +364,10 @@ struct R: Rswift.Validatable {
       static let emailFieldPlaceholder = Rswift.StringResource(key: "email.field.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Enter your password
       static let passwordFieldPlaceholder = Rswift.StringResource(key: "password.field.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Example: ???
+      static let groupUrlPlaceholder = Rswift.StringResource(key: "group.url.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Example: Project name, Bugs, Sales
+      static let groupNamePlaceholder = Rswift.StringResource(key: "group.name.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: FORGOT PASSWORD
       static let forgotPassword = Rswift.StringResource(key: "forgot.password", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Find more channels
@@ -371,6 +382,8 @@ struct R: Rswift.Validatable {
       static let newGroupChannel = Rswift.StringResource(key: "new.group.channel", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: NEXT
       static let nextButtonTitle = Rswift.StringResource(key: "next.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Name
+      static let groupNameLabel = Rswift.StringResource(key: "group.name.label", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: New messages
       static let newMessages = Rswift.StringResource(key: "new.messages", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: No
@@ -385,6 +398,12 @@ struct R: Rswift.Validatable {
       static let passwordNotValid = Rswift.StringResource(key: "password.not.valid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Please check your email
       static let passwordWasReset = Rswift.StringResource(key: "password.was.reset", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Private
+      static let privateTypeLabel = Rswift.StringResource(key: "private.type.label", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Public
+      static let publicTypeLabel = Rswift.StringResource(key: "public.type.label", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Purpose
+      static let groupPurposeLabel = Rswift.StringResource(key: "group.purpose.label", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: SEND
       static let sendButtonTitle = Rswift.StringResource(key: "send.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Select your team
@@ -395,6 +414,8 @@ struct R: Rswift.Validatable {
       static let settingsTitle = Rswift.StringResource(key: "settings.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Today
       static let timeToday = Rswift.StringResource(key: "time.today", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: URL
+      static let groupUrlLabel = Rswift.StringResource(key: "group.url.label", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Unknown server error
       static let unknownServerError = Rswift.StringResource(key: "unknown.server.error", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Unread messages
@@ -403,6 +424,8 @@ struct R: Rswift.Validatable {
       static let serverIsWrong = Rswift.StringResource(key: "server.is.wrong", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Welcome to Mattermost
       static let welcome = Rswift.StringResource(key: "welcome", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: What are you going to discuss in this group
+      static let groupPurposePlaceholder = Rswift.StringResource(key: "group.purpose.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Yes
       static let yesAlertTitle = Rswift.StringResource(key: "yes.alert.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Yesterday
@@ -455,6 +478,16 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("password.field.placeholder", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: Example: ???
+      static func groupUrlPlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("group.url.placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Example: Project name, Bugs, Sales
+      static func groupNamePlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("group.name.placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: FORGOT PASSWORD
       static func forgotPassword(_: Void = ()) -> String {
         return NSLocalizedString("forgot.password", bundle: R.hostingBundle, comment: "")
@@ -488,6 +521,11 @@ struct R: Rswift.Validatable {
       /// Value: NEXT
       static func nextButtonTitle(_: Void = ()) -> String {
         return NSLocalizedString("next.button.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Name
+      static func groupNameLabel(_: Void = ()) -> String {
+        return NSLocalizedString("group.name.label", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: New messages
@@ -525,6 +563,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("password.was.reset", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: Private
+      static func privateTypeLabel(_: Void = ()) -> String {
+        return NSLocalizedString("private.type.label", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Public
+      static func publicTypeLabel(_: Void = ()) -> String {
+        return NSLocalizedString("public.type.label", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Purpose
+      static func groupPurposeLabel(_: Void = ()) -> String {
+        return NSLocalizedString("group.purpose.label", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: SEND
       static func sendButtonTitle(_: Void = ()) -> String {
         return NSLocalizedString("send.button.title", bundle: R.hostingBundle, comment: "")
@@ -550,6 +603,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("time.today", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: URL
+      static func groupUrlLabel(_: Void = ()) -> String {
+        return NSLocalizedString("group.url.label", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: Unknown server error
       static func unknownServerError(_: Void = ()) -> String {
         return NSLocalizedString("unknown.server.error", bundle: R.hostingBundle, comment: "")
@@ -568,6 +626,11 @@ struct R: Rswift.Validatable {
       /// Value: Welcome to Mattermost
       static func welcome(_: Void = ()) -> String {
         return NSLocalizedString("welcome", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: What are you going to discuss in this group
+      static func groupPurposePlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("group.purpose.placeholder", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Yes
@@ -703,6 +766,17 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "ic_fail") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_fail' is used in nib 'MyMessagesCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _NewGroupTextCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "NewGroupTextCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> NewGroupTextCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? NewGroupTextCell
       }
       
       fileprivate init() {}

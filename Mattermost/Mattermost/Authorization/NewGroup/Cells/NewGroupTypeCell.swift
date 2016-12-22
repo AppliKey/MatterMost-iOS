@@ -10,26 +10,42 @@ import UIKit
 
 class NewGroupTypeCell: UITableViewCell, NibReusable {
     
-    //MARK: - Outlets
-    @IBOutlet weak var publicStateView: StateView!
-    @IBOutlet weak var privateStateView: StateView!
-    @IBOutlet weak var typeSwitch: UISwitch!
+    var typeChange: ((GroupType) -> Void)?
+    var type: GroupType {
+        set {
+            typeSwitch.isOn = type == .private
+            update()
+        }
+        get {
+            return typeSwitch.isOn ? .private : .public
+        }
+    }
     
     override func awakeFromNib() {
+        super.awakeFromNib()
         update()
+        localizeViews()
     }
     
     //MARK: - IBAction
     @IBAction func typeSwitchValueChanged(_ sender: UISwitch) {
+        typeChange?(type)
         update()
     }
     
-    //MARK: - Privite 
+    //MARK: - Privite -
+    @IBOutlet private weak var publicStateView: StateView!
+    @IBOutlet private weak var privateStateView: StateView!
+    @IBOutlet private weak var typeSwitch: UISwitch!
     
     private func update() {
-        let isPrivate = typeSwitch.isOn
-        publicStateView.state = isPrivate ? .inactive : .active
-        privateStateView.state = isPrivate ? .active : .inactive
+        publicStateView.state = type == .public ? .active : .inactive
+        privateStateView.state = type == .private ? .active : .inactive
+    }
+    
+    private func localizeViews() {
+        publicStateView.label?.text = R.string.localizable.publicTypeLabel()
+        privateStateView.label?.text = R.string.localizable.privateTypeLabel()
     }
     
 }
