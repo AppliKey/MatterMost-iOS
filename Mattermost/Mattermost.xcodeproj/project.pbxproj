@@ -137,6 +137,7 @@
 		E7727DB01E11484D00819B20 /* AllUsersTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7727DAF1E11484D00819B20 /* AllUsersTarget.swift */; };
 		E7727DB31E128B8600819B20 /* GroupMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7727DB11E128B8600819B20 /* GroupMemberCell.swift */; };
 		E7727DB41E128B8600819B20 /* GroupMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7727DB21E128B8600819B20 /* GroupMemberCell.xib */; };
+		E7727DB71E12A60400819B20 /* NotificationsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7727DB61E12A60400819B20 /* NotificationsHandler.swift */; };
 		E7967D2C1DCCDE3C0025F402 /* ServerSelectionWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7967D2B1DCCDE3C0025F402 /* ServerSelectionWireframe.swift */; };
 		E7967D2E1DCCE2C30025F402 /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7967D2D1DCCE2C30025F402 /* AuthorizationRouter.swift */; };
 		E7967D301DCCE71E0025F402 /* SignInWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7967D2F1DCCE71E0025F402 /* SignInWireframe.swift */; };
@@ -331,6 +332,7 @@
 		E7727DAF1E11484D00819B20 /* AllUsersTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllUsersTarget.swift; sourceTree = "<group>"; };
 		E7727DB11E128B8600819B20 /* GroupMemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMemberCell.swift; sourceTree = "<group>"; };
 		E7727DB21E128B8600819B20 /* GroupMemberCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupMemberCell.xib; sourceTree = "<group>"; };
+		E7727DB61E12A60400819B20 /* NotificationsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsHandler.swift; sourceTree = "<group>"; };
 		E7967D2B1DCCDE3C0025F402 /* ServerSelectionWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSelectionWireframe.swift; sourceTree = "<group>"; };
 		E7967D2D1DCCE2C30025F402 /* AuthorizationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
 		E7967D2F1DCCE71E0025F402 /* SignInWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInWireframe.swift; sourceTree = "<group>"; };
@@ -842,6 +844,14 @@
 			path = Users;
 			sourceTree = "<group>";
 		};
+		E7727DB51E12A5E600819B20 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				E7727DB61E12A60400819B20 /* NotificationsHandler.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		E7967D331DCFB0CB0025F402 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -916,13 +926,14 @@
 		E7A3285E1DAFE02200C8A6B9 /* Mattermost */ = {
 			isa = PBXGroup;
 			children = (
-				B6E119071DDEFBFA0012FD13 /* 3rdPartyLibraries */,
 				E7A3288D1DAFE13B00C8A6B9 /* App */,
 				E1FEB0CDBF27AD3F5D411DBE /* Common */,
 				E7967D331DCFB0CB0025F402 /* Networking */,
+				E7727DB51E12A5E600819B20 /* Notifications */,
 				E1FEB080E6FA78BD4B1739EB /* Authorization */,
 				E7967D3A1DD04EBA0025F402 /* Main */,
 				B6E118EA1DDEFBD60012FD13 /* Menu */,
+				B6E119071DDEFBFA0012FD13 /* 3rdPartyLibraries */,
 				E1FEBC21F4502D5B95BB8926 /* Resources */,
 			);
 			path = Mattermost;
@@ -1088,6 +1099,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -1343,6 +1357,7 @@
 				EEC2A5C891FD92145D059CCF /* SignInViewController.swift in Sources */,
 				616CF365F1D150AAD8132D66 /* SignInPresenter.swift in Sources */,
 				B6E119141DDEFBFA0012FD13 /* CenterContainmentSegue.swift in Sources */,
+				E7727DB71E12A60400819B20 /* NotificationsHandler.swift in Sources */,
 				B6E118E51DDEFBB90012FD13 /* ChatsPresenter.swift in Sources */,
 				E7727DB31E128B8600819B20 /* GroupMemberCell.swift in Sources */,
 				E75F0DD71DE317D6005630B9 /* Reusable.swift in Sources */,
