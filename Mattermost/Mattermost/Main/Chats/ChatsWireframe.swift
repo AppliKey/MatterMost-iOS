@@ -23,5 +23,6 @@ class ChatsWireframe {
         interactor.presenter = presenter
         interactor.loadChannels()
         configutation?(presenter)
-    }    
+    }
+    
 }

@@ -33,6 +33,7 @@ class NewGroupViewController: UIViewController {
     fileprivate var url: String = ""
     fileprivate var purpose: String = ""
     fileprivate var searchText: String = ""
+    fileprivate var users: [UserRepresantation]?
 
 	//MARK: - UI
     
@@ -41,6 +42,7 @@ class NewGroupViewController: UIViewController {
         configureTableView()
         tapRecognizer = HideKeyboardRecognizer(withView: view)
         setupKeyboardHandler()
+        eventHandler.viewDidLoad()
     }
     
     private func localizeViews() {
@@ -49,6 +51,7 @@ class NewGroupViewController: UIViewController {
     private func configureTableView() {
         tableView.register(cellType: NewGroupTypeCell.self)
         tableView.register(cellType: NewGroupTextCell.self)
+        tableView.register(cellType: GroupMemberCell.self)
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -60,6 +63,13 @@ class NewGroupViewController: UIViewController {
 }
 
 extension NewGroupViewController: NewGroupViewing {
+    
+    func show(_ users: [UserRepresantation]) {
+        self.users = users
+        let sectionsSet = IndexSet(integer: Section.users.rawValue)
+        self.tableView.reloadSections(sectionsSet, with: .automatic)
+    }
+    
 }
 
 extension NewGroupViewController: UITableViewDataSource {
@@ -74,7 +84,7 @@ extension NewGroupViewController: UITableViewDataSource {
         case .groupType: return 1
         case .groupInfo: return GroupInfoRow.count
         case .membersInfo: return 0
-        case .users: return 0
+        case .users: return users?.count ?? 1
         }
     }
     
@@ -123,7 +133,17 @@ extension NewGroupViewController: UITableViewDataSource {
         return UITableViewCell()
     }
     
+    //MARK: - Users
+    
     private func userCellAt(_ indexPath: IndexPath) -> UITableViewCell {
+        guard users?.count > 0 else { return noUsersCellAt(indexPath) }
+        guard let user = users?[indexPath.row] else { fatalError("No user for cell") }
+        let cell = tableView.dequeueReusableCell(for: indexPath) as GroupMemberCell
+        cell.configure(with: user)
+        return cell
+    }
+    
+    private func noUsersCellAt(_ indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
     
@@ -166,7 +186,7 @@ extension NewGroupViewController: UITableViewDelegate {
     }
     
     private func userCellHeightAt(_ indexPath: IndexPath) -> CGFloat {
-        return 45
+        return 60
     }
     
 }

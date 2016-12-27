@@ -13,7 +13,7 @@ class NewGroupWireframe {
     class func setup(_ viewController: NewGroupViewController,
                      withCoordinator coordinator: NewGroupCoordinator,
                      configutation: NewGroupConfiguration? = nil) {
-        let interactor = NewGroupInteractor()
+        let interactor = NewGroupInteractor(service: UsersService())
         let presenter = NewGroupPresenter(coordinator: coordinator)
         presenter.view = viewController
         presenter.interactor = interactor

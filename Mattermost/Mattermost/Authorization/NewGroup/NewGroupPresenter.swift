@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NewGroupPresenter {
+class NewGroupPresenter: NewGroupConfigurator {
     
 	//MARK: - Properties
     weak var view: NewGroupViewing!
@@ -24,11 +24,30 @@ class NewGroupPresenter {
     fileprivate let coordinator: NewGroupCoordinator
 }
 
-extension NewGroupPresenter: NewGroupConfigurator {
+extension NewGroupPresenter: NewGroupEventHandling {
+    func viewDidLoad() {
+        interactor.loadUsers()
+    }
 }
 
 extension NewGroupPresenter: NewGroupPresenting {
+    
+    func present(_ users: [User]) {
+        let represantations = users.map(userRepresentation)
+        view.show(represantations)
+    }
+    
+    func present(_ errorMessage: String) {
+        view.alert(errorMessage)
+    }
+    
+    private func userRepresentation(for user: User) -> UserRepresantation {
+        return UserRepresantation(name: user.username, avatarURL: user.avatarUrl)
+    }
+    
 }
 
-extension NewGroupPresenter: NewGroupEventHandling {
+struct UserRepresantation {
+    let name: String
+    let avatarURL: URL?
 }

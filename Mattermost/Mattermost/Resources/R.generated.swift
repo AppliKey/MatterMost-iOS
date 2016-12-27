@@ -31,10 +31,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 24 images.
+  /// This `R.image` struct is generated, and contains static references to 26 images.
   struct image {
+    /// Image `add_icon`.
+    static let add_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "add_icon")
     /// Image `back`.
     static let back = Rswift.ImageResource(bundle: R.hostingBundle, name: "back")
+    /// Image `check_icon`.
+    static let check_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "check_icon")
     /// Image `forward`.
     static let forward = Rswift.ImageResource(bundle: R.hostingBundle, name: "forward")
     /// Image `ic-menu`.
@@ -82,9 +86,19 @@ struct R: Rswift.Validatable {
     /// Image `public_group_icon`.
     static let public_group_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "public_group_icon")
     
+    /// `UIImage(named: "add_icon", bundle: ..., traitCollection: ...)`
+    static func add_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.add_icon, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "back", bundle: ..., traitCollection: ...)`
     static func back(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.back, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "check_icon", bundle: ..., traitCollection: ...)`
+    static func check_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.check_icon, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "forward", bundle: ..., traitCollection: ...)`
@@ -205,12 +219,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 10 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 11 nibs.
   struct nib {
     /// Nib `DirectMessageCell`.
     static let directMessageCell = _R.nib._DirectMessageCell()
     /// Nib `GroupChatCell`.
     static let groupChatCell = _R.nib._GroupChatCell()
+    /// Nib `GroupMemberCell`.
+    static let groupMemberCell = _R.nib._GroupMemberCell()
     /// Nib `GroupMessageCell`.
     static let groupMessageCell = _R.nib._GroupMessageCell()
     /// Nib `ImageCollectionViewCell`.
@@ -236,6 +252,11 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "GroupChatCell", in: bundle)`
     static func groupChatCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.groupChatCell)
+    }
+    
+    /// `UINib(name: "GroupMemberCell", in: bundle)`
+    static func groupMemberCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.groupMemberCell)
     }
     
     /// `UINib(name: "GroupMessageCell", in: bundle)`
@@ -676,6 +697,7 @@ struct _R: Rswift.Validatable {
       try _MyMessagesCell.validate()
       try _TeamCell.validate()
       try _NewGroupTypeCell.validate()
+      try _GroupMemberCell.validate()
       try _GroupChatCell.validate()
     }
     
@@ -706,6 +728,22 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "ic_private_chanels_not_active") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_private_chanels_not_active' is used in nib 'GroupChatCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _GroupMemberCell: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "GroupMemberCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> GroupMemberCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GroupMemberCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "add_icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'add_icon' is used in nib 'GroupMemberCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "check_icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'check_icon' is used in nib 'GroupMemberCell', but couldn't be loaded.") }
       }
       
       fileprivate init() {}

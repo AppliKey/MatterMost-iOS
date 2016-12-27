@@ -13,15 +13,20 @@ protocol NewGroupConfigurator: class {
 }
 
 protocol NewGroupInteracting: class {
+    func loadUsers()
 }
 
 protocol NewGroupPresenting: class {
+    func present(_ users: [User])
+    func present(_ errorMessage: String)
 }
 
-protocol NewGroupViewing: class {
+protocol NewGroupViewing: class, AlertShowable {
+    func show(_ users: [UserRepresantation])
 }
 
 protocol NewGroupEventHandling: class {
+    func viewDidLoad()
 }
 
 protocol NewGroupCoordinator: class {
