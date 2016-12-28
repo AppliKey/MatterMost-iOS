@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 26 images.
+  /// This `R.image` struct is generated, and contains static references to 27 images.
   struct image {
     /// Image `add_icon`.
     static let add_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "add_icon")
@@ -85,6 +85,8 @@ struct R: Rswift.Validatable {
     static let private_group_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "private_group_icon")
     /// Image `public_group_icon`.
     static let public_group_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "public_group_icon")
+    /// Image `search_icon`.
+    static let search_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "search_icon")
     
     /// `UIImage(named: "add_icon", bundle: ..., traitCollection: ...)`
     static func add_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -216,10 +218,15 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.public_group_icon, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "search_icon", bundle: ..., traitCollection: ...)`
+    static func search_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.search_icon, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 11 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 12 nibs.
   struct nib {
     /// Nib `DirectMessageCell`.
     static let directMessageCell = _R.nib._DirectMessageCell()
@@ -239,6 +246,8 @@ struct R: Rswift.Validatable {
     static let newGroupTextCell = _R.nib._NewGroupTextCell()
     /// Nib `NewGroupTypeCell`.
     static let newGroupTypeCell = _R.nib._NewGroupTypeCell()
+    /// Nib `SearchCell`.
+    static let searchCell = _R.nib._SearchCell()
     /// Nib `SingleChatCell`.
     static let singleChatCell = _R.nib._SingleChatCell()
     /// Nib `TeamCell`.
@@ -289,6 +298,11 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.newGroupTypeCell)
     }
     
+    /// `UINib(name: "SearchCell", in: bundle)`
+    static func searchCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.searchCell)
+    }
+    
     /// `UINib(name: "SingleChatCell", in: bundle)`
     static func singleChatCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.singleChatCell)
@@ -302,7 +316,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 8 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 9 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `DirectMessageCell`.
     static let directMessageCell: Rswift.ReuseIdentifier<DirectMessageCell> = Rswift.ReuseIdentifier(identifier: "DirectMessageCell")
@@ -318,6 +332,8 @@ struct R: Rswift.Validatable {
     static let labelCollectionViewCell: Rswift.ReuseIdentifier<LabelCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "LabelCollectionViewCell")
     /// Reuse identifier `MyMessagesCell`.
     static let myMessagesCell: Rswift.ReuseIdentifier<MyMessagesCell> = Rswift.ReuseIdentifier(identifier: "MyMessagesCell")
+    /// Reuse identifier `SearchCell`.
+    static let searchCell: Rswift.ReuseIdentifier<SearchCell> = Rswift.ReuseIdentifier(identifier: "SearchCell")
     /// Reuse identifier `SingleChatCell`.
     static let singleChatCell: Rswift.ReuseIdentifier<SingleChatCell> = Rswift.ReuseIdentifier(identifier: "SingleChatCell")
     
@@ -365,7 +381,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 43 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 45 localization keys.
     struct localizable {
       /// Value: Address format is not valid
       static let serverAddressWrongFormat = Rswift.StringResource(key: "server.address.wrong.format", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -407,6 +423,10 @@ struct R: Rswift.Validatable {
       static let groupNameLabel = Rswift.StringResource(key: "group.name.label", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: New messages
       static let newMessages = Rswift.StringResource(key: "new.messages", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: New private group
+      static let privateGroupTitle = Rswift.StringResource(key: "private.group.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: New public channel
+      static let publicGroupTitle = Rswift.StringResource(key: "public.group.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: No
       static let noAlertTitle = Rswift.StringResource(key: "no.alert.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: No messages yet =(
@@ -554,6 +574,16 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("new.messages", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: New private group
+      static func privateGroupTitle(_: Void = ()) -> String {
+        return NSLocalizedString("private.group.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: New public channel
+      static func publicGroupTitle(_: Void = ()) -> String {
+        return NSLocalizedString("public.group.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: No
       static func noAlertTitle(_: Void = ()) -> String {
         return NSLocalizedString("no.alert.title", bundle: R.hostingBundle, comment: "")
@@ -694,6 +724,7 @@ struct _R: Rswift.Validatable {
   
   struct nib: Rswift.Validatable {
     static func validate() throws {
+      try _SearchCell.validate()
       try _MyMessagesCell.validate()
       try _TeamCell.validate()
       try _NewGroupTypeCell.validate()
@@ -831,6 +862,24 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "private_group_icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'private_group_icon' is used in nib 'NewGroupTypeCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "public_group_icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'public_group_icon' is used in nib 'NewGroupTypeCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _SearchCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = SearchCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "SearchCell"
+      let name = "SearchCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> SearchCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SearchCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "search_icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'search_icon' is used in nib 'SearchCell', but couldn't be loaded.") }
       }
       
       fileprivate init() {}

@@ -138,6 +138,9 @@
 		E7727DB31E128B8600819B20 /* GroupMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7727DB11E128B8600819B20 /* GroupMemberCell.swift */; };
 		E7727DB41E128B8600819B20 /* GroupMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7727DB21E128B8600819B20 /* GroupMemberCell.xib */; };
 		E7727DB71E12A60400819B20 /* NotificationsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7727DB61E12A60400819B20 /* NotificationsHandler.swift */; };
+		E7727DB91E12CF6100819B20 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7727DB81E12CF6100819B20 /* ArrayExtensions.swift */; };
+		E7727DBC1E13FBA300819B20 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7727DBA1E13FBA300819B20 /* SearchCell.swift */; };
+		E7727DBD1E13FBA300819B20 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7727DBB1E13FBA300819B20 /* SearchCell.xib */; };
 		E7967D2C1DCCDE3C0025F402 /* ServerSelectionWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7967D2B1DCCDE3C0025F402 /* ServerSelectionWireframe.swift */; };
 		E7967D2E1DCCE2C30025F402 /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7967D2D1DCCE2C30025F402 /* AuthorizationRouter.swift */; };
 		E7967D301DCCE71E0025F402 /* SignInWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7967D2F1DCCE71E0025F402 /* SignInWireframe.swift */; };
@@ -333,6 +336,9 @@
 		E7727DB11E128B8600819B20 /* GroupMemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMemberCell.swift; sourceTree = "<group>"; };
 		E7727DB21E128B8600819B20 /* GroupMemberCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupMemberCell.xib; sourceTree = "<group>"; };
 		E7727DB61E12A60400819B20 /* NotificationsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsHandler.swift; sourceTree = "<group>"; };
+		E7727DB81E12CF6100819B20 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
+		E7727DBA1E13FBA300819B20 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		E7727DBB1E13FBA300819B20 /* SearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
 		E7967D2B1DCCDE3C0025F402 /* ServerSelectionWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSelectionWireframe.swift; sourceTree = "<group>"; };
 		E7967D2D1DCCE2C30025F402 /* AuthorizationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
 		E7967D2F1DCCE71E0025F402 /* SignInWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInWireframe.swift; sourceTree = "<group>"; };
@@ -755,6 +761,7 @@
 				E7C0E6981E0BF40B009DDA74 /* UIFontExtension.swift */,
 				B6E119261DDF563D0012FD13 /* UIImageView+ImageDownloading.swift */,
 				B641BE121DF859D7003697AB /* StringExtensions.swift */,
+				E7727DB81E12CF6100819B20 /* ArrayExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -897,6 +904,8 @@
 				E7C082F71E0AD15E00692E7F /* NewGroupTextCell.xib */,
 				E7727DB11E128B8600819B20 /* GroupMemberCell.swift */,
 				E7727DB21E128B8600819B20 /* GroupMemberCell.xib */,
+				E7727DBA1E13FBA300819B20 /* SearchCell.swift */,
+				E7727DBB1E13FBA300819B20 /* SearchCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1158,6 +1167,7 @@
 				B68C7D661DFACF1A00DD344D /* GroupMessageCell.xib in Resources */,
 				B6E119211DDF174B0012FD13 /* SingleChatCell.xib in Resources */,
 				B65C094C1DE3218600A98CED /* ImageCollectionViewCell.xib in Resources */,
+				E7727DBD1E13FBA300819B20 /* SearchCell.xib in Resources */,
 				B6E1192C1DDF623A0012FD13 /* GroupChatCell.xib in Resources */,
 				B65C09511DE3399700A98CED /* LabelCollectionViewCell.xib in Resources */,
 			);
@@ -1320,6 +1330,7 @@
 				E797F8741E084BDF00F0F99B /* NewGroupTypeCell.swift in Sources */,
 				059802321DD1DD9200AE01C2 /* ClientError.swift in Sources */,
 				B6E118D81DDEFB8C0012FD13 /* AppearanceManager.swift in Sources */,
+				E7727DBC1E13FBA300819B20 /* SearchCell.swift in Sources */,
 				E7662BE01DC7497000E82AFC /* Aliases.swift in Sources */,
 				E7327A7B1DE2252800512EFF /* AllTeamsTarget.swift in Sources */,
 				E7967D2E1DCCE2C30025F402 /* AuthorizationRouter.swift in Sources */,
@@ -1406,6 +1417,7 @@
 				B641BE131DF859D7003697AB /* StringExtensions.swift in Sources */,
 				0598021A1DD0E6A600AE01C2 /* Dictionary.swift in Sources */,
 				E7327A771DE21B4A00512EFF /* ServerPingTarget.swift in Sources */,
+				E7727DB91E12CF6100819B20 /* ArrayExtensions.swift in Sources */,
 				B6E118FB1DDEFBD60012FD13 /* MenuPresenter.swift in Sources */,
 				B6E119151DDEFBFA0012FD13 /* SideContainmentSegue.swift in Sources */,
 				B6E119191DDEFBFA0012FD13 /* SideMenuController.swift in Sources */,

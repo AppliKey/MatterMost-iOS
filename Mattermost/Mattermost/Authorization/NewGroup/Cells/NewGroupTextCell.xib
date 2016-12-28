@@ -18,13 +18,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIg-rs-V3m">
-                        <rect key="frame" x="30" y="125" width="260" height="1"/>
-                        <color key="backgroundColor" red="0.78823529411764703" green="0.80392156862745101" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="WVv-am-QbO"/>
-                        </constraints>
-                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="P U R P O S E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AbO-Nh-QcV">
                         <rect key="frame" x="30" y="30" width="72.5" height="17"/>
                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
@@ -45,6 +38,13 @@ issues</string>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </textView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIg-rs-V3m" userLabel="Separator">
+                        <rect key="frame" x="30" y="125" width="260" height="1"/>
+                        <color key="backgroundColor" red="0.78823529411764703" green="0.80392156862745101" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="WVv-am-QbO"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="hIg-rs-V3m" secondAttribute="bottom" id="9Zu-8W-1kR"/>

@@ -69,3 +69,5 @@
 "group.url.placeholder" = "Example: ???";
 "group.purpose.label" = "Purpose";
 "group.purpose.placeholder" = "What are you going to discuss in this group";
+"public.group.title" = "New public channel";
+"private.group.title" = "New private group";

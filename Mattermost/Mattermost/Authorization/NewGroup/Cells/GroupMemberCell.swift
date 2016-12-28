@@ -13,6 +13,7 @@ class GroupMemberCell: UITableViewCell, NibReusable {
     func configure(with user: UserRepresantation) {
         userNameLabel.text = user.name
         avatarImageView.setRoundedImage(withUrl: user.avatarURL)
+        selectionButton.isSelected = user.isSelected
     }
     
     //MARK: - Outlets

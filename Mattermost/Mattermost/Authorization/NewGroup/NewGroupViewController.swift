@@ -28,12 +28,21 @@ class NewGroupViewController: UIViewController {
     //MARK: - Private -
     private var keyboardHandler: KeyboardHandler?
     private var tapRecognizer: HideKeyboardRecognizer?
-    fileprivate var type: GroupType = .private
+    fileprivate var type: GroupType = .private {
+        didSet {
+            switch type {
+            case .public:
+                self.navigationItem.title = R.string.localizable.publicGroupTitle()
+            case .private:
+                self.navigationItem.title = R.string.localizable.privateGroupTitle()
+            }
+        }
+    }
     fileprivate var name: String = ""
     fileprivate var url: String = ""
     fileprivate var purpose: String = ""
     fileprivate var searchText: String = ""
-    fileprivate var users: [UserRepresantation]?
+    fileprivate var users = Array<UserRepresantation>()
 
 	//MARK: - UI
     
@@ -52,6 +61,7 @@ class NewGroupViewController: UIViewController {
         tableView.register(cellType: NewGroupTypeCell.self)
         tableView.register(cellType: NewGroupTextCell.self)
         tableView.register(cellType: GroupMemberCell.self)
+        tableView.register(cellType: SearchCell.self)
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -62,7 +72,7 @@ class NewGroupViewController: UIViewController {
 
 }
 
-extension NewGroupViewController: NewGroupViewing {
+extension NewGroupViewController: NewGroupViewing { //MARK: - NewGroupViewing -
     
     func show(_ users: [UserRepresantation]) {
         self.users = users
@@ -72,7 +82,7 @@ extension NewGroupViewController: NewGroupViewing {
     
 }
 
-extension NewGroupViewController: UITableViewDataSource {
+extension NewGroupViewController: UITableViewDataSource { //MARK: - UITableViewDataSource -
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return Section.count
@@ -84,7 +94,8 @@ extension NewGroupViewController: UITableViewDataSource {
         case .groupType: return 1
         case .groupInfo: return GroupInfoRow.count
         case .membersInfo: return 0
-        case .users: return users?.count ?? 1
+        case .search: return 1
+        case .users: return max(users.count, 1)
         }
     }
     
@@ -94,6 +105,7 @@ extension NewGroupViewController: UITableViewDataSource {
         case .groupType: return groupTypeCellAt(indexPath)
         case .groupInfo: return groupInfoCellAt(indexPath)
         case .membersInfo: return membersInfoCellAt(indexPath)
+        case .search: return searchCellAt(indexPath)
         case .users: return userCellAt(indexPath)
         }
     }
@@ -133,11 +145,20 @@ extension NewGroupViewController: UITableViewDataSource {
         return UITableViewCell()
     }
     
+    //MARK: - Search
+    
+    private func searchCellAt(_ indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(for: indexPath) as SearchCell
+        cell.searchTextField.delegate = self
+        cell.searchTextField.text = searchText
+        return cell
+    }
+    
     //MARK: - Users
     
     private func userCellAt(_ indexPath: IndexPath) -> UITableViewCell {
-        guard users?.count > 0 else { return noUsersCellAt(indexPath) }
-        guard let user = users?[indexPath.row] else { fatalError("No user for cell") }
+        guard users.count > 0 else { return noUsersCellAt(indexPath) }
+        let user = users[indexPath.row]
         let cell = tableView.dequeueReusableCell(for: indexPath) as GroupMemberCell
         cell.configure(with: user)
         return cell
@@ -149,7 +170,32 @@ extension NewGroupViewController: UITableViewDataSource {
     
 }
 
-extension NewGroupViewController: UITableViewDelegate {
+
+extension NewGroupViewController: UITableViewDelegate { //MARK: - UITableViewDelegate -
+    
+    //MARK: Selection
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        guard let section = Section(rawValue: indexPath.section) else { fatalError("Wrong section") }
+        switch section {
+        case .users: selectUserAt(indexPath)
+        default: break
+        }
+    }
+    
+    private func selectUserAt(_ indexPath: IndexPath) {
+        let index = indexPath.row
+        guard users.count > index else { return }
+        eventHandler.didSelectUserAt(index) { newUser in
+            users[index] = newUser
+            if let cell = tableView.cellForRow(at: indexPath) as? GroupMemberCell {
+                cell.configure(with: newUser)
+            }
+        }
+    }
+    
+    //MARK: - Row height
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
@@ -165,6 +211,7 @@ extension NewGroupViewController: UITableViewDelegate {
         case .groupType: return 57
         case .groupInfo: return groupInfoCellHeightAt(indexPath)
         case .membersInfo: return membersInfoCellHeightAt(indexPath)
+        case .search: return searchCellHeightAt(indexPath)
         case .users: return userCellHeightAt(indexPath)
         }
     }
@@ -185,13 +232,17 @@ extension NewGroupViewController: UITableViewDelegate {
         return 45
     }
     
+    private func searchCellHeightAt(_ indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
     private func userCellHeightAt(_ indexPath: IndexPath) -> CGFloat {
         return 60
     }
     
 }
 
-extension NewGroupViewController: UITextViewDelegate {
+extension NewGroupViewController: UITextViewDelegate { //MARK: - UITextViewDelegate -
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange,
                   replacementText text: String) -> Bool {
@@ -250,13 +301,29 @@ extension NewGroupViewController: UITextViewDelegate {
     
 }
 
+extension NewGroupViewController: UITextFieldDelegate { //MARK: - UITextFieldDelegate -
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        let resultString = NSString(string: currentText).replacingCharacters(in: range,
+                                                                             with: string)
+        searchText = resultString
+        eventHandler.didChangeSearchString(resultString)
+        return true
+    }
+    
+}
+
+//MARK: - Enums -
+
 enum GroupType {
     case `public`, `private`
 }
 
 fileprivate enum Section: Int {
-    case groupType, groupInfo, membersInfo, users
-    static let count = 4
+    case groupType, groupInfo, membersInfo, search, users
+    static let count = 5
 }
 
 fileprivate enum GroupInfoRow: Int {

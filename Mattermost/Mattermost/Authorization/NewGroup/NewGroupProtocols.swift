@@ -27,6 +27,8 @@ protocol NewGroupViewing: class, AlertShowable {
 
 protocol NewGroupEventHandling: class {
     func viewDidLoad()
+    func didSelectUserAt(_ index: Int, update: (_ newUser: UserRepresantation) -> Void)
+    func didChangeSearchString(_ searchString: String)
 }
 
 protocol NewGroupCoordinator: class {

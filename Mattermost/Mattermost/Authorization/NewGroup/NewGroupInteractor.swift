@@ -31,8 +31,11 @@ extension NewGroupInteractor: NewGroupInteracting {
     func loadUsers() {
         request = service.getAllUsers { [weak self] result in
             switch result {
-            case .success(let users): self?.presenter.present(users)
-            case .failure(let message): self?.presenter.present(message)
+            case .success(let users):
+                let thisUserId = SessionManager.shared.user?.id
+                self?.presenter.present(users.filter { $0.id != thisUserId })
+            case .failure(let message):
+                self?.presenter.present(message)
             }
         }
     }
