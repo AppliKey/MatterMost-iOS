@@ -388,7 +388,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 47 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 48 localization keys.
     struct localizable {
       /// Value: Add members
       static let addMembersLabel = Rswift.StringResource(key: "add.members.label", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -476,8 +476,10 @@ struct R: Rswift.Validatable {
       static let serverIsWrong = Rswift.StringResource(key: "server.is.wrong", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Welcome to Mattermost
       static let welcome = Rswift.StringResource(key: "welcome", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: What are you going to discuss in this group
+      /// Value: What are you going to discuss in the Group
       static let groupPurposePlaceholder = Rswift.StringResource(key: "group.purpose.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: What are you going to discuss in this Channel
+      static let channelPurposePlaceholder = Rswift.StringResource(key: "channel.purpose,placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Yes
       static let yesAlertTitle = Rswift.StringResource(key: "yes.alert.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Yesterday
@@ -700,9 +702,14 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("welcome", bundle: R.hostingBundle, comment: "")
       }
       
-      /// Value: What are you going to discuss in this group
+      /// Value: What are you going to discuss in the Group
       static func groupPurposePlaceholder(_: Void = ()) -> String {
         return NSLocalizedString("group.purpose.placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: What are you going to discuss in this Channel
+      static func channelPurposePlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("channel.purpose,placeholder", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Yes

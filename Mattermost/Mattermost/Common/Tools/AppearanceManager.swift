@@ -26,6 +26,10 @@ class AppearanceManager {
             .withAlignmentRectInsets(backButtonInsets)
         navBar.backIndicatorImage = backButtonImage
         navBar.backIndicatorTransitionMaskImage = backButtonImage
+        navBar.titleTextAttributes = [
+            NSForegroundColorAttributeName: UIColor.navBarTitle,
+            NSFontAttributeName: UIFont.mediumFontOfSize(16)
+        ]
     }
     
     private class func setupTabBarAppearance() {

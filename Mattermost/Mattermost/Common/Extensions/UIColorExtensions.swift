@@ -183,4 +183,5 @@ extension UIColor {
 extension UIColor {
     static let active = UIColor(rgba: "#242933")
     static let inactive = UIColor(rgba: "#919499")
+    static let navBarTitle = UIColor(rgba: "#242933")
 }

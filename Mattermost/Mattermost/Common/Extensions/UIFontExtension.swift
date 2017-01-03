@@ -17,4 +17,11 @@ extension UIFont {
         return font
     }
     
+    @objc(mtm_mediumFontOfSize:)
+    class func mediumFontOfSize(_ size: CGFloat) -> UIFont {
+        guard let font = UIFont(name: "AvenirNext-Medium", size: size)
+            else { fatalError("Can not create font Avenir-Next") }
+        return font
+    }
+    
 }

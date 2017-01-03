@@ -36,6 +36,8 @@ class NewGroupViewController: UIViewController {
             case .private:
                 self.navigationItem.title = R.string.localizable.privateGroupTitle()
             }
+            let sectionsSet = IndexSet(integer: Section.groupInfo.rawValue)
+            tableView.reloadSections(sectionsSet, with: .automatic)
         }
     }
     fileprivate var name: String = ""
@@ -48,6 +50,7 @@ class NewGroupViewController: UIViewController {
 	//MARK: - UI
     
     private func configureInterface() {
+        self.type = .private
         localizeViews()
         configureTableView()
         tapRecognizer = HideKeyboardRecognizer(withView: view)
@@ -133,7 +136,7 @@ extension NewGroupViewController: UITableViewDataSource { //MARK: - UITableViewD
         guard let row = GroupInfoRow(rawValue: indexPath.row) else { fatalError("Wrong row") }
         let cell = tableView.dequeueReusableCell(for: indexPath) as NewGroupTextCell
         cell.label.text = row.label
-        cell.textView.placeholder = row.placeholder as NSString
+        cell.textView.placeholder = row.placeholder(for: type) as NSString
         cell.textView.text = textForGroupInfoRow(row)
         cell.textView.delegate = self
         return cell
@@ -221,7 +224,7 @@ extension NewGroupViewController: UITableViewDelegate { //MARK: - UITableViewDel
     private func groupInfoCellHeightAt(_ indexPath: IndexPath) -> CGFloat {
         guard let row = GroupInfoRow(rawValue: indexPath.row) else { fatalError("Wrong row") }
         var text = textForGroupInfoRow(row)
-        if text.isEmpty { text = row.placeholder }
+        if text.isEmpty { text = row.placeholder(for: type) }
         let height = NewGroupTextCell.heightForText(text, withViewWidth: tableView.frame.width)
         return height
     }
@@ -352,16 +355,17 @@ fileprivate enum GroupInfoRow: Int {
         }
     }
     
-    var placeholder: String {
+    func placeholder(for type: GroupType) -> String {
         switch self {
         case .name: return R.string.localizable.groupNamePlaceholder()
         case .url: return R.string.localizable.groupUrlPlaceholder()
-        case .purpose: return R.string.localizable.groupPurposePlaceholder()
+        case .purpose:
+            if type == .private {
+                return R.string.localizable.groupPurposePlaceholder()
+            } else {
+                return R.string.localizable.channelPurposePlaceholder()
+            }
         }
     }
     
-}
-
-fileprivate enum MembersInfoRow: Int {
-    case added, search
 }

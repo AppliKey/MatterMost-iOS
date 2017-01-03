@@ -33,7 +33,10 @@ extension NewGroupInteractor: NewGroupInteracting {
             switch result {
             case .success(let users):
                 let thisUserId = SessionManager.shared.user?.id
-                self?.presenter.present(users.filter { $0.id != thisUserId })
+                let sortedUsers = users
+                    .filter{ $0.id != thisUserId }
+                    .sorted{ $0.0.username < $0.1.username }
+                self?.presenter.present(sortedUsers)
             case .failure(let message):
                 self?.presenter.present(message)
             }
