@@ -27,6 +27,8 @@ struct PostRepresentationModel {
     var showBottomView: Bool = true
     var isUnread: Bool
     var postStatus: PostStatus?
+    var postId:String?
+    var replyMessageId: String?
     
     var placeholderId:String?
     

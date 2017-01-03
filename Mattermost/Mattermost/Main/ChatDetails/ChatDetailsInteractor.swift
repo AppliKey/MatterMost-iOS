@@ -84,8 +84,8 @@ extension ChatDetailsInteractor: ChatDetailsInteracting {
         getMorePosts(completion: completion)
     }
     
-    func sendMessage(message:String, completion:@escaping PostCompletion) -> String {
-        return service.sendPost(withMessage: message, channelId: channel.channelId, completion: completion)
+    func sendMessage(message:String, replyId: String?, completion:@escaping PostCompletion) -> String {
+        return service.sendPost(withMessage: message, channelId: channel.channelId, replyId: replyId, completion: completion)
     }
     
     private func handleCompletion(_ result:PostsResult, completion: @escaping PostsCompletion) {

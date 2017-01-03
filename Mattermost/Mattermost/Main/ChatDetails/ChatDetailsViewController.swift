@@ -21,6 +21,8 @@ class ChatDetailsViewController: UIViewController {
     private var keyboardHandler: KeyboardHandler?
     private var tapRecognizer: HideKeyboardRecognizer?
     
+    
+    @IBOutlet weak var replyTextLabel: UILabel!
     @IBOutlet fileprivate weak var tableView: UITableView!
     @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var messageTextViewHeightConstraint: NSLayoutConstraint!
@@ -72,6 +74,10 @@ class ChatDetailsViewController: UIViewController {
         eventHandler.handleAttachPressed()
     }
     
+    @IBAction func closeReplyPressed(_ sender: Any) {
+        eventHandler.handleCloseReply()
+    }
+    
     @IBAction func sendButtonPressed(_ sender: Any) {
         guard messageTextView.text.characters.count > 0
             else {return}
@@ -105,7 +111,19 @@ class ChatDetailsViewController: UIViewController {
     }
 }
 
+fileprivate let replyViewHeight:CGFloat = 56
+
 extension ChatDetailsViewController: ChatDetailsViewing {
+    
+    func showReplyPost(_ post:PostRepresentationModel) {
+        quotationViewHeightConstraint.constant = replyViewHeight
+        replyTextLabel.text = post.message
+    }
+    
+    func closeReply() {
+        quotationViewHeightConstraint.constant = 0
+        replyTextLabel.text = ""
+    }
     
     func insert(post:PostRepresentationModel) {
         posts.insert(post, at: 0)
@@ -219,5 +237,9 @@ extension ChatDetailsViewController: UITableViewDelegate {
             elementsHeight += avatarHeight
         }
         return elementsHeight + margins
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        eventHandler.handleReply(post: posts[indexPath.row])
     }
 }

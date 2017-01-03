@@ -16,6 +16,7 @@ struct SendPostTarget: MattermostTarget, ResponseMapping {
     //MARK: - Properties
     let teamId: String
     let channelId: String
+    let replyId: String?
     
     let message: String
     let userId: String
@@ -32,12 +33,19 @@ struct SendPostTarget: MattermostTarget, ResponseMapping {
     }
     
     var parameters: [String: Any]? {
-        return ["filenames:": [],
-                "message": message,
-                "channel_id": channelId,
-                "pending_post_id": "\(userId):\(dateStamp)",
-                "user_id": userId,
-                "create_at": dateStamp]
+        var params: [String : Any] = ["filenames:": [],
+                                      "message": message,
+                                      "channel_id": channelId,
+                                      "pending_post_id": "\(userId):\(dateStamp)",
+                                      "user_id": userId,
+                                      "create_at": dateStamp]
+        
+        if let replyId = replyId {
+            params["root_id"] = replyId
+            params["parent_id"] = replyId
+        }
+        
+        return params
     }
     
     func map(_ response: Moya.Response) throws -> Post {

@@ -22,6 +22,7 @@ class ChatDetailsPresenter {
     
     //MARK: - Private -
     fileprivate let coordinator: ChatDetailsCoordinator
+    var replyedPost: PostRepresentationModel?
     
     func transform(post:Post) -> PostRepresentationModel {
         let isMyPost = post.userId == SessionManager.shared.user?.id
@@ -30,7 +31,8 @@ class ChatDetailsPresenter {
                                        isDirectChat: interactor.channel.type == .direct,
                                        message: post.message, date: post.createDate, topViewText: nil,
                                        isMyMessage: isMyPost, showAvatar: true, showTopView: true,
-                                       showBottomView: true, isUnread: post.isUnread, postStatus: .sended,
+                                       showBottomView: true, isUnread: post.isUnread, postStatus: .sended, postId: post.id,
+                                       replyMessageId: post.rootId,
                                        placeholderId: post.pendingPostId)
     }
     
@@ -41,8 +43,8 @@ class ChatDetailsPresenter {
                                        isDirectChat: interactor.channel.type == .direct,
                                        message: message, date: Date(), topViewText: nil,
                                        isMyMessage: true, showAvatar: false, showTopView: false,
-                                       showBottomView: true, isUnread: false, postStatus: .sending,
-                                       placeholderId: placeholderId)
+                                       showBottomView: true, isUnread: false, postStatus: .sending, postId: nil,
+                                       replyMessageId: self.replyedPost?.postId, placeholderId: placeholderId)
     }
     
 }
@@ -58,8 +60,18 @@ extension ChatDetailsPresenter: ChatDetailsPresenting {
 
 extension ChatDetailsPresenter: ChatDetailsEventHandling {
     
+    func handleReply(post: PostRepresentationModel) {
+        view.showReplyPost(post)
+        replyedPost = post
+    }
+    
+    func handleCloseReply() {
+        view.closeReply()
+        replyedPost = nil
+    }
+    
     func handleSendMessage(_ message:String) {
-        let placeholderId = interactor.sendMessage(message: message, completion: { [weak self] result in
+        let placeholderId = interactor.sendMessage(message: message, replyId: self.replyedPost?.postId, completion: { [weak self] result in
             switch result {
             case .success(let post):
                 self?.interactor.updateLastPost(with: post)
@@ -75,10 +87,11 @@ extension ChatDetailsPresenter: ChatDetailsEventHandling {
             }
         })
         view.insert(post: getPlaceholder(withMessage: message, placeholderId: placeholderId))
+        handleCloseReply()
     }
     
     func handleRetry(forPlaceholderPost placeholder: PostRepresentationModel) {
-        let _ = interactor.sendMessage(message: placeholder.message!, completion: { [weak self] result in
+        let _ = interactor.sendMessage(message: placeholder.message!, replyId: placeholder.replyMessageId, completion: { [weak self] result in
             switch result {
             case .success(let post):
                 var model = self?.transform(post: post)

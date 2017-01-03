@@ -75,14 +75,14 @@ extension ChatDetailsService: PostsService {
         }
     }
     
-    func sendPost(withMessage message:String, channelId:String,
+    func sendPost(withMessage message:String, channelId:String, replyId:String?,
                   completion: @escaping PostCompletion) -> String {
         guard let currentTeam = SessionManager.shared.team?.id,
               let userId = SessionManager.shared.user?.id
             else { fatalError("Team is not selected, or User is nil") }
         
         let dateStamp = Int(Date().timeIntervalSince1970 * 1000)
-        let target = SendPostTarget(teamId: currentTeam, channelId: channelId,
+        let target = SendPostTarget(teamId: currentTeam, channelId: channelId, replyId: replyId,
                                     message: message, userId: userId, dateStamp: dateStamp)
         let _ = request(target, queue: queue) { result in
             do {

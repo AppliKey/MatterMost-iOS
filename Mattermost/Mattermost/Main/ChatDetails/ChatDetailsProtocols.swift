@@ -12,7 +12,8 @@ import UIKit
 protocol PostsService {
     func requestPosts(offset:String, completion: @escaping PostsCompletion) -> CancellableRequest?
     func requestMorePosts(afterPost postId:String, completion: @escaping PostsCompletion) -> CancellableRequest?
-    func sendPost(withMessage message:String, channelId:String, completion: @escaping PostCompletion) -> String
+    func sendPost(withMessage message:String, channelId:String,
+                  replyId:String?, completion: @escaping PostCompletion) -> String
     func updateLastViewedDate(atChannel channelId: String)
 }
 
@@ -22,7 +23,7 @@ protocol ChatDetailsConfigurator: class {
 protocol ChatDetailsInteracting: class {
     func getMorePosts(completion: @escaping PostsCompletion)
     func refresh(completion: @escaping PostsCompletion)
-    func sendMessage(message:String, completion:@escaping PostCompletion) -> String
+    func sendMessage(message:String, replyId: String?, completion:@escaping PostCompletion) -> String
     func updateLastPost(with post:Post)
     var channel:Channel { get }
 }
@@ -43,6 +44,8 @@ protocol ChatDetailsViewing: AlertShowable {
     func showError(forPostWithPlaceholderId id:String)
     func showActivityIndicator()
     func hideActivityIndicator()
+    func showReplyPost(_ post:PostRepresentationModel)
+    func closeReply()
 }
 
 protocol ChatDetailsEventHandling: class {
@@ -53,6 +56,8 @@ protocol ChatDetailsEventHandling: class {
     func handleSendMessage(_ message:String)
     func handleRetry(forPlaceholderPost post: PostRepresentationModel)
     func handleAttachPressed()
+    func handleReply(post: PostRepresentationModel)
+    func handleCloseReply()
 }
 
 protocol ChatDetailsCoordinator: class {
