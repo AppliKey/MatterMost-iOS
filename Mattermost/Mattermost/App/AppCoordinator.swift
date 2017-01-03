@@ -11,27 +11,38 @@ import UIKit
 
 class AppCoordinator {
     
-    func rootViewController() -> UIViewController {
-        let navigationController = UINavigationController()
-        showAuthorization(withNavigationController: navigationController)
-        return navigationController
+    init(window: UIWindow) {
+        self.window = window
+        router = AppRouter(window: window)
     }
     
-    func showAuthorization(withNavigationController navigationController: UINavigationController) {
-        let router = AuthorizationRouter(withNavigationController: navigationController)
-        let coordinator = AuthorizationCoordinator(withRouter: router, appCoordinator: self)
-        coordinator.start()
+    func setup() {
+        if SessionManager.shared.hasValidSession {
+            showMainScreen()
+        } else {
+            showAuthorization()
+        }
+        window.makeKeyAndVisible()
+    }
+    
+    func showAuthorization() {
+        let navigationController = UINavigationController()
+        let authorizationRouter = AuthorizationRouter(withNavigationController: navigationController)
+        let authorizationCoordinator = AuthorizationCoordinator(withRouter: authorizationRouter,
+                                                                appCoordinator: self)
+        authorizationCoordinator.start()
+        router.setRootController(navigationController)
     }
     
     func showMainScreen() {
         setupSideMenu()
-        let sideMenu = SideMenuController()
-        let router = MainRouter(withSideMenuController: sideMenu)
-        let mainCoordinator = MainCoordinator(withRouter: router, appCoordinator: self)
-        let menuCoordinator = SideMenuCoordinator(withRouter: router, coordinator: mainCoordinator)
-        
+        let sideMenuController = SideMenuController()
+        let mainRouter = MainRouter(withSideMenuController: sideMenuController)
+        let mainCoordinator = MainCoordinator(withRouter: mainRouter, appCoordinator: self)
         mainCoordinator.start()
+        let menuCoordinator = SideMenuCoordinator(withRouter: mainRouter, coordinator: mainCoordinator)
         menuCoordinator.start()
+        router.setRootController(sideMenuController)
     }
     
     fileprivate func setupSideMenu() {
@@ -42,4 +53,9 @@ class AppCoordinator {
         SideMenuController.preferences.drawing.centerPanelOverlayColor = UIColor.black
         SideMenuController.preferences.animating.statusBarBehaviour = .showUnderlay
     }
+    
+    //MARK: - Private -
+    private let window: UIWindow
+    private let router: AppRouter
+    
 }

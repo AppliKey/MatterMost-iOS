@@ -9,12 +9,6 @@
 import Foundation
 import Unbox
 
-enum OnlineStatus: String, UnboxableEnum {
-    case online = "online"
-    case offline = "offline"
-    case away = "away"
-}
-
 struct User {
     let id: String
     let username: String
@@ -39,4 +33,22 @@ extension User: Unboxable {
         firstname = unboxer.unbox(key: "first_name")
         lastname = unboxer.unbox(key: "last_name")
     }
+}
+
+extension User: Equatable {
+    static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
+extension User: Hashable {
+    var hashValue: Int {
+        return id.hashValue
+    }
+}
+
+enum OnlineStatus: String, UnboxableEnum {
+    case online = "online"
+    case offline = "offline"
+    case away = "away"
 }

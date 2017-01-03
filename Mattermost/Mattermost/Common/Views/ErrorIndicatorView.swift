@@ -26,6 +26,7 @@ class ErrorIndicatorView: UIView {
     //MARK: Overrides
     
     override func awakeFromNib() {
+        super.awakeFromNib()
         updateColor()
     }
     

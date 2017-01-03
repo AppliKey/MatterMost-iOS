@@ -20,12 +20,11 @@ class MainCoordinator {
     func start() {
         let tabBarViewController = UITabBarController()
         router.embed(centerViewController: tabBarViewController)
-        tabBarViewController.viewControllers = setupTabBarViewControllers()
-        NavigationManager.setRootController(router.rootController)        
+        tabBarViewController.viewControllers = setupTabBarViewControllers()       
     }
     
     func showAuthorization() {
-        NavigationManager.setRootController(appCoordinator.rootViewController())
+        appCoordinator.showAuthorization()
     }
     
     //MARK: - Private -
@@ -107,7 +106,7 @@ extension MainCoordinator : ChatsCoordinator {
         let chatName = channel.type == .direct ? channel.channelDetails?.members.filter{$0.id != userId}.first?.username ?? ""
                                                : channel.displayName
         chatDetails.navigationItem.title = chatName
-        router.push(viewController: chatDetails, animated: true)
+        router.push(chatDetails, animated: true)
     }
 }
 

@@ -82,12 +82,12 @@ extension SocketManager: SRWebSocketDelegate {
     }
     
     func handle(newPost post: Post) {
-        guard let channel = post.channelId, let team = SessionManager.shared.team?.id
+        guard let channelId = post.channelId, let teamId = SessionManager.shared.team?.id
             else { return }
         
         post.isUnread = true
-        NotificationCenter.default.post(Notification(name: .newPost(inChannel: channel), object: post, userInfo: nil))
-        NotificationCenter.default.post(Notification(name: .newPost(inTeam: team), object: post, userInfo: nil))
+        NotificationCenter.default.post(Notification(name: .newPost(inChannel: channelId), object: post, userInfo: nil))
+        NotificationCenter.default.post(Notification(name: .newPost(inTeam: teamId), object: post, userInfo: nil))
     }
     
     func webSocket(_ webSocket: SRWebSocket!, didFailWithError error: Error!) {

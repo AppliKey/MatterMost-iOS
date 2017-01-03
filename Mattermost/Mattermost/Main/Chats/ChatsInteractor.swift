@@ -10,7 +10,6 @@ import Foundation
 
 class ChatsInteractor {
   	weak var presenter: ChatsPresenting!
-    var mode:ChatsMode
     
     //MARK: - Init
     init(service: ChannelsService, mode:ChatsMode) {
@@ -21,6 +20,7 @@ class ChatsInteractor {
     }
     
     //MARK: - Private
+    fileprivate let mode: ChatsMode
     fileprivate let service: ChannelsService
     fileprivate var request: CancellableRequest?
     fileprivate var channels: [Channel]?
@@ -54,14 +54,15 @@ extension ChatsInteractor: ChatsInteracting {
     }
 
     func loadChannels() {
-        service.loadChannels(with: mode, completion: handleCompletion)
+        service.loadChannels(with: mode, completion: handleCompletion) //FIXME: weakify
     }
     
     private func handleCompletion(withResult result:ChannelsResult) {
         switch result {
         case .success(let channels):
-            self.channels = channels
-            presenter.present(channels)
+            let sortedChannels = sortChannels(channels: channels)
+            self.channels = sortedChannels
+            presenter.present(sortedChannels)
             getUserStatuses()
             checkIsUnread()
         case .failure(let errorMessage):
@@ -90,10 +91,12 @@ extension ChatsInteractor: ChatsInteracting {
     
     func getUserStatuses() {
         request = service.getUsersStatuses { [weak self]  result in
+            guard let strongSelf = self else { return }
             switch result {
             case .success(let channels):
-                self?.channels = channels
-                self?.presenter.present(channels)
+                let sortedChannels = strongSelf.sortChannels(channels: channels)
+                strongSelf.channels = sortedChannels
+                strongSelf.presenter.present(sortedChannels)
             case .failure(_): break
             }
         }
@@ -101,6 +104,20 @@ extension ChatsInteractor: ChatsInteracting {
     
     func getChannel(at index:Int) -> Channel? {
         return channels?[index]
+    }
+    
+    private func sortChannels(channels: [Channel]) -> [Channel] {
+        var unreadChannels = [Channel]()
+        var readChannels = [Channel]()
+        for channel in channels {
+            if channel.isUnread {
+                unreadChannels.append(channel)
+            } else {
+                readChannels.append(channel)
+            }
+        }
+        return unreadChannels.sorted{ $0.0.lastPostAt > $0.1.lastPostAt }
+            + readChannels.sorted{ $0.0.lastPostAt > $0.1.lastPostAt }
     }
     
 }

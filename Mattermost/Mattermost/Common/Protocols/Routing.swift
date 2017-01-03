@@ -11,13 +11,13 @@ import UIKit
 
 protocol Routing: class {
     var topViewController: UIViewController {get set}
-    func present(viewController: UIViewController, completion: VoidClosure?)
+    func present(_ viewController: UIViewController, completion: VoidClosure?)
     func dismiss(completion: VoidClosure?)
 }
 
 extension Routing {
     
-    func present(viewController: UIViewController, completion: VoidClosure? = nil) {
+    func present(_ viewController: UIViewController, completion: VoidClosure? = nil) {
         topViewController.present(viewController, animated: true, completion: completion)
     }
     
@@ -29,14 +29,14 @@ extension Routing {
 
 protocol NavigationRouting: Routing {
     var navigationController: UINavigationController {get}
-    func push(viewController: UIViewController, animated: Bool)
+    func push(_ viewController: UIViewController, animated: Bool)
     func pop()
-    func root(viewController: UIViewController, animated: Bool)
+    func root(_ viewController: UIViewController, animated: Bool)
 }
 
 extension NavigationRouting {
     
-    func push(viewController: UIViewController, animated: Bool = true) {
+    func push(_ viewController: UIViewController, animated: Bool = true) {
         navigationController.pushViewController(viewController, animated: animated)
         topViewController = viewController
     }
@@ -46,7 +46,7 @@ extension NavigationRouting {
         topViewController = navigationController.topViewController ?? navigationController
     }
     
-    func root(viewController: UIViewController, animated: Bool = true) {
+    func root(_ viewController: UIViewController, animated: Bool = true) {
         navigationController.setViewControllers([viewController], animated: animated)
     }
     

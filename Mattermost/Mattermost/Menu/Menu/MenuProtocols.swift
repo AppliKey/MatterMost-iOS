@@ -25,8 +25,10 @@ protocol MenuViewing: class {
 protocol MenuEventHandling: class {
     func viewIsReady()
     func handleRowSelection(withIndexPath index:IndexPath)
+    func createGroup()
 }
 
 protocol MenuCoordinator: class {
     func openSettings()
+    func createGroup()
 }

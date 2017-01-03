@@ -16,6 +16,8 @@ struct AllTeamsTarget: MattermostTarget, ResponseMapping {
     
     let path = "/teams/all"
     
+    //MARK: - ResponseMapping -
+    
     func map(_ response: Moya.Response) throws -> [Team] {
         if let json = try response.mapJSON() as? UnboxableDictionary {
             var teams: [Team] = []

@@ -26,6 +26,7 @@ class HideKeyboardRecognizer {
     private func setupGestureRecognizer() {
         let action = #selector(HideKeyboardRecognizer.hideKeyboard)
         let tapRecognizer = UITapGestureRecognizer(target: self, action: action)
+        tapRecognizer.cancelsTouchesInView = false
         view.addGestureRecognizer(tapRecognizer)
         self.tapRecognizer = tapRecognizer
     }

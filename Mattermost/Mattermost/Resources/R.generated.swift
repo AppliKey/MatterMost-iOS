@@ -31,10 +31,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 23 images.
+  /// This `R.image` struct is generated, and contains static references to 27 images.
   struct image {
+    /// Image `add_icon`.
+    static let add_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "add_icon")
     /// Image `back`.
     static let back = Rswift.ImageResource(bundle: R.hostingBundle, name: "back")
+    /// Image `check_icon`.
+    static let check_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "check_icon")
     /// Image `forward`.
     static let forward = Rswift.ImageResource(bundle: R.hostingBundle, name: "forward")
     /// Image `ic-menu`.
@@ -75,14 +79,28 @@ struct R: Rswift.Validatable {
     static let ic_unread_not_active = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_unread_not_active")
     /// Image `ic_unread`.
     static let ic_unread = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_unread")
-    /// Image `newGroupBanner`.
-    static let newGroupBanner = Rswift.ImageResource(bundle: R.hostingBundle, name: "newGroupBanner")
     /// Image `placeholderSmall`.
     static let placeholderSmall = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholderSmall")
+    /// Image `private_group_icon`.
+    static let private_group_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "private_group_icon")
+    /// Image `public_group_icon`.
+    static let public_group_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "public_group_icon")
+    /// Image `search_icon`.
+    static let search_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "search_icon")
+    
+    /// `UIImage(named: "add_icon", bundle: ..., traitCollection: ...)`
+    static func add_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.add_icon, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "back", bundle: ..., traitCollection: ...)`
     static func back(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.back, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "check_icon", bundle: ..., traitCollection: ...)`
+    static func check_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.check_icon, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "forward", bundle: ..., traitCollection: ...)`
@@ -185,25 +203,39 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.ic_unread_not_active, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "newGroupBanner", bundle: ..., traitCollection: ...)`
-    static func newGroupBanner(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.newGroupBanner, compatibleWith: traitCollection)
-    }
-    
     /// `UIImage(named: "placeholderSmall", bundle: ..., traitCollection: ...)`
     static func placeholderSmall(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.placeholderSmall, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "private_group_icon", bundle: ..., traitCollection: ...)`
+    static func private_group_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.private_group_icon, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "public_group_icon", bundle: ..., traitCollection: ...)`
+    static func public_group_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.public_group_icon, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "search_icon", bundle: ..., traitCollection: ...)`
+    static func search_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.search_icon, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 8 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 13 nibs.
   struct nib {
+    /// Nib `AddMembersCell`.
+    static let addMembersCell = _R.nib._AddMembersCell()
     /// Nib `DirectMessageCell`.
     static let directMessageCell = _R.nib._DirectMessageCell()
     /// Nib `GroupChatCell`.
     static let groupChatCell = _R.nib._GroupChatCell()
+    /// Nib `GroupMemberCell`.
+    static let groupMemberCell = _R.nib._GroupMemberCell()
     /// Nib `GroupMessageCell`.
     static let groupMessageCell = _R.nib._GroupMessageCell()
     /// Nib `ImageCollectionViewCell`.
@@ -212,10 +244,21 @@ struct R: Rswift.Validatable {
     static let labelCollectionViewCell = _R.nib._LabelCollectionViewCell()
     /// Nib `MyMessagesCell`.
     static let myMessagesCell = _R.nib._MyMessagesCell()
+    /// Nib `NewGroupTextCell`.
+    static let newGroupTextCell = _R.nib._NewGroupTextCell()
+    /// Nib `NewGroupTypeCell`.
+    static let newGroupTypeCell = _R.nib._NewGroupTypeCell()
+    /// Nib `SearchCell`.
+    static let searchCell = _R.nib._SearchCell()
     /// Nib `SingleChatCell`.
     static let singleChatCell = _R.nib._SingleChatCell()
     /// Nib `TeamCell`.
     static let teamCell = _R.nib._TeamCell()
+    
+    /// `UINib(name: "AddMembersCell", in: bundle)`
+    static func addMembersCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.addMembersCell)
+    }
     
     /// `UINib(name: "DirectMessageCell", in: bundle)`
     static func directMessageCell(_: Void = ()) -> UIKit.UINib {
@@ -225,6 +268,11 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "GroupChatCell", in: bundle)`
     static func groupChatCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.groupChatCell)
+    }
+    
+    /// `UINib(name: "GroupMemberCell", in: bundle)`
+    static func groupMemberCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.groupMemberCell)
     }
     
     /// `UINib(name: "GroupMessageCell", in: bundle)`
@@ -247,6 +295,21 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.myMessagesCell)
     }
     
+    /// `UINib(name: "NewGroupTextCell", in: bundle)`
+    static func newGroupTextCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.newGroupTextCell)
+    }
+    
+    /// `UINib(name: "NewGroupTypeCell", in: bundle)`
+    static func newGroupTypeCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.newGroupTypeCell)
+    }
+    
+    /// `UINib(name: "SearchCell", in: bundle)`
+    static func searchCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.searchCell)
+    }
+    
     /// `UINib(name: "SingleChatCell", in: bundle)`
     static func singleChatCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.singleChatCell)
@@ -260,7 +323,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 8 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 9 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `DirectMessageCell`.
     static let directMessageCell: Rswift.ReuseIdentifier<DirectMessageCell> = Rswift.ReuseIdentifier(identifier: "DirectMessageCell")
@@ -276,6 +339,8 @@ struct R: Rswift.Validatable {
     static let labelCollectionViewCell: Rswift.ReuseIdentifier<LabelCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "LabelCollectionViewCell")
     /// Reuse identifier `MyMessagesCell`.
     static let myMessagesCell: Rswift.ReuseIdentifier<MyMessagesCell> = Rswift.ReuseIdentifier(identifier: "MyMessagesCell")
+    /// Reuse identifier `SearchCell`.
+    static let searchCell: Rswift.ReuseIdentifier<SearchCell> = Rswift.ReuseIdentifier(identifier: "SearchCell")
     /// Reuse identifier `SingleChatCell`.
     static let singleChatCell: Rswift.ReuseIdentifier<SingleChatCell> = Rswift.ReuseIdentifier(identifier: "SingleChatCell")
     
@@ -323,8 +388,10 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 35 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 48 localization keys.
     struct localizable {
+      /// Value: Add members
+      static let addMembersLabel = Rswift.StringResource(key: "add.members.label", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Address format is not valid
       static let serverAddressWrongFormat = Rswift.StringResource(key: "server.address.wrong.format", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: All your team communication in one  place, searchable and accessible  anywhere.
@@ -343,6 +410,10 @@ struct R: Rswift.Validatable {
       static let emailFieldPlaceholder = Rswift.StringResource(key: "email.field.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Enter your password
       static let passwordFieldPlaceholder = Rswift.StringResource(key: "password.field.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Example: ???
+      static let groupUrlPlaceholder = Rswift.StringResource(key: "group.url.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Example: Project name, Bugs, Sales
+      static let groupNamePlaceholder = Rswift.StringResource(key: "group.name.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: FORGOT PASSWORD
       static let forgotPassword = Rswift.StringResource(key: "forgot.password", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Find more channels
@@ -357,8 +428,14 @@ struct R: Rswift.Validatable {
       static let newGroupChannel = Rswift.StringResource(key: "new.group.channel", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: NEXT
       static let nextButtonTitle = Rswift.StringResource(key: "next.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Name
+      static let groupNameLabel = Rswift.StringResource(key: "group.name.label", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: New messages
       static let newMessages = Rswift.StringResource(key: "new.messages", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: New private group
+      static let privateGroupTitle = Rswift.StringResource(key: "private.group.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: New public channel
+      static let publicGroupTitle = Rswift.StringResource(key: "public.group.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: No
       static let noAlertTitle = Rswift.StringResource(key: "no.alert.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: No messages yet =(
@@ -371,8 +448,16 @@ struct R: Rswift.Validatable {
       static let passwordNotValid = Rswift.StringResource(key: "password.not.valid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Please check your email
       static let passwordWasReset = Rswift.StringResource(key: "password.was.reset", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Private
+      static let privateTypeLabel = Rswift.StringResource(key: "private.type.label", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Public
+      static let publicTypeLabel = Rswift.StringResource(key: "public.type.label", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Purpose
+      static let groupPurposeLabel = Rswift.StringResource(key: "group.purpose.label", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: SEND
       static let sendButtonTitle = Rswift.StringResource(key: "send.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Search...
+      static let searchPlaceholder = Rswift.StringResource(key: "search.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Select your team
       static let teamSelectionHeader = Rswift.StringResource(key: "team.selection.header", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Settings
@@ -381,6 +466,8 @@ struct R: Rswift.Validatable {
       static let settingsTitle = Rswift.StringResource(key: "settings.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Today
       static let timeToday = Rswift.StringResource(key: "time.today", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: URL
+      static let groupUrlLabel = Rswift.StringResource(key: "group.url.label", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Unknown server error
       static let unknownServerError = Rswift.StringResource(key: "unknown.server.error", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Unread messages
@@ -389,12 +476,21 @@ struct R: Rswift.Validatable {
       static let serverIsWrong = Rswift.StringResource(key: "server.is.wrong", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Welcome to Mattermost
       static let welcome = Rswift.StringResource(key: "welcome", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: What are you going to discuss in the Group
+      static let groupPurposePlaceholder = Rswift.StringResource(key: "group.purpose.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: What are you going to discuss in this Channel
+      static let channelPurposePlaceholder = Rswift.StringResource(key: "channel.purpose,placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Yes
       static let yesAlertTitle = Rswift.StringResource(key: "yes.alert.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Yesterday
       static let timeYesterday = Rswift.StringResource(key: "time.yesterday", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: http://server.com/
       static let serverFieldPlaceholder = Rswift.StringResource(key: "server.field.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      
+      /// Value: Add members
+      static func addMembersLabel(_: Void = ()) -> String {
+        return NSLocalizedString("add.members.label", bundle: R.hostingBundle, comment: "")
+      }
       
       /// Value: Address format is not valid
       static func serverAddressWrongFormat(_: Void = ()) -> String {
@@ -441,6 +537,16 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("password.field.placeholder", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: Example: ???
+      static func groupUrlPlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("group.url.placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Example: Project name, Bugs, Sales
+      static func groupNamePlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("group.name.placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: FORGOT PASSWORD
       static func forgotPassword(_: Void = ()) -> String {
         return NSLocalizedString("forgot.password", bundle: R.hostingBundle, comment: "")
@@ -476,9 +582,24 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("next.button.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: Name
+      static func groupNameLabel(_: Void = ()) -> String {
+        return NSLocalizedString("group.name.label", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: New messages
       static func newMessages(_: Void = ()) -> String {
         return NSLocalizedString("new.messages", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: New private group
+      static func privateGroupTitle(_: Void = ()) -> String {
+        return NSLocalizedString("private.group.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: New public channel
+      static func publicGroupTitle(_: Void = ()) -> String {
+        return NSLocalizedString("public.group.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: No
@@ -511,9 +632,29 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("password.was.reset", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: Private
+      static func privateTypeLabel(_: Void = ()) -> String {
+        return NSLocalizedString("private.type.label", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Public
+      static func publicTypeLabel(_: Void = ()) -> String {
+        return NSLocalizedString("public.type.label", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Purpose
+      static func groupPurposeLabel(_: Void = ()) -> String {
+        return NSLocalizedString("group.purpose.label", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: SEND
       static func sendButtonTitle(_: Void = ()) -> String {
         return NSLocalizedString("send.button.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Search...
+      static func searchPlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("search.placeholder", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Select your team
@@ -536,6 +677,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("time.today", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: URL
+      static func groupUrlLabel(_: Void = ()) -> String {
+        return NSLocalizedString("group.url.label", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: Unknown server error
       static func unknownServerError(_: Void = ()) -> String {
         return NSLocalizedString("unknown.server.error", bundle: R.hostingBundle, comment: "")
@@ -554,6 +700,16 @@ struct R: Rswift.Validatable {
       /// Value: Welcome to Mattermost
       static func welcome(_: Void = ()) -> String {
         return NSLocalizedString("welcome", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: What are you going to discuss in the Group
+      static func groupPurposePlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("group.purpose.placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: What are you going to discuss in this Channel
+      static func channelPurposePlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("channel.purpose,placeholder", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Yes
@@ -596,9 +752,23 @@ struct _R: Rswift.Validatable {
   
   struct nib: Rswift.Validatable {
     static func validate() throws {
-      try _MyMessagesCell.validate()
       try _TeamCell.validate()
+      try _SearchCell.validate()
+      try _MyMessagesCell.validate()
+      try _NewGroupTypeCell.validate()
+      try _GroupMemberCell.validate()
       try _GroupChatCell.validate()
+    }
+    
+    struct _AddMembersCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "AddMembersCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> AddMembersCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? AddMembersCell
+      }
+      
+      fileprivate init() {}
     }
     
     struct _DirectMessageCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
@@ -628,6 +798,22 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "ic_private_chanels_not_active") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_private_chanels_not_active' is used in nib 'GroupChatCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _GroupMemberCell: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "GroupMemberCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> GroupMemberCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GroupMemberCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "add_icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'add_icon' is used in nib 'GroupMemberCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "check_icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'check_icon' is used in nib 'GroupMemberCell', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
@@ -688,6 +874,51 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "ic_fail") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_fail' is used in nib 'MyMessagesCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _NewGroupTextCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "NewGroupTextCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> NewGroupTextCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? NewGroupTextCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _NewGroupTypeCell: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "NewGroupTypeCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> NewGroupTypeCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? NewGroupTypeCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "private_group_icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'private_group_icon' is used in nib 'NewGroupTypeCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "public_group_icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'public_group_icon' is used in nib 'NewGroupTypeCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _SearchCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = SearchCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "SearchCell"
+      let name = "SearchCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> SearchCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SearchCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "search_icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'search_icon' is used in nib 'SearchCell', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
@@ -812,10 +1043,15 @@ struct _R: Rswift.Validatable {
       let bundle = R.hostingBundle
       let menuViewController = StoryboardViewControllerResource<MenuViewController>(identifier: "MenuViewController")
       let name = "Menu"
+      let newGroupViewController = StoryboardViewControllerResource<Mattermost.NewGroupViewController>(identifier: "NewGroupViewController")
       let settingsViewController = StoryboardViewControllerResource<SettingsViewController>(identifier: "SettingsViewController")
       
       func menuViewController(_: Void = ()) -> MenuViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: menuViewController)
+      }
+      
+      func newGroupViewController(_: Void = ()) -> Mattermost.NewGroupViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: newGroupViewController)
       }
       
       func settingsViewController(_: Void = ()) -> SettingsViewController? {
@@ -823,9 +1059,9 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "newGroupBanner") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'newGroupBanner' is used in storyboard 'Menu', but couldn't be loaded.") }
         if _R.storyboard.menu().menuViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'menuViewController' could not be loaded from storyboard 'Menu' as 'MenuViewController'.") }
         if _R.storyboard.menu().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'Menu' as 'SettingsViewController'.") }
+        if _R.storyboard.menu().newGroupViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'newGroupViewController' could not be loaded from storyboard 'Menu' as 'Mattermost.NewGroupViewController'.") }
       }
       
       fileprivate init() {}

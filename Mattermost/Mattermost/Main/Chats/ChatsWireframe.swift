@@ -20,9 +20,9 @@ class ChatsWireframe {
         presenter.view = viewController
         presenter.interactor = interactor
         viewController.eventHandler = presenter
-        viewController.chatsService = service
         interactor.presenter = presenter
         interactor.loadChannels()
         configutation?(presenter)
-    }    
+    }
+    
 }

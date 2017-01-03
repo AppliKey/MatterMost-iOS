@@ -25,18 +25,31 @@ class SideMenuCoordinator {
         MenuWireframe.setup(menu, withCoordinator: self)
         router.embed(sideViewController: menu)
     }
+    
+    //MARK: - Private
+    
+    fileprivate func push(_ viewController: UIViewController) {
+        router.toggleMenu()
+        viewController.hidesBottomBarWhenPushed = true
+        self.router.push(viewController, animated: false)
+    }
+    
 }
 
 extension SideMenuCoordinator : MenuCoordinator {
     
     func openSettings() {
-        router.toggleMenu()
-        guard let settingsVC = R.storyboard.menu.settingsViewController()
+        guard let viewController = R.storyboard.menu.settingsViewController()
             else { fatalError("Can't instantiate settings view controller") }
-        settingsVC.hidesBottomBarWhenPushed = true
-        SettingsWireframe.setup(settingsVC, withCoordinator: self)
-        
-        self.router.push(viewController: settingsVC, animated: false)
+        SettingsWireframe.setup(viewController, withCoordinator: self)
+        push(viewController)
+    }
+    
+    func createGroup() {
+        guard let viewController = R.storyboard.menu.newGroupViewController()
+            else { fatalError("Can't instantiate settings view controller") }
+        NewGroupWireframe.setup(viewController, withCoordinator: self)
+        push(viewController)
     }
     
 }
@@ -50,3 +63,5 @@ extension SideMenuCoordinator : SettingsCoordinator {
         coordinator.showAuthorization()
     }
 }
+
+extension SideMenuCoordinator: NewGroupCoordinator {}

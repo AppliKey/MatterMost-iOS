@@ -26,6 +26,7 @@ class ServerSelectionViewController: UIViewController, ActivityIndicatorHolder {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureInterface()
+        //serverTextField.text = "https://mattermost-nutscracker53.herokuapp.com"
     }
     
     //MARK: - Actions

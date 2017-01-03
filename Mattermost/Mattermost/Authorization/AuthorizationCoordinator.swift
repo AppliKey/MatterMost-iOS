@@ -44,7 +44,7 @@ class AuthorizationCoordinator {
         guard let viewController = R.storyboard.authorization.serverSelectionViewController()
             else { fatalError("Can't instantiate server selection view controller") }
         ServerSelectionWireframe.setup(viewController, withCoordinator: self)
-        router.root(viewController: viewController, animated: animated)
+        router.root(viewController, animated: animated)
     }
     
 }
@@ -56,7 +56,7 @@ extension AuthorizationCoordinator: ServerSelectionCoordinator {
         guard let viewController = R.storyboard.authorization.signInViewController()
             else { fatalError("Can't instantiate sign in view controller") }
         SignInWireframe.setup(viewController, withCoordinator: self)
-        router.push(viewController: viewController, animated: animated)
+        router.push(viewController, animated: animated)
     }
     
 }
@@ -70,14 +70,14 @@ extension AuthorizationCoordinator: SignInCoordinator {
         ForgotPassWireframe.setup(viewController, withCoordinator: self) {
             $0.email = email
         }
-        router.push(viewController: viewController, animated: true)
+        router.push(viewController, animated: true)
     }
     
     func selectTeam() {
         guard let viewController = R.storyboard.authorization.teamSelectionViewController()
             else { fatalError("Can't instantiate forgot pass view controller") }
         TeamSelectionWireframe.setup(viewController, withCoordinator: self)
-        router.push(viewController: viewController, animated: animated)
+        router.push(viewController, animated: animated)
     }
     
 }
