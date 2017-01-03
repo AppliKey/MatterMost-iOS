@@ -47,6 +47,7 @@ protocol ChatDetailsViewing: AlertShowable {
 
 protocol ChatDetailsEventHandling: class {
     func viewIsReady()
+    func handleBack()
     func handlePagination()
     func refresh()
     func handleSendMessage(_ message:String)
@@ -55,4 +56,5 @@ protocol ChatDetailsEventHandling: class {
 }
 
 protocol ChatDetailsCoordinator: class {
+    func handleBack()
 }

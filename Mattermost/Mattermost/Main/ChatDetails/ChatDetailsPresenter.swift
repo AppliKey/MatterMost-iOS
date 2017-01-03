@@ -115,6 +115,10 @@ extension ChatDetailsPresenter: ChatDetailsEventHandling {
         }
     }
     
+    func handleBack() {
+        coordinator.handleBack()
+    }
+    
     private func loadMoreData() {
         view.showActivityIndicator()
         interactor.getMorePosts { [weak self] result in
@@ -152,7 +156,4 @@ extension ChatDetailsPresenter: ChatDetailsEventHandling {
         default: break
         }
     }
-    
-    
-    
 }

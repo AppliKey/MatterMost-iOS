@@ -34,6 +34,11 @@ class ChatDetailsViewController: UIViewController {
         configureInterface()
         eventHandler.viewIsReady()
 	}
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        eventHandler.handleBack()
+    }
 
 	//MARK: - Private -
 
@@ -189,8 +194,7 @@ extension ChatDetailsViewController: UITableViewDataSource {
         if indexPath.row == posts.count - 1 {
             eventHandler.handlePagination()
         }
-    }
-    
+    }    
 }
 
 private let margins: CGFloat = 24

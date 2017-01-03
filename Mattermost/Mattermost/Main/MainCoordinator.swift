@@ -113,4 +113,7 @@ extension MainCoordinator : ChatsCoordinator {
 
 //MARK: - ChatDetailsCoordinator
 extension MainCoordinator : ChatDetailsCoordinator {
+    func handleBack() {
+        router.topViewController = router.navigationController.topViewController ?? router.navigationController
+    }
 }
