@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class ImageCollectionViewCell: UICollectionViewCell {
+class ImageCollectionViewCell: UICollectionViewCell, NibReusable {
 
     @IBOutlet weak var imageView: UIImageView!
     

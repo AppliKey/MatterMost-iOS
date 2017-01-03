@@ -11,4 +11,14 @@ import UIKit
 class SearchCell: UITableViewCell, NibReusable {
     //MARK: - Outlets
     @IBOutlet weak var searchTextField: UITextField!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        localizeViews()
+    }
+    
+    private func localizeViews() {
+        searchTextField.placeholder = R.string.localizable.searchPlaceholder()
+    }
+    
 }

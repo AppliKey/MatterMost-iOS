@@ -23,6 +23,7 @@ protocol NewGroupPresenting: class {
 
 protocol NewGroupViewing: class, AlertShowable {
     func show(_ users: [UserRepresantation])
+    func updateMembersInfo(_ membersInfo: MembersInfoRepresentation)
 }
 
 protocol NewGroupEventHandling: class {

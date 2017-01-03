@@ -226,8 +226,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 12 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 13 nibs.
   struct nib {
+    /// Nib `AddMembersCell`.
+    static let addMembersCell = _R.nib._AddMembersCell()
     /// Nib `DirectMessageCell`.
     static let directMessageCell = _R.nib._DirectMessageCell()
     /// Nib `GroupChatCell`.
@@ -252,6 +254,11 @@ struct R: Rswift.Validatable {
     static let singleChatCell = _R.nib._SingleChatCell()
     /// Nib `TeamCell`.
     static let teamCell = _R.nib._TeamCell()
+    
+    /// `UINib(name: "AddMembersCell", in: bundle)`
+    static func addMembersCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.addMembersCell)
+    }
     
     /// `UINib(name: "DirectMessageCell", in: bundle)`
     static func directMessageCell(_: Void = ()) -> UIKit.UINib {
@@ -381,8 +388,10 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 45 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 47 localization keys.
     struct localizable {
+      /// Value: Add members
+      static let addMembersLabel = Rswift.StringResource(key: "add.members.label", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Address format is not valid
       static let serverAddressWrongFormat = Rswift.StringResource(key: "server.address.wrong.format", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: All your team communication in one  place, searchable and accessible  anywhere.
@@ -447,6 +456,8 @@ struct R: Rswift.Validatable {
       static let groupPurposeLabel = Rswift.StringResource(key: "group.purpose.label", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: SEND
       static let sendButtonTitle = Rswift.StringResource(key: "send.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Search...
+      static let searchPlaceholder = Rswift.StringResource(key: "search.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Select your team
       static let teamSelectionHeader = Rswift.StringResource(key: "team.selection.header", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Settings
@@ -473,6 +484,11 @@ struct R: Rswift.Validatable {
       static let timeYesterday = Rswift.StringResource(key: "time.yesterday", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: http://server.com/
       static let serverFieldPlaceholder = Rswift.StringResource(key: "server.field.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      
+      /// Value: Add members
+      static func addMembersLabel(_: Void = ()) -> String {
+        return NSLocalizedString("add.members.label", bundle: R.hostingBundle, comment: "")
+      }
       
       /// Value: Address format is not valid
       static func serverAddressWrongFormat(_: Void = ()) -> String {
@@ -634,6 +650,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("send.button.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: Search...
+      static func searchPlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("search.placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: Select your team
       static func teamSelectionHeader(_: Void = ()) -> String {
         return NSLocalizedString("team.selection.header", bundle: R.hostingBundle, comment: "")
@@ -724,12 +745,23 @@ struct _R: Rswift.Validatable {
   
   struct nib: Rswift.Validatable {
     static func validate() throws {
+      try _TeamCell.validate()
       try _SearchCell.validate()
       try _MyMessagesCell.validate()
-      try _TeamCell.validate()
       try _NewGroupTypeCell.validate()
       try _GroupMemberCell.validate()
       try _GroupChatCell.validate()
+    }
+    
+    struct _AddMembersCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "AddMembersCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> AddMembersCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? AddMembersCell
+      }
+      
+      fileprivate init() {}
     }
     
     struct _DirectMessageCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {

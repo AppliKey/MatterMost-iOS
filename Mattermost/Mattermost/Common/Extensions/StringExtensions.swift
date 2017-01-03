@@ -23,6 +23,9 @@ extension String {
         for character in self.characters {
             result.append(character)
             result.append(" ")
+            if character == " " {
+                result.append("  ")
+            }
         }
         return result
     }

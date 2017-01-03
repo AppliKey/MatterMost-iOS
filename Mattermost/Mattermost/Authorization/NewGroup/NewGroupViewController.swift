@@ -43,6 +43,7 @@ class NewGroupViewController: UIViewController {
     fileprivate var purpose: String = ""
     fileprivate var searchText: String = ""
     fileprivate var users = Array<UserRepresantation>()
+    fileprivate var membersInfo: MembersInfoRepresentation?
 
 	//MARK: - UI
     
@@ -62,6 +63,7 @@ class NewGroupViewController: UIViewController {
         tableView.register(cellType: NewGroupTextCell.self)
         tableView.register(cellType: GroupMemberCell.self)
         tableView.register(cellType: SearchCell.self)
+        tableView.register(cellType: AddMembersCell.self)
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -80,6 +82,12 @@ extension NewGroupViewController: NewGroupViewing { //MARK: - NewGroupViewing -
         self.tableView.reloadSections(sectionsSet, with: .automatic)
     }
     
+    func updateMembersInfo(_ membersInfo: MembersInfoRepresentation) {
+        self.membersInfo = membersInfo
+        let sectionsSet = IndexSet(integer: Section.membersInfo.rawValue)
+        self.tableView.reloadSections(sectionsSet, with: .automatic)
+    }
+    
 }
 
 extension NewGroupViewController: UITableViewDataSource { //MARK: - UITableViewDataSource -
@@ -93,7 +101,7 @@ extension NewGroupViewController: UITableViewDataSource { //MARK: - UITableViewD
         switch section {
         case .groupType: return 1
         case .groupInfo: return GroupInfoRow.count
-        case .membersInfo: return 0
+        case .membersInfo: return 1
         case .search: return 1
         case .users: return max(users.count, 1)
         }
@@ -142,7 +150,9 @@ extension NewGroupViewController: UITableViewDataSource { //MARK: - UITableViewD
     //MARK: - Members info
     
     private func membersInfoCellAt(_ indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(for: indexPath) as AddMembersCell
+        cell.configure(with: membersInfo)
+        return cell
     }
     
     //MARK: - Search
@@ -197,14 +207,6 @@ extension NewGroupViewController: UITableViewDelegate { //MARK: - UITableViewDel
     
     //MARK: - Row height
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return CGFloat.leastNormalMagnitude
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat.leastNormalMagnitude
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let section = Section(rawValue: indexPath.section) else { fatalError("Wrong section") }
         switch section {
@@ -229,7 +231,11 @@ extension NewGroupViewController: UITableViewDelegate { //MARK: - UITableViewDel
     }
     
     private func membersInfoCellHeightAt(_ indexPath: IndexPath) -> CGFloat {
-        return 45
+        if membersInfo?.count > 0 {
+            return 140
+        } else {
+            return 65
+        }
     }
     
     private func searchCellHeightAt(_ indexPath: IndexPath) -> CGFloat {
@@ -238,6 +244,14 @@ extension NewGroupViewController: UITableViewDelegate { //MARK: - UITableViewDel
     
     private func userCellHeightAt(_ indexPath: IndexPath) -> CGFloat {
         return 60
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
     }
     
 }

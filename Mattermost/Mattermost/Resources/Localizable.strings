@@ -12,6 +12,7 @@
 "ok.alert.title" = "Ok";
 "yes.alert.title" = "Yes";
 "no.alert.title" = "No";
+"search.placeholder" = "Search...";
 
 // Errors
 "server.is.wrong" = "We could not connect to the Mattermost server or the server is running in an incompatible version";
@@ -71,3 +72,4 @@
 "group.purpose.placeholder" = "What are you going to discuss in this group";
 "public.group.title" = "New public channel";
 "private.group.title" = "New private group";
+"add.members.label" = "Add members";

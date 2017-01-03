@@ -8,8 +8,12 @@
 
 import UIKit
 
-class LabelCollectionViewCell: UICollectionViewCell {
+class LabelCollectionViewCell: UICollectionViewCell, NibReusable {
 
     @IBOutlet weak var titleLabel: UILabel!
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = frame.width / 2
+    }
 }

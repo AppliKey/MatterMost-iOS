@@ -39,12 +39,19 @@ extension NewGroupPresenter: NewGroupEventHandling {
     
     func didSelectUserAt(_ index: Int, update: (UserRepresantation) -> Void) {
         let user = usersToShow[index]
+        updateMembersWith(user)
+        update(representation(for: user))
+    }
+    
+    fileprivate func updateMembersWith(_ user: User) {
         if members.contains(user) {
             members.remove(user)
         } else {
             members.insert(user)
         }
-        update(representation(for: user))
+        let urls = members.sorted{$0.0.username < $0.1.username}.flatMap{$0.avatarUrl}
+        let membersInfo = MembersInfoRepresentation(count: members.count, urls: urls)
+        view.updateMembersInfo(membersInfo)
     }
     
     func didChangeSearchString(_ searchString: String) {
@@ -93,7 +100,7 @@ extension NewGroupPresenter: NewGroupPresenting {
     
 }
 
-class UserRepresantation {
+struct UserRepresantation {
     let name: String
     let avatarURL: URL?
     var isSelected = false
@@ -104,4 +111,9 @@ class UserRepresantation {
         self.isSelected = selected
     }
     
+}
+
+struct MembersInfoRepresentation {
+    let count: Int
+    let urls: [URL]
 }
