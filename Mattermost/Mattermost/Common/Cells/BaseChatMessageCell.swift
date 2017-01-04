@@ -36,6 +36,10 @@ class BaseChatMessageCell: UITableViewCell, MessageCellViewing {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var topLabel: UILabel!
     
+    @IBOutlet weak var replyTextLabel: UILabel!
+    @IBOutlet weak var replyViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var replyViewHeightConstraint: NSLayoutConstraint!
+    
     private var isLongDateFormatActive: Bool = false
     
     @IBAction private func bottomViewTapped(_ sender: Any) {
@@ -77,6 +81,13 @@ class BaseChatMessageCell: UITableViewCell, MessageCellViewing {
         }
     }
     
+    var showReplyView: Bool = false {
+        didSet {
+            replyViewHeightConstraint.constant = showReplyView ? 20 : 0
+            replyViewTopConstraint.constant = showReplyView ? 12 : 0
+        }
+    }
+    
     func configure(withRepresentationModel model: PostRepresentationModel) {
         messageLabel.text = model.message
         isBottomViewHidden = !model.showBottomView
@@ -85,6 +96,7 @@ class BaseChatMessageCell: UITableViewCell, MessageCellViewing {
         topLabel.text = model.isUnread ? R.string.localizable.newMessages()
                                        : DateHelper.prettyDateString(forDate: model.date)
         topViewMode = model.isUnread ? .newMessage : .date
+        showReplyView = model.replyMessage != nil
+        replyTextLabel.text = model.replyMessage
     }
-
 }

@@ -217,6 +217,7 @@ private let topViewHeight: CGFloat = 40
 private let bottomViewHeight: CGFloat = 30
 private let avatarHeight: CGFloat = 33
 private let maxMessageWidth: CGFloat = 200
+private let replyMessageHeight: CGFloat = 32
 
 extension ChatDetailsViewController: UITableViewDelegate {
     
@@ -232,6 +233,9 @@ extension ChatDetailsViewController: UITableViewDelegate {
         }
         if !model.isMyMessage && !model.isDirectChat && model.showAvatar {
             elementsHeight += avatarHeight
+        }
+        if let _ = model.replyMessage, let _ = model.replyMessageId {
+            elementsHeight += replyMessageHeight
         }
         return elementsHeight + margins
     }

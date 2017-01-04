@@ -32,7 +32,7 @@ class ChatDetailsPresenter {
                                        message: post.message, date: post.createDate, topViewText: nil,
                                        isMyMessage: isMyPost, showAvatar: true, showTopView: true,
                                        showBottomView: true, isUnread: post.isUnread, postStatus: .sended, postId: post.id,
-                                       replyMessageId: post.rootId,
+                                       replyMessageId: post.parentId, replyMessage: post.replyedMessage,
                                        placeholderId: post.pendingPostId)
     }
     
@@ -44,7 +44,7 @@ class ChatDetailsPresenter {
                                        message: message, date: Date(), topViewText: nil,
                                        isMyMessage: true, showAvatar: false, showTopView: false,
                                        showBottomView: true, isUnread: false, postStatus: .sending, postId: nil,
-                                       replyMessageId: self.replyedPost?.postId, placeholderId: placeholderId)
+                                       replyMessageId: self.replyedPost?.postId, replyMessage:nil, placeholderId: placeholderId)
     }
     
 }
@@ -71,7 +71,7 @@ extension ChatDetailsPresenter: ChatDetailsEventHandling {
     }
     
     func handleSendMessage(_ message:String) {
-        let placeholderId = interactor.sendMessage(message: message, replyId: self.replyedPost?.postId, completion: { [weak self] result in
+        let placeholderId = interactor.sendMessage(message: message, replyId: replyedPost?.postId, completion: { [weak self] result in
             switch result {
             case .success(let post):
                 self?.interactor.updateLastPost(with: post)
@@ -86,7 +86,10 @@ extension ChatDetailsPresenter: ChatDetailsEventHandling {
                 }
             }
         })
-        view.insert(post: getPlaceholder(withMessage: message, placeholderId: placeholderId))
+        var placeholderPost = getPlaceholder(withMessage: message, placeholderId: placeholderId)
+        placeholderPost.replyMessageId = replyedPost?.postId
+        placeholderPost.replyMessage = replyedPost?.message
+        view.insert(post: placeholderPost)
         handleCloseReply()
     }
     

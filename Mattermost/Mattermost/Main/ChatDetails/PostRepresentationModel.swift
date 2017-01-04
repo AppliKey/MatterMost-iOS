@@ -20,7 +20,7 @@ struct PostRepresentationModel {
     var isDirectChat = true
     var message: String?
     var date: Date?
-    var topViewText: String? = nil
+    var topViewText: String?
     var isMyMessage: Bool
     var showAvatar: Bool = true
     var showTopView: Bool = true
@@ -29,6 +29,7 @@ struct PostRepresentationModel {
     var postStatus: PostStatus?
     var postId:String?
     var replyMessageId: String?
+    var replyMessage: String?
     
     var placeholderId:String?
     

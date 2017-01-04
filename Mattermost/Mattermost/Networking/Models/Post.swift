@@ -25,6 +25,8 @@ class Post : Unboxable {
     var filenames: [String]?
     var pendingPostId: String?
     
+    var replyedMessage: String?
+    var isVisible = true
     var isUnread = false
     var user: User?
     
